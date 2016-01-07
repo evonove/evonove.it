@@ -85,3 +85,7 @@ target/
 
 # databases
 *.sqlite3
+
+# wheelie (frontend toolchain)
+node_modules/
+vendors/
