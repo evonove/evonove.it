@@ -89,3 +89,6 @@ target/
 # wheelie (frontend toolchain)
 node_modules/
 vendors/
+
+# IDE
+.idea/
