@@ -134,5 +134,4 @@ MEDIA_URL = '/media/'
 
 
 # Wagtail settings
-
-WAGTAIL_SITE_NAME = "website"
+WAGTAIL_SITE_NAME = "Evonove"
