@@ -1,0 +1,20 @@
+{
+  "name": "evonove.it",
+  "homepage": "https://github.com/evonove/evonove.it",
+  "authors": [
+    "Emanuele Palazzetti <emanuele.palazzetti@evonove.it>"
+  ],
+  "description": "Evonove website",
+  "main": "",
+  "moduleType": [],
+  "license": "BSD",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendors",
+    "test",
+    "tests"
+  ]
+}
