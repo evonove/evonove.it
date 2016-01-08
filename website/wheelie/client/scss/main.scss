@@ -1,8 +1,7 @@
-@import "normalize.css";
-
 // Base
-@import "base/base.scss";
+@import "base/reset";
+@import "base/base";
 
 // Core
-@import "core/fonts.scss";
-@import "core/palette.scss";
+@import "core/fonts";
+@import "core/palette";
