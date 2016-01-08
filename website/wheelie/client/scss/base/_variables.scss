@@ -5,4 +5,16 @@
 $h1: 4.236rem;
 $h2: 2.618rem;
 $h3: 1.618rem;
+
 $p-smaller: 0.78rem;
+
+$span-button: 1rem;
+
+
+// Generics
+
+/* Useful for vertically centering text inside buttons */
+$button-height: 56px;
+
+/* Useful so that button has an initial left margin of 0. The left part of darker rectangle occupies a negative left margin, this value fixes the problem.  */
+$button-shift-left: 5px;

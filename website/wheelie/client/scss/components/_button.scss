@@ -1,0 +1,26 @@
+.button {
+  border: 1px solid $dark-green;
+  color: $light-green;
+  cursor: pointer;
+  font: $span-button 'Oswald';
+  display: block;
+  height: $button-height;
+  position: relative;
+  text-align: center;
+  width: 148px;
+  left: $button-shift-left;
+
+  &::before {
+    content: '';
+    border: 1px solid $light-green;
+    left: -$button-shift-left;
+    height: 48px;
+    position: absolute;
+    top: 3px;
+    width: 156px;
+  }
+}
+
+.button span {
+  line-height: $button-height;
+}
