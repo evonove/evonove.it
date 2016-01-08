@@ -2,13 +2,17 @@
 // ----------
 
 h1 {
-  font-size: 4.236rem;
+  font-size: $h1;
 }
 
 h2 {
-  font-size: 1.618rem;
+  font-size: $h2;
+}
+
+h3 {
+  font-size: $h3;
 }
 
 p.smaller {
-  font-size: 0.78rem;
+  font-size: $p-smaller;
 }
