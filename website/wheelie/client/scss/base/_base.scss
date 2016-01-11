@@ -1,6 +1,10 @@
 // Base
 // ----
 
+html {
+  height: 100%;
+}
+
 body {
   font: 18px 'Inconsolata', sans-serif;
   height: 100%;
@@ -9,9 +13,9 @@ body {
 
 // lobotomized Owl Selector - All elements in the flow of the document that precede other elements will receive margin-top: 1.618em
 * + * {
-  margin-top: 1.618em;
+  //margin-top: 1.618em;
 }
 
 section {
-  height: 100%;
+  //height: 100%;
 }

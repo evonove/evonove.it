@@ -5,8 +5,9 @@
   font: $span-button 'Oswald';
   display: block;
   height: $button-height;
+  margin: auto;
   position: relative;
-  text-align: center;
+  text-transform: uppercase;
   width: 148px;
   left: $button-shift-left;
 
