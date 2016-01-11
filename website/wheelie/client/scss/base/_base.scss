@@ -10,12 +10,3 @@ body {
   height: 100%;
   line-height: 1.5;
 }
-
-// lobotomized Owl Selector - All elements in the flow of the document that precede other elements will receive margin-top: 1.618em
-* + * {
-  //margin-top: 1.618em;
-}
-
-section {
-  //height: 100%;
-}
