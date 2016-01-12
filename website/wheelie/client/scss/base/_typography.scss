@@ -13,6 +13,13 @@ h3 {
   font-size: $h3;
 }
 
+h1,
+h2,
+h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
 p.smaller {
   font-size: $p-smaller;
 }

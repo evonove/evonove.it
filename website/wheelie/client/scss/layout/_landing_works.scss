@@ -1,0 +1,58 @@
+.works {
+  background: url("../../../static/image/squares.png");
+  height: 100%;
+}
+
+.works-column {
+  height: 100%;
+  position: relative;
+  width: 50%;
+
+  &:nth-of-type(1) {
+    float: left;
+  }
+
+  &:nth-of-type(2) {
+    float: right;
+  }
+}
+
+.works-column-slider {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 62%;
+}
+
+.works-column-slider-textbox {
+  margin-bottom: 2.618rem;
+}
+
+.works-column-cornice {
+  left: 50%;
+  overflow: hidden;
+  position: relative;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+}
+
+.works-column-cornice-round {
+
+  &:nth-of-type(2),
+  &:nth-of-type(3) {
+    position: absolute;
+    top: 0;
+  }
+
+  &:nth-of-type(2) {
+    opacity: 0.75;
+    transform: rotate(90deg);
+  }
+
+  &:nth-of-type(3) {
+    opacity: 0.5;
+    transform: rotate(135deg);
+  }
+}

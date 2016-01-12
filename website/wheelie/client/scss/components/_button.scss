@@ -1,3 +1,5 @@
+/* main button */
+
 .button {
   border: 1px solid $dark-green;
   color: $light-green;
@@ -5,17 +7,17 @@
   font: $span-button 'Oswald';
   display: block;
   height: $button-height;
-  margin: auto;
+  left: $button-shift-left;
   position: relative;
+  text-align: center;
   text-transform: uppercase;
   width: 148px;
-  left: $button-shift-left;
 
   &::before {
     content: '';
     border: 1px solid $light-green;
-    left: -$button-shift-left;
     height: 48px;
+    left: -$button-shift-left;
     position: absolute;
     top: 3px;
     width: 156px;
@@ -24,4 +26,21 @@
 
 .button span {
   line-height: $button-height;
+}
+
+/* icon button */
+
+.button-icon {
+  height: $button-height - 8;
+  width: 40px;
+
+  &::before {
+    height: 40px;
+    width: $button-height - 8;
+  }
+}
+
+.button-icon span {
+  font-size: $span-button-icon;
+  line-height: $button-height - 8;
 }
