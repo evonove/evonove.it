@@ -18,6 +18,7 @@
     "tests"
   ],
   "dependencies": {
-    "normalize-css": "normalize.css#~3.0.3"
+    "normalize-css": "normalize.css#~3.0.3",
+    "svg-injector": "~1.1.3"
   }
 }

@@ -10,7 +10,7 @@ wheelie.setDefault('watch');
 
 // build customizations
 var vendors = [
-    // put here your vendors installed via bower (or whatever), available in `wheelie/vendors/` folder
+    'svg-injector/dist/svg-injector.min.js'
 ];
 
 var scripts = [
