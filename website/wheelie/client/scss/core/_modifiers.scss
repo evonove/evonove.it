@@ -1,3 +1,19 @@
 .center {
   margin: auto;
 }
+
+.clear-float {
+  clear: both;
+}
+
+.roboto-font {
+  font-family: 'Roboto', sans-serif;
+}
+
+.text-white {
+  color: $white;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}

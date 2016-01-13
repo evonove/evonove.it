@@ -1,0 +1,25 @@
+.footer {
+  background-color: $dark-grey;
+  padding: 4.172em 0;
+}
+
+.footer * + * {
+  margin-top: 1.618em;
+}
+
+.footer-column {
+  float: left;
+  position: relative;
+  width: 25%;
+}
+
+.footer-column-copyright {
+  color: $light-grey;
+  text-align: center;
+}
+
+.footer-column-heading {
+  display: inline-block;
+  transform: rotate(90deg);
+  transform-origin: center center;
+}
