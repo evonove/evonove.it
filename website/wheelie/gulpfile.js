@@ -14,7 +14,7 @@ var vendors = [
 ];
 
 var scripts = [
-    // add here your JS files available in `client/js/` folder
+    'svg-injections.js'
 ];
 
 wheelie.update('uglify', {
