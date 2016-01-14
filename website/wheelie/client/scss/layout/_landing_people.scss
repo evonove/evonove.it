@@ -20,23 +20,13 @@
   font-style: italic;
 }
 
-.people-column {
-  background: radial-gradient(ellipse farthest-corner at 45px 45px, $light-grey -82%, transparent 50%, $dark-grey 95%);
-  border-right: 1px solid $light-grey;
-  float: left;
+.people-container {
+  display: flex;
   height: 100%;
-  width: 12.4%;
-
-  &:last-child {
-    border: none;
-  }
 }
 
-.people-column-person {
-  background: url("../../../static/svg/man.svg") no-repeat 65% -75%;
-  background-size: 190%;
-  bottom: 0;
+.people-container-person {
+  background: url("../../../static/svg/man.svg") no-repeat 65% 100%, radial-gradient(ellipse farthest-corner at 45px 45px, $light-grey -82%, transparent 50%, $dark-grey 95%);
   height: 100%;
-  left: 0;
   width: 100%;
 }

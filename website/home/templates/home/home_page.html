@@ -20,11 +20,11 @@
 </section>
 
 <section class="expertise">
-    <div class="expertise-column">
-        <div class="expertise-column-textbox">
-            <h2 class="expertise-column-textbox-heading">We are on web with</h2>
-            <h3 class="expertise-column-textbox-subheading">Django / JavaScript / HTML + CSS</h3>
-            <p class="expertise-column-textbox-paragraph">Lorem ipsum dolor sit amet, consectetur
+    <div class="expertise-container">
+        <div class="expertise-container-textbox">
+            <h2 class="expertise-container-textbox-heading">We are on web with</h2>
+            <h3 class="expertise-container-textbox-subheading">Django / JavaScript / HTML + CSS</h3>
+            <p class="expertise-container-textbox-paragraph">Lorem ipsum dolor sit amet, consectetur
                 adipiscing elit. Donec quis semper nisi.
                 Nulla facilisi. Integer congue dictum arcu,
                 at pulvinar felis tincidunt ac. Sed ultrices
@@ -33,12 +33,10 @@
                 Nunc dapibus ante vitae feugiat dignissim.
             </p>
         </div>
-    </div>
-    <div class="expertise-column">
-        <div class="expertise-column-textbox">
-            <h2 class="expertise-column-textbox-heading">We are on Desktop and Mobile with</h2>
-            <h3 class="expertise-column-textbox-subheading">Qt</h3>
-            <p class="expertise-column-textbox-paragraph">Lorem ipsum dolor sit amet, consectetur
+        <div class="expertise-container-textbox">
+            <h2 class="expertise-container-textbox-heading">We are on Desktop and Mobile with</h2>
+            <h3 class="expertise-container-textbox-subheading">Qt</h3>
+            <p class="expertise-container-textbox-paragraph">Lorem ipsum dolor sit amet, consectetur
                 adipiscing elit. Donec quis semper nisi.
                 Nulla facilisi. Integer congue dictum arcu,
                 at pulvinar felis tincidunt ac. Sed ultrices
@@ -47,12 +45,10 @@
                 Nunc dapibus ante vitae feugiat dignissim.
             </p>
         </div>
-    </div>
-    <div class="expertise-column">
-        <div class="expertise-column-textbox">
-            <h2 class="expertise-column-textbox-heading">We are on X with</h2>
-            <h3 class="expertise-column-textbox-subheading">X</h3>
-            <p class="expertise-column-textbox-paragraph">Lorem ipsum dolor sit amet, consectetur
+        <div class="expertise-container-textbox">
+            <h2 class="expertise-container-textbox-heading">We are on X with</h2>
+            <h3 class="expertise-container-textbox-subheading">X</h3>
+            <p class="expertise-container-textbox-paragraph">Lorem ipsum dolor sit amet, consectetur
                 adipiscing elit. Donec quis semper nisi.
                 Nulla facilisi. Integer congue dictum arcu,
                 at pulvinar felis tincidunt ac. Sed ultrices
@@ -90,59 +86,44 @@
     <div class="people-header">
         <h2 class="people-header-heading">Evonove is made of <span>people</span></h2>
     </div>
-    <div class="people-column">
-        <div class="people-column-person"></div>
+    <div class="people-container">
+        <div class="people-container-person"></div>
+        <div class="people-container-person"></div>
+        <div class="people-container-person"></div>
+        <div class="people-container-person"></div>
+        <div class="people-container-person"></div>
+        <div class="people-container-person"></div>
+        <div class="people-container-person"></div>
+        <div class="people-container-person"></div>
     </div>
-    <div class="people-column">
-        <div class="people-column-person"></div>
-    </div>
-    <div class="people-column">
-        <div class="people-column-person"></div>
-    </div>
-    <div class="people-column">
-        <div class="people-column-person"></div>
-    </div>
-    <div class="people-column">
-        <div class="people-column-person"></div>
-    </div>
-    <div class="people-column">
-        <div class="people-column-person"></div>
-    </div>
-    <div class="people-column">
-        <div class="people-column-person"></div>
-    </div>
-    <div class="people-column">
-        <div class="people-column-person"></div>
-    </div>
-    <div class="clear-float"></div>
 </section>
 
 <footer class="footer">
-    <div class="footer-column">
-        <p class="footer-column-copyright roboto-font">&copy; Copyright 2016, Evonove.</p>
+    <div class="footer-container">
+        <!--<div class="footer-container-column"></div>-->
+        <div class="footer-container-social">
+            <a class="button">
+                <span>github</span>
+            </a>
+            <a class="button">
+                <span>twitter</span>
+            </a>
+            <a class="button">
+                <span>facebook</span>
+            </a>
+        </div>
+        <div class="footer-container-contacts text-white">
+            <ul>
+                <li>info@evonove.it</li>
+                <li>Phone: (+39) 075 843667</li>
+                <li>Evonove SRL - P.I. IT03120810548</li>
+            </ul>
+        </div>
+        <div class="footer-container-heading text-white">
+            <h2 class="footer-container-heading-h2 text-uppercase">Contact</h2>
+        </div>
     </div>
-    <div class="footer-column">
-        <a class="button">
-            <span>github</span>
-        </a>
-        <a class="button">
-            <span>twitter</span>
-        </a>
-        <a class="button">
-            <span>facebook</span>
-        </a>
-    </div>
-    <div class="footer-column text-white">
-        <ul>
-            <li>info@evonove.it</li>
-            <li>Phone: (+39) 075 843667</li>
-            <li>Evonove SRL - P.I. IT03120810548</li>
-        </ul>
-    </div>
-    <div class="footer-column text-white">
-        <h2 class="footer-column-heading text-uppercase">Contact</h2>
-    </div>
-    <div class="clear-float"></div>
+    <p class="footer-copy roboto-font">&copy; Copyright 2016, Evonove.</p>
 </footer>
 
 {% endblock %}
