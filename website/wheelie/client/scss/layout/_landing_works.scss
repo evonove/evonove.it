@@ -1,47 +1,70 @@
 .works {
   background: url("../../../static/image/squares.png");
   height: 100%;
+
+  @media #{$small}, #{$medium}, #{$large} {
+    height: auto;
+    padding: 10% 0;
+  }
 }
 
-.works-column {
+.works-container {
+  align-items: center;
+  display: flex;
   height: 100%;
-  position: relative;
-  width: 50%;
+  width: 100%;
 
-  &:nth-of-type(1) {
-    float: left;
-  }
-
-  &:nth-of-type(2) {
-    float: right;
+  @media #{$small}, #{$medium}, #{$large} {
+    flex-direction: column;
   }
 }
 
-.works-column-slider {
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 62%;
+.works-container-offset {
+  flex-basis: 15%;
+
+  @media #{$small}, #{$medium}, #{$large} {
+    display: none;
+  }
 }
 
-.works-column-slider-textbox {
-  margin-bottom: 2.618rem;
+.works-container-slider {
+  flex-basis: 35%;
+
+  @media #{$small}, #{$medium}, #{$large} {
+    flex-basis: auto;
+    text-align: center;
+    width: 62%;
+  }
+
+  @media #{$small} {
+    width: 85%;
+  }
 }
 
-.works-column-cornice {
-  left: 50%;
+.works-container-slider-button {
+
+  @media #{$small}, #{$medium}, #{$large} {
+    margin: auto;
+  }
+}
+
+.works-container-cornice {
+  flex-basis: 47.6%;
   overflow: hidden;
   position: relative;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
+
+  @media #{$small}, #{$medium}, #{$large} {
+    flex-basis: auto;
+    margin-top: 4.2em;
+    width: 80%;
+  }
 }
 
-.works-column-cornice-round {
+.works-container-cornice-round {
+  width: 100%;
 
-  &:nth-of-type(2),
-  &:nth-of-type(3) {
+  &:nth-of-type(1),
+  &:nth-of-type(2) {
     position: absolute;
     top: 0;
   }
