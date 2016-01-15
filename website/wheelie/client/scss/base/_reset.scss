@@ -8,7 +8,12 @@ a:visited {
   text-decoration: none;
 }
 
+a[href^=tel] {
+  color: #ffffff;
+}
+
 ul {
   list-style-type: none;
+  margin: 0;
   padding: 0;
 }
