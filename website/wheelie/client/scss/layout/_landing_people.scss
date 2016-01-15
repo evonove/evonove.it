@@ -2,6 +2,10 @@
   background-color: $dark-grey;
   height: 100%;
   position: relative;
+
+  @media #{$small}, #{$medium} {
+    height: auto;
+  }
 }
 
 .people-header {
@@ -14,6 +18,10 @@
   span {
     color: $light-green;
   }
+
+  @media #{$small}, #{$medium} {
+    position: relative;
+  }
 }
 
 .people-header-heading {
@@ -23,10 +31,24 @@
 .people-container {
   display: flex;
   height: 100%;
+
+  @media #{$small}, #{$medium} {
+    flex-wrap: wrap;
+  }
 }
 
 .people-container-person {
   background: url("../../../static/svg/man.svg") no-repeat 65% 100%, radial-gradient(ellipse farthest-corner at 45px 45px, $light-grey -82%, transparent 50%, $dark-grey 95%);
   height: 100%;
   width: 100%;
+
+  @media #{$medium} {
+    padding-top: 50%;
+    width: 50%;
+  }
+
+  @media #{$small} {
+    padding-top: 100%;
+    width: 100%;
+  }
 }
