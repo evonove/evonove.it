@@ -10,6 +10,7 @@ wheelie.setDefault('watch');
 
 // build customizations
 var vendors = [
+    'jquery/dist/jquery.min.js',
     'svg-injector/dist/svg-injector.min.js'
 ];
 
