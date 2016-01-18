@@ -12,14 +12,10 @@
   padding: 6.854em 20.185%;
   width: 75%;
 
-  @media #{$medium} {
-    margin: auto;
-    padding: 6.854em 6.854%;
-  }
-
-  @media #{$small} {
+  @media #{$small}, #{$medium} {
     margin: auto;
     padding: 2.618em 2.618%;
+    width: 80%;
   }
 }
 

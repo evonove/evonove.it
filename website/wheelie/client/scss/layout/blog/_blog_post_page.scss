@@ -2,6 +2,12 @@
   margin: auto;
   padding: 6.854em 0;
   width: 700px;
+
+  @media #{$small}, #{$medium} {
+    margin: auto;
+    padding: 2.618em 2.618%;
+    width: 80%;
+  }
 }
 
 .post-detail .article-preview {

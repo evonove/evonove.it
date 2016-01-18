@@ -27,6 +27,10 @@ li.paginator-page.is-current {
   }
 }
 
-a.is-current {
+li.paginator-page > a {
+  color: $dark-grey;
+}
+
+li.paginator-page.is-current > a {
   color: $light-green;
 }
