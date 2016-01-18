@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% load static from staticfiles %}
+
+{% block content %}
+
+<header class="header-blog">
+    <img class="header-blog-logo js-inject-svg" src="{% static 'svg/evonove-logo-dark.svg' %}">
+    <div class="header-blog-background"></div>
+</header>
+
+{% block blog_main %}{% endblock blog_main %}
+
+{% endblock content %}

@@ -1,16 +1,9 @@
-{% extends "base.html" %}
+{% extends "blog_base.html" %}
 
 {% load static from staticfiles %}
 
-{% block body_class %}template-blog{% endblock %}
+{% block blog_main %}
 
-{% block content %}
-
-
-<header class="header-blog">
-    <img class="header-blog-logo js-inject-svg" src="{% static 'svg/evonove-logo-dark.svg' %}">
-    <div class="header-blog-background"></div>
-</header>
 
 <div class="main">
     <div class="list">
@@ -86,4 +79,4 @@
     </div>
 </div>
 
-{% endblock %}
+{% endblock blog_main %}
