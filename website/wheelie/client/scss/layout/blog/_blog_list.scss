@@ -1,12 +1,26 @@
 .main {
   display: flex;
   line-height: 1.618em;
+
+  @media #{$small}, #{$medium} {
+    flex-direction: column;
+  }
 }
 
 .list {
   box-sizing: border-box;
   padding: 6.854em 20.185%;
   width: 75%;
+
+  @media #{$medium} {
+    margin: auto;
+    padding: 6.854em 6.854%;
+  }
+
+  @media #{$small} {
+    margin: auto;
+    padding: 2.618em 2.618%;
+  }
 }
 
 .list-block:not(:first-child) {

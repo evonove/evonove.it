@@ -4,6 +4,11 @@
   line-height: 2.618em;
   padding: 6.854em 2.618% 0;
   width: 25%;
+
+  @media #{$small}, #{$medium} {
+    padding: 2.618%;
+    width: 100%;
+  }
 }
 
 .sidebar-heading {

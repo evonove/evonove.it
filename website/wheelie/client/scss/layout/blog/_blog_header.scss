@@ -8,4 +8,8 @@
   background-size: 100%;
   height: 350px;
   width: 100%;
+
+  @media #{$small}, #{$medium} {
+    height: 250px;
+  }
 }
