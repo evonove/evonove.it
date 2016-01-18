@@ -58,9 +58,22 @@
             <a class="list-block-readmore">Read more...</a>
             <div class="list-block-divider"></div>
         </div>
-        <a class="button list-button center">
-            <span>More posts</span>
-        </a>
+        <ul class="paginator list-paginator" role="menubar">
+            <li class="paginator-first"><a href=""><img class="paginator-icon js-inject-svg" src="{% static 'svg/left-double-arrows.svg' %}"></a></li>
+            <li class="paginator-previous"><a href=""><img class="paginator-icon js-inject-svg" src="{% static 'svg/left-arrow.svg' %}"></a></li>
+            <li class="paginator-page"><a href="">1</a></li>
+            <li class="paginator-page"><a href="">2</a></li>
+            <li class="paginator-page"><a href="">3</a></li>
+            <li class="paginator-page is-current"><a href="">4</a></li>
+            <li class="paginator-page"><a href="">5</a></li>
+            <li class="paginator-page"><a href="">6</a></li>
+            <li class="paginator-page"><a href="">7</a></li>
+            <li class="paginator-page"><a href="">8</a></li>
+            <li class="paginator-page"><a href="">9</a></li>
+            <li class="paginator-page"><a href="">10</a></li>
+            <li class="paginator-next"><a href=""><img class="paginator-icon js-inject-svg" src="{% static 'svg/right-arrow.svg' %}"></a></li>
+            <li class="paginator-last"><a href=""><img class="paginator-icon js-inject-svg" src="{% static 'svg/right-double-arrows.svg' %}"></a></li>
+        </ul>
     </div>
     <div class="sidebar">
         <h3 class="sidebar-heading">Featured Tags</h3>

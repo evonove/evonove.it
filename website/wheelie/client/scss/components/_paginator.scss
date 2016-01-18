@@ -1,0 +1,28 @@
+.paginator li {
+  display: inline-block;
+  font-family: 'Oswald', sans-serif;
+
+  &:not(:first-child) {
+    margin-right: 1.618%;
+  }
+}
+
+.paginator-icon {
+  fill: $dark-grey;
+  height: 16px;
+  position: relative;
+  top: 1px;
+  width: 16px;
+}
+
+li.paginator-page {
+  @media #{$small}, #{$medium} {
+    display: none;
+  }
+}
+
+li.paginator-page.is-current {
+  @media #{$small}, #{$medium} {
+    display: inline-block;
+  }
+}
