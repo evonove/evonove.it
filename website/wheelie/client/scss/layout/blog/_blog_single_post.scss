@@ -1,0 +1,23 @@
+.article-title {
+  font-weight: 700;
+  margin: 0 0 0.382em;
+}
+
+.article-meta {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.article-meta-author {
+  color: $light-green;
+}
+
+.article-post {
+  font-family: 'Merriweather', serif;
+  line-height: 1.618;
+}
+
+.article-preview,
+.article-picture {
+  margin: 1.618em 0;
+}
