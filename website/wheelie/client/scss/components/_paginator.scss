@@ -26,3 +26,7 @@ li.paginator-page.is-current {
     display: inline-block;
   }
 }
+
+a.is-current {
+  color: $light-green;
+}
