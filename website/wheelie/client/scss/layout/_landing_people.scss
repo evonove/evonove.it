@@ -39,8 +39,17 @@
 
 .people-container-person {
   background: url("../../../static/svg/man.svg") no-repeat 65% 100%, radial-gradient(ellipse farthest-corner at 45px 45px, $light-grey -82%, transparent 50%, $dark-grey 95%);
+  background-size: 20vh, auto;
+  flex-grow: 1;
   height: 100%;
-  width: 100%;
+  overflow: hidden;
+  position: relative;
+  transition: flex-grow .5s ease-in-out, background-position 0.5s ease-in-out;
+
+  &:hover {
+    background-position: 0% 100%;
+    flex-grow: 6;
+  }
 
   @media #{$medium} {
     padding-top: 50%;
@@ -51,4 +60,20 @@
     padding-top: 100%;
     width: 100%;
   }
+}
+
+.people-container-person-description {
+  bottom: 1.618em;
+  color: $white;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 325px;
+}
+
+.people-container-person-description-social {
+  fill: $white;
+  height: 25px;
+  margin-right: 10px;
+  width: 25px;
 }
