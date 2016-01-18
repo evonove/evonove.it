@@ -10,3 +10,10 @@ body {
   height: 100%;
   line-height: 1.5;
 }
+
+a,
+a:hover,
+a:active,
+a:visited {
+  color: $dark-grey;
+}

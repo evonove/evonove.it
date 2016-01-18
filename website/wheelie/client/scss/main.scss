@@ -1,14 +1,16 @@
+// Core
+@import "core/palette";
+@import "core/variables";
+@import "core/fonts";
+@import "core/reset";
+
 // Base
-@import "base/reset";
 @import "base/base";
 @import "base/media-queries";
-@import "base/variables";
 @import "base/typography";
+@import "base/modifiers";
+@import "base/states";
 
-// Core
-@import "core/fonts";
-@import "core/palette";
-@import "core/modifiers";
 
 // Layout
 @import "layout/header";
