@@ -5,5 +5,85 @@
 {% block body_class %}template-blog{% endblock %}
 
 {% block content %}
-    Hello world!
+
+
+<header class="header-blog">
+    <img class="header-blog-logo js-inject-svg" src="{% static 'svg/evonove-logo-dark.svg' %}">
+    <div class="header-blog-background"></div>
+</header>
+
+<div class="main">
+    <div class="list">
+        <div class="list-block">
+            <article class="list-block-article">
+                <h2 class="list-block-article-title">Lorem Ipsum Dolor Sit Amet</h2>
+                <div class="list-block-article-meta">
+                    <a class="list-block-article-meta-author">Alessio Rapini</a>
+                    <span class="list-block-article-meta-divider">·</span>
+                    <span class="list-block-article-meta-date">Jan 18, 2016</span>
+                </div>
+                <p class="list-block-article-post">Duis eros risus, commodo at lacus ut, pretium venenatis velit. Etiam
+                    posuere sed risus ut aliquam. Cras quis velit non lacus elementum
+                    vestibulum. Sed sed sapien est. Nulla gravida id lorem id aliquam.
+                    Donec sed leo hendrerit, sollicitudin sem id, tincidunt augue.</p>
+            </article>
+            <a class="list-block-readmore">Read more...</a>
+            <div class="list-block-divider"></div>
+        </div>
+        <div class="list-block">
+            <article class="list-block-article">
+                <h2 class="list-block-article-title">Lorem Ipsum Dolor Sit Amet</h2>
+                <div class="list-block-article-meta">
+                    <a class="list-block-article-meta-author">Alessio Rapini</a>
+                    <span class="list-block-article-meta-divider">·</span>
+                    <span class="list-block-article-meta-date">Jan 18, 2016</span>
+                </div>
+                <figure class="list-block-article-pic">
+                    <img src="{% static 'image/test-post.jpg' %}">
+                </figure>
+                <p class="list-block-article-post">Duis eros risus, commodo at lacus ut, pretium venenatis velit. Etiam
+                    posuere sed risus ut aliquam. Cras quis velit non lacus elementum
+                    vestibulum. Sed sed sapien est. Nulla gravida id lorem id aliquam.
+                    Donec sed leo hendrerit, sollicitudin sem id, tincidunt augue.</p>
+            </article>
+            <a class="list-block-readmore">Read more...</a>
+            <div class="list-block-divider"></div>
+        </div>
+        <div class="list-block">
+            <article class="list-block-article">
+                <h2 class="list-block-article-title">Lorem Ipsum Dolor Sit Amet</h2>
+                <div class="list-block-article-meta">
+                    <a class="list-block-article-meta-author">Alessio Rapini</a>
+                    <span class="list-block-article-meta-divider">·</span>
+                    <span class="list-block-article-meta-date">Jan 18, 2016</span>
+                </div>
+                <p class="list-block-article-post">Duis eros risus, commodo at lacus ut, pretium venenatis velit. Etiam
+                    posuere sed risus ut aliquam. Cras quis velit non lacus elementum
+                    vestibulum. Sed sed sapien est. Nulla gravida id lorem id aliquam.
+                    Donec sed leo hendrerit, sollicitudin sem id, tincidunt augue.</p>
+            </article>
+            <a class="list-block-readmore">Read more...</a>
+            <div class="list-block-divider"></div>
+        </div>
+        <a class="button list-button center">
+            <span>More posts</span>
+        </a>
+    </div>
+    <div class="sidebar">
+        <h3 class="sidebar-heading">Featured Tags</h3>
+        <ul class="sidebar-taglist">
+            <li>Lorem</li>
+            <li>Ipsum</li>
+            <li>Dolor</li>
+            <li>Sit</li>
+            <li>Amet</li>
+            <li>Neque</li>
+            <li>Porro</li>
+            <li>Quisquam</li>
+            <li>Est</li>
+            <li>Qui</li>
+        </ul>
+    </div>
+</div>
+
 {% endblock %}

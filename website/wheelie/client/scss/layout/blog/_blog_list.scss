@@ -1,0 +1,63 @@
+.main {
+  display: flex;
+  line-height: 1.618em;
+}
+
+.list {
+  box-sizing: border-box;
+  padding: 6.854em 20.185%;
+  width: 75%;
+}
+
+.list-block:not(:first-child) {
+  margin-top: 4.236em;
+}
+
+.list-block-article-title {
+  font-weight: 700;
+  margin: 0 0 0.382em;
+}
+
+.list-block-article-meta {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.list-block-article-meta-author {
+  color: $light-green;
+}
+
+.list-block-article-post {
+  font-family: 'Merriweather', serif;
+}
+
+.list-block-article-pic {
+  margin-top: 1.618em;
+}
+
+.list-block-readmore {
+  color: $light-grey;
+  font-family: 'Oswald', sans-serif;
+}
+
+.list-block-divider {
+  background-color: $dark-green;
+  height: 1px;
+  margin-top: 1.618em;
+  position: relative;
+  width: 100%;
+
+  &::after {
+    background-color: $light-green;
+    content: '';
+    height: 1px;
+    margin-top: 4px;
+    position: absolute;
+    width: 100%;
+    left: -3px;
+  }
+}
+
+.list-button {
+  margin-top: 6.854em;
+}

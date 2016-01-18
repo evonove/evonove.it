@@ -1,0 +1,21 @@
+.sidebar{
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+  line-height: 2.618em;
+  padding: 6.854em 2.618% 0;
+  width: 25%;
+}
+
+.sidebar-heading {
+  font-family: 'Oswald', sans-serif;
+  font-size: inherit;
+  margin: 0 0 0.382em;
+  text-transform: uppercase;
+}
+
+.sidebar-taglist li {
+  color: $light-grey;
+  display: inline-block;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+}
