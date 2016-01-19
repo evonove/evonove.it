@@ -25,7 +25,7 @@
 
         {% block content %}{% endblock %}
 
-        {% include 'partials/footer.html' %}
+        {% include 'partials/footer.html' with settings=settings.options %}
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
