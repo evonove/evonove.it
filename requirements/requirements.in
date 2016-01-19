@@ -1,0 +1,29 @@
+# base stuff
+django
+django-getenv
+django-redis
+dj-database-url
+psycopg2
+pytz
+
+# the website
+wagtail
+
+# application server
+uwsgi
+
+# testing
+pytest
+pytest-django
+pytest-xdist
+pytest-cov
+flake8
+coverage
+ipdb
+
+# logging
+python-logstash
+
+# monitoring
+newrelic
+raven
