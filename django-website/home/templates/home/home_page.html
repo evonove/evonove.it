@@ -21,42 +21,13 @@
 
 <section class="expertise">
     <div class="expertise-container">
+        {% for service in page.services.all|slice:":3" %}
         <div class="expertise-container-textbox">
-            <h2 class="expertise-container-textbox-heading">We are on web with</h2>
-            <h3 class="expertise-container-textbox-subheading">Django / JavaScript / HTML + CSS</h3>
-            <p class="expertise-container-textbox-paragraph">Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Donec quis semper nisi.
-                Nulla facilisi. Integer congue dictum arcu,
-                at pulvinar felis tincidunt ac. Sed ultrices
-                dictum elit, in aliquet mauris vulputate sit
-                amet. Nulla condimentum consectetur volutpat.
-                Nunc dapibus ante vitae feugiat dignissim.
-            </p>
+            <h2 class="expertise-container-textbox-heading">{{ service.slogan }}</h2>
+            <h3 class="expertise-container-textbox-subheading">{{ service.technologies }}</h3>
+            <p class="expertise-container-textbox-paragraph">{{ service.description }}</p>
         </div>
-        <div class="expertise-container-textbox">
-            <h2 class="expertise-container-textbox-heading">We are on Desktop and Mobile with</h2>
-            <h3 class="expertise-container-textbox-subheading">Qt</h3>
-            <p class="expertise-container-textbox-paragraph">Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Donec quis semper nisi.
-                Nulla facilisi. Integer congue dictum arcu,
-                at pulvinar felis tincidunt ac. Sed ultrices
-                dictum elit, in aliquet mauris vulputate sit
-                amet. Nulla condimentum consectetur volutpat.
-                Nunc dapibus ante vitae feugiat dignissim.
-            </p>
-        </div>
-        <div class="expertise-container-textbox">
-            <h2 class="expertise-container-textbox-heading">We are on X with</h2>
-            <h3 class="expertise-container-textbox-subheading">X</h3>
-            <p class="expertise-container-textbox-paragraph">Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Donec quis semper nisi.
-                Nulla facilisi. Integer congue dictum arcu,
-                at pulvinar felis tincidunt ac. Sed ultrices
-                dictum elit, in aliquet mauris vulputate sit
-                amet. Nulla condimentum consectetur volutpat.
-                Nunc dapibus ante vitae feugiat dignissim.
-            </p>
-        </div>
+        {% endfor %}
     </div>
 </section>
 
