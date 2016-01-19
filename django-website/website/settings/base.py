@@ -99,7 +99,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'website.wsgi.application'
 
 # database configuration
-DATABASES_DEFAULT = "postgres://devel:123456@127.0.0.1:5432/website"
+DATABASES_DEFAULT = "postgres://devel:123456@127.0.0.1:5432/evonoveit"
 DATABASES = {
     'default': dj_database_url.config(default=DATABASES_DEFAULT),
 }
