@@ -1,3 +1,3 @@
 # Wheelie output is considered binary
-website/wheelie/static/css/main.css binary
-website/wheelie/static/js/app.js binary
+django-website/wheelie/static/css/main.css binary
+django-website/wheelie/static/js/app.js binary
