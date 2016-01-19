@@ -2,6 +2,10 @@
 Evonove website
 ===============
 
+.. image:: https://travis-ci.org/evonove/evonove.it.svg?branch=master
+   :alt: Build Status
+   :target: https://travis-ci.org/evonove/evonove.it
+
 `evonove.it`_ website, made with `Wagtail`_!
 
 .. _evonove.it: https://evonove.it/
