@@ -8,7 +8,7 @@ env:
   global:
     - DATABASE_URL="postgres://postgres:@127.0.0.1:5432/evonoveit"
   matrix:
-    - PSQL_VERSION=9.5.0 REDIS_VERSION 3.0.6
+    - PSQL_VERSION=9.5.0 REDIS_VERSION=3.0.6
 
 services:
   - docker
