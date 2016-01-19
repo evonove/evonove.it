@@ -1,9 +1,26 @@
-from __future__ import unicode_literals
-
 from django.db import models
+from django.utils.translation import ugettext as _
 
-from wagtail.wagtailcore.models import Page
+from modelcluster.fields import ParentalKey
+
+from wagtail.wagtailcore.models import Page, Orderable
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel
 
 
 class HomePage(Page):
-    pass
+    content_panels = Page.content_panels + [
+        InlinePanel('services', label=_('What we do')),
+    ]
+
+
+class Service(Orderable):
+    page = ParentalKey(HomePage, related_name='services')
+    slogan = models.CharField(max_length=100)
+    technologies = models.CharField(max_length=100)
+    description = models.TextField(max_length=600)
+
+    panels = [
+        FieldPanel('slogan'),
+        FieldPanel('technologies'),
+        FieldPanel('description'),
+    ]
