@@ -33,6 +33,7 @@ DEBUG = env('DJANGO_DEBUG', False)
 
 # apps and middleware
 INSTALLED_APPS = (
+    'options',
     'home',
     'blog',
     'search',
