@@ -1,12 +1,10 @@
 {% extends "base.html" %}
 
-{% load static from staticfiles %}
+{% load staticfiles %}
+{% load wagtailimages_tags %}
 
-{% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
-
-
 <header class="header"></header>
 
 <section class="splash">
@@ -33,12 +31,15 @@
 
 <section class="works">
     <div class="works-container">
+        {# Actually the animation is missing #}
+        {# and this section is not completed #}
+        {% for work in page.works.all %}
         <div class="works-container-offset"></div>
         <div class="works-container-slider">
             <div class="works-column-slider-textbox">
                 <h1>WORKS</h1>
-                <h2>MOKA</h2>
-                <p>Desktop and mobile application for drawing molecules. Built in QT.</p>
+                <h2>{{ work.name }}</h2>
+                <p>{{ work.description }}</p>
             </div>
             <a class="button button-icon works-container-slider-button">
                 <span>+</span>
@@ -48,8 +49,11 @@
             <img class="works-container-cornice-round js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
             <img class="works-container-cornice-round js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
             <img class="works-container-cornice-round js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
-            <figure class="works-container-cornice-pic"></figure>
+            <figure class="works-container-cornice-pic">
+                {% image work.cover original class="works-container-cornice-pic-project" %}
+            </figure>
         </div>
+        {% endfor %}
     </div>
 </section>
 
@@ -141,5 +145,4 @@
         </div>
     </div>
 </section>
-
 {% endblock %}
