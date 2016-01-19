@@ -14,6 +14,7 @@ services:
   - docker
 
 before_install:
+  - sudo /etc/init.d/postgresql stop
   - docker pull library/postgres:$PSQL_VERSION
   - docker pull library/redis:$REDIS_VERSION
   - docker run -d -p 127.0.0.1:5432:5432 library/postgres:$PSQL_VERSION
