@@ -6,14 +6,27 @@ from modelcluster.fields import ParentalKey
 
 from wagtail.wagtailcore.models import Page, Orderable
 from wagtail.wagtailimages.models import Image
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
 
 class HomePage(Page):
     content_panels = Page.content_panels + [
-        InlinePanel('services', label=_('What we do')),
-        InlinePanel('works', label=_('Our products')),
+        MultiFieldPanel(
+            [
+                InlinePanel('services', label=_('Services')),
+                InlinePanel('works', label=_('Products')),
+            ],
+            heading=_('What we do'),
+            classname='collapsible',
+        ),
+        MultiFieldPanel(
+            [
+                InlinePanel('team', label=_('Team member')),
+            ],
+            heading=_('Our team'),
+            classname='collapsible collapsed',
+        ),
     ]
 
 
