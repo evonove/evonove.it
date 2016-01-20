@@ -62,87 +62,32 @@
         <h2 class="people-header-heading">Evonove is made of <span>people</span></h2>
     </div>
     <div class="people-container">
+        {% for member in page.team.all %}
         <div class="people-container-person">
             <div class="people-container-person-description">
-                <h2>Federico Frenguelli</h2>
-                <h3>Software Architect</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ex ante, rutrum quis congue vel, faucibus a enim. Cras vel tempus sem. Suspendisse interdum commodo ante vel posuere. Nulla ex ante, laoreet sed facilisis ut, suscipit et massa. Sed sit amet orci magna.</p>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/twitter.svg' %}"></a>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/github.svg' %}"></a>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/outlook.svg' %}"></a>
+                {# Team member detail #}
+                <h2>{{ member.full_name }}</h2>
+                <h3>{{ member.role }}</h3>
+                <p>{{ member.bio }}</p>
+
+                {# Put here all possible social links #}
+                {% include "home/partials/social_link.html" with link=member.website svg="website" %}
+                {% include "home/partials/social_link.html" with link=member.github svg="github" %}
+                {% include "home/partials/social_link.html" with link=member.stackoverflow svg="stackoverflow" %}
+                {% include "home/partials/social_link.html" with link=member.twitter svg="twitter" %}
+                {% include "home/partials/social_link.html" with link=member.gplus svg="gplus" %}
+                {% include "home/partials/social_link.html" with link=member.facebook svg="facebook" %}
+                {% include "home/partials/social_link.html" with link=member.linkedin svg="linkedin" %}
+                {% include "home/partials/social_link.html" with link=member.medium svg="medium" %}
+                {% include "home/partials/social_link.html" with link=member.behance svg="behance" %}
+                {% include "home/partials/social_link.html" with link=member.dribbble svg="dribbble" %}
+                {% include "home/partials/social_link.html" with link=member.flickr svg="flickr" %}
+                {% include "home/partials/social_link.html" with link=member.tumblr svg="tumblr" %}
+                {% include "home/partials/social_link.html" with link=member.deviantart svg="deviantart" %}
+                {% include "home/partials/social_link.html" with link=member.pinterest svg="pinterest" %}
             </div>
         </div>
-        <div class="people-container-person">
-            <div class="people-container-person-description">
-                <h2>Emanuele Palazzetti</h2>
-                <h3>Software Architect</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ex ante, rutrum quis congue vel, faucibus a enim. Cras vel tempus sem. Suspendisse interdum commodo ante vel posuere. Nulla ex ante, laoreet sed facilisis ut, suscipit et massa. Sed sit amet orci magna.</p>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/twitter.svg' %}"></a>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/github.svg' %}"></a>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/outlook.svg' %}"></a>
-            </div>
-        </div>
-        <div class="people-container-person">
-            <div class="people-container-person-description">
-                <h2>Federico Dolce</h2>
-                <h3>Django Developer</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ex ante, rutrum quis congue vel, faucibus a enim. Cras vel tempus sem. Suspendisse interdum commodo ante vel posuere. Nulla ex ante, laoreet sed facilisis ut, suscipit et massa. Sed sit amet orci magna.</p>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/twitter.svg' %}"></a>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/github.svg' %}"></a>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/outlook.svg' %}"></a>
-            </div>
-        </div>
-        <div class="people-container-person">
-            <div class="people-container-person-description">
-                <h2>Bartolomeo Merenda</h2>
-                <h3>Full-stack Developer</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ex ante, rutrum quis congue vel, faucibus a enim. Cras vel tempus sem. Suspendisse interdum commodo ante vel posuere. Nulla ex ante, laoreet sed facilisis ut, suscipit et massa. Sed sit amet orci magna.</p>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/twitter.svg' %}"></a>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/github.svg' %}"></a>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/outlook.svg' %}"></a>
-            </div>
-        </div>
-        <div class="people-container-person">
-            <div class="people-container-person-description">
-                <h2>Alessio Rapini</h2>
-                <h3>UI/UX Designer</h3>
-                <h3>Front-end Developer</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ex ante, rutrum quis congue vel, faucibus a enim. Cras vel tempus sem. Suspendisse interdum commodo ante vel posuere. Nulla ex ante, laoreet sed facilisis ut, suscipit et massa. Sed sit amet orci magna.</p>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/twitter.svg' %}"></a>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/github.svg' %}"></a>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/outlook.svg' %}"></a>
-            </div>
-        </div>
-        <div class="people-container-person">
-            <div class="people-container-person-description">
-                <h2>Silvano Cerza</h2>
-                <h3>Mobile Developer</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ex ante, rutrum quis congue vel, faucibus a enim. Cras vel tempus sem. Suspendisse interdum commodo ante vel posuere. Nulla ex ante, laoreet sed facilisis ut, suscipit et massa. Sed sit amet orci magna.</p>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/twitter.svg' %}"></a>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/github.svg' %}"></a>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/outlook.svg' %}"></a>
-            </div>
-        </div>
-        <div class="people-container-person">
-            <div class="people-container-person-description">
-                <h2>Andrea Veracchi</h2>
-                <h3>Business Strategist</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ex ante, rutrum quis congue vel, faucibus a enim. Cras vel tempus sem. Suspendisse interdum commodo ante vel posuere. Nulla ex ante, laoreet sed facilisis ut, suscipit et massa. Sed sit amet orci magna.</p>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/twitter.svg' %}"></a>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/github.svg' %}"></a>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/outlook.svg' %}"></a>
-            </div>
-        </div>
-        <div class="people-container-person">
-            <div class="people-container-person-description">
-                <h2>Alessandro Veracchi</h2>
-                <h3>Chief Executer</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ex ante, rutrum quis congue vel, faucibus a enim. Cras vel tempus sem. Suspendisse interdum commodo ante vel posuere. Nulla ex ante, laoreet sed facilisis ut, suscipit et massa. Sed sit amet orci magna.</p>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/twitter.svg' %}"></a>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/github.svg' %}"></a>
-                <a href=""><img class="people-container-person-description-social js-inject-svg" src="{% static 'svg/outlook.svg' %}"></a>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </section>
 {% endblock %}
