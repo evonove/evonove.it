@@ -33,6 +33,7 @@ DEBUG = env('DJANGO_DEBUG', False)
 
 # apps and middleware
 INSTALLED_APPS = (
+    'wagtail.contrib.wagtailsitemaps',
     'wagtail.wagtailredirects',
     'wagtail.wagtailsites',
     'wagtail.wagtailusers',
