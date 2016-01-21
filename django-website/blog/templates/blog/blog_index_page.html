@@ -1,64 +1,36 @@
 {% extends "blog_base.html" %}
 
-{% load static from staticfiles %}
+{% load staticfiles %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
 
 {% block blog_main %}
-
-
 <div class="main">
     <div class="list">
+        {% for article in articles %}
         <div class="list-block">
             <article class="article">
-                <h2 class="article-title">Lorem Ipsum Dolor Sit Amet</h2>
+                <h2 class="article-title">{{ article.title }}</h2>
                 <div class="article-meta">
                     <a class="article-meta-author">Alessio Rapini</a>
                     <span class="article-meta-divider">·</span>
-                    <span class="article-meta-date">Jan 18, 2016</span>
+                    <span class="article-meta-date">{{ article.date|date:"N d, Y" }}</span>
                 </div>
-                <p class="article-post">Duis eros risus, commodo at lacus ut, pretium venenatis velit. Etiam
-                    posuere sed risus ut aliquam. Cras quis velit non lacus elementum
-                    vestibulum. Sed sed sapien est. Nulla gravida id lorem id aliquam.
-                    Donec sed leo hendrerit, sollicitudin sem id, tincidunt augue.</p>
+
+                {% if article.cover %}
+                    <figure class="article-preview">
+                        {% image article.cover original class="article-preview-img" %}
+                    </figure>
+                {% endif %}
+
+                <p class="article-post">{{ article.intro }}</p>
             </article>
-            <a class="list-block-readmore">Read more...</a>
+            <a href="{% pageurl article %}" class="list-block-readmore">Read more...</a>
             <div class="list-block-divider"></div>
         </div>
-        <div class="list-block">
-            <article class="article">
-                <h2 class="article-title">Lorem Ipsum Dolor Sit Amet</h2>
-                <div class="article-meta">
-                    <a class="article-meta-author">Alessio Rapini</a>
-                    <span class="article-meta-divider">·</span>
-                    <span class="article-meta-date">Jan 18, 2016</span>
-                </div>
-                <figure class="article-preview">
-                    <img class="article-preview-img" src="{% static 'image/test-post.jpg' %}">
-                </figure>
-                <p class="article-post">Duis eros risus, commodo at lacus ut, pretium venenatis velit. Etiam
-                    posuere sed risus ut aliquam. Cras quis velit non lacus elementum
-                    vestibulum. Sed sed sapien est. Nulla gravida id lorem id aliquam.
-                    Donec sed leo hendrerit, sollicitudin sem id, tincidunt augue.</p>
-            </article>
-            <a class="list-block-readmore">Read more...</a>
-            <div class="list-block-divider"></div>
-        </div>
-        <div class="list-block">
-            <article class="article">
-                <h2 class="article-title">Lorem Ipsum Dolor Sit Amet</h2>
-                <div class="article-meta">
-                    <a class="article-meta-author">Alessio Rapini</a>
-                    <span class="article-meta-divider">·</span>
-                    <span class="article-meta-date">Jan 18, 2016</span>
-                </div>
-                <p class="article-post">Duis eros risus, commodo at lacus ut, pretium venenatis velit. Etiam
-                    posuere sed risus ut aliquam. Cras quis velit non lacus elementum
-                    vestibulum. Sed sed sapien est. Nulla gravida id lorem id aliquam.
-                    Donec sed leo hendrerit, sollicitudin sem id, tincidunt augue.</p>
-            </article>
-            <a class="list-block-readmore">Read more...</a>
-            <div class="list-block-divider"></div>
-        </div>
-        <ul class="paginator list-paginator" role="menubar">
+        {% endfor %}
+       <ul class="paginator list-paginator" role="menubar">
             <li class="paginator-first"><a href=""><img class="paginator-icon js-inject-svg" src="{% static 'svg/left-double-arrows.svg' %}"></a></li>
             <li class="paginator-previous"><a href=""><img class="paginator-icon js-inject-svg" src="{% static 'svg/left-arrow.svg' %}"></a></li>
             <li class="paginator-page"><a href="">1</a></li>
@@ -91,5 +63,4 @@
         </ul>
     </div>
 </div>
-
 {% endblock blog_main %}
