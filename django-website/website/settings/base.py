@@ -186,3 +186,4 @@ LOGGING = {
 
 # Wagtail settings
 WAGTAIL_SITE_NAME = "Evonove"
+TAGGIT_CASE_INSENSITIVE = True
