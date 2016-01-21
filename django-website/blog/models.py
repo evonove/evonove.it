@@ -70,6 +70,7 @@ class BlogPage(Page):
         related_name='+'
     )
     body = StreamField(BlogPageStreamBlock())
+    intro = models.TextField(max_length=600)
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
     date = models.DateField(_('Post date'))
 
@@ -78,6 +79,7 @@ class BlogPage(Page):
     )
 
     content_panels = Page.content_panels + [
+        FieldPanel('intro'),
         ImageChooserPanel('cover'),
         FieldPanel('tags'),
         StreamFieldPanel('body'),
