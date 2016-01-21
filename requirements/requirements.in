@@ -6,6 +6,9 @@ dj-database-url
 psycopg2
 pytz
 
+# third parties
+whitenoise
+
 # the website
 wagtail
 

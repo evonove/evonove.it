@@ -52,4 +52,5 @@ traitlets==4.1.0          # via ipython
 unidecode==0.4.18         # via wagtail
 uwsgi==2.0.12
 wagtail==1.3.1
+whitenoise==2.0.6
 willow==0.2.2             # via wagtail
