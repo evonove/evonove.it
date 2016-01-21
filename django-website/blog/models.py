@@ -5,7 +5,7 @@ from django.utils.translation import ugettext as _
 from modelcluster.fields import ParentalKey
 from modelcluster.contrib.taggit import ClusterTaggableManager
 
-from taggit.models import TaggedItemBase
+from taggit.models import Tag, TaggedItemBase
 
 from wagtail.wagtailsearch import index
 from wagtail.wagtailcore.models import Page
@@ -27,6 +27,17 @@ class BlogIndexPage(Page):
         articles = articles.order_by('-date')
 
         return articles
+
+    @property
+    def tags(self):
+        """
+        Returns a queryset of all available tag ordered by use
+        """
+        tags = Tag.objects.all()
+        tags = tags.annotate(num_times=models.Count('blog_blogpagetag_items'))
+        tags = tags.order_by('-num_times')
+
+        return tags
 
     def get_context(self, request):
         """
