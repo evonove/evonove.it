@@ -25,6 +25,8 @@
             <h3 class="expertise-container-textbox-subheading">{{ service.technologies }}</h3>
             <p class="expertise-container-textbox-paragraph">{{ service.description }}</p>
         </div>
+        {% empty %}
+            <div class="full-width text-center"><h2>This section is empty, update the page <a href="{% url 'wagtailadmin_pages:edit' page.id %}">using the admin.</a></h2></div>
         {% endfor %}
     </div>
 </section>
@@ -53,13 +55,20 @@
                 {% image work.cover original class="works-container-cornice-pic-project" %}
             </figure>
         </div>
+        {% empty %}
+            <div class="full-width text-center"><h2>This section is empty, update the page <a href="{% url 'wagtailadmin_pages:edit' page.id %}">using the admin.</a></h2></div>
         {% endfor %}
     </div>
 </section>
 
 <section class="people">
     <div class="people-header">
-        <h2 class="people-header-heading">Evonove is made of <span>people</span></h2>
+        {% if page.team.count %}
+            <h2 class="people-header-heading">Evonove is made of <span>people</span></h2>
+        {% else %}
+        <h2 class="people-header-heading">Evonove is made of no one :-(</h2>
+        <h2 class="people-header-heading"><a href="{% url 'wagtailadmin_pages:edit' page.id %}">Add someone using the admin.</a></h2>
+        {% endif %}
     </div>
     <div class="people-container">
         {% for member in page.team.all %}
