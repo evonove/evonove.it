@@ -10,7 +10,8 @@ from taggit.models import TaggedItemBase
 from wagtail.wagtailsearch import index
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailcore.fields import StreamField
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.contrib.settings.models import BaseSetting, register_setting
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, StreamFieldPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
 from .fields import BlogPageStreamBlock
@@ -41,9 +42,10 @@ class BlogIndexPage(Page):
         if tag:
             articles = articles.filter(tags__name=tag)
 
-        # Pagination
+        # Pagination, using the blog settings
         page = request.GET.get('page')
-        paginator = Paginator(articles, 10)
+        page_number = BlogSettings.for_site(request.site).page_number
+        paginator = Paginator(articles, page_number)
         try:
             articles = paginator.page(page)
         except PageNotAnInteger:
@@ -55,6 +57,24 @@ class BlogIndexPage(Page):
         context = super().get_context(request)
         context['articles'] = articles
         return context
+
+
+@register_setting
+class BlogSettings(BaseSetting):
+    page_number = models.IntegerField(
+        help_text=_('The articles that are shown in the blog index page before using a paginator'),
+        default=5
+    )
+
+    panels = [
+        MultiFieldPanel(
+            [
+                FieldPanel('page_number'),
+            ],
+            heading='Blog configuration',
+            classname='collapsible',
+        ),
+    ]
 
 
 class BlogPageTag(TaggedItemBase):
