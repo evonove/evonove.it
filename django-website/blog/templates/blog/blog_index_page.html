@@ -31,7 +31,9 @@
             <div class="list-block-divider"></div>
         </div>
         {% endfor %}
-       <ul class="paginator list-paginator" role="menubar">
+
+        {% if articles.paginator.num_pages > 1 %}
+        <ul class="paginator list-paginator" role="menubar">
             {% if articles.has_previous %}
                 <li class="paginator-first"><a href="?page=1"><img class="paginator-icon js-inject-svg" src="{% static 'svg/left-double-arrows.svg' %}"></a></li>
                 <li class="paginator-previous"><a href="{% replace_query_link 'page' articles.previous_page_number %}"><img class="paginator-icon js-inject-svg" src="{% static 'svg/left-arrow.svg' %}"></a></li>
@@ -50,6 +52,7 @@
                 <li class="paginator-last"><a href="{% replace_query_link 'page' articles.paginator.num_pages %}"><img class="paginator-icon js-inject-svg" src="{% static 'svg/right-double-arrows.svg' %}"></a></li>
             {% endif %}
         </ul>
+        {% endif %}
     </div>
     <div class="sidebar">
         <h3 class="sidebar-heading">Featured Tags</h3>
