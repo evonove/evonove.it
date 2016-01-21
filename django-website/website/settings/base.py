@@ -4,8 +4,9 @@ import dj_database_url
 from getenv import env
 
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# django-website is the root folder
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.join(BASE_DIR, '..')
 
 # security
 SECRET_KEY = env('SECRET_KEY')
