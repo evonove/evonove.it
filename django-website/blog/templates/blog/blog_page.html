@@ -12,6 +12,7 @@
             <span class="article-meta-divider">·</span>
             <span class="article-meta-date">{{ page.date|date:"N d, Y" }}</span>
         </div>
+        <h2 class="article-title">{{ page.title }}</h2>
         {% include "partials/streamfield.html" with content=self.body %}
     </article>
 </div>
