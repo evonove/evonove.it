@@ -6,8 +6,10 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = env('DJANGO_SECURE_SSL_REDIRECT', True)
 SESSION_COOKIE_SECURE = env('DJANGO_SESSION_COOKIE_SECURE', True)
 
-# uncomment for cross-domain cookies
-# SESSION_COOKIE_DOMAIN = ".{}".format(env("DJANGO_ALLOWED_HOSTS"))
+# Using WhiteNoise storage backend which automatically takes care of gzipping
+# static files, while creating unique names for each version so they can
+# safely be cached forever
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # emails
 DEFAULT_EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
