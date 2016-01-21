@@ -7,11 +7,13 @@ register = template.Library()
 @register.simple_tag(takes_context=True)
 def replace_query_link(context, field, value):
     """
+    Returns the querystring in which the ``field`` is overridden
+    by the given ``value``
     """
-    # cloning request
+    # cloning the request
     request = context['request']
     querystring = request.GET.copy()
 
-    # changing the field returning the url econding
+    # field overriding; returning the encoded url
     querystring[field] = value
     return "?{}".format(querystring.urlencode())
