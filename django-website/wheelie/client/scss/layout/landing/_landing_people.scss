@@ -38,7 +38,7 @@
 }
 
 .people-container-person {
-  background: url("../../../static/svg/man.svg") no-repeat 65% 100%, radial-gradient(ellipse farthest-corner at 45px 45px, $light-grey -82%, transparent 50%, $dark-grey 95%);
+  background: url("../svg/man.svg") no-repeat 65% 100%, radial-gradient(ellipse farthest-corner at 45px 45px, $light-grey -82%, transparent 50%, $dark-grey 95%);
   background-size: 20vh, auto;
   flex-grow: 1;
   height: 100%;
