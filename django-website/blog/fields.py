@@ -6,6 +6,11 @@ from wagtail.wagtailimages.blocks import ImageChooserBlock
 
 
 class ImageFormatBlock(FieldBlock):
+    """
+    The Image stream field accepts an ``alignment`` parameter that adds
+    a class to the resulting image. This allows editors to place the image
+    in different ways, according to the built-in CSS style.
+    """
     FORMAT_CHOICES = (
         ('article-left', _('Wrap left')),
         ('article-right', _('Wrap right')),
@@ -17,19 +22,31 @@ class ImageFormatBlock(FieldBlock):
 
 
 class ImageBlock(StructBlock):
+    """
+    The ``aligned_image`` block, used to add an image into the ``BlogPage``
+    """
     image = ImageChooserBlock()
     alignment = ImageFormatBlock()
     caption = RichTextBlock(required=False)
 
 
 class PullQuoteBlock(StructBlock):
+    """
+    A block that adds a quote with the proper attribution
+    """
     quote = TextBlock(label=_("Quote title"))
     attribution = CharBlock()
 
 
 class BlogPageStreamBlock(StreamBlock):
     """
-    Defines
+    Defines the ``StreamBlock`` used in the ``BlogPage`` model. This adds a
+    dynamic behavior when writing the body of a new blog page. It includes:
+        - h2 and h2 titles
+        - a paragraph
+        - an image that could be aligned on the left, on the right, in the center
+          or with a full width
+        - a quote with a proper attribution
     """
     h2 = CharBlock(icon="title")
     h3 = CharBlock(icon="title")
