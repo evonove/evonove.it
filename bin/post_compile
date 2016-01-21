@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# launching Django-compressor in offline mode
+# this is required because it doesn't work properly
+# together with WhiteNoise as stated here:
+# https://github.com/django-compressor/django-compressor/issues/486
+
+python django-website/manage.py compress
