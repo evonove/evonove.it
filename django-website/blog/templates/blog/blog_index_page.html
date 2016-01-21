@@ -31,8 +31,8 @@
         </div>
         {% endfor %}
        <ul class="paginator list-paginator" role="menubar">
-            <li class="paginator-first"><a href="?page=1"><img class="paginator-icon js-inject-svg" src="{% static 'svg/left-double-arrows.svg' %}"></a></li>
             {% if articles.has_previous %}
+                <li class="paginator-first"><a href="?page=1"><img class="paginator-icon js-inject-svg" src="{% static 'svg/left-double-arrows.svg' %}"></a></li>
                 <li class="paginator-previous"><a href="?page={{ articles.previous_page_number }}"><img class="paginator-icon js-inject-svg" src="{% static 'svg/left-arrow.svg' %}"></a></li>
             {% endif %}
 
@@ -46,8 +46,8 @@
 
             {% if articles.has_next %}
                 <li class="paginator-next"><a href="?page={{ articles.next_page_number }}"><img class="paginator-icon js-inject-svg" src="{% static 'svg/right-arrow.svg' %}"></a></li>
+                <li class="paginator-last"><a href="?page={{ articles.paginator.num_pages }}"><img class="paginator-icon js-inject-svg" src="{% static 'svg/right-double-arrows.svg' %}"></a></li>
             {% endif %}
-            <li class="paginator-last"><a href="?page={{ articles.paginator.num_pages }}"><img class="paginator-icon js-inject-svg" src="{% static 'svg/right-double-arrows.svg' %}"></a></li>
         </ul>
     </div>
     <div class="sidebar">
