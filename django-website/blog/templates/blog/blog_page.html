@@ -1,67 +1,18 @@
 {% extends "blog_base.html" %}
 
 {% load static from staticfiles %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
 
 {% block blog_main %}
-
-
 <div class="post-detail">
     <article class="article">
         <div class="article-meta">
             <a class="article-meta-author">Alessio Rapini</a>
             <span class="article-meta-divider">·</span>
-            <span class="article-meta-date">Jan 18, 2016</span>
+            <span class="article-meta-date">{{ page.date|date:"N d, Y" }}</span>
         </div>
-        <figure class="article-preview">
-            <img class="article-preview-img" src="{% static 'image/test-post.jpg' %}">
-        </figure>
-        <h2 class="article-title">Lorem Ipsum Dolor Sit Amet</h2>
-        <p class="article-post">Duis eros risus, commodo at lacus ut, pretium venenatis velit. Etiam
-            posuere sed risus ut aliquam. Cras quis velit non lacus elementum
-            vestibulum. Sed sed sapien est. Nulla gravida id lorem id aliquam.
-            Donec sed leo hendrerit, sollicitudin sem id, tincidunt augue.</p>
-        <p class="article-post">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            In mattis elit at vestibulum feugiat. Donec interdum quis leo ac porta.
-            Etiam neque mauris, maximus vitae augue vitae, accumsan rutrum erat.
-            Nullam at metus at ligula porttitor consectetur.
-            Cum sociis natoque penatibus et magnis dis parturient montes,
-            nascetur ridiculus mus. Phasellus facilisis purus a sollicitudin pretium.
-            Etiam placerat ultricies sem ut suscipit.
-            Curabitur sollicitudin posuere euismod.
-            Aliquam rutrum felis sem, id vulputate elit volutpat nec.
-            ùQuisque dolor lacus, hendrerit ut justo a, tincidunt scelerisque risus.
-            Integer volutpat vehicula risus, egestas dignissim purus tincidunt eu.
-            Nunc ex nisi, placerat sit amet tincidunt et, hendrerit non purus.
-            Cras ut lectus sollicitudin, pharetra dolor quis, tristique tellus.</p>
-        <p class="article-post">Quisque cursus eros sit amet feugiat iaculis. In tempus eros tortor,
-            et efficitur purus ullamcorper in. Proin a erat lacinia,
-            ultricies arcu vitae, fringilla dui. Suspendisse porta ornare fringilla.
-            Proin vestibulum elit felis, a venenatis lorem bibendum nec.
-            Praesent commodo, lectus et elementum mattis, sapien diam semper felis,
-            non egestas nunc metus elementum lectus. Nulla ultricies tellus fringilla posuere pretium.
-            Donec rhoncus imperdiet dui sed iaculis.
-            Fusce condimentum nulla sit amet quam mattis, sed feugiat urna consequat.
-            Etiam nec elit ex.</p>
-        <figure class="article-picture">
-            <img class="article-picture-img" src="{% static 'image/test-post.jpg' %}">
-        </figure>
-        <p class="article-post">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            In mattis elit at vestibulum feugiat. Donec interdum quis leo ac porta.
-            Etiam neque mauris, maximus vitae augue vitae, accumsan rutrum erat.
-            Nullam at metus at ligula porttitor consectetur.
-            Cum sociis natoque penatibus et magnis dis parturient montes,
-            nascetur ridiculus mus. Phasellus facilisis purus a sollicitudin pretium.
-            Etiam placerat ultricies sem ut suscipit.
-            Curabitur sollicitudin posuere euismod.
-            Aliquam rutrum felis sem, id vulputate elit volutpat nec.
-            ùQuisque dolor lacus, hendrerit ut justo a, tincidunt scelerisque risus.
-            Integer volutpat vehicula risus, egestas dignissim purus tincidunt eu.
-            Nunc ex nisi, placerat sit amet tincidunt et, hendrerit non purus.
-            Cras ut lectus sollicitudin, pharetra dolor quis, tristique tellus.</p>
-        <p class="article-post">Duis eros risus, commodo at lacus ut, pretium venenatis velit. Etiam
-            posuere sed risus ut aliquam. Cras quis velit non lacus elementum
-            vestibulum. Sed sed sapien est. Nulla gravida id lorem id aliquam.
-            Donec sed leo hendrerit, sollicitudin sem id, tincidunt augue.</p>
+        {% include "partials/streamfield.html" with content=self.body %}
     </article>
 </div>
 {% endblock blog_main %}
