@@ -31,6 +31,6 @@ li.paginator-page > a {
   color: $dark-grey;
 }
 
-li.paginator-page.is-current > a {
+li.paginator-page.is-current {
   color: $light-green;
 }
