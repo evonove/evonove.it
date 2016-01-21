@@ -3,6 +3,7 @@
 {% load staticfiles %}
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
+{% load blog_tags %}
 
 
 {% block blog_main %}
@@ -33,20 +34,20 @@
        <ul class="paginator list-paginator" role="menubar">
             {% if articles.has_previous %}
                 <li class="paginator-first"><a href="?page=1"><img class="paginator-icon js-inject-svg" src="{% static 'svg/left-double-arrows.svg' %}"></a></li>
-                <li class="paginator-previous"><a href="?page={{ articles.previous_page_number }}"><img class="paginator-icon js-inject-svg" src="{% static 'svg/left-arrow.svg' %}"></a></li>
+                <li class="paginator-previous"><a href="{% replace_query_link 'page' articles.previous_page_number %}"><img class="paginator-icon js-inject-svg" src="{% static 'svg/left-arrow.svg' %}"></a></li>
             {% endif %}
 
             {% for item in articles.paginator.page_range %}
                 {% if articles.number == item %}
                     <li class="paginator-page is-current">{{ item }}</li>
                 {% else %}
-                    <li class="paginator-page"><a href="?page={{ item }}">{{ item }}</a></li>
+                    <li class="paginator-page"><a href="{% replace_query_link 'page' item %}">{{ item }}</a></li>
                 {% endif %}
             {% endfor %}
 
             {% if articles.has_next %}
-                <li class="paginator-next"><a href="?page={{ articles.next_page_number }}"><img class="paginator-icon js-inject-svg" src="{% static 'svg/right-arrow.svg' %}"></a></li>
-                <li class="paginator-last"><a href="?page={{ articles.paginator.num_pages }}"><img class="paginator-icon js-inject-svg" src="{% static 'svg/right-double-arrows.svg' %}"></a></li>
+                <li class="paginator-next"><a href="{% replace_query_link 'page' articles.next_page_number %}"><img class="paginator-icon js-inject-svg" src="{% static 'svg/right-arrow.svg' %}"></a></li>
+                <li class="paginator-last"><a href="{% replace_query_link 'page' articles.paginator.num_pages %}"><img class="paginator-icon js-inject-svg" src="{% static 'svg/right-double-arrows.svg' %}"></a></li>
             {% endif %}
         </ul>
     </div>
