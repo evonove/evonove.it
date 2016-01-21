@@ -7,10 +7,10 @@ from wagtail.wagtailimages.blocks import ImageChooserBlock
 
 class ImageFormatBlock(FieldBlock):
     FORMAT_CHOICES = (
-        ('article-left', 'Wrap left'),
-        ('article-right', 'Wrap right'),
-        ('article-middle', 'Place in the center'),
-        ('article-full', 'Full width'),
+        ('article-left', _('Wrap left')),
+        ('article-right', _('Wrap right')),
+        ('article-middle', _('Place in the center')),
+        ('article-full', _('Full width')),
     )
 
     field = ChoiceField(choices=FORMAT_CHOICES)
