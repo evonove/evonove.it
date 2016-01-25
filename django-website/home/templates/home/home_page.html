@@ -73,6 +73,7 @@
     <div class="people-container">
         {% for member in page.team.all %}
         <div class="people-container-person">
+            {% image member.photo original class="people-container-person-photo" %}
             <div class="people-container-person-description">
                 {# Team member detail #}
                 <h2>{{ member.full_name }}</h2>

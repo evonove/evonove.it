@@ -1,6 +1,7 @@
 .people {
   background-color: $dark-grey;
-  height: 100%;
+  height: 75%;
+  min-height: 750px;
   position: relative;
 
   @media #{$small}, #{$medium} {
@@ -38,8 +39,7 @@
 }
 
 .people-container-person {
-  background: url("../svg/man.svg") no-repeat 65% 100%, radial-gradient(ellipse farthest-corner at 45px 45px, $light-grey -82%, transparent 50%, $dark-grey 95%);
-  background-size: 20vh, auto;
+  background: radial-gradient(ellipse farthest-corner at 45px 45px, $light-grey -82%, transparent 50%, $dark-grey 95%);
   flex-grow: 1;
   height: 100%;
   overflow: hidden;
@@ -49,6 +49,10 @@
   &:hover {
     background-position: 0% 100%;
     flex-grow: 6;
+  }
+
+  @media #{$small}, #{$medium} {
+    font-size: 14px;
   }
 
   @media #{$medium} {
@@ -62,13 +66,51 @@
   }
 }
 
+.people-container-person-photo {
+  bottom: 0;
+  position: absolute;
+
+  @media #{$small}, #{$medium} {
+    left: 25%;
+    height: 95%;
+    width: auto;
+  }
+}
+
 .people-container-person-description {
   bottom: 1.618em;
   color: $white;
   left: 0;
   overflow: hidden;
   position: absolute;
-  width: 325px;
+  width: 23vw;
+
+  @media #{$small}, #{$medium} {
+    background-color: transparentize($light-green, 0.3);
+    bottom: 0;
+    font-size: $p-smaller;
+    height: 90%;
+    opacity: 0;
+    padding: 5%;
+    transition: opacity $person-transition ease-in;
+    width: 90%;
+  }
+}
+
+.people-container-person-description.fade-in {
+  opacity: 1;
+}
+
+.people-container-person-description h2 {
+  @media #{$small}, #{$medium} {
+    font-size: $h2 / 1.618;
+  }
+}
+
+.people-container-person-description h3 {
+  @media #{$small}, #{$medium} {
+    font-size: $h3 / 1.618;
+  }
 }
 
 .people-container-person-description-social {
