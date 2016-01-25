@@ -26,6 +26,10 @@
 .list-block-readmore {
   color: $light-grey;
   font-family: 'Oswald', sans-serif;
+
+  &:visited {
+    color: $light-grey;
+  }
 }
 
 .list-block-divider {
