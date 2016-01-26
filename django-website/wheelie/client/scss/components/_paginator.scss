@@ -1,10 +1,7 @@
 .paginator li {
   display: inline-block;
   font-family: 'Oswald', sans-serif;
-
-  &:not(:first-child) {
-    margin-right: 1.618%;
-  }
+  margin-right: 1.618%;
 }
 
 .paginator-icon {
