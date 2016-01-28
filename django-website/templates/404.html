@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 
+{% load static from staticfiles %}
+
 {% block body_class %}template-404{% endblock %}
 
 {% block content %}
-    <div class="error-404">
-        <h1>Page not found</h1>
-        <h2>Sorry, this page could not be found.</h2>
+    <header class="header-404">
+        <a href="#"><img class="header-404-logo js-inject-svg" src="{% static 'svg/evonove-logo-xl.svg' %}"></a>
+    </header>
+    <div class="container-404">
+        <h2>Page not found</h2>
+        <h3>Sorry, this page could not be found.</h3>
     </div>
 {% endblock %}

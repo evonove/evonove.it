@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Internal server error</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </head>
-    <body>
-        <h1>Internal server error</h1>
+{% extends "base.html" %}
 
-        <h2>Sorry, there seems to be an error. Please try again soon.</h2>
-    </body>
-</html>
+{% load static from staticfiles %}
+
+{% block body_class %}template-500{% endblock %}
+
+{% block content %}
+    <header class="header-500">
+        <a href="#"><img class="header-500-logo js-inject-svg" src="{% static 'svg/evonove-logo-xl.svg' %}"></a>
+    </header>
+    <div class="container-500">
+        <h2>Internal server error</h2>
+        <h3>Sorry, there seems to be an error. Please try again soon.</h3>
+    </div>
+{% endblock %}
