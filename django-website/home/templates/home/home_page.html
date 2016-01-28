@@ -60,14 +60,20 @@
             </a>
         </div>
         <div class="works-container-projectimage">
-            <img class="works-container-projectimage-particles js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
-            <img class="works-container-projectimage-particles js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
-            <img class="works-container-projectimage-particles js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
-            <figure class="works-container-projectimage-figure">
-                {% for work in page.works.all %}
-                    {% image work.cover original class="works-container-projectimage-figure-image" %}
-                {% endfor %}
-            </figure>
+            <div class="works-container-projectimage-circles">
+                <img class="works-container-projectimage-circles-particles js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
+                <img class="works-container-projectimage-circles-particles js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
+                <img class="works-container-projectimage-circles-particles js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
+            </div>
+            <div class="works-container-projectimage-carousel">
+                <div class="works-container-projectimage-carousel-boxslides">
+                    {% for work in page.works.all %}
+                    <figure class="works-container-projectimage-carousel-boxslides-figure">
+                        {% image work.cover original class="works-container-projectimage-carousel-boxslides-figure-image" %}
+                    </figure>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
         {% else %}
             <div class="full-width text-center"><h2>This section is empty, update the page <a href="{% url 'wagtailadmin_pages:edit' page.id %}">using the admin.</a></h2></div>

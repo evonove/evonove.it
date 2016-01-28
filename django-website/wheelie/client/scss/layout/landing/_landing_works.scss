@@ -43,11 +43,10 @@
 
 .works-container-project-slider {
   overflow: hidden;
-  width: 100%;
+  width: 80%;
 }
 
 .works-container-project-slider ul {
-  height: 100%;
   left: 0;
   position: relative;
   transition: left 0.5s;
@@ -93,7 +92,6 @@
 
 .works-container-projectimage {
   flex-basis: 47.6%;
-  overflow: hidden;
   position: relative;
 
   @media #{$small}, #{$medium}, #{$large} {
@@ -103,7 +101,13 @@
   }
 }
 
-.works-container-projectimage-particles {
+.works-container-projectimage-circles {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
+
+.works-container-projectimage-circles-particles {
   width: 100%;
 
   &:nth-of-type(1),
@@ -120,5 +124,27 @@
   &:nth-of-type(3) {
     opacity: 0.5;
     transform: rotate(135deg);
+  }
+}
+
+.works-container-projectimage-carousel {
+  margin: auto;
+  overflow: hidden;
+  text-align: center;
+  width: 60%;
+}
+
+.works-container-projectimage-carousel-boxslides {
+  left: 0;
+  position: relative;
+  transition: left 0.5s;
+}
+
+.works-container-projectimage-carousel-boxslides figure {
+  float: left;
+  width: 100%;
+
+  &:not(:first-child) {
+    display: none;
   }
 }

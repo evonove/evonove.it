@@ -6,9 +6,17 @@ $(document).ready(function() {
     var slide = $('.works-container-project-slider ul li');
     var slideWidth = slide.width();
 
+    var carouselBox = $('.works-container-projectimage-carousel');
+    var carouselSlidesBox = $('.works-container-projectimage-carousel-boxslides');
+    var carouselSlide = $('.works-container-projectimage-carousel-boxslides figure');
+    var carosulSlideWidth = carouselSlide.width();
+
     // options
     var currentPosition = 0;
     var numItems = slide.length;
+
+    var currentPositionCar = 0;
+    var numImages = carouselSlide.length;
 
     var left = $('.works-container-project-navigator-left');
     var right = $('.works-container-project-navigator-right');
@@ -19,9 +27,18 @@ $(document).ready(function() {
         'width': slider.width()
     });
 
+    carouselSlide.css({
+        'display': 'block',
+        'width': carouselBox.width()
+    });
+
     // make slides box as large as all slides
     slidesBox.css({
-        'width': slider.width() * slide.length + 'px'
+        'width': slider.width() * numItems + 'px'
+    });
+
+    carouselSlidesBox.css({
+        'width': carouselBox.width() * numImages + 'px'
     });
 
     // navigate the slides
@@ -34,6 +51,10 @@ $(document).ready(function() {
             slidesBox.css({
                 'left': currentPosition * slideWidth + 'px'
             });
+            currentPositionCar -=1;
+            carouselSlidesBox.css({
+                'left': currentPositionCar * carosulSlideWidth + 'px'
+            })
         }
     }
 
@@ -43,6 +64,10 @@ $(document).ready(function() {
             slidesBox.css({
                 'left': currentPosition * -slideWidth + 'px'
             });
+            currentPositionCar +=1;
+            carouselSlidesBox.css({
+                'left': currentPositionCar * -carosulSlideWidth + 'px'
+            })
         }
     }
 });
