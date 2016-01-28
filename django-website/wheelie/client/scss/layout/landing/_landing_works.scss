@@ -27,7 +27,7 @@
   }
 }
 
-.works-container-slider {
+.works-container-project {
   flex-basis: 35%;
 
   @media #{$small}, #{$medium}, #{$large} {
@@ -41,14 +41,57 @@
   }
 }
 
-.works-container-slider-button {
+.works-container-project-slider {
+  overflow: hidden;
+  width: 100%;
+}
 
+.works-container-project-slider ul {
+  height: 100%;
+  left: 0;
+  position: relative;
+  transition: left 0.5s;
+}
+
+.works-container-project-slider ul li {
+  float: left;
+
+  &:not(:first-child) {
+    display: none;
+  }
+}
+
+.works-container-project-slider-slide h2 {
+  margin: 0;
+}
+
+.works-container-project-slider-slide p {
+  margin: 1.618em 0 0;
+}
+
+.works-container-project-navigator {
+  margin: 1.618em 0;
+}
+
+.works-container-project-slider {
   @media #{$small}, #{$medium}, #{$large} {
     margin: auto;
   }
 }
 
-.works-container-cornice {
+.works-container-project-navigator-left,
+.works-container-project-navigator-right {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 15px;
+  width: 15px;
+}
+
+.works-container-project-navigator svg path {
+  fill: $light-grey;
+}
+
+.works-container-projectimage {
   flex-basis: 47.6%;
   overflow: hidden;
   position: relative;
@@ -60,7 +103,7 @@
   }
 }
 
-.works-container-cornice-round {
+.works-container-projectimage-particles {
   width: 100%;
 
   &:nth-of-type(1),

@@ -33,31 +33,45 @@
 
 <section class="works">
     <div class="works-container">
-        {# Actually the animation is missing #}
-        {# and this section is not completed #}
-        {% for work in page.works.all %}
+        {% if page.works.all %}
         <div class="works-container-offset"></div>
-        <div class="works-container-slider">
-            <div class="works-column-slider-textbox">
-                <h1>WORKS</h1>
-                <h2>{{ work.name }}</h2>
-                <p>{{ work.description }}</p>
+        <div class="works-container-project">
+            <h1>WORKS</h1>
+            <div class="works-container-project-slider">
+                <ul>
+                    {% for work in page.works.all %}
+                        <li class="works-container-project-slider-slide">
+                            <h2>{{ work.name }}</h2>
+                            <p>{{ work.description }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
-            <a class="button button-icon works-container-slider-button">
+            <div class="works-container-project-navigator">
+                <div class="works-container-project-navigator-left">
+                    <img class="js-inject-svg" src="{% static 'svg/left-arrow.svg' %}">
+                </div>
+                <div class="works-container-project-navigator-right">
+                    <img class="works-container-project-navigator-right js-inject-svg" src="{% static 'svg/right-arrow.svg' %}">
+                </div>
+            </div>
+            <a class="button button-icon">
                 <span>+</span>
             </a>
         </div>
-        <div class="works-container-cornice">
-            <img class="works-container-cornice-round js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
-            <img class="works-container-cornice-round js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
-            <img class="works-container-cornice-round js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
-            <figure class="works-container-cornice-pic">
-                {% image work.cover original class="works-container-cornice-pic-project" %}
+        <div class="works-container-projectimage">
+            <img class="works-container-projectimage-particles js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
+            <img class="works-container-projectimage-particles js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
+            <img class="works-container-projectimage-particles js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
+            <figure class="works-container-projectimage-figure">
+                {% for work in page.works.all %}
+                    {% image work.cover original class="works-container-projectimage-figure-image" %}
+                {% endfor %}
             </figure>
         </div>
-        {% empty %}
+        {% else %}
             <div class="full-width text-center"><h2>This section is empty, update the page <a href="{% url 'wagtailadmin_pages:edit' page.id %}">using the admin.</a></h2></div>
-        {% endfor %}
+        {% endif %}
     </div>
 </section>
 
