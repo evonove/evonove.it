@@ -28,7 +28,11 @@
 }
 
 .works-container-project {
+  display: flex;
   flex-basis: 35%;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
 
   @media #{$small}, #{$medium}, #{$large} {
     flex-basis: auto;
@@ -91,7 +95,11 @@
 }
 
 .works-container-projectimage {
+  display: flex;
   flex-basis: 47.6%;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
   position: relative;
 
   @media #{$small}, #{$medium}, #{$large} {
@@ -104,6 +112,8 @@
 .works-container-projectimage-circles {
   overflow: hidden;
   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   width: 100%;
 }
 
