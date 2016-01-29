@@ -54,7 +54,7 @@ $(document).ready(function() {
             currentPositionCar -=1;
             carouselSlidesBox.css({
                 'left': currentPositionCar * carosulSlideWidth + 'px'
-            })
+            });
         }
     }
 
@@ -67,7 +67,7 @@ $(document).ready(function() {
             currentPositionCar +=1;
             carouselSlidesBox.css({
                 'left': currentPositionCar * -carosulSlideWidth + 'px'
-            })
+            });
         }
     }
 });
