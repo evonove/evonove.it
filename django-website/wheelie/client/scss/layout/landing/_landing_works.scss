@@ -57,6 +57,7 @@
 
 .works-container-project-slider ul li {
   float: left;
+  width: 100%;
 
   &:not(:first-child) {
     display: none;
