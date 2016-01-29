@@ -69,13 +69,7 @@
 
 .people-container-person-photo {
   bottom: 0;
-  left: -25%;
   position: absolute;
-  transition: left .5s ease-in-out;
-  //
-  //&:hover {
-  //  left: 0;
-  //}
 
   @media #{$small}, #{$medium} {
     height: 100%;
