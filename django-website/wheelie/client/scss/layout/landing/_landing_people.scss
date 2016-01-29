@@ -113,7 +113,8 @@
   }
 }
 
-.people-container-person-description p span {
+.people-container-person-description p b {
+  font-weight: normal;
   color: $light-green;
 }
 
