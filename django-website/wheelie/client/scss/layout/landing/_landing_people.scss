@@ -44,7 +44,7 @@
   height: 100%;
   overflow: hidden;
   position: relative;
-  transition: flex-grow .5s ease-in-out, background-position 0.5s ease-in-out;
+  transition: flex-grow .5s ease-in-out;
 
   &:hover {
     background-position: 0% 100%;
@@ -56,6 +56,7 @@
   }
 
   @media #{$medium} {
+    max-width: 50%;
     padding-top: 50%;
     width: 50%;
   }
@@ -68,11 +69,16 @@
 
 .people-container-person-photo {
   bottom: 0;
+  left: -25%;
   position: absolute;
+  transition: left .5s ease-in-out;
+  //
+  //&:hover {
+  //  left: 0;
+  //}
 
   @media #{$small}, #{$medium} {
-    left: 25%;
-    height: 95%;
+    height: 100%;
     width: auto;
   }
 }
