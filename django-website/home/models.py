@@ -5,6 +5,7 @@ from django.utils.translation import ugettext as _
 from modelcluster.fields import ParentalKey
 
 from wagtail.wagtailcore.models import Page, Orderable
+from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailimages.models import Image
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
@@ -63,7 +64,7 @@ class TeamMember(Orderable):
     firstname = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
     role = models.CharField(max_length=150, help_text=_('Team member company role'))
-    bio = models.TextField(max_length=1000, help_text=_('The team member bio'))
+    bio = RichTextField(max_length=1000, help_text=_('The team member bio'))
     gravatar = models.CharField(max_length=150, help_text=_('Add your Gravatar email'), null=True, blank=True)
     photo = models.ForeignKey(Image, null=True, blank=True, related_name='+')
 
