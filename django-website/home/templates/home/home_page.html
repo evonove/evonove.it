@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load staticfiles %}
+{% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
 
 
@@ -11,8 +12,10 @@
     <div class="splash-cornice">
         <img class="splash-menu-closed js-inject-svg" src="{% static 'svg/menu-closed.svg' %}">
         <img class="splash-logo js-inject-svg" src="{% static 'svg/evonove-logo-xl.svg' %}">
-        <a class="button center">
-            <span>blog</span>
+
+        {% slugurl "blog" as blog_link %}
+        <a class="button center" {% if blog_link %}href="{{ blog_link }}"{% endif %}>
+            <span>Blog</span>
         </a>
     </div>
 </section>
