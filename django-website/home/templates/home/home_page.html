@@ -101,7 +101,7 @@
                 {# Team member detail #}
                 <h2>{{ member.full_name }}</h2>
                 <h3>{{ member.role }}</h3>
-                <p>{{ member.bio }}</p>
+                <p>{{ member.bio|richtext }}</p>
 
                 {# Put here all possible social links #}
                 {% include "home/partials/social_link.html" with link=member.website svg="website" %}
