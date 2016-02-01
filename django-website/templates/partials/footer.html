@@ -1,26 +1,26 @@
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-container-social">
-            <a class="button footer-container-social-button" target="_blank" href="{{ settings.SocialMediaSettings.github }}">
+            <a class="button footer-container-social-button" target="_blank" href="{{ options.github }}">
                 <span>github</span>
             </a>
-            <a class="button footer-container-social-button" target="_blank" href="{{ settings.SocialMediaSettings.twitter }}">
+            <a class="button footer-container-social-button" target="_blank" href="{{ options.twitter }}">
                 <span>twitter</span>
             </a>
-            <a class="button footer-container-social-button" target="_blank" href="{{ settings.SocialMediaSettings.facebook }}">
+            <a class="button footer-container-social-button" target="_blank" href="{{ options.facebook }}">
                 <span>facebook</span>
             </a>
         </div>
         <div class="footer-container-contacts text-white">
             <ul>
-                <li>{{ settings.CompanySettings.email }}</li>
-                <li>Phone: {{ settings.CompanySettings.phone }}</li>
-                <li>{{ settings.CompanySettings.name }} - VAT: {{ settings.CompanySettings.vat }}</li>
+                <li>{{ options.email }}</li>
+                <li>Phone: {{ options.phone }}</li>
+                <li>{{ options.name }} - VAT: {{ options.vat }}</li>
             </ul>
         </div>
         <div class="footer-container-heading text-white">
             <h2 class="footer-container-heading-h2 text-uppercase">Contact</h2>
         </div>
     </div>
-    <p class="footer-copy roboto-font">&copy; Copyright 2016, {{ settings.CompanySettings.name }}.</p>
+    <p class="footer-copy roboto-font">&copy; Copyright 2016, {{ options.name }}.</p>
 </footer>
