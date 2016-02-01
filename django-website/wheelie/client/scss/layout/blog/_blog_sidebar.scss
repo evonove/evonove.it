@@ -28,3 +28,7 @@
 .sidebar-taglist li a {
   color: $light-grey;
 }
+
+.sidebar-taglist li a.is-active {
+  color: $light-green;
+}
