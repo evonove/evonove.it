@@ -109,6 +109,8 @@
 }
 
 .works-container-project .button-icon {
+  display: none;
+  
   @media #{$small}, #{$medium} {
     left: 0;
     margin: auto;
