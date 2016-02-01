@@ -6,6 +6,7 @@
   width: 25%;
 
   @media #{$small}, #{$medium} {
+    order: 1;
     padding: 2.618%;
     width: 100%;
   }

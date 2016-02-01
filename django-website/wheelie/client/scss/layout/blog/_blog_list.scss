@@ -14,6 +14,7 @@
 
   @media #{$small}, #{$medium} {
     margin: auto;
+    order: 2;
     padding: 2.618em 2.618%;
     width: 80%;
   }
