@@ -58,7 +58,7 @@
         <h3 class="sidebar-heading">Featured Tags</h3>
         <ul class="sidebar-taglist">
             {% for tag in page.tags %}
-                <li><a href="?tag={{ tag }}">{{ tag }}</a></li>
+                <li><a {% if current_tag == tag.name %}class="is-active"{% endif %} href="?tag={{ tag }}">{{ tag }}</a></li>
             {% endfor %}
         </ul>
     </div>

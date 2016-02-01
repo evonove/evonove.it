@@ -67,6 +67,7 @@ class BlogIndexPage(Page):
         # Updating the template context
         context = super().get_context(request)
         context['articles'] = articles
+        context['current_tag'] = tag
         return context
 
 
