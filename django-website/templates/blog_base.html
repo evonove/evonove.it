@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
-{% load static from staticfiles %}
+{% load staticfiles %}
+{% load wagtailcore_tags %}
+
 
 {% block content %}
-
-<header class="header-blog">
-    <a href="#"><img class="header-blog-logo js-inject-svg" src="{% static 'svg/evonove-logo-dark.svg' %}"></a>
-    <div class="header-blog-background"></div>
-</header>
-
-{% block blog_main %}{% endblock blog_main %}
-
+    {% slugurl "home" as homepage_link %}
+    <header class="header-blog">
+        <a {% if homepage_link %}href="{{ homepage_link }}"{% endif %}><img class="header-blog-logo js-inject-svg" src="{% static 'svg/evonove-logo-dark.svg' %}"></a>
+        <div class="header-blog-background"></div>
+    </header>
+    {% block blog_main %}{% endblock blog_main %}
 {% endblock content %}
