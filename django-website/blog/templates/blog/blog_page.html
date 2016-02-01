@@ -8,7 +8,7 @@
 <div class="post-detail">
     <article class="article">
         <div class="article-meta">
-            <a class="article-meta-author">Alessio Rapini</a>
+            <a class="article-meta-author">{{ page.owner.get_full_name|default:page.owner }}</a>
             <span class="article-meta-divider">·</span>
             <span class="article-meta-date">{{ page.date|date:"N d, Y" }}</span>
         </div>
