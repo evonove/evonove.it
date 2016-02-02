@@ -57,3 +57,18 @@
     width: 45%;
   }
 }
+
+.splash-cornice-scrolldown {
+  display: inline-block;
+  font: 1rem 'Oswald', sans-serif;
+  margin-top: 1.618em;
+  text-transform: uppercase;
+}
+
+.splash-cornice-scrolldown-downarrow {
+  fill: $light-green;
+  height: 18px;
+  position: relative;
+  top: 3px;
+  width: 18px;
+}
