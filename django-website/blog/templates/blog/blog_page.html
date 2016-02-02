@@ -15,5 +15,7 @@
         <h2 class="article-title">{{ page.title }}</h2>
         {% include "partials/streamfield.html" with content=self.body %}
     </article>
+    {% slugurl "blog" as blog_link %}
+    <a class="post-detail-back" {% if blog_link %}href="{{ blog_link }}"{% endif %}><span>Back to index</span></a>
 </div>
 {% endblock blog_main %}

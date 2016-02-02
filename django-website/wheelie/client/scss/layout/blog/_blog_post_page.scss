@@ -18,3 +18,12 @@
 .post-detail .article-picture-img {
   width: 100%;
 }
+
+.post-detail-back {
+  color: $light-grey;
+  font-family: 'Oswald', sans-serif;
+
+  &:visited {
+    color: $light-grey;
+  }
+}
