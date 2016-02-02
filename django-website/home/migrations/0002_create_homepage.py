@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.db import migrations
 
 
-def create_homepage(apps, schema_editor):
+def load_homepage(apps, schema_editor):
     # Get models
     ContentType = apps.get_model('contenttypes', 'ContentType')
     Page = apps.get_model('wagtailcore', 'Page')
@@ -34,6 +34,21 @@ def create_homepage(apps, schema_editor):
         hostname='localhost', root_page=homepage, is_default_site=True)
 
 
+def unload_homepage(apps, schema_editor):
+    HomePage = apps.get_model('home', 'HomePage')
+    ContentType = apps.get_model('contenttypes.ContentType')
+
+    try:
+        HomePage.objects.get(slug='home').delete()
+    except HomePage.DoesNotExist:
+        pass
+
+    try:
+        ContentType.objects.get(model='homepage').delete()
+    except ContentType.DoesNotExist:
+        pass
+
+
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -41,5 +56,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(create_homepage),
+        migrations.RunPython(load_homepage, reverse_code=unload_homepage),
     ]
