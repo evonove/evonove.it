@@ -6,10 +6,10 @@ from django.db import migrations
 
 def create_homepage(apps, schema_editor):
     # Get models
-    ContentType = apps.get_model('contenttypes.ContentType')
-    Page = apps.get_model('wagtailcore.Page')
-    Site = apps.get_model('wagtailcore.Site')
-    HomePage = apps.get_model('home.HomePage')
+    ContentType = apps.get_model('contenttypes', 'ContentType')
+    Page = apps.get_model('wagtailcore', 'Page')
+    Site = apps.get_model('wagtailcore', 'Site')
+    HomePage = apps.get_model('home', 'HomePage')
 
     # Delete the default homepage
     Page.objects.get(id=2).delete()
