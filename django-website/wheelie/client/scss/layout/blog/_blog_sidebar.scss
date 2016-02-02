@@ -19,17 +19,26 @@
   text-transform: uppercase;
 }
 
-.sidebar-taglist li {
+.sidebar-taglist-tag {
   color: $light-grey;
+  cursor: pointer;
   display: inline-block;
   font-family: 'Oswald', sans-serif;
+  position: relative;
   text-transform: uppercase;
 }
 
-.sidebar-taglist li a {
+.sidebar-taglist-tag a {
   color: $light-grey;
 }
 
+.sidebar-taglist-tag-close {
+  height: 14px;
+  position: absolute;
+  right: -9px;
+  top: -2px;
+  width: 14px;
+}
 .sidebar-taglist li a.is-active {
   color: $light-green;
 }
