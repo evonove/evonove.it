@@ -11,8 +11,11 @@ def load_homepage(apps, schema_editor):
     Site = apps.get_model('wagtailcore', 'Site')
     HomePage = apps.get_model('home', 'HomePage')
 
-    # Delete the default homepage
-    Page.objects.get(id=2).delete()
+    # Delete the default homepage (if any)
+    try:
+        Page.objects.get(id=2).delete()
+    except Page.DoesNotExist:
+        pass
 
     # Create content type for homepage model
     homepage_content_type, created = ContentType.objects.get_or_create(
