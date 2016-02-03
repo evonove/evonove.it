@@ -47,6 +47,14 @@
   position: relative;
   transition: flex-grow .5s ease-in-out;
 
+  /* This solves a bug with flex-box and padding properties that affects Firefox on mobile devices */
+  &::after {
+    content: '';
+    display: block;
+    height: 0;
+    padding-top: 100%;
+  }
+
   &:hover {
     background-position: 0% 100%;
     flex-grow: 6;
