@@ -57,11 +57,21 @@
     <div class="sidebar">
         <h3 class="sidebar-heading">Featured Tags</h3>
         <ul class="sidebar-taglist">
+            {% spaceless %}
             {% for tag in page.tags %}
                 <li class="sidebar-taglist-tag">
-                    <a {% if current_tag == tag.name %}class="is-active"{% endif %} href="?tag={{ tag }}">{{ tag }}</a>
+                    {% if current_tag == tag.name %}
+                        {% slugurl "blog" as blog_link %}
+                        <a class="is-active" href="{{ blog_link }}">
+                            <img class="sidebar-taglist-tag-close js-inject-svg" src="{% static 'svg/close.svg' %}" />
+                            {{ tag }}
+                        </a>
+                    {% else %}
+                        <a href="?tag={{ tag }}">{{ tag }}</a>
+                    {% endif %}
                 </li>
             {% endfor %}
+            {% endspaceless %}
         </ul>
     </div>
 </div>

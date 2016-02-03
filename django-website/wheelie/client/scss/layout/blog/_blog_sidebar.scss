@@ -24,6 +24,7 @@
   cursor: pointer;
   display: inline-block;
   font-family: 'Oswald', sans-serif;
+  padding-right: 1.618em;
   position: relative;
   text-transform: uppercase;
 }
@@ -35,7 +36,7 @@
 .sidebar-taglist-tag-close {
   height: 14px;
   position: absolute;
-  right: -9px;
+  right: 15px;
   top: -2px;
   width: 14px;
 }
