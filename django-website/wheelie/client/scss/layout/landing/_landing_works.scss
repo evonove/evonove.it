@@ -14,6 +14,11 @@
   height: 100%;
   width: 100%;
 
+  /* This solves a bug with flex-basis property that affects Firefox */
+  & > * {
+    min-width: 0;
+  }
+
   @media #{$small}, #{$medium}, #{$large} {
     flex-direction: column;
   }
