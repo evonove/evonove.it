@@ -1,9 +1,20 @@
+.header-blog {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.618em;
+}
+
 .header-blog-logo {
-  margin: 1.618em;
   width: 150px;
 }
 
-.header-blog-background {
+.header-blog-nav-item {
+  display: inline-block;
+  padding: 0.618em;
+}
+
+.blog-background {
   background: url("../image/3d-texture.png") no-repeat 0 100%, $dark-grey;
   background-size: 100%;
   height: 350px;

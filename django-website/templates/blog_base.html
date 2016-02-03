@@ -6,9 +6,16 @@
 
 {% block content %}
     {% slugurl "home" as homepage_link %}
+    {% slugurl "blog" as blog_link %}
+
     <header class="header-blog">
         <a {% if homepage_link %}href="{{ homepage_link }}"{% endif %}><img class="header-blog-logo js-inject-svg" src="{% static 'svg/evonove-logo-dark.svg' %}"></a>
-        <div class="header-blog-background"></div>
+        <ul class="text-uppercase oswald-font">
+            <li class="header-blog-nav-item"><a {% if blog_link %}href="{{ blog_link }}"{% endif %}>Blog</a>
+        </ul>
     </header>
+
+    <div class="blog-background"></div>
+
     {% block blog_main %}{% endblock blog_main %}
 {% endblock content %}
