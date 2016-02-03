@@ -49,11 +49,11 @@ $(document).ready(function() {
         if (currentPosition > 0) {
             currentPosition -= 1;
             slidesBox.css({
-                'left': currentPosition * slideWidth + 'px'
+                'left': currentPosition * -slideWidth + 'px'
             });
             currentPositionCar -=1;
             carouselSlidesBox.css({
-                'left': currentPositionCar * carosulSlideWidth + 'px'
+                'left': currentPositionCar * -carosulSlideWidth + 'px'
             });
         }
     }
