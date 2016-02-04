@@ -17,7 +17,7 @@ from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from .fields import BlogPageStreamBlock
 
 
-class BlogIndexPage(Page):
+class BlogPage(Page):
     @property
     def articles(self):
         """
@@ -89,11 +89,11 @@ class BlogSettings(BaseSetting):
     ]
 
 
-class BlogPageTag(TaggedItemBase):
-    content_object = ParentalKey('BlogPage', related_name='tagged_items')
+class PostTag(TaggedItemBase):
+    content_object = ParentalKey('Post', related_name='tagged_items')
 
 
-class BlogPage(Page):
+class Post(Page):
     cover = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -103,7 +103,7 @@ class BlogPage(Page):
     )
     body = StreamField(BlogPageStreamBlock())
     intro = models.TextField(max_length=600)
-    tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
+    tags = ClusterTaggableManager(through=PostTag, blank=True)
     date = models.DateField(_('Post date'))
 
     search_fields = Page.search_fields + (
