@@ -60,13 +60,12 @@
   }
 
   @media #{$medium} {
+    /* The max-width property assigns the right width to the last container in case of an odd number of people */
     max-width: 50%;
-    padding-top: 50%;
     width: 50%;
   }
 
   @media #{$small} {
-    padding-top: 100%;
     width: 100%;
   }
 }
