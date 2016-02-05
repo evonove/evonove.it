@@ -16,6 +16,7 @@ var vendors = [
 
 var scripts = [
     'people.js',
+    'scroll-down.js',
     'works-slider.js',
     'svg-injections.js'
 ];

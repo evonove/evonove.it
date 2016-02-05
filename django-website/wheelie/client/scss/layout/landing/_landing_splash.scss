@@ -59,9 +59,12 @@
 }
 
 .splash-cornice-scrolldown {
+  color: $light-green;
+  cursor: pointer;
   display: inline-block;
   font: 1rem 'Oswald', sans-serif;
   margin-top: 1.618em;
+  position: relative;
   text-transform: uppercase;
 }
 
