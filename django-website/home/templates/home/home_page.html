@@ -77,7 +77,7 @@
                 <div class="works-container-projectimage-carousel-boxslides">
                     {% for work in page.works.all %}
                     <figure class="works-container-projectimage-carousel-boxslides-figure">
-                        {% image work.cover original class="works-container-projectimage-carousel-boxslides-figure-image" %}
+                        {% image work.cover fill-725x725 class="works-container-projectimage-carousel-boxslides-figure-image" %}
                     </figure>
                     {% endfor %}
                 </div>

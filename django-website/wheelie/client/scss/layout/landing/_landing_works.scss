@@ -201,6 +201,9 @@
 }
 
 .works-container-projectimage-carousel-boxslides-figure-image {
+  width: 100%;
+  height: auto;
+
   @media #{$small}, #{$medium} {
     height: 70%;
     width: 50%;
