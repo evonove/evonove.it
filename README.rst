@@ -14,12 +14,36 @@ Evonove website
 Getting started
 ---------------
 
-The service may be wrapped using NewRelic. In this case, launch the application server with the
-following command:
+Starting this website requires the following backend services up and running:
+
+* Redis
+* PostgreSQL
+
+If your database is running via ``docker-compose`` and the binding *address:port* is exposed to
+the host, you should execute the commands below so that a default user and database are created. Just:
 
 .. code-block:: bash
 
-    $ newrelic-admin run-program uwsgi
+    $ docker exec -ti evonoveit_db_1 su -c "createuser devel -P --createdb" postgres
+    $ docker exec -ti evonoveit_db_1 su -c "createdb evonoveit -O devel" postgres
+
+Populate the database
+~~~~~~~~~~~~~~~~~~~~~
+
+Running migrations isn't enough because the home page requires some data. If you dislike inserting data
+using the admin (or in general be a data insert operator), you can launch the following commands that create
+the database schema, the initial superuser, the blog page linked to the home page and a set of initial data
+for a fake company.
+
+From the ``django-website`` folder, launch:
+
+.. code-block:: bash
+
+    $ python manage.py migrate
+    $ python manage.py createsuperuser
+    $ python manage.py create_blog_page
+    $ python manage.py load_test_data
+    $ python manage.py runserver
 
 Settings
 --------
@@ -74,17 +98,12 @@ Logging and monitoring
 * ``NEW_RELIC_CONFIG_FILE``: sets the NewRelic configuration file ``newrelic.ini``
 * ``SENTRY_DSN``: sets the ``DSN`` value, found in the Sentry setup page
 
-Using docker-compose (optional)
--------------------------------
+Running on production
+---------------------
 
-If your database is up and running via ``docker-compose`` and the binding *address:port* exposes the
-service to the host, you should attach to your ``db`` container to create a default user and the database.
-Launch the following commands:
+The service may be wrapped using NewRelic. In this case, launch the application server with the
+following command:
 
 .. code-block:: bash
 
-    $ docker exec -ti evonoveit_db_1 su -c "createuser devel -P --createdb" postgres
-    $ docker exec -ti evonoveit_db_1 su -c "createdb evonoveit -O devel" postgres
-    $ python manage.py migrate
-    $ python manage.py createsuperuser
-    $ python manage.py runserver
+    $ newrelic-admin run-program uwsgi
