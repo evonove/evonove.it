@@ -94,8 +94,8 @@
         {% if page.team.count %}
             <h1>Team</h1>
         {% else %}
-        <h2 class="people-header-heading">Evonove is made of no one :-(</h2>
-        <h2 class="people-header-heading"><a href="{% url 'wagtailadmin_pages:edit' page.id %}">Add someone using the admin.</a></h2>
+            <h2 class="people-header-placeholder">No team members over here :-(</h2>
+            <h2 class="people-header-placeholder">Add someone <a href="{% url 'wagtailadmin_pages:edit' page.id %}">using the admin.</a></h2>
         {% endif %}
     </div>
     <div class="people-container">
