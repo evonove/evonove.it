@@ -32,7 +32,7 @@ class Command(BaseCommand):
         Integer congue dictum arcu,  at pulvinar felis tincidunt ac. Sed ultrices  dictum elit, in aliquet mauris
         vulputate sit  amet. Nulla condimentum consectetur volutpat.  Nunc dapibus ante vitae feugiat dignissim."""
 
-        media_path = os.path.join(settings.BASE_DIR, "tests", "media")
+        media_path = os.path.join(settings.BASE_DIR, "tests", "assets")
         work_placeholder = File(open(os.path.join(media_path, "works-placeholder.png"), "rb"))
         team_placeholder = File(open(os.path.join(media_path, "man-silhouette.png"), "rb"))
 
