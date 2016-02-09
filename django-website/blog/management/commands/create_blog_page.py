@@ -15,7 +15,7 @@ class Command(BaseCommand):
             raise CommandError('The Homepage does not exist. Be sure to run the first migration.')
 
         # creating the blog page instance
-        blog_content_type, created = ContentType.objects.get_or_create(model='blogindexpage', app_label='blog')
+        blog_content_type, created = ContentType.objects.get_or_create(model='blogpage', app_label='blog')
 
         blog = BlogPage(
             title="Blog",

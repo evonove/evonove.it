@@ -38,7 +38,7 @@ class PullQuoteBlock(StructBlock):
     attribution = CharBlock()
 
 
-class BlogPageStreamBlock(StreamBlock):
+class PostStreamBlock(StreamBlock):
     """
     Defines the ``StreamBlock`` used in the ``BlogPage`` model. This adds a
     dynamic behavior when writing the body of a new blog page. It includes:

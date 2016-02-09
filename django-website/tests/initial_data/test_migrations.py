@@ -12,10 +12,9 @@ class TestMigration:
         Alice is a developer that runs the initial migrations. During the process
         the WagTail core is bootstrapped and a new home page is created.
         The initial migration process should create a customized home page.
-            - Schema and migrations occur
+            - Schema migration occur
             - The default WagTail home page should be deleted
             - A customized HomePage should be created
-            - A customized BlogIndexPage should be created
         """
         default_homepage = Page.objects.filter(id=2)
         homepage = HomePage.objects.filter(slug='home')

@@ -1,0 +1,19 @@
+{% extends "blog_base.html" %}
+
+{% load static from staticfiles %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block blog_main %}
+<div class="post-detail">
+    <article class="article">
+        <div class="article-meta">
+            <a class="article-meta-author">{{ page.owner.get_full_name|default:page.owner }}</a>
+            <span class="article-meta-divider">·</span>
+            <span class="article-meta-date">{{ page.date|date:"N d, Y" }}</span>
+        </div>
+        <h2 class="article-title">{{ page.title }}</h2>
+        {% include "partials/streamfield.html" with content=self.body %}
+    </article>
+</div>
+{% endblock blog_main %}

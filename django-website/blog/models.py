@@ -14,7 +14,7 @@ from wagtail.contrib.settings.models import BaseSetting, register_setting
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, StreamFieldPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
-from .fields import BlogPageStreamBlock
+from .fields import PostStreamBlock
 
 
 class BlogPage(Page):
@@ -23,7 +23,7 @@ class BlogPage(Page):
         """
         Returns a queryset of live blog articles, ordered from the most recent
         """
-        articles = BlogPage.objects.live().descendant_of(self)
+        articles = Post.objects.live().descendant_of(self)
         articles = articles.order_by('-date')
 
         return articles
@@ -34,7 +34,7 @@ class BlogPage(Page):
         Returns a queryset of all available tag ordered by use
         """
         tags = Tag.objects.all()
-        tags = tags.annotate(num_times=models.Count('blog_blogpagetag_items'))
+        tags = tags.annotate(num_times=models.Count('blog_posttag_items'))
         tags = tags.order_by('-num_times')
 
         return tags
@@ -101,7 +101,7 @@ class Post(Page):
         on_delete=models.SET_NULL,
         related_name='+'
     )
-    body = StreamField(BlogPageStreamBlock())
+    body = StreamField(PostStreamBlock())
     intro = models.TextField(max_length=600)
     tags = ClusterTaggableManager(through=PostTag, blank=True)
     date = models.DateField(_('Post date'))

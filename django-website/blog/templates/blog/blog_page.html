@@ -1,19 +1,78 @@
 {% extends "blog_base.html" %}
 
-{% load static from staticfiles %}
+{% load staticfiles %}
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
+{% load blog_tags %}
+
 
 {% block blog_main %}
-<div class="post-detail">
-    <article class="article">
-        <div class="article-meta">
-            <a class="article-meta-author">{{ page.owner.get_full_name|default:page.owner }}</a>
-            <span class="article-meta-divider">·</span>
-            <span class="article-meta-date">{{ page.date|date:"N d, Y" }}</span>
+<div class="main">
+    <div class="list">
+        {% for article in articles %}
+        <div class="list-block">
+            <article class="article">
+                <h2 class="article-title">{{ article.title }}</h2>
+                <div class="article-meta">
+                    <a class="article-meta-author">{{ page.owner.get_full_name|default:page.owner }}</a>
+                    <span class="article-meta-divider">·</span>
+                    <span class="article-meta-date">{{ article.date|date:"N d, Y" }}</span>
+                </div>
+
+                {% if article.cover %}
+                    <figure class="article-preview">
+                        {% image article.cover original class="article-preview-img" %}
+                    </figure>
+                {% endif %}
+
+                <p class="article-post">{{ article.intro }}</p>
+            </article>
+            <a href="{% pageurl article %}" class="list-block-readmore">Read more...</a>
+            <div class="list-block-divider"></div>
         </div>
-        <h2 class="article-title">{{ page.title }}</h2>
-        {% include "partials/streamfield.html" with content=self.body %}
-    </article>
+        {% endfor %}
+
+        {% if articles.paginator.num_pages > 1 %}
+        <ul class="paginator list-paginator" role="menubar">
+            {% if articles.has_previous %}
+                <li class="paginator-first"><a href="?page=1"><img class="paginator-icon js-inject-svg" src="{% static 'svg/left-double-arrows.svg' %}"></a></li>
+                <li class="paginator-previous"><a href="{% replace_query_link 'page' articles.previous_page_number %}"><img class="paginator-icon js-inject-svg" src="{% static 'svg/left-arrow.svg' %}"></a></li>
+            {% endif %}
+
+            {% for item in articles.paginator.page_range %}
+                {% if articles.number == item %}
+                    <li class="paginator-page is-current">{{ item }}</li>
+                {% else %}
+                    <li class="paginator-page"><a href="{% replace_query_link 'page' item %}">{{ item }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+            {% if articles.has_next %}
+                <li class="paginator-next"><a href="{% replace_query_link 'page' articles.next_page_number %}"><img class="paginator-icon js-inject-svg" src="{% static 'svg/right-arrow.svg' %}"></a></li>
+                <li class="paginator-last"><a href="{% replace_query_link 'page' articles.paginator.num_pages %}"><img class="paginator-icon js-inject-svg" src="{% static 'svg/right-double-arrows.svg' %}"></a></li>
+            {% endif %}
+        </ul>
+        {% endif %}
+    </div>
+    <div class="sidebar">
+        <h3 class="sidebar-heading">Featured Tags</h3>
+        <ul class="sidebar-taglist">
+            {% spaceless %}
+            {% for tag in page.tags %}
+                <li class="sidebar-taglist-tag">
+                    {% if current_tag == tag.name %}
+                        {% slugurl "blog" as blog_link %}
+                        <a class="is-active" href="{{ blog_link }}">
+                            <img class="sidebar-taglist-tag-close js-inject-svg" src="{% static 'svg/close.svg' %}" />
+                            {{ tag }}
+                        </a>
+                    {% else %}
+                        <a href="?tag={{ tag }}">{{ tag }}</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+            {% endspaceless %}
+        </ul>
+    </div>
 </div>
 {% endblock blog_main %}
