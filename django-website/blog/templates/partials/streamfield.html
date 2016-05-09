@@ -24,6 +24,10 @@
                 </div>
             {% endif %}
         </figure>
+    {% elif child.block_type == 'youtube' %}
+        <div class="videoWrapper">
+            {{ child }}
+        </div>
     {% else %}
         {{ child }}
     {% endif %}

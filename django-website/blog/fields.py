@@ -3,6 +3,7 @@ from django.utils.translation import ugettext as _
 
 from wagtail.wagtailcore.blocks import StructBlock, StreamBlock, CharBlock, RichTextBlock, TextBlock, FieldBlock
 from wagtail.wagtailimages.blocks import ImageChooserBlock
+from wagtail.wagtailembeds.blocks import EmbedBlock
 
 
 class ImageFormatBlock(FieldBlock):
@@ -38,6 +39,12 @@ class PullQuoteBlock(StructBlock):
     attribution = CharBlock()
 
 
+class YouTubeBlock(StructBlock):
+    """
+    """
+    identifier = EmbedBlock()
+
+
 class PostStreamBlock(StreamBlock):
     """
     Defines the ``StreamBlock`` used in the ``BlogPage`` model. This adds a
@@ -46,10 +53,12 @@ class PostStreamBlock(StreamBlock):
         - a paragraph
         - an image that could be aligned on the left, on the right, in the center
           or with a full width
+        - a YouTube embedded iframe
         - a quote with a proper attribution
     """
     h2 = CharBlock(icon="title")
     h3 = CharBlock(icon="title")
     paragraph = RichTextBlock(icon="pilcrow")
     aligned_image = ImageBlock(label=_("Aligned image"), icon="image")
+    youtube = YouTubeBlock(icon="image")
     pullquote = PullQuoteBlock(icon="openquote")
