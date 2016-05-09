@@ -11,6 +11,15 @@ SESSION_COOKIE_SECURE = env('DJANGO_SESSION_COOKIE_SECURE', True)
 # safely be cached forever
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+# load media files via S3
+DEFAULT_FILE_STORAGE = 'django_s3_storage.storage.S3Storage'
+AWS_REGION = 'eu-central-1'
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+AWS_S3_BUCKET_NAME = env('AWS_S3_BUCKET_NAME')
+# uploads is not authenticated so all files are public
+AWS_S3_BUCKET_AUTH = env('AWS_S3_BUCKET_AUTH', False)
+
 # emails
 DEFAULT_EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 

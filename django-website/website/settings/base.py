@@ -34,6 +34,14 @@ DEBUG = env('DJANGO_DEBUG', False)
 
 # apps and middleware
 INSTALLED_APPS = (
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django_s3_storage',
+
     'wagtail.contrib.wagtailsitemaps',
     'wagtail.wagtailredirects',
     'wagtail.wagtailsites',
@@ -45,13 +53,6 @@ INSTALLED_APPS = (
 
     'modelcluster',
     'taggit',
-
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
 
     'options',
     'home',
@@ -122,12 +123,16 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-ASSETS_ROOT = env("DJANGO_ASSETS_ROOT", BASE_DIR)
-
-STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
+# static files and media
+ASSETS_ROOT = env('DJANGO_ASSETS_ROOT', BASE_DIR)
 STATIC_ROOT = os.path.join(ASSETS_ROOT, 'static')
 MEDIA_ROOT = os.path.join(ASSETS_ROOT, 'media')
+
+# using a CDN if available
+STATIC_HOST = os.environ.get('DJANGO_STATIC_HOST', '')
+MEDIA_HOST = os.environ.get('DJANGO_MEDIA_HOST', '')
+STATIC_URL = STATIC_HOST + '/static/'
+MEDIA_URL = MEDIA_HOST + '/media/'
 
 # emails
 DEFAULT_FROM_EMAIL = env('DJANGO_FROM_EMAIL')
