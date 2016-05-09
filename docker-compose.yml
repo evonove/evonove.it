@@ -1,11 +1,11 @@
 # This file must be used only for development purposes
 
 db:
-    image: library/postgres:9.5.0
+    image: library/postgres:9.5.2
     ports:
         - "5432:5432"
 
 redis:
-    image: library/redis:3.0.6
+    image: library/redis:3.2.0
     ports:
         - "6379:6379"
