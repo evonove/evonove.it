@@ -4,6 +4,10 @@ db:
     image: library/postgres:9.5.2
     ports:
         - "5432:5432"
+    environment:
+        - POSTGRES_USER=devel
+        - POSTGRES_PASSWORD=123456
+        - POSTGRES_DB=evonoveit
 
 redis:
     image: library/redis:3.0.7

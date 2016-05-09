@@ -19,13 +19,9 @@ Starting this website requires the following backend services up and running:
 * Redis
 * PostgreSQL
 
-If your database is running via ``docker-compose`` and the binding *address:port* is exposed to
-the host, you should execute the commands below so that a default user and database are created. Just:
+If you want to launch your backend services via ``docker-compose``, just::
 
-.. code-block:: bash
-
-    $ docker exec -ti evonoveit_db_1 su -c "createuser devel -P --createdb" postgres
-    $ docker exec -ti evonoveit_db_1 su -c "createdb evonoveit -O devel" postgres
+    $ docker-compose up
 
 Populate the database
 ~~~~~~~~~~~~~~~~~~~~~
@@ -35,9 +31,7 @@ using the admin (or in general be a data insert operator), you can launch the fo
 the database schema, the initial superuser, the blog page linked to the home page and a set of initial data
 for a fake company.
 
-From the ``django-website`` folder, launch:
-
-.. code-block:: bash
+From the ``django-website`` folder, launch::
 
     $ python manage.py migrate
     $ python manage.py createsuperuser
@@ -102,8 +96,6 @@ Running on production
 ---------------------
 
 The service may be wrapped using NewRelic. In this case, launch the application server with the
-following command:
-
-.. code-block:: bash
+following command::
 
     $ newrelic-admin run-program uwsgi
