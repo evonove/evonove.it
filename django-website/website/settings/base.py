@@ -44,7 +44,6 @@ INSTALLED_APPS = (
     'wagtail.contrib.settings',
 
     'modelcluster',
-    'compressor',
     'taggit',
 
     'django.contrib.admin',
@@ -123,13 +122,6 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# static files and media
-STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
-]
-
 ASSETS_ROOT = env("DJANGO_ASSETS_ROOT", BASE_DIR)
 
 STATIC_URL = '/static/'
@@ -146,6 +138,10 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', EMAIL_BACKEND_DEFAULT)
 # logging
 LOGSTASH_HOST = env("LOGSTASH_HOST", "127.0.0.1")
 LOGSTASH_PORT = env("LOGSTASH_PORT", 5000)
+
+# Wagtail settings
+WAGTAIL_SITE_NAME = "Evonove"
+TAGGIT_CASE_INSENSITIVE = True
 
 LOGGING = {
     'version': 1,
@@ -179,8 +175,3 @@ LOGGING = {
         },
     },
 }
-
-# Wagtail settings
-WAGTAIL_SITE_NAME = "Evonove"
-TAGGIT_CASE_INSENSITIVE = True
-COMPRESS_OFFLINE = True
