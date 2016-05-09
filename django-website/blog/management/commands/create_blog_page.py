@@ -1,3 +1,5 @@
+from django.db import transaction
+from django.core.exceptions import ValidationError
 from django.core.management.base import BaseCommand, CommandError
 from django.contrib.contenttypes.models import ContentType
 
@@ -8,6 +10,7 @@ from blog.models import BlogPage
 class Command(BaseCommand):
     help = 'Creates the initial blog page to the root homepage'
 
+    @transaction.atomic
     def handle(self, *args, **options):
         try:
             homepage = HomePage.objects.get(slug='home')
@@ -15,13 +18,19 @@ class Command(BaseCommand):
             raise CommandError('The Homepage does not exist. Be sure to run the first migration.')
 
         # creating the blog page instance
-        blog_content_type, created = ContentType.objects.get_or_create(model='blogpage', app_label='blog')
+        content_type, _ = ContentType.objects.get_or_create(model='blogpage', app_label='blog')
 
         blog = BlogPage(
-            title="Blog",
+            content_type=content_type,
+            title='Blog',
             slug='blog',
-            content_type=blog_content_type,
+            path='000100010001',
+            depth=3,
         )
 
         # linking the blog page with the Homepage
-        homepage.add_child(instance=blog)
+        try:
+            homepage.add_child(instance=blog)
+            self.stdout.write(self.style.SUCCESS('Blog index page created!'))
+        except ValidationError:
+            self.stdout.write('Blog index page already exists; nothing to do')
