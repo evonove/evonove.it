@@ -8,6 +8,7 @@
 apipkg==1.4               # via execnet
 backports.shutil-get-terminal-size==1.0.0  # via ipython
 beautifulsoup4==4.4.1     # via wagtail
+boto==2.40.0              # via django-s3-storage
 contextlib2==0.5.3        # via raven
 coverage==4.0.3
 decorator==4.0.9          # via ipython, traitlets
@@ -15,6 +16,7 @@ dj-database-url==0.4.1
 django-getenv==1.3.1
 django-modelcluster==1.1  # via wagtail
 django-redis==4.4.2
+django-s3-storage==0.9.8
 django-taggit==0.18.2     # via wagtail
 django-treebeard==4.0.1   # via wagtail
 django==1.9.6
