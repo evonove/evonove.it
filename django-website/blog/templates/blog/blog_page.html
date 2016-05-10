@@ -14,7 +14,7 @@
             <article class="article">
                 <h2 class="article-title">{{ article.title }}</h2>
                 <div class="article-meta">
-                    <a class="article-meta-author">{{ page.owner.get_full_name|default:page.owner }}</a>
+                    <a class="article-meta-author">{{ article.owner.get_full_name|default:article.owner }}</a>
                     <span class="article-meta-divider">·</span>
                     <span class="article-meta-date">{{ article.date|date:"N d, Y" }}</span>
                 </div>
