@@ -23,11 +23,13 @@
 .expertise-container-textbox {
   align-items: center;
   justify-content: center;
+  padding: 0 2.618%;
   width: 75%;
 
   @media #{$small}, #{$medium} {
     &:not(:first-child) {
       margin-top: 2.618em;
+      padding: 0 0.618%;
     }
   }
 }
