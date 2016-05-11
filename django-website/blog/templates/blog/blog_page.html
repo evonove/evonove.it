@@ -21,7 +21,8 @@
 
                 {% if article.cover %}
                     <figure class="article-preview">
-                        {% image article.cover original class="article-preview-img" %}
+                        {% image article.cover original as cover %}
+                        <img src="{{cover.url}}" class="article-preview-img" />
                     </figure>
                 {% endif %}
 
