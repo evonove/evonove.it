@@ -14,6 +14,13 @@ $(document).ready(function() {
         description.css({
             'left': personWidth * 1.5
         });
+
+        person.hover(personHover);
+
+        function personHover() {
+            var photo = $(this).find('.people-container-person-photo');
+            photo.toggleClass('left');
+        }
     }
 
     if (mobile) {

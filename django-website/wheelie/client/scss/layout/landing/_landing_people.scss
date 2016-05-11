@@ -39,7 +39,6 @@
 }
 
 .people-container-person {
-  background: radial-gradient(ellipse farthest-corner at 45px 45px, $light-grey -82%, transparent 50%, $dark-grey 95%);
   flex-grow: 1;
   height: 100%;
   overflow: hidden;
@@ -76,11 +75,17 @@
 
 .people-container-person-photo {
   bottom: 0;
+  left: -125px;
   position: absolute;
+  transition: left $person-transition ease;
 
   @media #{$small}, #{$medium} {
     height: 100%;
     width: auto;
+  }
+
+  &.left {
+    left: 0;
   }
 }
 
