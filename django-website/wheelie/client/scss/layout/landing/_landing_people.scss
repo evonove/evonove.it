@@ -45,12 +45,30 @@
   position: relative;
   transition: .5s ease-in-out;
 
-  /* This solves a bug with flex-box and padding properties that affects Firefox on mobile devices */
-  &::after {
+  &::before {
     content: '';
+
+    /* The declarations below solve a bug that affects flex-box on Firefox on mobile devices */
+    @media #{$small}, #{$medium} {
+      display: block;
+      height: 0;
+      padding-top: 100%;
+    }
+  }
+
+  &::after {
+    background: linear-gradient(to left,rgba(0,0,0,.5) 0%,rgba(0,0,0,0) 100%);
+    border-right: 1px solid $white;
+    content: " ";
     display: block;
-    height: 0;
-    padding-top: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    width: 35px;
+
+    @media #{$small}, #{$medium} {
+      content: 'none';
+    }
   }
 
   &:hover {
