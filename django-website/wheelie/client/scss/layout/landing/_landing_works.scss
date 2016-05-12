@@ -52,6 +52,10 @@
 .works-container-project-slider {
   overflow: hidden;
   width: 80%;
+
+  @media #{$small}, #{$medium}, #{$large} {
+    margin: auto;
+  }
 }
 
 .works-container-project-slider ul {
@@ -79,18 +83,9 @@
 
 .works-container-project-navigator {
   margin: 1.618em 0;
-}
-
-.works-container-project-slider {
-  @media #{$small}, #{$medium}, #{$large} {
-    margin: auto;
-  }
-}
-
-.works-container-project-navigator {
   width: 50px;
 
-  @media #{$small}, #{$medium} {
+  @media #{$small}, #{$medium}, #{$large} {
     margin: 1.618em auto;
   }
 }
@@ -132,8 +127,20 @@
 
   @media #{$small}, #{$medium}, #{$large} {
     flex-basis: auto;
-    margin-top: 4.2em;
+    margin-top: 1.618em;
     width: 80%;
+  }
+
+  @media #{$large} {
+    height: 1000px;
+  }
+
+  @media #{$medium} {
+    height: 650px;
+  }
+
+  @media #{$medium} {
+    height: 350px;
   }
 }
 
@@ -206,6 +213,6 @@
 
   @media #{$small}, #{$medium} {
     height: 70%;
-    width: 50%;
+    width: 100%;
   }
 }
