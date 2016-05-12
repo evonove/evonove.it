@@ -50,7 +50,9 @@
                     {% for work in page.works.all %}
                         <li class="works-container-project-slider-slide">
                             <h2>{{ work.name }}</h2>
-                            <h3></h3>
+                            {% if work.customer %}
+                                <h3>{{ work.customer }}</h3>
+                            {% endif %}
                             <p>{{ work.description }}</p>
                         </li>
                     {% endfor %}
