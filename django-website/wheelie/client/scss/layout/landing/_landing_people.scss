@@ -20,6 +20,7 @@
   z-index: $z-people-header;
 
   @media #{$small}, #{$medium} {
+    background: $dark-grey;
     padding: 2.618em 15% 5%;
     position: relative;
   }
