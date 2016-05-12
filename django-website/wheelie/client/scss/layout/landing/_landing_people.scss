@@ -43,7 +43,7 @@
   height: 100%;
   overflow: hidden;
   position: relative;
-  transition: flex-grow .5s ease-in-out;
+  transition: .5s ease-in-out;
 
   /* This solves a bug with flex-box and padding properties that affects Firefox on mobile devices */
   &::after {
