@@ -45,7 +45,7 @@
   }
 
   @media #{$small} {
-    width: 85%;
+    width: 100%;
   }
 }
 
@@ -126,6 +126,7 @@
   position: relative;
 
   @media #{$small}, #{$medium}, #{$large} {
+    display: none;
     flex-basis: auto;
     margin-top: 1.618em;
     width: 80%;

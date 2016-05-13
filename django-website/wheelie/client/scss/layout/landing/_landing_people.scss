@@ -4,7 +4,7 @@
   min-height: 750px;
   position: relative;
 
-  @media #{$small}, #{$medium} {
+  @media #{$small}, #{$medium}, #{$large} {
     height: auto;
   }
 }
@@ -19,7 +19,7 @@
   text-transform: uppercase;
   z-index: $z-people-header;
 
-  @media #{$small}, #{$medium} {
+  @media #{$small}, #{$medium}, #{$large} {
     background: $dark-grey;
     padding: 2.618em 15% 5%;
     position: relative;
@@ -34,7 +34,7 @@
   display: flex;
   height: 100%;
 
-  @media #{$small}, #{$medium} {
+  @media #{$small}, #{$medium}, #{$large} {
     flex-wrap: wrap;
   }
 }
@@ -50,7 +50,7 @@
     content: '';
 
     /* The declarations below solve a bug that affects flex-box on Firefox on mobile devices */
-    @media #{$small}, #{$medium} {
+    @media #{$small}, #{$medium}, #{$large} {
       display: block;
       height: 0;
       padding-top: 100%;
@@ -67,7 +67,7 @@
     right: 0;
     width: 35px;
 
-    @media #{$small}, #{$medium} {
+    @media #{$small}, #{$medium}, #{$large} {
       content: 'none';
     }
   }
@@ -77,11 +77,11 @@
     flex-grow: 6;
   }
 
-  @media #{$small}, #{$medium} {
+  @media #{$small}, #{$medium}, #{$large} {
     font-size: 14px;
   }
 
-  @media #{$medium} {
+  @media #{$medium}, #{$large} {
     /* The max-width property assigns the right width to the last container in case of an odd number of people */
     max-width: 50%;
     width: 50%;
@@ -98,7 +98,7 @@
   position: absolute;
   transition: left $person-transition ease;
 
-  @media #{$small}, #{$medium} {
+  @media #{$small}, #{$medium}, #{$large} {
     height: 100%;
     left: 0;
     width: auto;
@@ -117,7 +117,7 @@
   position: absolute;
   width: 23vw;
 
-  @media #{$small}, #{$medium} {
+  @media #{$small}, #{$medium}, #{$large} {
     background-color: transparentize($light-green, 0.3);
     bottom: 0;
     font-size: $p-smaller;
@@ -134,13 +134,13 @@
 }
 
 .people-container-person-description h2 {
-  @media #{$small}, #{$medium} {
+  @media #{$small}, #{$medium}, #{$large} {
     font-size: $h2 / 1.618;
   }
 }
 
 .people-container-person-description h3 {
-  @media #{$small}, #{$medium} {
+  @media #{$small}, #{$medium}, #{$large} {
     font-size: $h3 / 1.618;
   }
 }

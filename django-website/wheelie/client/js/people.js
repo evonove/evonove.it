@@ -1,7 +1,8 @@
 $(document).ready(function() {
 
     var mobile;
-    if ($(window).width() < 950) {
+    /* this value is set with the $large media query */
+    if ($(window).width() < 1128) {
         mobile = 1;
     }
 
