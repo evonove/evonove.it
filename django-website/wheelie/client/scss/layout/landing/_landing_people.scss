@@ -1,7 +1,7 @@
 .people {
   background-color: $dark-grey;
   height: 75%;
-  min-height: 750px;
+  min-height: 850px;
   position: relative;
 
   @media #{$small}, #{$medium}, #{$large} {
@@ -74,7 +74,11 @@
 
   &:hover {
     background-position: 0% 100%;
-    flex-grow: 6;
+    flex-grow: 8;
+
+    @media #{$big-monitor} {
+      flex-grow: 6;
+    }
   }
 
   @media #{$small}, #{$medium}, #{$large} {
@@ -105,7 +109,11 @@
   }
 
   &.left {
-    left: 0;
+    left: -45px;
+
+    @media #{$big-monitor} {
+      left: 0;
+    }
   }
 }
 
@@ -113,15 +121,21 @@
   bottom: 1.618em;
   color: $white;
   left: 0;
+  margin-left: 130px;
   overflow: hidden;
   position: absolute;
   width: 23vw;
+
+  @media #{$big-monitor} {
+    margin-left: 0;
+  }
 
   @media #{$small}, #{$medium}, #{$large} {
     background-color: transparentize($light-green, 0.3);
     bottom: 0;
     font-size: $p-smaller;
     height: 90%;
+    margin-left: 0;
     opacity: 0;
     padding: 5%;
     transition: opacity $person-transition ease-in;
