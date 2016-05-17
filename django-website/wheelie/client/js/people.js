@@ -25,9 +25,10 @@ $(document).ready(function() {
     }
 
     if (mobile) {
-        description.click(function() {
-            $(this).toggleClass('fade-in');
-            description.not(this).removeClass('fade-in');
+        person.click(function() {
+            var thisDescription = $(this).find('.people-container-person-description');
+            thisDescription.toggleClass('fade-in');
+            description.not(thisDescription).removeClass('fade-in');
         });
     }
 });

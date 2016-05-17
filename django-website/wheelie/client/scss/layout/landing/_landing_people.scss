@@ -131,19 +131,20 @@
   }
 
   @media #{$small}, #{$medium}, #{$large} {
-    background-color: transparentize($light-green, 0.3);
+    background-color: transparentize($dark-grey, 0.3);
     bottom: 0;
+    display: none;
     font-size: $p-smaller;
     height: 90%;
     margin-left: 0;
     opacity: 0;
     padding: 5%;
-    transition: opacity $person-transition ease-in;
     width: 90%;
   }
 }
 
 .people-container-person-description.fade-in {
+  display: block;
   opacity: 1;
 }
 
