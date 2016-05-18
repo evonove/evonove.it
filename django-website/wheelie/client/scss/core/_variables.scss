@@ -21,12 +21,3 @@ $z-people-header: 1000;
 // Transitions
 
 $person-transition: 0.5s;
-
-
-// Generics
-
-/* Useful for vertically centering text inside buttons */
-$button-height: 56px;
-
-/* Useful so that button has an initial left margin of 0. The left part of darker rectangle occupies a negative left margin, this value fixes the problem.  */
-$button-shift-left: 5px;

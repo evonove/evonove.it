@@ -10,6 +10,7 @@
 }
 
 .footer-container {
+  align-items: center;
   display: flex;
   justify-content: flex-end;
   padding: 2.618em 0;
@@ -26,10 +27,6 @@
     }
   }
 
-  & * + * {
-    margin-top: 1.618em;
-  }
-
   @media #{$medium}, #{$large} {
     align-items: flex-start;
     padding-left: 2.618em;
@@ -42,20 +39,27 @@
 }
 
 .footer-container-social {
+  & > * + * {
+    margin-top: 1.618em;
+  }
+
   @media #{$small}, #{$medium}, #{$large} {
     order: 2;
   }
 }
 
-.footer-container-social-button {
+.footer-container-social .button {
   @media #{$medium}, #{$large} {
     margin-left: auto;
-    margin-right: auto;
   }
 
   @media #{$small} {
     margin-top: 1.618em;
   }
+}
+
+.footer-container-contacts ul > * + * {
+  margin-top: 1.618em;
 }
 
 .footer-container-heading {

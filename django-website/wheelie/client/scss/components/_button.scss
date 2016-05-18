@@ -1,45 +1,73 @@
 /* main button */
 
 .button {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  font: $span-button 'Oswald';
+  height: 58px;
+  position: relative;
+  text-transform: uppercase;
+  width: 158px;
+}
+
+.button-lines {
   border: 1px solid $dark-green;
   color: $light-green;
-  cursor: pointer;
-  font: $span-button 'Oswald';
-  display: block;
-  height: $button-height;
+  height: 56px;
+  margin: auto;
   position: relative;
   text-align: center;
-  text-transform: uppercase;
+  transition: 0.5s ease;
   width: 148px;
+  z-index: 10;
 
   &::before {
     content: '';
     border: 1px solid $light-green;
     height: 48px;
-    left: -$button-shift-left;
+    left: -5px;
     position: absolute;
     top: 3px;
+    transition: 0.5s ease;
     width: 156px;
+  }
+
+  &:hover {
+    height: 48px;
+    width: 156px;
+    transition: 0.5s ease;
+
+    &::before {
+      height: 56px;
+      left: 3px;
+      top: -5px;
+      transition: 0.5s ease;
+      width: 148px;
+    }
   }
 }
 
 .button span {
-  line-height: $button-height;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* icon button */
 
 .button-icon {
-  height: $button-height - 8;
+  height: 48px;
   width: 40px;
 
   &::before {
     height: 40px;
-    width: $button-height - 8;
+    width: 48px;
   }
 }
 
 .button-icon span {
   font-size: $span-button-icon;
-  line-height: $button-height - 8;
+  line-height: 48px;
 }

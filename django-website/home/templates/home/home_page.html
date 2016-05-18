@@ -15,7 +15,8 @@
 
         {% slugurl "blog" as blog_link %}
         <a class="button center" {% if blog_link %}href="{{ blog_link }}"{% endif %}>
-            <span>Blog</span>
+            <div class="button-lines"></div>
+            <span>BLOG</span>
         </a>
         <div class="splash-cornice-scrolldown">
             <img class="splash-cornice-scrolldown-downarrow js-inject-svg" src="{% static 'svg/down-arrow.svg' %}">
