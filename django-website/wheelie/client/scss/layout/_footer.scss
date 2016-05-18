@@ -28,7 +28,6 @@
   }
 
   @media #{$medium}, #{$large} {
-    align-items: flex-start;
     padding-left: 2.618em;
   }
 
@@ -71,11 +70,6 @@
   display: inline-block;
   transform: rotate(90deg);
   transform-origin: center center;
-
-  @media #{$medium}, #{$large} {
-    margin: 0;
-    transform-origin: 50% 100%;
-  }
 
   @media #{$small} {
     display: none;
