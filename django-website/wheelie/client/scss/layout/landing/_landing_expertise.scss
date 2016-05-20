@@ -1,9 +1,27 @@
 .expertise {
   background: url("../image/particles.png") repeat center;
   height: 100%;
+  position: relative;
 
   @media #{$small}, #{$medium} {
     height: auto;
+  }
+}
+
+.expertise .heading {
+  position: absolute;
+  left: 50%;
+  top: 6.853em;
+  transform: translateX(-50%);
+
+  @media #{$small}, #{$medium}, #{$large} {
+    margin-top: 6.853em;
+    position: relative;
+    top: 0;
+  }
+
+  @media #{$small} {
+    width: 215px;
   }
 }
 

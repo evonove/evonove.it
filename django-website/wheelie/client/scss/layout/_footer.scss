@@ -66,14 +66,19 @@
   text-align: center;
 }
 
-.footer-container-heading-h2 {
+.footer-container-heading .heading {
   display: inline-block;
   transform: rotate(90deg);
   transform-origin: center center;
+  width: 220px;
 
   @media #{$small} {
     display: none;
   }
+}
+
+.footer-container-heading .heading text {
+  font-size: 2.618rem;
 }
 
 .footer-copy {

@@ -1,0 +1,23 @@
+.heading {
+  height: 75px;
+  width: 345px;
+}
+
+.heading text {
+  fill-opacity: 0;
+  font: 4.236rem Roboto, sans-serif;
+  text-transform: uppercase;
+
+  &.bottom {
+    stroke: $dark-green;
+  }
+
+  &.top {
+    stroke: $light-green;
+    transform: translate(5px, 5px);
+  }
+
+  @media #{$small} {
+    font-size: 2.618rem;
+  }
+}

@@ -23,6 +23,16 @@
     background: $dark-grey;
     padding: 2.618em 15% 5%;
     position: relative;
+    text-align: center;
+  }
+}
+
+.people-header .heading {
+  margin: 2.618em 0;
+  width: 185px;
+
+  @media #{$small} {
+    width: 120px;
   }
 }
 

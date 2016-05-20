@@ -49,6 +49,19 @@
   }
 }
 
+.works-container-project .heading {
+  margin: 4.236em 0;
+  width: 340px;
+
+  @media #{$small}, #{$medium}, #{$large} {
+    margin: 4.236em auto;
+  }
+
+  @media #{$small} {
+    width: 210px;
+  }
+}
+
 .works-container-project-slider {
   overflow: hidden;
   width: 80%;

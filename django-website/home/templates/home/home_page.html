@@ -27,6 +27,10 @@
 </section>
 
 <section class="expertise">
+    <svg class="heading">
+        <text class="bottom" x="0" y="60">Expertise</text>
+        <text class="top" x="0" y="60">Expertise</text>
+    </svg>
     <div class="expertise-container">
         {% for service in page.services.all|slice:":3" %}
         <div class="expertise-container-textbox">
@@ -45,7 +49,10 @@
         {% if page.works.all %}
         <div class="works-container-offset"></div>
         <div class="works-container-project">
-            <h1>PROJECTS</h1>
+            <svg class="heading">
+                <text class="bottom" x="0" y="60">Projects</text>
+                <text class="top" x="0" y="60">Projects</text>
+            </svg>
             <div class="works-container-project-slider">
                 <ul>
                     {% for work in page.works.all %}
@@ -96,7 +103,10 @@
 <section class="people">
     <div class="people-header">
         {% if page.team.count %}
-            <h1>Team</h1>
+            <svg class="heading">
+                <text class="bottom" x="0" y="60">Team</text>
+                <text class="top" x="0" y="60">Team</text>
+            </svg>
         {% else %}
             <h2 class="people-header-placeholder">No team members over here :-(</h2>
             <h2 class="people-header-placeholder">Add someone <a href="{% url 'wagtailadmin_pages:edit' page.id %}">using the admin.</a></h2>
