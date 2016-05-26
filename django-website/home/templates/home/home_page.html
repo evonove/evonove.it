@@ -46,57 +46,7 @@
 
 <section class="works">
     <div class="works-container">
-        {% if page.works.all %}
-        <div class="works-container-offset"></div>
-        <div class="works-container-project">
-            <svg class="heading">
-                <text class="bottom" x="0" y="60">Projects</text>
-                <text class="top" x="0" y="60">Projects</text>
-            </svg>
-            <div class="works-container-project-slider">
-                <ul>
-                    {% for work in page.works.all %}
-                        <li class="works-container-project-slider-slide">
-                            <h2>{{ work.name }}</h2>
-                            {% if work.customer %}
-                                <h3>{{ work.customer }}</h3>
-                            {% endif %}
-                            <p>{{ work.description }}</p>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="works-container-project-navigator">
-                <div class="works-container-project-navigator-left">
-                    <img class="js-inject-svg" src="{% static 'svg/left-arrow.svg' %}">
-                </div>
-                <div class="works-container-project-navigator-right">
-                    <img class="works-container-project-navigator-right js-inject-svg" src="{% static 'svg/right-arrow.svg' %}">
-                </div>
-            </div>
-            <a class="button button-icon works-container-project-buttonplus">
-                <span>+</span>
-            </a>
-        </div>
-        <div class="works-container-projectimage">
-            <div class="works-container-projectimage-circles">
-                <img class="works-container-projectimage-circles-particles js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
-                <img class="works-container-projectimage-circles-particles js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
-                <img class="works-container-projectimage-circles-particles js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
-            </div>
-            <div class="works-container-projectimage-carousel">
-                <div class="works-container-projectimage-carousel-boxslides">
-                    {% for work in page.works.all %}
-                    <figure class="works-container-projectimage-carousel-boxslides-figure">
-                        {% image work.cover fill-725x725 class="works-container-projectimage-carousel-boxslides-figure-image" %}
-                    </figure>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        {% else %}
-            <div class="full-width text-center"><h2>This section is empty, update the page <a href="{% url 'wagtailadmin_pages:edit' page.id %}">using the admin.</a></h2></div>
-        {% endif %}
+
     </div>
 </section>
 
