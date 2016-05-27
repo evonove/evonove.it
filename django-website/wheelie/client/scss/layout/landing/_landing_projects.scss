@@ -13,6 +13,25 @@
   overflow: hidden;
   position: relative;
 
+  &::after {
+    background: rgba(32, 182, 182, 0);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transition: background 0.3s;
+    z-index: 10;
+  }
+
+  &:hover {
+    &::after {
+      background: rgba(32, 182, 182, 0.65);
+      transition: background 0.3s;
+    }
+  }
+
   &.landscape {
     height: 384px;
     width: 480px;
@@ -28,6 +47,7 @@
   bottom: 0;
   padding: 1.618em;
   position: absolute;
+  z-index: 100;
 
   & > * + * {
     margin-top: 0.618em;
@@ -38,9 +58,10 @@
   font-size: 1rem;
 }
 
-.projects-container-project-figure {
-  align-items: center;
-  display: flex;
-  height: 100%;
-  justify-content: center;
+.projects-container-project canvas {
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 10;
 }

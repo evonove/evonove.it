@@ -18,6 +18,7 @@ var vendors = [
 var scripts = [
     'people.js',
     'projects-grid.js',
+    'projects-pixelation.js',
     'scroll-down.js',
     'works-slider.js',
     'svg-injections.js',
