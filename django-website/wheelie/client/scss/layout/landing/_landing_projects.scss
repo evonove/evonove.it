@@ -1,3 +1,46 @@
 .projects {
-  padding: 6.853em 0;
+  padding: 6.853em 1.618%;
+}
+
+.projects-container {
+  margin: 6.853em auto 0;
+  max-width: 1900px;
+}
+
+.projects-container-project {
+  color: $white;
+  margin-bottom: 1.618em;
+  overflow: hidden;
+  position: relative;
+
+  &.landscape {
+    height: 384px;
+    width: 480px;
+  }
+
+  &.portrait {
+    height: 600px;
+    width: 480px;
+  }
+}
+
+.projects-container-project-description {
+  bottom: 0;
+  padding: 1.618em;
+  position: absolute;
+
+  & > * + * {
+    margin-top: 0.618em;
+  }
+}
+
+.projects-container-project-description p {
+  font-size: 1rem;
+}
+
+.projects-container-project-figure {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
 }

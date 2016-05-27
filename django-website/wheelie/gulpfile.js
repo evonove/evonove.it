@@ -11,11 +11,13 @@ wheelie.setDefault('watch');
 // build customizations
 var vendors = [
     'jquery/dist/jquery.min.js',
+    'masonry/dist/masonry.pkgd.min.js',
     'svg-injector/dist/svg-injector.min.js'
 ];
 
 var scripts = [
     'people.js',
+    'projects-grid.js',
     'scroll-down.js',
     'works-slider.js',
     'svg-injections.js',
