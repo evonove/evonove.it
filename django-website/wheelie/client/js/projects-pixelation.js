@@ -1,154 +1,65 @@
 (function() {
 
-    // Request animation frame
+    var project = document.querySelectorAll('.projects-container-project');
 
-    var lastTime = 0;
-    var vendors = ['webkit', 'moz'];
-    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
-        window.cancelAnimationFrame =
-            window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
+    for (var i = 0; i < project.length; i++) {
+        project[i].addEventListener('mouseenter', pixelate);
+        project[i].addEventListener('mouseleave', depixelate);
     }
 
-    if (!window.requestAnimationFrame)
-        window.requestAnimationFrame = function(callback, element) {
-            var currTime = new Date().getTime();
-            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-            var id = window.setTimeout(function() { callback(currTime + timeToCall); },
-                timeToCall);
-            lastTime = currTime + timeToCall;
-            return id;
-        };
+    function pixelate() {
 
-    if (!window.cancelAnimationFrame)
-        window.cancelAnimationFrame = function(id) {
-            clearTimeout(id);
-        };
+        // Get image child of project
+        var image = this.querySelector('.projects-container-project-image');
 
-    // Pixelation
+        // Get the dimensions of image
+        var width = image.clientWidth;
+        var height = image.clientHeight;
 
-    var PIXELATION = 10;
+        // Create canvas element
+        var canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
 
-    var items = document.querySelectorAll('.projects-container-project'),
-        _objs = [];
+        // This is what gives us that blocky pixel styling, rather than a blend between pixels
+        canvas.style.cssText =  'image-rendering: optimizeSpeed;' + // FireFox < 6.0
+                                'image-rendering: -moz-crisp-edges;' + // FireFox
+                                'image-rendering: -o-crisp-edges;' +  // Opera
+                                'image-rendering: -webkit-crisp-edges;' + // Chrome
+                                'image-rendering: crisp-edges;' + // Chrome
+                                'image-rendering: -webkit-optimize-contrast;' + // Safari
+                                'image-rendering: pixelated; ' + // Future browsers
+                                '-ms-interpolation-mode: nearest-neighbor;'; // IE
 
-    var Images = function(element, image, canvas, context) {
-        this.element = element;
-        this.image = image;
-        this.canvas = canvas;
-        this.context = context;
-        this.pixelation = 1;
+        // Grab the drawing context object. It's what lets us draw on the canvas
+        var context = canvas.getContext('2d');
+
+        // Use nearest-neighbor scaling when images are resized instead of the resizing algorithm to create blur
+        context.webkitImageSmoothingEnabled = false;
+        context.mozImageSmoothingEnabled = false;
+        context.msImageSmoothingEnabled = false;
+        context.ImageSmoothingEnabled = false;
+
+        // Set the percentage of pixelation
+        var percent = 0.08;
+
+        // Calculate the scaled dimension
+        var scaledWidth = width * percent;
+        var scaledHeight = height * percent;
+
+        // Render image smaller.
+        context.drawImage(image, 0, 0, scaledWidth, scaledHeight);
+
+        // Stretch the smaller image onto larger context.
+        context.drawImage(canvas, 0, 0, scaledWidth, scaledHeight, 0, 0, width, height);
+
+        // Append canvas to project as a first-child
+        this.insertBefore(canvas, image);
+
     }
 
-    Images.prototype.bindLoad = function() {
-        var obj = this;
-
-        this.image.onload = function() {
-            obj.reportLoad.call(obj);
-        };
-
-        if ( this.image.complete ) {
-            this.image.onload();
-        }
+    function depixelate() {
+        this.removeChild(this.querySelector('canvas'));
     }
-
-    Images.prototype.reportLoad = function() {
-        var obj = this;
-
-        this.imageWidth    = this.canvas.width   = this.image.width;
-        this.imageHeight   = this.canvas.height  = this.image.height;
-        this.context.drawImage( this.image, 0, 0 );
-
-        this.element.addEventListener('mouseover', function() {
-            obj.mouseOver();
-        }, false);
-
-        this.element.addEventListener('mouseout', function() {
-            obj.mouseOut();
-        }, false);
-    }
-
-    Images.prototype.mouseOver = function() {
-        var obj = this;
-        cancelAnimationFrame( obj.idUndraw );
-        var draw = function() {
-            if ( obj.pixelation >= PIXELATION ) {
-                cancelAnimationFrame( obj.idDraw );
-                obj.pixelation = PIXELATION;
-            } else {
-                obj.context.drawImage( obj.image, 0, 0 );
-                obj.pixelate( obj.imageWidth, obj.imageHeight, 0, 0 );
-                obj.idDraw = requestAnimationFrame( draw, obj.context );
-            }
-        };
-        obj.idDraw = requestAnimationFrame( draw, obj.context );
-    }
-
-    Images.prototype.mouseOut = function() {
-        var obj = this;
-        cancelAnimationFrame( obj.idDraw );
-        var undraw = function() {
-            if ( obj.pixelation < 1 ) {
-                cancelAnimationFrame( obj.idUndraw );
-                obj.pixelation = 1;
-            } else {
-                obj.context.drawImage( obj.image, 0, 0 );
-                obj.depixelate( obj.imageWidth, obj.imageHeight, 0, 0 );
-                obj.idUndraw = requestAnimationFrame( undraw, obj.context );
-            }
-        };
-        obj.idUndraw = requestAnimationFrame( undraw, obj.context );
-    }
-
-    Images.prototype.setPixels = function() {
-        var sw          = this.imageWidth,
-            sh          = this.imageHeight,
-            imageData   = this.context.getImageData( 0, 0, sw, sh ),
-            data        = imageData.data,
-            y, x, n, m;
-
-        for ( y = 0; y < sh; y += this.pixelation ) {
-            for ( x = 0; x < sw; x += this.pixelation ) {
-
-                var red = data[((sw * y) + x) * 4];
-                var green = data[((sw * y) + x) * 4 + 1];
-                var blue = data[((sw * y) + x) * 4 + 2];
-
-                for ( n = 0; n < this.pixelation; n++ ) {
-                    for ( m = 0; m < this.pixelation; m++ ) {
-                        if ( x + m < sw ) {
-                            data[((sw * (y + n)) + (x + m)) * 4] = red;
-                            data[((sw * (y + n)) + (x + m)) * 4 + 1] = green;
-                            data[((sw * (y + n)) + (x + m)) * 4 + 2] = blue;
-                        }
-                    }
-                }
-            }
-        }
-
-        this.context.putImageData( imageData, 0, 0 );
-    }
-
-    Images.prototype.pixelate = function() {
-        this.setPixels();
-        this.pixelation += 1;
-    }
-
-    Images.prototype.depixelate = function() {
-        this.setPixels();
-        this.pixelation -= 1;
-    }
-
-    Array.prototype.slice.call(items, 0).forEach(function(el, i) {
-        var element = el;
-        image   = el.querySelector('.projects-container-project-image'),
-            canvas  = document.createElement('canvas'),
-            context = canvas.getContext('2d');
-
-        el.appendChild( canvas );
-
-        _objs.push( new Images( element, image, canvas, context ) );
-        _objs[i].bindLoad();
-    });
 
 })();
