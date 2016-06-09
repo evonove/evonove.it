@@ -4,13 +4,16 @@
 
     for (var i = 0; i < project.length; i++) {
         project[i].addEventListener('mouseenter', pixelate);
+        project[i].addEventListener('mouseenter', showDescription);
         project[i].addEventListener('mouseleave', depixelate);
+        project[i].addEventListener('mouseleave', hideDescription);
     }
 
     function pixelate() {
 
         // Get image child of project
-        var image = this.querySelector('.projects-container-project-image');
+        var figure = this.querySelector('.projects-container-project-figure');
+        var image = this.querySelector('.projects-container-project-figure-image');
 
         // Get the dimensions of image
         var width = image.clientWidth;
@@ -18,6 +21,7 @@
 
         // Create canvas element
         var canvas = document.createElement('canvas');
+        canvas.className = 'projects-container-project-description-canvas';
         canvas.width = width;
         canvas.height = height;
 
@@ -54,12 +58,25 @@
         context.drawImage(canvas, 0, 0, scaledWidth, scaledHeight, 0, 0, width, height);
 
         // Append canvas to project as a first-child
-        this.insertBefore(canvas, image);
+        figure.insertBefore(canvas, image);
 
     }
 
     function depixelate() {
-        this.removeChild(this.querySelector('canvas'));
+        var figure = this.querySelector('.projects-container-project-figure');
+
+        figure.removeChild(this.querySelector('canvas'));
+    }
+
+    function showDescription() {
+        $(this).find('.projects-container-project-heading').addClass('is_hover');
+        $(this).find('.projects-container-project-description').addClass('is_hover');
+        $(this).find('.projects-container-project-description-canvas').addClass('is_hover');
+    }
+
+    function hideDescription() {
+        $(this).find('.projects-container-project-heading').removeClass('is_hover');
+        $(this).find('.projects-container-project-description').removeClass('is_hover');
     }
 
 })();

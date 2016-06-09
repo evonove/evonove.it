@@ -16,25 +16,42 @@
 .projects-container-project {
   color: $white;
   margin-bottom: 1.618em;
-  overflow: hidden;
   position: relative;
 
-  &::after {
-    background: rgba(32, 182, 182, 0);
+  &::before {
+    border: 1px solid $dark-green;
+    bottom: 15px;
     content: '';
-    height: 100%;
-    left: 0;
+    height: calc(100% + 15px);
+    left: 50%;
     position: absolute;
+    transform: translateX(-50%);
+    transition: 1s;
+    width: calc(100% - 30px);
+    z-index: 20;
+  }
+
+  &::after {
+    background: rgba(36, 37, 40, 0.45);
+    content: '';
+    position: absolute;
+    height: 100%;
+    z-index: 15;
     top: 0;
+    left: 0;
     width: 100%;
-    transition: background 0.3s;
-    z-index: 10;
+    opacity: 0;
   }
 
   &:hover {
+    &::before {
+      border: 1px solid $light-green;
+      height: calc(100% + 30px);
+    }
+
     &::after {
-      background: rgba(32, 182, 182, 0.65);
-      transition: background 0.3s;
+      opacity: 1;
+      transition: 1s;
     }
   }
 
@@ -49,9 +66,37 @@
   }
 }
 
+.projects-container-project-heading {
+  background: $dark-grey;
+  display: block;
+  left: 35px;
+  padding: 0 15px;
+  position: absolute;
+  transition: 1s;
+  top: -65px;
+  z-index: 20;
+}
+
+.projects-container-project-heading.is_hover {
+  top: -80px;
+}
+
+.projects-container-project-figure {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
 .projects-container-project-description {
   bottom: 0;
-  padding: 1.618em;
+  left: 0;
+  margin-bottom: 15px;
+  overflow: hidden;
+  padding: 0 1.618em 15px;
   position: absolute;
   z-index: 100;
 
@@ -60,14 +105,34 @@
   }
 }
 
+.projects-container-project-description * {
+  bottom: -150px;
+  opacity: 0;
+  position: relative;
+  transition: 1s 0s;
+}
+
+.projects-container-project-description.is_hover * {
+  bottom: 0;
+  opacity: 1;
+  transition: .3s .5s;
+}
+
 .projects-container-project-description p {
   font-size: 1rem;
 }
 
 .projects-container-project canvas {
+  filter: grayscale(0%);
   left: 50%;
   top: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
+  transition: filter 1s;
   z-index: 10;
+}
+
+.projects-container-project canvas.is_hover {
+  filter: grayscale(100%);
+  transition: filter 1s;
 }
