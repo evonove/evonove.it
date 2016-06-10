@@ -175,7 +175,7 @@
   font-size: 1rem;
 
   @media #{$small} {
-    font-size: 0.85rem;
+    display: none;
   }
 }
 
