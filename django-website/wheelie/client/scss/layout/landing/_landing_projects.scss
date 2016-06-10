@@ -142,13 +142,27 @@
   bottom: -150px;
   opacity: 0;
   position: relative;
-  transition: 1s 0s;
+  transition: bottom 1s 0s, opacity .4s;
 }
 
 .projects-container-project-description.is_hover * {
   bottom: 0;
   opacity: 1;
-  transition: .3s .5s;
+}
+
+.projects-container-project-description.is_hover h3,
+.projects-container-project-description.is_hover h4,
+.projects-container-project-description.is_hover p,
+.projects-container-project-description.is_hover .button {
+  transition: bottom .3s .5s, opacity .2s .5s;
+}
+
+.projects-container-project-description .button {
+  margin-top: 1.618em;
+
+  & span {
+    bottom: auto;
+  }
 }
 
 .projects-container-project-description h4 {
