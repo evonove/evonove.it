@@ -1,17 +1,35 @@
 (function() {
 
+    var mobile;
+    if ($(window).width() < 950) {
+        mobile = 1;
+    }
+
     var project = document.querySelectorAll('.projects-container-project');
 
     for (var i = 0; i < project.length; i++) {
-        project[i].addEventListener('mouseenter', pixelate);
-        project[i].addEventListener('mouseenter', showDescription);
-        project[i].addEventListener('mouseleave', depixelate);
-        project[i].addEventListener('mouseleave', hideDescription);
+
+        if (!mobile) {
+            project[i].addEventListener('mouseenter', pixelate);
+            project[i].addEventListener('mouseenter', showDescription);
+            project[i].addEventListener('mouseleave', depixelate);
+            project[i].addEventListener('mouseleave', hideDescription);
+        }
+
+        if (mobile) {
+
+            var canvasExists = document.querySelector('canvas');
+
+            if (canvasExists === null) {
+                project[i].addEventListener('click', pixelate);
+                project[i].addEventListener('click', showDescription);
+            }
+        }
     }
 
     function pixelate() {
 
-        // Get image child of project
+        // Get the image child of project element
         var figure = this.querySelector('.projects-container-project-figure');
         var image = this.querySelector('.projects-container-project-figure-image');
 
@@ -21,7 +39,7 @@
 
         // Create canvas element
         var canvas = document.createElement('canvas');
-        canvas.className = 'projects-container-project-description-canvas';
+        canvas.className = 'projects-container-project-figure-canvas';
         canvas.width = width;
         canvas.height = height;
 
@@ -59,7 +77,6 @@
 
         // Append canvas to project as a first-child
         figure.insertBefore(canvas, image);
-
     }
 
     function depixelate() {
@@ -71,7 +88,7 @@
     function showDescription() {
         $(this).find('.projects-container-project-heading').addClass('is_hover');
         $(this).find('.projects-container-project-description').addClass('is_hover');
-        $(this).find('.projects-container-project-description-canvas').addClass('is_hover');
+        $(this).find('.projects-container-project-figure-canvas').addClass('is_hover');
     }
 
     function hideDescription() {
