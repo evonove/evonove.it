@@ -100,10 +100,19 @@
   transition: 1s;
   top: -65px;
   z-index: 20;
+
+  @media #{$small} {
+    font-size: 1.618rem;
+    top: -52px;
+  }
 }
 
 .projects-container-project-heading.is_hover {
   top: -80px;
+
+  @media #{$small} {
+    top: -67px;
+  }
 }
 
 .projects-container-project-figure {
