@@ -31,6 +31,7 @@
   margin-bottom: 6.853em;
   position: relative;
 
+  // overlaid green line
   &::before {
     border: 1px solid $dark-green;
     bottom: 15px;
@@ -44,6 +45,7 @@
     z-index: 20;
   }
 
+  // darker div that appears on hover event
   &::after {
     background: rgba(36, 37, 40, 0.6);
     content: '';
