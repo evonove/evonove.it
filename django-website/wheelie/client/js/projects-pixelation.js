@@ -24,6 +24,8 @@
                 project[i].addEventListener('click', pixelate);
                 project[i].addEventListener('click', showDescription);
             }
+
+            project[i].addEventListener('click', hideTouchAction);
         }
     }
 
@@ -94,6 +96,14 @@
     function hideDescription() {
         $(this).find('.projects-container-project-heading').removeClass('is_hover');
         $(this).find('.projects-container-project-description').removeClass('is_hover');
+    }
+
+    function hideTouchAction() {
+        var touchExists = $('.projects-container-project-touch');
+
+        if (touchExists != null) {
+            touchExists.addClass('remove');
+        }
     }
 
 })();

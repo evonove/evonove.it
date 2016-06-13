@@ -193,3 +193,19 @@
   filter: grayscale(100%);
   transition: filter 1s;
 }
+
+.projects-container-project-touch {
+  animation: project_touch 3s ease-out 2s infinite;
+  background: $light-green;
+  border-radius: 50%;
+  height: 100px;
+  left: 50%;
+  margin: -50px 0 0 -50px;
+  opacity: 1;
+  position: absolute;
+  top: 50%;
+  transform: scale(0);
+  transform-origin: center;
+  width: 100px;
+  z-index: 100;
+}
