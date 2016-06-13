@@ -5,43 +5,87 @@
         mobile = 1;
     }
 
-    var project = document.querySelectorAll('.projects-container-project');
+    var figure;
+    var image;
+    var canvas;
 
-    for (var i = 0; i < project.length; i++) {
+    // Pixelation parameters
+    var minRange = 0.08;
+    var maxRange = 1.0;
+    var stepPixel = 0.08;
+
+    var projectsStatus = [];
+    var lastClicked;
+    var lastIndex;
+
+    var projects = document.querySelectorAll('.projects-container-project');
+
+    for (var i = 0; i < projects.length; i++) {
+        projectsStatus[i] = false;
 
         if (!mobile) {
-            project[i].addEventListener('mouseenter', pixelate);
-            project[i].addEventListener('mouseenter', showDescription);
-            project[i].addEventListener('mouseleave', depixelate);
-            project[i].addEventListener('mouseleave', hideDescription);
+            projects[i].addEventListener('mouseenter', togglePixels);
+            projects[i].addEventListener('mouseenter', showDescription);
+            projects[i].addEventListener('mouseleave', togglePixels);
+            projects[i].addEventListener('mouseleave', hideDescription);
         }
 
         if (mobile) {
-
-            var canvasExists = document.querySelector('canvas');
-
-            if (canvasExists === null) {
-                project[i].addEventListener('click', pixelate);
-                project[i].addEventListener('click', showDescription);
-            }
-
-            project[i].addEventListener('click', hideTouchAction);
+            projects[i].addEventListener('click', togglePixels);
         }
     }
 
-    function pixelate() {
+    function togglePixels() {
+        var projectContainer = document.querySelector('.projects-container');
+        var index = Array.prototype.indexOf.call(projectContainer.children, this);
+
+        // Pixelate this element
+        projectsStatus[index] = !projectsStatus[index];
+        toggleAnim(this, projectsStatus[index]);
+
+        // Depixelate last element
+        if (lastClicked && lastClicked !== this && projectsStatus[lastIndex]) {
+            projectsStatus[lastIndex] = !projectsStatus[lastIndex];
+            toggleAnim(lastClicked, projectsStatus[lastIndex]);
+        }
+
+        lastClicked = this;
+        lastIndex = index;
+    }
+
+    function toggleAnim(node, pixelate) {
+        var currentPixel = pixelate ? maxRange : minRange;
+
+        var canvas = node.querySelector('.projects-container-project-figure-canvas');
 
         // Get the image child of project element
-        var figure = this.querySelector('.projects-container-project-figure');
-        var image = this.querySelector('.projects-container-project-figure-image');
+        var figure = node.querySelector('.projects-container-project-figure');
+        var image = node.querySelector('.projects-container-project-figure-image');
 
+        animPixel();
+
+        function animPixel() {
+            currentPixel += pixelate ? -stepPixel : stepPixel;
+
+            if (currentPixel > maxRange) {
+                currentPixel = maxRange;
+            } else if (currentPixel < minRange) {
+                currentPixel = minRange;
+            }
+
+            pixelation(currentPixel, image, canvas);
+
+            if (currentPixel > minRange && currentPixel < maxRange) {
+                requestAnimationFrame(animPixel);
+            }
+        }
+    }
+
+    function pixelation(pixelPercent, image, canvas) {
         // Get the dimensions of image
         var width = image.clientWidth;
         var height = image.clientHeight;
 
-        // Create canvas element
-        var canvas = document.createElement('canvas');
-        canvas.className = 'projects-container-project-figure-canvas';
         canvas.width = width;
         canvas.height = height;
 
@@ -62,29 +106,17 @@
         context.webkitImageSmoothingEnabled = false;
         context.mozImageSmoothingEnabled = false;
         context.msImageSmoothingEnabled = false;
-        context.ImageSmoothingEnabled = false;
-
-        // Set the percentage of pixelation
-        var percent = 0.08;
+        context.imageSmoothingEnabled = false;
 
         // Calculate the scaled dimension
-        var scaledWidth = width * percent;
-        var scaledHeight = height * percent;
+        var scaledWidth = width * pixelPercent;
+        var scaledHeight = height * pixelPercent;
 
         // Render image smaller.
         context.drawImage(image, 0, 0, scaledWidth, scaledHeight);
 
         // Stretch the smaller image onto larger context.
         context.drawImage(canvas, 0, 0, scaledWidth, scaledHeight, 0, 0, width, height);
-
-        // Append canvas to project as a first-child
-        figure.insertBefore(canvas, image);
-    }
-
-    function depixelate() {
-        var figure = this.querySelector('.projects-container-project-figure');
-
-        figure.removeChild(this.querySelector('canvas'));
     }
 
     function showDescription() {
@@ -96,14 +128,7 @@
     function hideDescription() {
         $(this).find('.projects-container-project-heading').removeClass('is_hover');
         $(this).find('.projects-container-project-description').removeClass('is_hover');
-    }
-
-    function hideTouchAction() {
-        var touchExists = $('.projects-container-project-touch');
-
-        if (touchExists != null) {
-            touchExists.addClass('remove');
-        }
+        $(this).find('.projects-container-project-figure-canvas').removeClass('is_hover');
     }
 
 })();
