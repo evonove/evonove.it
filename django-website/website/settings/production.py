@@ -1,6 +1,11 @@
 from .base import *
 
 
+# Django overrides
+INSTALLED_APPS += (
+    'raven.contrib.django.raven_compat',
+)
+
 # security enforcement
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = env('DJANGO_SECURE_SSL_REDIRECT', True)
@@ -24,11 +29,16 @@ AWS_S3_BUCKET_AUTH = env('AWS_S3_BUCKET_AUTH', False)
 DEFAULT_EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', DEFAULT_EMAIL_BACKEND)
-EMAIL_HOST = env("DJANGO_EMAIL_HOST")
-EMAIL_PORT = env("DJANGO_EMAIL_HOST_PORT")
-EMAIL_HOST_USER = env("DJANGO_EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = env("DJANGO_EMAIL_HOST_PASSWORD")
+EMAIL_HOST = env('DJANGO_EMAIL_HOST')
+EMAIL_PORT = env('DJANGO_EMAIL_HOST_PORT')
+EMAIL_HOST_USER = env('DJANGO_EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('DJANGO_EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = env('DJANGO_EMAIL_USE_TLS', True)
+
+# monitoring
+RAVEN_CONFIG = {
+    'dsn': env('SENTRY_DSN'),
+}
 
 # logging
 LOGGING['loggers'] = {
