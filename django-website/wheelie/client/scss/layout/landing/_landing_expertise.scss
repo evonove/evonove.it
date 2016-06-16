@@ -10,9 +10,12 @@
 
 .expertise .heading {
   position: absolute;
+  height: 95px;
   left: 50%;
+  position: absolute;
   top: 6.853em;
   transform: translateX(-50%);
+  width: 560px;
 
   @media #{$small}, #{$medium}, #{$large} {
     margin-top: 6.853em;

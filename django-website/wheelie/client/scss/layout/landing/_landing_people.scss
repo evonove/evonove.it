@@ -28,8 +28,9 @@
 }
 
 .people-header .heading {
+  height: 95px;
   margin: 2.618em 0;
-  width: 185px;
+  width: 295px;
 
   @media #{$small} {
     width: 120px;

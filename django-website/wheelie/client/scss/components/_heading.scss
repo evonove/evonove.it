@@ -1,11 +1,10 @@
 .heading {
-  height: 75px;
-  width: 345px;
+  display: block;
 }
 
 .heading text {
   fill-opacity: 0;
-  font: 4.236rem Roboto, sans-serif;
+  font: 6.854rem Roboto, sans-serif;
   text-transform: uppercase;
 
   &.bottom {
