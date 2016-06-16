@@ -48,12 +48,16 @@ class Work(Orderable):
     page = ParentalKey(HomePage, related_name='works')
     name = models.CharField(max_length=150)
     customer = models.CharField(max_length=150, default='', blank=True)
+    category = models.CharField(max_length=100, default='', blank=True)
+    technologies = models.CharField(max_length=150, default='', blank=True)
     description = models.TextField(max_length=1000)
     cover = models.ForeignKey(Image, related_name='+')
 
     panels = [
         FieldPanel('name'),
         FieldPanel('customer'),
+        FieldPanel('category'),
+        FieldPanel('technologies'),
         FieldPanel('description'),
         ImageChooserPanel('cover'),
     ]
