@@ -1,5 +1,5 @@
 .expertise {
-  background: url("../image/particles.png") repeat center;
+  background: $dark-grey;
   height: 100%;
   position: relative;
 
@@ -8,8 +8,13 @@
   }
 }
 
-.expertise .heading {
+#expertise-pixels {
+  height: 100%;
   position: absolute;
+  width: 100%;
+}
+
+.expertise .heading {
   height: 95px;
   left: 50%;
   position: absolute;
@@ -43,9 +48,14 @@
 
 .expertise-container-textbox {
   align-items: center;
+  color: $white;
   justify-content: center;
   padding: 0 2.618%;
   width: 75%;
+
+  & > * + * {
+    margin-top: 0.618em;
+  }
 
   @media #{$small}, #{$medium} {
     &:not(:first-child) {
