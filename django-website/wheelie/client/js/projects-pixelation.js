@@ -89,16 +89,6 @@
         canvas.width = width;
         canvas.height = height;
 
-        // This is what gives us that blocky pixel styling, rather than a blend between pixels
-        canvas.style.cssText =  'image-rendering: optimizeSpeed;' + // FireFox < 6.0
-                                'image-rendering: -moz-crisp-edges;' + // FireFox
-                                'image-rendering: -o-crisp-edges;' +  // Opera
-                                'image-rendering: -webkit-crisp-edges;' + // Chrome
-                                'image-rendering: crisp-edges;' + // Chrome
-                                'image-rendering: -webkit-optimize-contrast;' + // Safari
-                                'image-rendering: pixelated; ' + // Future browsers
-                                '-ms-interpolation-mode: nearest-neighbor;'; // IE
-
         // Grab the drawing context object. It's what lets us draw on the canvas
         var context = canvas.getContext('2d');
 

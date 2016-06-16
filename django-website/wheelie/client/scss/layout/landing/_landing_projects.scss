@@ -201,6 +201,8 @@
 }
 
 .projects-container-project canvas {
+  // This is what gives us that blocky pixel styling, rather than a blend between pixels
+  image-rendering: pixelated;
   filter: grayscale(0%);
   left: 50%;
   position: absolute;
