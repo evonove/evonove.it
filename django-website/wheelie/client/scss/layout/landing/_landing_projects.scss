@@ -163,6 +163,7 @@
 
 .projects-container-project-description.is_hover h3,
 .projects-container-project-description.is_hover h4,
+.projects-container-project-description.is_hover h5,
 .projects-container-project-description.is_hover p,
 .projects-container-project-description.is_hover .button {
   transition: bottom .3s .5s, opacity .2s .5s;
@@ -177,6 +178,15 @@
 }
 
 .projects-container-project-description h4 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+
+  @media #{$small} {
+    font-size: 1rem;
+  }
+}
+
+.projects-container-project-description h5 {
   @media #{$small} {
     font-size: 1rem;
   }
