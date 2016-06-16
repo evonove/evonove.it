@@ -44,31 +44,36 @@
     </div>
 </section>
 
-<section class="projects">
-    <svg class="heading center">
-        <text class="bottom" x="0" y="85">Projects</text>
-        <text class="top" x="0" y="85">Projects</text>
-    </svg>
-    <div class="projects-container grid">
-        <div class="projects-container-project portrait">
-            <h2 class="projects-container-project-heading">Dispensa 63</h2>
-            <div class="projects-container-project-figure">
-                <canvas class="projects-container-project-figure-canvas"></canvas>
-                <img class="projects-container-project-figure-image" src="{% static 'image/placeholder.jpg' %}">
-            </div>
-            <div class="projects-container-project-description">
-                <h3>Website</h3>
-                <h4>HTML5/CSS3 / JavaScript / Wagtail CMS</h4>
-                <p>A website designed for a clean and comfortable front end experience, with a captivating design and optimal usability. An example of expertise in web Style and Layout.</p>
-                <a class="button" href="#">
-                    <div class="button-lines"></div>
-                    <span>see the project</span>
-                </a>
-            </div>
-            <div class="projects-container-project-touch"></div>
+{% if page.works.all %}
+    <section class="projects">
+        <svg class="heading center">
+            <text class="bottom" x="0" y="85">Projects</text>
+            <text class="top" x="0" y="85">Projects</text>
+        </svg>
+        <div class="projects-container grid">
+            {% for work in page.works.all %}
+                <div class="projects-container-project portrait">
+                    <h2 class="projects-container-project-heading">{{ work.name }}</h2>
+                    <div class="projects-container-project-figure">
+                        <canvas class="projects-container-project-figure-canvas"></canvas>
+                        {% image work.cover fill-480x600 class="projects-container-project-figure-image" %}
+                    </div>
+                    <div class="projects-container-project-description">
+                        <h3>{{ work.customer }}</h3>
+                        <h3>{{ work.category }}</h3>
+                        <h4>{{ work.technologies }}</h4>
+                        <p>{{ work.description }}</p>
+                        <a class="button" href="#">
+                            <div class="button-lines"></div>
+                            <span>see the project</span>
+                        </a>
+                    </div>
+                    <div class="projects-container-project-touch"></div>
+                </div>
+            {% endfor %}
         </div>
-    </div>
-</section>
+    </section>
+{% endif %}
 
 <section class="people">
     <div class="people-header">

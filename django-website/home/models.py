@@ -52,14 +52,16 @@ class Work(Orderable):
     technologies = models.CharField(max_length=150, default='', blank=True)
     description = models.TextField(max_length=1000)
     cover = models.ForeignKey(Image, related_name='+')
+    link = models.URLField(help_text=_('Project link'), null=True, blank=True)
 
     panels = [
         FieldPanel('name'),
+        ImageChooserPanel('cover'),
+        FieldPanel('link'),
         FieldPanel('customer'),
         FieldPanel('category'),
         FieldPanel('technologies'),
         FieldPanel('description'),
-        ImageChooserPanel('cover'),
     ]
 
 
