@@ -25,13 +25,12 @@
 
         if (!mobile) {
             projects[i].addEventListener('mouseenter', togglePixels);
-            projects[i].addEventListener('mouseenter', showDescription);
             projects[i].addEventListener('mouseleave', togglePixels);
-            projects[i].addEventListener('mouseleave', hideDescription);
         }
 
         if (mobile) {
             projects[i].addEventListener('click', togglePixels);
+            projects[i].addEventListener('click', hideTouchAction);
         }
     }
 
@@ -42,11 +41,13 @@
         // Pixelate this element
         projectsStatus[index] = !projectsStatus[index];
         toggleAnim(this, projectsStatus[index]);
+        toggleDescription(this, projectsStatus[index]);
 
         // Depixelate last element
         if (lastClicked && lastClicked !== this && projectsStatus[lastIndex]) {
             projectsStatus[lastIndex] = !projectsStatus[lastIndex];
             toggleAnim(lastClicked, projectsStatus[lastIndex]);
+            toggleDescription(lastClicked, projectsStatus[lastIndex]);
         }
 
         lastClicked = this;
@@ -109,16 +110,23 @@
         context.drawImage(canvas, 0, 0, scaledWidth, scaledHeight, 0, 0, width, height);
     }
 
-    function showDescription() {
-        $(this).find('.projects-container-project-heading').addClass('is_hover');
-        $(this).find('.projects-container-project-description').addClass('is_hover');
-        $(this).find('.projects-container-project-figure-canvas').addClass('is_hover');
+    function toggleDescription(node, show) {
+        if (show) {
+            $(node).find('.projects-container-project-darken').addClass('is_hover');
+            $(node).find('.projects-container-project-cornice').addClass('is_hover');
+            $(node).find('.projects-container-project-heading').addClass('is_hover');
+            $(node).find('.projects-container-project-description').addClass('is_hover');
+            $(node).find('.projects-container-project-figure-canvas').addClass('is_hover');
+        } else {
+            $(node).find('.projects-container-project-darken').removeClass('is_hover');
+            $(node).find('.projects-container-project-cornice').removeClass('is_hover');
+            $(node).find('.projects-container-project-heading').removeClass('is_hover');
+            $(node).find('.projects-container-project-description').removeClass('is_hover');
+            $(node).find('.projects-container-project-figure-canvas').removeClass('is_hover');
+        }
     }
 
-    function hideDescription() {
-        $(this).find('.projects-container-project-heading').removeClass('is_hover');
-        $(this).find('.projects-container-project-description').removeClass('is_hover');
-        $(this).find('.projects-container-project-figure-canvas').removeClass('is_hover');
+    function hideTouchAction() {
+        $('.projects-container-project-touch').remove();
     }
-
 })();
