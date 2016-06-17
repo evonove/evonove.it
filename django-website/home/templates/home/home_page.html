@@ -52,21 +52,27 @@
         </svg>
         <div class="projects-container grid">
             {% for work in page.works.all %}
+                {% image work.cover fill-520x600 as cover  %}
+
                 <div class="projects-container-project portrait">
                     <h2 class="projects-container-project-heading">{{ work.name }}</h2>
+                    <div class="projects-container-project-cornice"></div>
+                    <div class="projects-container-project-darken"></div>
                     <div class="projects-container-project-figure">
                         <canvas class="projects-container-project-figure-canvas"></canvas>
-                        {% image work.cover fill-480x600 class="projects-container-project-figure-image" %}
+                        <img src="{{ cover.url }}" class="projects-container-project-figure-image" width="520" height="600" />
                     </div>
                     <div class="projects-container-project-description">
-                        <h3>{{ work.customer }}</h3>
                         <h3>{{ work.category }}</h3>
-                        <h4>{{ work.technologies }}</h4>
+                        <h4>{{ work.customer }}</h4>
+                        <h5>{{ work.technologies }}</h5>
                         <p>{{ work.description }}</p>
-                        <a class="button" href="#">
-                            <div class="button-lines"></div>
-                            <span>see the project</span>
-                        </a>
+                        {% if work.link %}
+                            <a class="button" href="{{ work.link }}" target="_blank">
+                                <div class="button-lines"></div>
+                                <span>see the project</span>
+                            </a>
+                        {% endif %}
                     </div>
                     <div class="projects-container-project-touch"></div>
                 </div>
