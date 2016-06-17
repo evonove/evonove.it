@@ -45,61 +45,42 @@
     </div>
 </section>
 
-<section class="works">
-    <div class="works-container">
-        {% if page.works.all %}
-        <div class="works-container-offset"></div>
-        <div class="works-container-project">
-            <svg class="heading">
-                <text class="bottom" x="0" y="60">Projects</text>
-                <text class="top" x="0" y="60">Projects</text>
-            </svg>
-            <div class="works-container-project-slider">
-                <ul>
-                    {% for work in page.works.all %}
-                        <li class="works-container-project-slider-slide">
-                            <h2>{{ work.name }}</h2>
-                            {% if work.customer %}
-                                <h3>{{ work.customer }}</h3>
-                            {% endif %}
-                            <p>{{ work.description }}</p>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="works-container-project-navigator">
-                <div class="works-container-project-navigator-left">
-                    <img class="js-inject-svg" src="{% static 'svg/left-arrow.svg' %}">
+{% if page.works.all %}
+    <section class="projects">
+        <svg class="heading center">
+            <text class="bottom" x="0" y="85">Projects</text>
+            <text class="top" x="0" y="85">Projects</text>
+        </svg>
+        <div class="projects-container grid">
+            {% for work in page.works.all %}
+                {% image work.cover fill-520x600 as cover  %}
+
+                <div class="projects-container-project portrait">
+                    <h2 class="projects-container-project-heading">{{ work.name }}</h2>
+                    <div class="projects-container-project-cornice"></div>
+                    <div class="projects-container-project-darken"></div>
+                    <div class="projects-container-project-figure">
+                        <canvas class="projects-container-project-figure-canvas"></canvas>
+                        <img src="{{ cover.url }}" class="projects-container-project-figure-image" width="520" height="600" />
+                    </div>
+                    <div class="projects-container-project-description">
+                        <h3>{{ work.category }}</h3>
+                        <h4>{{ work.customer }}</h4>
+                        <h5>{{ work.technologies }}</h5>
+                        <p>{{ work.description }}</p>
+                        {% if work.link %}
+                            <a class="button" href="{{ work.link }}" target="_blank">
+                                <div class="button-lines"></div>
+                                <span>see the project</span>
+                            </a>
+                        {% endif %}
+                    </div>
+                    <div class="projects-container-project-touch"></div>
                 </div>
-                <div class="works-container-project-navigator-right">
-                    <img class="works-container-project-navigator-right js-inject-svg" src="{% static 'svg/right-arrow.svg' %}">
-                </div>
-            </div>
-            <a class="button button-icon works-container-project-buttonplus">
-                <span>+</span>
-            </a>
+            {% endfor %}
         </div>
-        <div class="works-container-projectimage">
-            <div class="works-container-projectimage-circles">
-                <img class="works-container-projectimage-circles-particles js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
-                <img class="works-container-projectimage-circles-particles js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
-                <img class="works-container-projectimage-circles-particles js-inject-svg" src="{% static 'svg/rounded-particles.svg' %}" />
-            </div>
-            <div class="works-container-projectimage-carousel">
-                <div class="works-container-projectimage-carousel-boxslides">
-                    {% for work in page.works.all %}
-                    <figure class="works-container-projectimage-carousel-boxslides-figure">
-                        {% image work.cover fill-725x725 class="works-container-projectimage-carousel-boxslides-figure-image" %}
-                    </figure>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        {% else %}
-            <div class="full-width text-center"><h2>This section is empty, update the page <a href="{% url 'wagtailadmin_pages:edit' page.id %}">using the admin.</a></h2></div>
-        {% endif %}
-    </div>
-</section>
+    </section>
+{% endif %}
 
 <section class="people">
     <div class="people-header">

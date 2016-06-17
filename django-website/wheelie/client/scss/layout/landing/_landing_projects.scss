@@ -1,0 +1,237 @@
+.projects {
+  background: $dark-grey;
+  padding: 6.853em 1.618%;
+
+  @media #{$small} {
+    padding: 6.853em 0;
+  }
+}
+
+.projects .heading {
+  height: 95px;
+  width: 540px;
+
+  @media #{$small} {
+    width: 290px;
+  }
+}
+
+.projects .heading > text {
+  @media #{$small} {
+    font-size: 3.6rem;
+  }
+}
+
+.projects-container {
+  margin: 11.089em auto 0;
+}
+
+.projects-container-project {
+  color: $white;
+  margin-bottom: 6.853em;
+  position: relative;
+
+  &.landscape {
+    height: 384px;
+    width: 480px;
+
+    @media #{$small} {
+      height: 256px;
+      width: 320px;
+    }
+  }
+
+  &.portrait {
+    height: 600px;
+    width: 480px;
+
+    @media #{$small} {
+      height: 400px;
+      width: 320px;
+    }
+  }
+}
+
+// darker div which appears on hover event
+.projects-container-project-darken {
+  background: rgba(36, 37, 40, 0.6);
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: opacity 1s;
+  width: 100%;
+  z-index: 15;
+}
+
+.projects-container-project-darken.is_hover {
+  opacity: 1;
+  transition: 1s;
+}
+
+.projects-container-project-cornice {
+  border: 1px solid $dark-green;
+  bottom: 15px;
+  content: '';
+  height: calc(100% + 15px);
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  transition: 1s;
+  width: calc(100% - 30px);
+  z-index: 20;
+}
+
+.projects-container-project-cornice.is_hover {
+  border: 1px solid $light-green;
+  height: calc(100% + 30px);
+}
+
+.projects-container-project-heading {
+  background: $dark-grey;
+  display: block;
+  left: 35px;
+  padding: 0 15px;
+  position: absolute;
+  transition: 1s;
+  top: -65px;
+  z-index: 20;
+
+  @media #{$small} {
+    font-size: 1.618rem;
+    top: -52px;
+  }
+}
+
+.projects-container-project-heading.is_hover {
+  top: -80px;
+
+  @media #{$small} {
+    top: -67px;
+  }
+}
+
+.projects-container-project-figure {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.projects-container-project-figure-image {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  @media #{$small} {
+    height: 100%;
+    min-height: 100%;
+    min-width: 100%;
+  }
+}
+
+.projects-container-project-description {
+  bottom: 0;
+  left: 0;
+  margin-bottom: 15px;
+  overflow: hidden;
+  padding: 0 1.618em 15px;
+  position: absolute;
+  z-index: 100;
+
+  & > * + * {
+    margin-top: 0.618em;
+  }
+}
+
+.projects-container-project-description * {
+  bottom: -150px;
+  opacity: 0;
+  position: relative;
+  transition: bottom 1s 0s, opacity .4s;
+}
+
+.projects-container-project-description.is_hover * {
+  bottom: 0;
+  opacity: 1;
+}
+
+.projects-container-project-description.is_hover h3,
+.projects-container-project-description.is_hover h4,
+.projects-container-project-description.is_hover h5,
+.projects-container-project-description.is_hover p,
+.projects-container-project-description.is_hover .button {
+  transition: bottom .3s .5s, opacity .2s .5s;
+}
+
+.projects-container-project-description .button {
+  margin-top: 1.618em;
+
+  & span {
+    bottom: auto;
+  }
+}
+
+.projects-container-project-description h4 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+
+  @media #{$small} {
+    font-size: 1rem;
+  }
+}
+
+.projects-container-project-description h5 {
+  @media #{$small} {
+    font-size: 1rem;
+  }
+}
+
+.projects-container-project-description p {
+  font-size: 1rem;
+
+  @media #{$small} {
+    display: none;
+  }
+}
+
+.projects-container-project canvas {
+  // This is what gives us that blocky pixel styling, rather than a blend between pixels
+  image-rendering: pixelated;
+  filter: grayscale(0%);
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: filter 1s;
+  top: 50%;
+  z-index: 10;
+}
+
+.projects-container-project canvas.is_hover {
+  filter: grayscale(100%);
+  transition: filter 1s;
+}
+
+.projects-container-project-touch {
+  animation: project_touch 3s ease-out 2s infinite;
+  background: $light-green;
+  border-radius: 50%;
+  display: none;
+  height: 100px;
+  left: 50%;
+  margin: -50px 0 0 -50px;
+  opacity: 1;
+  position: absolute;
+  top: 50%;
+  transform: scale(0);
+  transform-origin: center;
+  width: 100px;
+  z-index: 100;
+
+  @media #{$small}, #{$medium} {
+    display: block;
+  }
+}
