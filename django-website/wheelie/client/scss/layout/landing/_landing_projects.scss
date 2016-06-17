@@ -91,25 +91,32 @@
 
 .projects-container-project-heading {
   background: $dark-grey;
+  color: $dark-green;
   display: block;
+  font-size: 1.618rem;
   left: 35px;
+  overflow: hidden;
   padding: 0 15px;
   position: absolute;
+  text-overflow: ellipsis;
   transition: 1s;
-  top: -65px;
-  z-index: 20;
+  top: -53px;
+  white-space: nowrap;
+  max-width: calc(100% - 95px);
+  z-index: 30;
 
   @media #{$small} {
-    font-size: 1.618rem;
-    top: -52px;
+    font-size: 1.25rem;
+    top: -49px;
   }
 }
 
 .projects-container-project-heading.is_hover {
-  top: -80px;
+  color: $light-green;
+  top: -68px;
 
   @media #{$small} {
-    top: -67px;
+    top: -64px;
   }
 }
 
@@ -172,6 +179,12 @@
 
   & span {
     bottom: auto;
+  }
+}
+
+.projects-container-project-description h3 {
+  @media #{$small} {
+    font-size: 1rem;
   }
 }
 
