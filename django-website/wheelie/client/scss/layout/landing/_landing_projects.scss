@@ -31,45 +31,6 @@
   margin-bottom: 6.853em;
   position: relative;
 
-  // overlaid green line
-  &::before {
-    border: 1px solid $dark-green;
-    bottom: 15px;
-    content: '';
-    height: calc(100% + 15px);
-    left: 50%;
-    position: absolute;
-    transform: translateX(-50%);
-    transition: 1s;
-    width: calc(100% - 30px);
-    z-index: 20;
-  }
-
-  // darker div that appears on hover event
-  &::after {
-    background: rgba(36, 37, 40, 0.6);
-    content: '';
-    position: absolute;
-    height: 100%;
-    z-index: 15;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-  }
-
-  &:hover {
-    &::before {
-      border: 1px solid $light-green;
-      height: calc(100% + 30px);
-    }
-
-    &::after {
-      opacity: 1;
-      transition: 1s;
-    }
-  }
-
   &.landscape {
     height: 384px;
     width: 480px;
@@ -89,6 +50,43 @@
       width: 320px;
     }
   }
+}
+
+// darker div which appears on hover event
+.projects-container-project-darken {
+  background: rgba(36, 37, 40, 0.6);
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: opacity 1s;
+  width: 100%;
+  z-index: 15;
+}
+
+.projects-container-project-darken.is_hover {
+  opacity: 1;
+  transition: 1s;
+}
+
+.projects-container-project-cornice {
+  border: 1px solid $dark-green;
+  bottom: 15px;
+  content: '';
+  height: calc(100% + 15px);
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  transition: 1s;
+  width: calc(100% - 30px);
+  z-index: 20;
+}
+
+.projects-container-project-cornice.is_hover {
+  border: 1px solid $light-green;
+  height: calc(100% + 30px);
 }
 
 .projects-container-project-heading {
