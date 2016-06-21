@@ -143,6 +143,10 @@
   position: absolute;
   width: 23vw;
 
+  & > * + * {
+    margin-top: 1em;
+  }
+
   @media #{$big-monitor} {
     margin-left: 0;
   }
