@@ -4,6 +4,7 @@
   position: relative;
 
   @media #{$small}, #{$medium} {
+    padding-top: 4.236em;
     height: auto;
   }
 }
@@ -25,7 +26,6 @@
   width: 560px;
 
   @media #{$small}, #{$medium}, #{$large} {
-    margin-top: 6.853em;
     position: relative;
     top: 0;
   }
