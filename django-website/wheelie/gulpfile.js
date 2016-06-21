@@ -22,7 +22,6 @@ var scripts = [
     'projects-grid.js',
     'projects-pixelation.js',
     'scroll-down.js',
-    'works-slider.js',
     'svg-injections.js',
     'viewport.js'
 ];
