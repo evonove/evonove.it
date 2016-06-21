@@ -51,9 +51,9 @@
             <text class="bottom" x="0" y="85">Projects</text>
             <text class="top" x="0" y="85">Projects</text>
         </svg>
-        <div class="projects-container grid">
+        <div class="projects-container">
             {% for work in page.works.all %}
-                {% image work.cover fill-520x600 as cover  %}
+                {% image work.cover fill-500x620 as cover  %}
 
                 <div class="projects-container-project portrait">
                     <h2 class="projects-container-project-heading">{{ work.name }}</h2>
