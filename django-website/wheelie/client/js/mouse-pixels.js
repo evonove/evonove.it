@@ -52,10 +52,32 @@
                 "bubble": {
                     "distance": 250,
                     "size": 10,
-                    "opacity": 0.6,
+                    "opacity": 0.6
                 }
             }
         },
         "retina_detect": true
+    });
+
+    // Gradually fade out of pixels
+    var pixels = $('.expertise-pixels canvas');
+    var opacity;
+
+    var pixelsHeight = $(pixels).outerHeight(true);
+    var opaqueBottom = $(pixels).offset().top + pixelsHeight;
+    // Area of fade out
+    var opaqueHeight = 600;
+    var opaqueTop = opaqueBottom - opaqueHeight;
+
+    $(pixels).on('mousemove', function(e) {
+        var mouseY = e.pageY;
+
+        if (mouseY >= opaqueTop && mouseY <= opaqueBottom) {
+            opacity = 0.8 - ((mouseY-opaqueTop)/opaqueHeight);
+            $(pixels).css('opacity', opacity);
+        } else {
+            opacity = 1;
+            $(pixels).css('opacity', opacity);
+        }
     });
 })();

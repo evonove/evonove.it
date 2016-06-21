@@ -8,10 +8,12 @@
   }
 }
 
-#expertise-pixels {
-  height: 100%;
+.expertise-pixels {
+  // Height includes the Expertise section height plus the height of the Projects section till the projects container
+  height: calc(100% + 17.942em + 95px);
   position: absolute;
   width: 100%;
+  z-index: $z-expertise-pixels;
 }
 
 .expertise .heading {
