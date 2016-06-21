@@ -107,6 +107,12 @@
   }
 }
 
+// Remove the divider from the last member of the team
+.people-container-person:last-child::after {
+  background: none;
+  border: none;
+}
+
 .people-container-person-photo {
   bottom: 0;
   left: -125px;
