@@ -58,6 +58,8 @@
 .footer-container-heading .heading {
   display: inline-block;
   height: 65px;
+  position: relative;
+  top: 7px;
   transform: rotate(90deg);
   transform-origin: center center;
   width: 220px;
@@ -84,7 +86,11 @@
     margin-top: 1.618em;
   }
 
-  @media #{$small}, #{$medium}, #{$large} {
+  @media #{$medium} {
+    order: 2;
+  }
+
+  @media #{$small} {
     order: 3;
   }
 }
@@ -102,6 +108,10 @@
 
 .footer-container-contacts {
   order: 2;
+
+  @media #{$medium} {
+    order: 1;
+  }
 }
 
 .footer-container-contacts ul > * + * {
