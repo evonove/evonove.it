@@ -31,6 +31,8 @@
     <svg class="heading">
         <text class="bottom" x="0" y="85">Expertise</text>
         <text class="top" x="0" y="85">Expertise</text>
+        <text class="bottom mobile" x="0" y="50">Expertise</text>
+        <text class="top mobile" x="0" y="50">Expertise</text>
     </svg>
     <div class="expertise-container">
         {% for service in page.services.all|slice:":3" %}
@@ -50,6 +52,8 @@
         <svg class="heading center">
             <text class="bottom" x="0" y="85">Projects</text>
             <text class="top" x="0" y="85">Projects</text>
+            <text class="bottom mobile" x="0" y="50">Projects</text>
+            <text class="top mobile" x="0" y="50">Projects</text>
         </svg>
         <div class="projects-container">
             {% for work in page.works.all %}
@@ -88,6 +92,8 @@
             <svg class="heading">
                 <text class="bottom" x="0" y="85">Team</text>
                 <text class="top" x="0" y="85">Team</text>
+                <text class="bottom mobile" x="0" y="50">Team</text>
+                <text class="top mobile" x="0" y="50">Team</text>
             </svg>
         {% else %}
             <h2 class="people-header-placeholder">No team members over here :-(</h2>

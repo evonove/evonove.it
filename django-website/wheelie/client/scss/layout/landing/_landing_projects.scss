@@ -8,7 +8,6 @@
 }
 
 .projects .heading {
-  height: 95px;
   width: 540px;
 
   @media #{$small} {
@@ -16,17 +15,11 @@
   }
 }
 
-.projects .heading > text {
-  @media #{$small} {
-    font-size: 3.6rem;
-  }
-}
-
 .projects-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 11.089em auto 0;
+  margin: 6.854em auto 0;
   padding: 5px;
 }
 
@@ -40,6 +33,12 @@
   @media #{$small} {
     height: 400px;
     width: 320px;
+  }
+
+  &:last-child {
+    @media #{$small}, #{$medium} {
+      margin-bottom: 0;
+    }
   }
 }
 

@@ -1,5 +1,10 @@
 .heading {
   display: block;
+  height: 95px;
+
+  @media #{$small} {
+    height: 65px;
+  }
 }
 
 .heading text {
@@ -17,6 +22,15 @@
   }
 
   @media #{$small} {
-    font-size: 2.618rem;
+    display: none;
+  }
+}
+
+.heading text.mobile {
+  display: none;
+  font-size: 3.6rem;
+
+  @media #{$small} {
+    display: block;
   }
 }

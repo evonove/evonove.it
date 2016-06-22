@@ -28,12 +28,15 @@
 }
 
 .people-header .heading {
-  height: 95px;
   margin: 2.618em 0;
   width: 295px;
 
+  @media #{$small}, #{$medium} {
+    margin: auto;
+  }
+
   @media #{$small} {
-    width: 120px;
+    width: 160px;
   }
 }
 
@@ -47,6 +50,10 @@
 
   @media #{$small}, #{$medium}, #{$large} {
     flex-wrap: wrap;
+  }
+
+  @media #{$small} {
+    padding-top: 1.618em;
   }
 }
 
