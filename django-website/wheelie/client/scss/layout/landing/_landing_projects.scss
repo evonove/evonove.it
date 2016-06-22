@@ -148,12 +148,14 @@
   bottom: -150px;
   opacity: 0;
   position: relative;
-  transition: bottom 1s 0s, opacity .4s;
+  transition: bottom 1s 0s, opacity .4s, visibility .4s;
+  visibility: hidden;
 }
 
 .projects-container-project-description.is_hover * {
   bottom: 0;
   opacity: 1;
+  visibility: visible;
 }
 
 .projects-container-project-description.is_hover h3,
