@@ -7,7 +7,7 @@
     {% elif child.block_type == 'h3' %}
         <h3 class="article-subtitle">{{ child }}</h3>
     {% elif child.block_type == 'pullquote' %}
-        <blockquote>
+        <blockquote class="article-blockquote">
             {{ child.value.quote }}
             {% if child.value.attribution %}<span>- {{ child.value.attribution }}</span>{% endif %}
         </blockquote>
@@ -19,9 +19,9 @@
             <img src="{{ image.url }}" class="article-picture-img {{ child.value.alignment }}" alt="{{ image.alt }}" />
 
             {% if child.value.caption %}
-                <div class="caption">
+                <figcaption class="article-picture-caption">
                     {{ child.value.caption|richtext }}
-                </div>
+                </figcaption>
             {% endif %}
         </figure>
     {% elif child.block_type == 'youtube' %}

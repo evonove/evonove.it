@@ -1,7 +1,10 @@
+.article * + * {
+  margin-top: 1.618rem;
+}
+
 .article-title {
   font-weight: 700;
-  line-height: 1em;
-  margin: 0.382em 0;
+  margin-top: 1.618rem;
 }
 
 .article-meta {
@@ -13,12 +16,74 @@
   color: $light-green;
 }
 
-.article > .rich-text {
-  font-family: 'Merriweather', serif;
-  line-height: 1.618;
+.article-meta-divider {
+  font-size: 2.618rem;
+  position: relative;
+  top: 0.618rem;
 }
 
-.article-preview,
-.article-picture {
-  margin: 1.618em 0;
+// rich-text is a class used by Wagtail to wrap a block of text
+.article .rich-text,
+.article-blockquote {
+  font-family: 'Merriweather', serif;
+  line-height: 2;
+}
+
+// all h2 inside the post (except the first main h2) have this styles
+.article-title ~ .article-title {
+  color: $light-grey;
+  font-weight: 300;
+}
+
+// It selects the first element after every h2 and h3 inside the post
+.article-title ~ .article-title + .rich-text,
+.article-subtitle + .rich-text {
+  margin-top: 0.618rem;
+}
+
+.article-subtitle {
+  color: $light-grey;
+}
+
+.article .rich-text p {
+  color: $dark-grey;
+}
+
+.article .rich-text ul {
+  list-style-type: disc;
+  padding-left: 40px;
+}
+
+// Reset <li> margins
+.article > .rich-text ul li,
+.article > .rich-text ol li {
+  margin: 0;
+}
+
+// Divider styles
+.article .rich-text hr,
+.article .rich-text hr + * {
+  margin-top: 2.618rem;
+}
+
+.article-blockquote {
+  color: $light-grey;
+  font-style: italic;
+  position: relative;
+
+  &::before {
+    border: 1px solid $light-grey;
+    content: '';
+    left: -40px;
+    position: absolute;
+    height: 100%;
+  }
+}
+
+.article-picture-caption {
+  color: $light-grey;
+  font-size: 1rem;
+  font-style: italic;
+  margin-top: 0.236rem;
+  text-transform: capitalize;
 }
