@@ -36,6 +36,11 @@
     width: 320px;
   }
 
+  @media #{$smallest} {
+    height: 375px;
+    width: 300px;
+  }
+
   &:last-child {
     @media #{$small}, #{$medium} {
       margin-bottom: 0;
