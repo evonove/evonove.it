@@ -1,7 +1,7 @@
 .people {
   background-color: $dark-grey;
-  height: 850px;
-  min-height: 100vh;
+  max-height: 1000px;
+  height: 100vh;
   position: relative;
 
   @media #{$small}, #{$medium}, #{$large} {
