@@ -12,21 +12,28 @@
         {% for article in articles %}
         <div class="list-block">
             <article class="article">
-                <h2 class="article-title">{{ article.title }}</h2>
+                <a href="{% pageurl article %}" class="article-link">
+                    <h2 class="article-title">{{ article.title }}</h2>
+                </a>
                 <div class="article-meta">
                     <a class="article-meta-author">{{ article.owner.get_full_name|default:article.owner }}</a>
                     <span class="article-meta-divider">·</span>
                     <span class="article-meta-date">{{ article.date|date:"N d, Y" }}</span>
                 </div>
 
-                {% if article.cover %}
-                    <figure class="article-preview">
-                        {% image article.cover original as cover %}
-                        <img src="{{cover.url}}" class="article-preview-img" />
-                    </figure>
-                {% endif %}
+                <a href="{% pageurl article %}" class="article-link">
+                    <div class="article-preview">
 
-                <p class="article-post">{{ article.intro }}</p>
+                        {% if article.cover %}
+                        <figure class="article-preview-picture">
+                            {% image article.cover original as cover %}
+                            <img src="{{cover.url}}" class="article-preview-img" />
+                        </figure>
+                        {% endif %}
+
+                        <p class="article-preview-post">{{ article.intro }}</p>
+                    </div>
+                </a>
             </article>
             <a href="{% pageurl article %}" class="list-block-readmore">Read more...</a>
             <div class="list-block-divider"></div>

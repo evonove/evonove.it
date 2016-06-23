@@ -24,9 +24,19 @@
   margin-top: 4.236em;
 }
 
+.article-preview {
+  margin-top: 1.618rem;
+}
+
+.article-preview-post {
+  font-family: 'Merriweather', serif;
+}
+
 .list-block-readmore {
   color: $light-grey;
+  display: inline-block;
   font-family: 'Oswald', sans-serif;
+  margin-top: 1.618rem;
 
   &:visited {
     color: $light-grey;
@@ -53,12 +63,4 @@
 
 .list-paginator {
   margin-top: 6.854em;
-}
-
-.article-post {
-  font-family: 'Merriweather', serif;
-}
-
-.article-preview-img {
-  width: 100%;
 }
