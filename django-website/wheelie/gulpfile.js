@@ -12,7 +12,10 @@ wheelie.setDefault('watch');
 var vendors = [
     'jquery/dist/jquery.min.js',
     'particles.js/particles.min.js',
-    'svg-injector/dist/svg-injector.min.js'
+    'svg-injector/dist/svg-injector.min.js',
+    'three.js/build/three.min.js',
+    'three.js/examples/js/SimplexNoise.js',
+    'threex.terrain/threex.terrain.js'
 ];
 
 var scripts = [
