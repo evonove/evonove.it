@@ -4,6 +4,8 @@
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera( 45, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
+    window.addEventListener( 'resize', onWindowResize, false );
+
     var renderer = new THREE.WebGLRenderer({
         alpha : true
     });
@@ -91,5 +93,11 @@
         plane.morphTargetInfluences[0] += step;
 
         renderer.render(scene, camera);
+    }
+
+    function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize( window.innerWidth, window.innerHeight );
     }
 })();
