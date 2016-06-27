@@ -5,10 +5,10 @@
     var camera = new THREE.PerspectiveCamera( 45, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
     var renderer = new THREE.WebGLRenderer({
-        alpha : true,
-        antialias : true
+        alpha : true
     });
     renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setPixelRatio((window.devicePixelRatio || 1) * 2);
 
 
     var splash = document.querySelector('.splash');
@@ -67,7 +67,7 @@
                 level *= 2;
                 n += (simplex.noise(i/level, j/level)/2 + 0.5) * 0.5;
                 level *= 2;
-                n += (simplex.noise(i/level, j/level)/2 + 0.5) * 1;
+                n += simplex.noise(i/level, j/level)/2 + 0.5;
                 n /= 1+0.5+0.25+0.125;
 
                 var v = geometry.vertices[i * width + j];
@@ -88,7 +88,7 @@
             step = 0.001;
         }
 
-        plane.morphTargetInfluences[0] += step
+        plane.morphTargetInfluences[0] += step;
 
         renderer.render(scene, camera);
     }
