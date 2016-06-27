@@ -52,5 +52,10 @@
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
         {% endblock %}
+
+        {% include "analytics/google.html" %}
+        {% block extra_analytics %}
+            {# Add per page analytics #}
+        {% endblock %}
     </body>
 </html>
