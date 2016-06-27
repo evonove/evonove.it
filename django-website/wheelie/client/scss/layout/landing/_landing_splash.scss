@@ -47,7 +47,7 @@
   width: 490px;
 
   @media #{$small} {
-    margin-top: 30vh;
+    margin-top: 20vh;
     width: 90%;
   }
 
@@ -88,4 +88,8 @@
   position: absolute;
   width: 100%;
   z-index: 1;
+
+  @media #{$small} {
+    bottom: -10vh;
+  }
 }
