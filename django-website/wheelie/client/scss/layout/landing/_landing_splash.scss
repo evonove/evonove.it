@@ -1,5 +1,5 @@
 .splash {
-  background: $dark-grey url("../image/3d-texture.png") no-repeat 50% 100% / 100%;
+  background: $dark-grey;
   box-sizing: border-box;
   height: 100vh;
   padding: 1.618vh 2.618vw;
@@ -43,7 +43,7 @@
 }
 
 .splash-logo {
-  margin: 35vh 0 1.618em;
+  margin: 25vh 0 1.618em;
   width: 490px;
 
   @media #{$small} {
@@ -80,4 +80,12 @@
   &:last-child {
     left: 3px;
   }
+}
+
+.splash canvas {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
 }
