@@ -12,7 +12,6 @@
     renderer.setSize( window.innerWidth, window.innerHeight );
     renderer.setPixelRatio((window.devicePixelRatio || 1) * 2);
 
-
     var splash = document.querySelector('.splash');
     splash.appendChild( renderer.domElement );
 
@@ -48,11 +47,22 @@
     camera.position.y = 2;
 
     var step = 0.001;
+
+    var running = true;
+    window.onscroll = function() {
+        if(running) {
+            running = false;
+        } else if(document.body.scrollTop === 0) {
+            running = true;
+            render();
+        }
+    };
+
     render();
 
     function generateSimplexPlaneGeometry() {
-        var width = 128;
-        var height = 128;
+        var width = 64;
+        var height = 64;
         var geometry = new THREE.PlaneGeometry( 1, 1, width-1, height-1 );
         geometry.lookAt( new THREE.Vector3(0, 1, 0) );
 
@@ -80,7 +90,9 @@
     }
 
     function render() {
-        requestAnimationFrame( render );
+        if(running) {
+            requestAnimationFrame( render );
+        }
 
         var current = plane.morphTargetInfluences[0];
 
@@ -99,5 +111,6 @@
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize( window.innerWidth, window.innerHeight );
+        requestAnimationFrame( render );
     }
 })();
