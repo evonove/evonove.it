@@ -6,6 +6,7 @@
 
   @media #{$small}, #{$medium}, #{$large} {
     height: auto;
+    max-height: none;
   }
 }
 
