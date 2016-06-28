@@ -2,16 +2,10 @@
   background: $dark-grey;
   box-sizing: border-box;
   height: 100vh;
+  overflow: hidden;
   padding: 1.618vh 2.618vw;
-
-  @media #{$small}, #{$medium} {
-    background-size: auto;
-    height: auto;
-  }
-
-  @media #{$small-vh} {
-    background-size: contain;
-  }
+  position: relative;
+  width: 100%;
 }
 
 .splash-cornice {
@@ -48,7 +42,7 @@
   width: 490px;
 
   @media #{$small} {
-    margin-top: 20vh;
+    margin: 20vh 0 1.618em;
     width: 90%;
   }
 
@@ -87,7 +81,7 @@
   bottom: 0;
   left: 0;
   position: absolute;
-  width: 100%;
+  width: 100vw;
   z-index: $z-texture;
 
   @media #{$small} {
