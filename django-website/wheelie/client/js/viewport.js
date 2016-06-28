@@ -7,24 +7,17 @@
     }
 
     var splash = $('.splash');
-    var logo = $('.splash-logo');
-    var viewportHeight = $(window).height();
 
-    if (!splash || !logo) {
+    if (!splash) {
         return;
     }
 
     if (mobile) {
-        // lock vh styles
-        resetViewport();
         $(window).on('orientationchange', resetViewport);
-
-        resetViewport();
     }
 
     function resetViewport() {
-        var margins = logo.css('margin');
+        var viewportHeight = $(window).height();
         splash.height(viewportHeight);
-        logo.css('margin', margins);
     }
 })(window, document);
