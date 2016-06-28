@@ -96,11 +96,7 @@
 }
 
 .footer-container-social .button {
-  @media #{$medium}, #{$large} {
-    margin-left: auto;
-  }
-
-  @media #{$small}, #{$small-vh} {
+  @media #{$small}, #{$small-vh}, #{$medium}, #{$large} {
     margin-left: auto;
     margin-right: auto;
   }

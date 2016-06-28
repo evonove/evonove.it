@@ -3,7 +3,7 @@
   height: 100%;
   position: relative;
 
-  @media #{$small}, #{$medium} {
+  @media #{$small}, #{$medium}, #{$large} {
     padding-top: 6.854em;
     height: auto;
   }
@@ -42,7 +42,7 @@
   padding-top: 3%;
   text-align: center;
 
-  @media #{$small}, #{$medium} {
+  @media #{$small}, #{$medium}, #{$large} {
     flex-direction: column;
     justify-content: center;
     padding: 4.236em 0;
@@ -60,7 +60,7 @@
     margin-top: 0.618em;
   }
 
-  @media #{$small}, #{$medium} {
+  @media #{$small}, #{$medium}, #{$large} {
     &:not(:first-child) {
       margin-top: 2.618em;
       padding: 0 0.618%;
