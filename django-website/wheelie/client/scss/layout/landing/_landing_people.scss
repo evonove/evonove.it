@@ -32,7 +32,7 @@
   margin: 2.618em 0;
   width: 295px;
 
-  @media #{$small}, #{$medium} {
+  @media #{$small}, #{$medium}, #{$large} {
     margin: auto;
   }
 
@@ -160,26 +160,35 @@
   }
 
   @media #{$small}, #{$medium}, #{$large} {
-    background-color: transparentize($dark-grey, 0.3);
+    background-color: transparentize($dark-grey, 0);
     bottom: 0;
-    display: none;
     font-size: $p-smaller;
     height: 90%;
     margin-left: 0;
     opacity: 0;
     padding: 5%;
+    transition: all .5s;
+    visibility: hidden;
     width: 90%;
   }
 }
 
 .people-container-person-description.fade-in {
-  display: block;
+  background-color: transparentize($dark-grey, 0.3);
   opacity: 1;
+  visibility: visible;
+}
+
+.people-container-person-description.fade-in h2 {
+  margin-top: 0;
+  transition: all .5s;
 }
 
 .people-container-person-description h2 {
   @media #{$small}, #{$medium}, #{$large} {
     font-size: $h2 / 1.618;
+    margin-top: 50px;
+    transition: all .5s;
   }
 }
 
