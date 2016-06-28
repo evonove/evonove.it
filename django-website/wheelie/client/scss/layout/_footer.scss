@@ -8,7 +8,7 @@
   position: relative;
   width: 100%;
 
-  @media #{$small} {
+  @media #{$small}, #{$small-vh} {
     padding: 2.618em 0 0.618em;
   }
 }
@@ -26,7 +26,7 @@
       width: 33%;
     }
 
-    @media #{$small} {
+    @media #{$small}, #{$small-vh} {
       width: 100%;
     }
   }
@@ -35,7 +35,7 @@
     padding-left: 2.618em;
   }
 
-  @media #{$small} {
+  @media #{$small}, #{$small-vh} {
     flex-direction: column;
     padding: 2.618em 0;
     text-align: center;
@@ -50,7 +50,7 @@
   order: 3;
   text-align: center;
 
-  @media #{$small} {
+  @media #{$small}, #{$small-vh} {
     order: 1;
   }
 }
@@ -64,7 +64,7 @@
   transform-origin: center center;
   width: 220px;
 
-  @media #{$small} {
+  @media #{$small}, #{$small-vh} {
     transform: none;
     width: 300px;
   }
@@ -74,7 +74,7 @@
   display: block;
   font-size: 2.618rem;
 
-  @media #{$small} {
+  @media #{$small}, #{$small-vh} {
     font-size: 3.6rem;
   }
 }
@@ -90,7 +90,7 @@
     order: 2;
   }
 
-  @media #{$small} {
+  @media #{$small}, #{$small-vh} {
     order: 3;
   }
 }
@@ -100,7 +100,7 @@
     margin-left: auto;
   }
 
-  @media #{$small} {
+  @media #{$small}, #{$small-vh} {
     margin-left: auto;
     margin-right: auto;
   }
@@ -124,7 +124,7 @@
   left: 1.618%;
   position: absolute;
 
-  @media #{$small} {
+  @media #{$small}, #{$small-vh} {
     position: static;
     text-align: center;
   }
