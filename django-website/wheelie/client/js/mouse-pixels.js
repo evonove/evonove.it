@@ -1,4 +1,11 @@
 (function() {
+
+    var expertise = document.querySelector('.expertise');
+
+    if (!expertise) {
+        return;
+    }
+
     var mobile;
     if ($(window).width() < 950) {
         mobile = 1;
