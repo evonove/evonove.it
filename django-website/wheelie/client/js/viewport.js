@@ -13,7 +13,11 @@
     }
 
     if (mobile) {
-        $(window).on('orientationchange', resetViewport);
+        $(window).on('orientationchange', onOrientationChange);
+    }
+
+    function onOrientationChange() {
+        setTimeout(resetViewport, 200);
     }
 
     function resetViewport() {
