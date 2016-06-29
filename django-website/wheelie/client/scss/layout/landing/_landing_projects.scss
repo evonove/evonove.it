@@ -87,7 +87,7 @@
 
 .projects-container-project-heading {
   background: $dark-grey;
-  color: $dark-green;
+  color: lighten($dark-green, 5%);
   display: block;
   font-size: 1.618rem;
   left: 35px;
