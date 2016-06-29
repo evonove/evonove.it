@@ -33,6 +33,10 @@ a.article-link {
   line-height: 2;
 }
 
+.article-title {
+  line-height: 2.618rem;
+}
+
 // all h2 inside the post (except the first main h2) have this styles
 .article-title ~ .article-title {
   color: $light-grey;

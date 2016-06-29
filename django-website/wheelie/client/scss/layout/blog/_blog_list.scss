@@ -15,7 +15,7 @@
   @media #{$small}, #{$medium} {
     margin: auto;
     order: 2;
-    padding: 2.618em 2.618%;
+    padding: 2.618em 0;
     width: 80%;
   }
 }
@@ -28,8 +28,13 @@
   margin-top: 1.618rem;
 }
 
+.article-preview-img {
+  max-width: 100%;
+}
+
 .article-preview-post {
   font-family: 'Merriweather', serif;
+  line-height: 2.25rem;
 }
 
 .list-block-readmore {
