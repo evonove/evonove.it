@@ -10,8 +10,8 @@
 }
 
 .expertise-pixels {
-  // Height includes the Expertise section height plus the height of the Projects section till the projects container
-  height: calc(100% + 17.942em + 95px);
+  // Height includes the Expertise section height + Project section padding-top + Project heading height + projects container margin-top - the space occupied by the single project title
+  height: calc(100% + 6.853em + 95px + 6.853em - 50px);
   position: absolute;
   width: 100%;
   z-index: $z-expertise-pixels;
