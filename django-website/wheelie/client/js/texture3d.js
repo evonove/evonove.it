@@ -56,7 +56,7 @@
     window.onscroll = function() {
         if(running) {
             running = false;
-        } else if(document.body.scrollTop === 0) {
+        } else if(document.documentElement.scrollTop === 0) {
             running = true;
             render();
         }
