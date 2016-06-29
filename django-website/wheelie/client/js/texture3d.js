@@ -53,14 +53,14 @@
     var step = 0.001;
 
     var running = true;
-    window.onscroll = function() {
+    window.addEventListener('scroll', function() {
         if(running) {
             running = false;
-        } else if(document.documentElement.scrollTop === 0) {
+        } else if(window.scrollY === 0) {
             running = true;
             render();
         }
-    };
+    });
 
     render();
 
