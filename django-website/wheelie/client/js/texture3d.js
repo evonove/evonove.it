@@ -1,6 +1,12 @@
 (function () {
     'use strict';
 
+    var texture = document.querySelector('.js-texture');
+
+    if (!texture) {
+        return;
+    }
+
     var mobile;
     if ($(window).width() < 950) {
         mobile = 1;
@@ -16,9 +22,7 @@
     });
     renderer.setSize( window.innerWidth, window.innerHeight );
     renderer.setPixelRatio((window.devicePixelRatio || 1) * 2);
-
-    var splash = document.querySelector('.splash');
-    splash.appendChild( renderer.domElement );
+    texture.appendChild( renderer.domElement );
 
     // set up lights
     var light = new THREE.AmbientLight( 0x404040 ); // soft white light

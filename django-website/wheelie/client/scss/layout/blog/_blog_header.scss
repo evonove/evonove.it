@@ -16,12 +16,19 @@
 }
 
 .blog-background {
-  background: url("../image/3d-texture.png") no-repeat 0 100%, $dark-grey;
+  background: $dark-grey;
   background-size: 100%;
   height: 350px;
+  overflow: hidden;
+  position: relative;
   width: 100%;
 
   @media #{$small}, #{$medium} {
     height: 250px;
   }
+}
+
+.blog-background canvas {
+  bottom: -100px;
+  position: absolute;
 }
