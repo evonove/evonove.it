@@ -9,7 +9,7 @@
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera( 45, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
-    window.addEventListener( 'orientationchange', onWindowResize, false );
+    window.addEventListener( 'orientationchange', onOrientationChange, false );
 
     var renderer = new THREE.WebGLRenderer({
         alpha : true
@@ -115,6 +115,10 @@
         plane.morphTargetInfluences[0] += step;
 
         renderer.render(scene, camera);
+    }
+
+    function onOrientationChange() {
+        setTimeout(onWindowResize, 200);
     }
 
     function onWindowResize() {
