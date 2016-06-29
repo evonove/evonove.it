@@ -66,6 +66,11 @@
   }
 }
 
+// Remove the divider from the last post of the list
+.list-block:last-child .list-block-divider {
+  display: none;
+}
+
 .list-paginator {
   margin-top: 6.854em;
 }
