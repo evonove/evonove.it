@@ -15,10 +15,10 @@ services:
 
 before_install:
   - sudo /etc/init.d/postgresql stop
-  - docker pull library/postgres:$PSQL_VERSION
-  - docker pull library/redis:$REDIS_VERSION
-  - docker run -d -p 127.0.0.1:5432:5432 library/postgres:$PSQL_VERSION
-  - docker run -d -p 127.0.0.1:6379:6379 library/redis:$REDIS_VERSION
+  - docker pull postgres:$PSQL_VERSION
+  - docker pull redis:$REDIS_VERSION
+  - docker run -d -p 127.0.0.1:5432:5432 postgres:$PSQL_VERSION
+  - docker run -d -p 127.0.0.1:6379:6379 redis:$REDIS_VERSION
 
 install:
   - pip install tox
