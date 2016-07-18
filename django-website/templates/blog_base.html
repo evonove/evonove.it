@@ -14,8 +14,9 @@
             <li class="header-blog-nav-item"><a {% if blog_link %}href="{{ blog_link }}"{% endif %}>Blog</a>
         </ul>
     </header>
-
     <div class="blog-background js-texture"></div>
+    <div class="main">
+        {% block blog_main %}{% endblock blog_main %}
+    </div>
 
-    {% block blog_main %}{% endblock blog_main %}
 {% endblock content %}

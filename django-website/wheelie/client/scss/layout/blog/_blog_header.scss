@@ -1,6 +1,5 @@
 .header-blog {
   align-items: center;
-  background: $dark-grey;
   display: flex;
   justify-content: space-between;
   padding: 1.618em;
@@ -16,8 +15,6 @@
 }
 
 .blog-background {
-  background: $dark-grey;
-  background-size: 100%;
   height: 350px;
   overflow: hidden;
   position: relative;
