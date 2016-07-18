@@ -1,13 +1,3 @@
-.main {
-  background-color: $white;
-  display: flex;
-  line-height: 1.618em;
-
-  @media #{$small}, #{$medium} {
-    flex-direction: column;
-  }
-}
-
 .list {
   box-sizing: border-box;
   padding: 6.854em 20.185%;
