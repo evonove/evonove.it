@@ -1,6 +1,7 @@
 .expertise {
   background: $dark-grey;
   height: 100%;
+  min-height: 900px;
   position: relative;
 
   @media #{$small}, #{$medium}, #{$large} {
