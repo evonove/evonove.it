@@ -2,24 +2,10 @@
   background-color: $white;
   display: flex;
   line-height: 1.618em;
+  overflow: hidden;
   position: relative;
 
   @media #{$small}, #{$medium} {
     flex-direction: column;
   }
-}
-
-.blog-background {
-  height: 350px;
-  position: relative;
-  width: 100%;
-
-  @media #{$small}, #{$medium} {
-    height: 150px;
-  }
-}
-
-.blog-background canvas {
-  bottom: -200px;
-  position: absolute;
 }

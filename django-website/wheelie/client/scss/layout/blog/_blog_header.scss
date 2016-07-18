@@ -1,8 +1,13 @@
 .header-blog {
   align-items: center;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   padding: 1.618em;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: $z-blog-header;
 }
 
 .header-blog-logo {
@@ -12,4 +17,44 @@
 .header-blog-nav-item {
   display: inline-block;
   padding: 0.618em;
+}
+
+.blog-plane_geometry {
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  @media #{$small-vh} {
+    height: 150px;
+  }
+
+  @media #{$medium}, #{$small} {
+    height: 250px;
+  }
+
+  @media #{$smallest} {
+    height: 200px;
+  }
+}
+
+.blog-plane_geometry canvas {
+  bottom: -50px;
+  position: absolute;
+
+  @media #{$big-monitor} {
+    bottom: -200px;
+  }
+
+  @media #{$large}, #{$medium}, #{$smallest} {
+    bottom: 0;
+  }
+
+  @media #{$small} {
+    bottom: -100px;
+  }
+
+  @media #{$small-vh} {
+    bottom: -75px;
+  }
 }
