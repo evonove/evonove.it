@@ -17,18 +17,20 @@ $(document).ready(function() {
         });
 
         person.hover(personHover);
-
-        function personHover() {
-            var photo = $(this).find('.people-container-person-photo');
-            photo.toggleClass('left');
-        }
     }
 
     if (mobile) {
-        person.click(function() {
-            var thisDescription = $(this).find('.people-container-person-description');
-            thisDescription.toggleClass('fade-in');
-            description.not(thisDescription).removeClass('fade-in');
-        });
+        person.click(personClick);
+    }
+
+    function personHover() {
+        var photo = $(this).find('.people-container-person-photo');
+        photo.toggleClass('left');
+    }
+
+    function personClick() {
+        var thisDescription = $(this).find('.people-container-person-description');
+        thisDescription.toggleClass('fade-in');
+        description.not(thisDescription).removeClass('fade-in');
     }
 });
