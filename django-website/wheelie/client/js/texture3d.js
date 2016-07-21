@@ -2,6 +2,7 @@
     'use strict';
 
     var texture = document.querySelector('.js-texture');
+    var blogTexture = document.querySelector('.blog-plane_geometry');
 
     if (!texture) {
         return;
@@ -34,7 +35,7 @@
     for(var i = 0; i < morphGeometry.vertices.length; i++) {
         vertices.push(morphGeometry.vertices[i].clone());
     }
-    geometry.morphTargets.push({ name: "targetFoo", vertices: vertices });
+    geometry.morphTargets.push({ name: "targetPlane", vertices: vertices });
     plane.updateMorphTargets();
 
     scene.add( plane );
@@ -63,6 +64,8 @@
     });
 
     render();
+
+    renderOnIos();
 
     function generateSimplexPlaneGeometry() {
         var width = 64;
@@ -122,4 +125,16 @@
         renderer.setSize( window.innerWidth, window.innerHeight );
         requestAnimationFrame( render );
     }
+
+    // detect if device operative system is iOS
+    function renderOnIos() {
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        if ( userAgent.match(/iPad/i) ) {
+            $(blogTexture).addClass('js-tablet_up');
+        } else if ( userAgent.match(/iPhone/i) || userAgent.match(/iPod/i) ) {
+            $(blogTexture).addClass('js-phone_up');
+        }
+    }
+
 })();
