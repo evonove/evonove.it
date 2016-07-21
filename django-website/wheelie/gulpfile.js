@@ -10,10 +10,10 @@ wheelie.setDefault('watch');
 
 // build customizations
 var vendors = [
-    'jquery/dist/jquery.min.js',
-    'particles.js/particles.min.js',
-    'svg-injector/dist/svg-injector.min.js',
-    'three.js/build/three.min.js',
+    'jquery/dist/jquery.js',
+    'particles.js/particles.js',
+    'svg-injector/svg-injector.js',
+    'three.js/build/three.js',
     'three.js/examples/js/SimplexNoise.js',
     'threex.terrain/threex.terrain.js'
 ];
