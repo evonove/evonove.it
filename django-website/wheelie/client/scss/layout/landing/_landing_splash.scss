@@ -15,15 +15,21 @@
   text-align: center;
   z-index: $z-cornice;
 
+  // ::before element is 2% wider and it is centered by subtracting half of the extra width (1%) and the width of single border (1px)
   &::before {
     border: 1px solid $dark-green;
     border-bottom: none;
     content: '';
-    left: -1.112vw;
+    left: calc(0px - 1% - 1px);
     height: 96%;
     position: absolute;
     top: 1.618vh;
-    width: 96.764vw;
+    width: 102%;
+
+    @media #{$medium}, #{$small} {
+      left: calc(0px - 1.5% - 1px);
+      width: 103%;
+    }
   }
 }
 
