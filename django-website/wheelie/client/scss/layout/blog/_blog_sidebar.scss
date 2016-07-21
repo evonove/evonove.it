@@ -2,8 +2,8 @@
   background-color: #f5f5f5;
   box-sizing: border-box;
   line-height: 2.618em;
-  padding: 6.854em 2.618% 0;
-  width: 25%;
+  padding: 6.854em 2.618vw 0;
+  width: 24vw;
 
   @media #{$small}, #{$medium} {
     order: 1;
@@ -12,14 +12,27 @@
   }
 }
 
-.sidebar-heading {
+.sidebar-tags.is-fixed {
+  @media #{$large}, #{$extra-large}, #{$big-monitor} {
+    left: 77.618vw;
+    position: fixed;
+    right: 2.618vw;
+    top: 6.854em;
+  }
+}
+
+.sidebar-tags-heading {
   font-family: 'Oswald', sans-serif;
   font-size: inherit;
   margin: 0 0 0.382em;
   text-transform: uppercase;
 }
 
-.sidebar-taglist-tag {
+.sidebar-tags-taglist {
+  margin-right: -1.618em;
+}
+
+.sidebar-tags-taglist-tag {
   color: $light-grey;
   cursor: pointer;
   display: inline-block;
@@ -29,17 +42,17 @@
   text-transform: uppercase;
 }
 
-.sidebar-taglist-tag a {
+.sidebar-tags-taglist-tag a {
   color: $light-grey;
 }
 
-.sidebar-taglist-tag-close {
+.sidebar-tags-taglist-tag-close {
   height: 14px;
   position: absolute;
   right: 15px;
   top: -2px;
   width: 14px;
 }
-.sidebar-taglist li a.is-active {
+.sidebar-tags-taglist li a.is-active {
   color: $light-green;
 }

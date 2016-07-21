@@ -24,6 +24,7 @@ var scripts = [
     'projects-pixelation.js',
     'scroll-down.js',
     'svg-injections.js',
+    'blog-tags.js',
     'texture3d.js',
     'viewport.js'
 ];

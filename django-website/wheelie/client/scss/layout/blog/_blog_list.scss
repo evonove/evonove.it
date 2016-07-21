@@ -1,7 +1,7 @@
 .list {
   box-sizing: border-box;
   padding: 6.854em 20.185%;
-  width: 75%;
+  width: 75vw;
 
   @media #{$small}, #{$medium} {
     margin: auto;
