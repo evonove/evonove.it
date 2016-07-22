@@ -35,7 +35,7 @@ From the ``django-website`` folder, launch::
 
     $ python manage.py migrate
     $ python manage.py createsuperuser
-    $ python manage.py create_blog_page
+    $ python manage.py create_pages
     $ python manage.py load_test_data
     $ python manage.py runserver
 
