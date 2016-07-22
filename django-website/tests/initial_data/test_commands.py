@@ -10,28 +10,48 @@ from options.models import WebsiteSettings
 from home.models import HomePage, Service, Work, TeamMember
 
 from blog.models import BlogPage
+from pages.models import HiringPage
 
 
 @pytest.mark.django_db
 class TestInitialLoad:
-    def test_initial_load(self):
+    def test_blog_page(self):
         """
         Alice is a developer that wants a blog page for her website. During the initial
         process the WagTail core bootstrapped and a new homepage without the blog index
-        page. For this reason, she launches the 'create_blog_page' command.
+        page. For this reason, she launches the 'create_pages' command.
             - The blog page should be created as a child of the site homepage
         """
-        # the blog page is not created through migrations
+        # the page is not created through migrations
         assert BlogPage.objects.count() == 0
 
         # the blog page is created
-        call_command('create_blog_page')
+        call_command('create_pages')
         assert BlogPage.objects.count() == 1
 
         # and is child of the homepage
         blog = Page.objects.get(slug='blog')
         homepage = HomePage.objects.get(slug='home')
         assert blog in homepage.get_children()
+
+    def test_hiring_page(self):
+        """
+        Alice is a developer that wants an hiring page for her website. During the initial
+        process the WagTail core bootstrapped and a new homepage without the hiring
+        page. For this reason, she launches the 'create_pages' command.
+            - The hiring page should be created as a child of the site homepage
+        """
+        # the page is not created through migrations
+        assert HiringPage.objects.count() == 0
+
+        # the blog page is created
+        call_command('create_pages')
+        assert HiringPage.objects.count() == 1
+
+        # and is child of the homepage
+        hiring = Page.objects.get(slug='we-are-hiring')
+        homepage = HomePage.objects.get(slug='home')
+        assert hiring in homepage.get_children()
 
     def test_load_test_data(self):
         """
