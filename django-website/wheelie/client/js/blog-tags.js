@@ -6,17 +6,17 @@
     }
 
     var sidebar = document.querySelector('.sidebar');
+
+    if (!sidebar) {
+        return;
+    }
+
     var tags = document.querySelector('.sidebar-box');
     var sidebarButton = document.querySelector('.sidebar-box-header');
     var tagList = document.querySelector('.sidebar-box-taglist');
     var arrow = document.querySelector('.sidebar-box-header-button');
     var tagSelected = document.querySelector('.sidebar-box-taglist li a.is-active');
-
     var sidebarTop = $(sidebar).offset().top;
-
-    if (!sidebar) {
-        return;
-    }
 
     if (!mobile) {
         $(window).scroll(fixTagList);
