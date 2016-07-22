@@ -58,6 +58,7 @@ INSTALLED_APPS = (
     'options',
     'home',
     'blog',
+    'pages',
     'wheelie',
 )
 

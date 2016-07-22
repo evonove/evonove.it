@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block content %}
+    <h2 class="article-title">{{ page.title }}</h2>
+    {% include "partials/streamfield.html" with content=self.body %}
+{% endblock content %}
