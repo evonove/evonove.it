@@ -28,6 +28,7 @@
   margin: 5px 25px 6.853em;
   position: relative;
   width: 480px;
+  user-select: none;
 
   @media #{$small} {
     height: 400px;
