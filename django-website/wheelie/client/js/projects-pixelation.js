@@ -30,7 +30,6 @@
 
         if (mobile) {
             projects[i].addEventListener('click', togglePixels);
-            projects[i].addEventListener('click', hideTouchAction);
         }
     }
 
@@ -124,9 +123,5 @@
             $(node).find('.projects-container-project-description').removeClass('is_hover');
             $(node).find('.projects-container-project-figure-canvas').removeClass('is_hover');
         }
-    }
-
-    function hideTouchAction() {
-        $('.projects-container-project-touch').remove();
     }
 })();
