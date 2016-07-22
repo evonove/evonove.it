@@ -6,13 +6,22 @@
   width: 24vw;
 
   @media #{$small}, #{$medium} {
+    bottom: 0;
     order: 1;
-    padding: 2.618%;
+    padding: 0.618em 0 0;
+    position: fixed;
     width: 100%;
   }
 }
 
-.sidebar-tags.is-fixed {
+.sidebar-box {
+  @media #{$small}, #{$medium} {
+    margin: auto;
+    width: 80%;
+  }
+}
+
+.sidebar-box.is-fixed {
   @media #{$large}, #{$extra-large}, #{$big-monitor} {
     left: 77.618vw;
     position: fixed;
@@ -21,18 +30,79 @@
   }
 }
 
-.sidebar-tags-heading {
+.sidebar-box-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebar-box-header-heading {
   font-family: 'Oswald', sans-serif;
   font-size: inherit;
   margin: 0 0 0.382em;
   text-transform: uppercase;
+  user-select: none;
+
+  @media #{$small}, #{$medium} {
+    margin: 0;
+  }
 }
 
-.sidebar-tags-taglist {
+.sidebar-box-header-button {
+  display: none;
+
+  @media #{$small}, #{$medium} {
+    display: block;
+    transition: 0.4s;
+    width: 15px;
+  }
+}
+
+.sidebar-box-header-button.is-shown {
+  transform: rotate(180deg);
+}
+
+.sidebar-box-header-button.is-shown.is-open {
+  transition: none;
+}
+
+.sidebar-box-taglist {
   margin-right: -1.618em;
+  overflow-y: scroll;
+  padding-top: 0.618em;
+  transition: max-height 0.5s 0s, visibility 0s 0.38s;
+
+  &::-webkit-scrollbar {
+    left: -3px;
+    position: relative;
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: $light-grey;
+  }
+
+  @media #{$small}, #{$medium} {
+    margin-bottom: 0.618em;
+    max-height: 0;
+    visibility: hidden;
+    // Align the scrollbar with the arrow
+    width: calc(100% - 4px);
+  }
 }
 
-.sidebar-tags-taglist-tag {
+.sidebar-box-taglist.is-shown {
+  max-height: 105px;
+  transition: max-height 0.5s 0s, visibility 0.5s 0s;
+  visibility: visible;
+}
+
+.sidebar-box-taglist.is-shown.is-open {
+  transition: none;
+}
+
+.sidebar-box-taglist-tag {
   color: $light-grey;
   cursor: pointer;
   display: inline-block;
@@ -42,17 +112,17 @@
   text-transform: uppercase;
 }
 
-.sidebar-tags-taglist-tag a {
+.sidebar-box-taglist-tag a {
   color: $light-grey;
 }
 
-.sidebar-tags-taglist-tag-close {
+.sidebar-box-taglist-tag-close {
   height: 14px;
   position: absolute;
   right: 15px;
   top: -2px;
   width: 14px;
 }
-.sidebar-tags-taglist li a.is-active {
+.sidebar-box-taglist li a.is-active {
   color: $light-green;
 }

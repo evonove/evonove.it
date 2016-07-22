@@ -62,16 +62,21 @@
     {% endif %}
 </div>
 <div class="sidebar">
-    <div class="sidebar-tags">
-        <h3 class="sidebar-tags-heading">Featured Tags</h3>
-        <ul class="sidebar-tags-taglist">
+    <div class="sidebar-box">
+        <div class="sidebar-box-header">
+            <h3 class="sidebar-box-header-heading">Featured Tags</h3>
+            <div class="sidebar-box-header-button">
+                <img class="js-inject-svg" src="{% static 'svg/down-arrow.svg' %}">
+            </div>
+        </div>
+        <ul class="sidebar-box-taglist">
             {% spaceless %}
             {% for tag in page.tags %}
-            <li class="sidebar-tags-taglist-tag">
+            <li class="sidebar-box-taglist-tag">
                 {% if current_tag == tag.name %}
                 {% slugurl "blog" as blog_link %}
                 <a class="is-active" href="{{ blog_link }}">
-                    <img class="sidebar-tags-taglist-tag-close js-inject-svg" src="{% static 'svg/close.svg' %}" />
+                    <img class="sidebar-box-taglist-tag-close js-inject-svg" src="{% static 'svg/close.svg' %}" />
                     {{ tag }}
                 </a>
                 {% else %}
