@@ -1,0 +1,13 @@
+{% load staticfiles %}
+{% load wagtailcore_tags %}
+
+{% slugurl "home" as homepage_link %}
+{% slugurl "blog" as blog_link %}
+
+<header class="header-blog">
+    <a {% if homepage_link %}href="{{ homepage_link }}"{% endif %}><img class="header-blog-logo js-inject-svg" src="{% static 'svg/evonove-logo-white.svg' %}"></a>
+    <ul class="text-uppercase oswald-font">
+        <li class="header-blog-nav-item"><a {% if blog_link %}href="{{ blog_link }}"{% endif %}>Blog</a>
+    </ul>
+</header>
+<div class="blog-plane_geometry js-texture"></div>

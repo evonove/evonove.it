@@ -12,11 +12,19 @@
     <div class="splash-cornice">
         {% include "../templates/partials/logo.html" %}
 
-        {% slugurl "blog" as blog_link %}
-        <a class="button center" {% if blog_link %}href="{{ blog_link }}"{% endif %}>
-            <div class="button-lines"></div>
-            <span>BLOG</span>
-        </a>
+        <div class="splash-cornice-buttons">
+            {% slugurl "blog" as blog_link %}
+            <a class="button center" {% if blog_link %}href="{{ blog_link }}"{% endif %}>
+                <div class="button-lines"></div>
+                <span>blog</span>
+            </a>
+
+            {% slugurl "we-are-hiring" as hiring_link %}
+            <a class="button center" {% if hiring_link %}href="{{ hiring_link }}"{% endif %}>
+                <div class="button-lines"></div>
+                <span>We are hiring</span>
+            </a>
+        </div>
         <div class="splash-cornice-scrolldown">
             {% include "home/partials/down-arrow.html" %}
             <span>or scroll down</span>

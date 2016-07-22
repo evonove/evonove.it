@@ -57,6 +57,24 @@
   }
 }
 
+.splash-cornice-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  width: 375px;
+
+  @media #{$small} {
+    flex-direction: column;
+    width: auto;
+  }
+
+  & .button:not(:first-child) {
+    @media #{$small} {
+      margin-top: 0.618em;
+    }
+  }
+}
+
 .splash-cornice-scrolldown {
   color: $light-green;
   cursor: pointer;
