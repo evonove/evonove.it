@@ -1,15 +1,20 @@
 # This file must be used only for development purposes
+version: "2"
 
-db:
-    image: postgres:9.5.2
-    ports:
-        - "5432:5432"
-    environment:
-        - POSTGRES_USER=devel
-        - POSTGRES_PASSWORD=123456
-        - POSTGRES_DB=evonoveit
+services:
+    postgres:
+        image: postgres:9.5.2
+        environment:
+            - POSTGRES_USER=devel
+            - POSTGRES_PASSWORD=123456
+            - POSTGRES_DB=evonoveit
 
-redis:
-    image: redis:3.0.7
-    ports:
-        - "6379:6379"
+    redis:
+        image: redis:3.0.7
+
+    django:
+        build: .
+        volumes:
+          - .:/app
+        ports:
+          - "8000:8000"
