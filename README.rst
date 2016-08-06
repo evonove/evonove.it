@@ -19,9 +19,9 @@ Starting this website requires the following backend services up and running:
 * Redis
 * PostgreSQL
 
-If you want to launch your backend services via ``docker-compose``, just::
+A docker development container is available and you can start all the stack, just::
 
-    $ docker-compose up
+    $ docker-compose up -d
 
 Populate the database
 ~~~~~~~~~~~~~~~~~~~~~
@@ -31,13 +31,12 @@ using the admin (or in general be a data insert operator), you can launch the fo
 the database schema, the initial superuser, the blog page linked to the home page and a set of initial data
 for a fake company.
 
-From the ``django-website`` folder, launch::
+From the root folder, launch::
 
-    $ python manage.py migrate
-    $ python manage.py createsuperuser
-    $ python manage.py create_pages
-    $ python manage.py load_test_data
-    $ python manage.py runserver
+    $ docker-compose run django python django-website/manage.py migrate
+    $ docker-compose run django python django-website/manage.py createsuperuser
+    $ docker-compose run django python django-website/manage.py create_pages
+    $ docker-compose run django python django-website/manage.py load_test_data
 
 Settings
 --------
