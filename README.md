@@ -49,5 +49,18 @@ To run the tests:
     $ docker-compose -f containers/test.yml up
 
 
+## Frontend development
+
+The frontend application, uses Wheelie toolchain. To start the livereload,
+enter in the ``django-website/wheelie/`` folder and just:
+
+    $ npm run wheelie
+
+When the frontend is ready to be deployed, launch the production build and
+commit all files in the repository:
+
+    $ npm run build
+    $ git commit -m'process static files'
+
 [1]: https://evonove.it/ "Evonove"
 [2]: https://wagtail.io/ "Wagtail"
