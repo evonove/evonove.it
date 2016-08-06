@@ -1,12 +1,15 @@
 require('gulp');
 
 // importing Wheelie instance and a list of tasks (recipe)
-var wheelie = require('wheelie');
+var Wheelie = require('wheelie');
 var recipe = require('wheelie-recipe');
 
 // adding a recipe to Wheelie, defining the default task
+var wheelie = new Wheelie();
 wheelie.add(recipe);
-wheelie.setDefault('watch');
+
+// disable browser-sync
+wheelie.disable('browser-sync');
 
 // build customizations
 var vendors = [
@@ -34,6 +37,4 @@ wheelie.update('uglify', {
   vendors: vendors
 });
 
-wheelie.setBuild('static/');
-wheelie.setDist('static/');
 wheelie.build();
