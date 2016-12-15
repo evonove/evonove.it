@@ -12,6 +12,7 @@ whitenoise
 
 # the website
 wagtail
+pygments
 
 # application server
 uwsgi

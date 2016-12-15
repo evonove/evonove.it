@@ -28,6 +28,8 @@
         <div class="videoWrapper">
             {{ child }}
         </div>
+    {% elif child.block_type == 'code_snippet' %}
+        {{ child }}
     {% else %}
         {{ child }}
     {% endif %}

@@ -1,9 +1,15 @@
 from django.forms import ChoiceField
+from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
 
-from wagtail.wagtailcore.blocks import StructBlock, StreamBlock, CharBlock, RichTextBlock, TextBlock, FieldBlock
+from wagtail.wagtailcore.blocks import (StructBlock, StreamBlock, CharBlock, RichTextBlock, TextBlock, FieldBlock,
+                                        ChoiceBlock)
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtailembeds.blocks import EmbedBlock
+
+from pygments import highlight
+from pygments.formatters import get_formatter_by_name
+from pygments.lexers import get_lexer_by_name
 
 
 class ImageFormatBlock(FieldBlock):
@@ -45,6 +51,32 @@ class YouTubeBlock(StructBlock):
     identifier = EmbedBlock()
 
 
+class CodeBlock(StructBlock):
+    """ Code Highlighting Block """
+
+    LANGUAGE_CHOICES = (
+        ('python', 'Python'),
+        ('cpp', 'C++'),
+        ('html', 'HTML'),
+        ('css', 'CSS'),
+    )
+
+    language = ChoiceBlock(choices=LANGUAGE_CHOICES)
+    code_text = TextBlock()
+
+    def render(self, value):
+        src = value['code_text'].strip('\n')
+        lang = value['language']
+
+        lexer = get_lexer_by_name(lang)
+        formatter = get_formatter_by_name(
+            'html',
+            linenos='table',
+            noclasses=True,
+        )
+        return mark_safe(highlight(src, lexer, formatter))
+
+
 class PostStreamBlock(StreamBlock):
     """
     Defines the ``StreamBlock`` used in the ``BlogPage`` model. This adds a
@@ -62,3 +94,4 @@ class PostStreamBlock(StreamBlock):
     aligned_image = ImageBlock(label=_("Aligned image"), icon="image")
     youtube = YouTubeBlock(icon="image")
     pullquote = PullQuoteBlock(icon="openquote")
+    code_snippet = CodeBlock(label=_("Code Snippet"), icon="code")
