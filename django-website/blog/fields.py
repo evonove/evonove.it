@@ -73,6 +73,7 @@ class CodeBlock(StructBlock):
             'html',
             linenos='table',
             noclasses=True,
+            style='monokai',
         )
         return mark_safe(highlight(src, lexer, formatter))
 

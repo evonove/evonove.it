@@ -29,7 +29,9 @@
             {{ child }}
         </div>
     {% elif child.block_type == 'code_snippet' %}
-        {{ child }}
+        <div class="article-code-snippet">
+            {{ child }}
+        </div>
     {% else %}
         {{ child }}
     {% endif %}
