@@ -52,7 +52,9 @@ class YouTubeBlock(StructBlock):
 
 
 class CodeBlock(StructBlock):
-    """ Code Highlighting Block """
+    """
+    Code Highlighting Block
+    """
 
     LANGUAGE_CHOICES = (
         ('python', 'Python'),
