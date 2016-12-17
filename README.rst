@@ -39,6 +39,15 @@ From the ``django-website`` folder, launch::
     $ python manage.py load_test_data
     $ python manage.py runserver
 
+Static compilation
+~~~~~~~~~~~~~~~~~~~~~
+
+Static files need to be compiled too.
+
+Go to ``django-website/wheelie`` folder, launch ``npm install`` and ``bower install`` to install all the necessary frontend dependencies.
+
+When all dependencies are installed launch ``gulp`` to compile all static files.
+
 Settings
 --------
 
