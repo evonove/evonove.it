@@ -38,15 +38,12 @@
   }
 }
 
+// Adjust texture position in order to display it properly on every screen
 .blog-plane_geometry canvas {
   bottom: -50px;
   position: absolute;
 
-  @media #{$big-monitor} {
-    bottom: -200px;
-  }
-
-  @media #{$large}, #{$medium}, #{$smallest} {
+  @media #{$big-monitor} #{$large}, #{$medium}, #{$smallest} {
     bottom: -200px;
   }
 
@@ -61,7 +58,7 @@
 
 // Move the plane geometry higher on Ipad
 .blog-plane_geometry.js-tablet_up canvas {
-  bottom: 200px;
+  bottom: -200px;
 }
 
 // Move the plane geometry higher on Iphone and Ipod
