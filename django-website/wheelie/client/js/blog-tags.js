@@ -29,6 +29,7 @@
         }
     }
 
+    // Fix the tag list after scroll (after header disappeared)
     function fixTagList() {
         if ( $(window).scrollTop() > sidebarTop ) {
             $(tags).addClass('is-fixed');
@@ -36,6 +37,13 @@
             $(tags).removeClass('is-fixed');
         }
     }
+
+    // The tag list is scrollable on mouseover if exceeds the height of its container
+    $(tagList).hover(
+        function() {
+            $(this).toggleClass('is-hover');
+        }
+    );
 
     function toggleTagList() {
         $(tagList).toggleClass('is-shown');

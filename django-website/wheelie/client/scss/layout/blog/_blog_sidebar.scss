@@ -1,8 +1,9 @@
 .sidebar{
-  background-color: #f5f5f5;
+  background-color: $wild-sand;
   box-sizing: border-box;
   line-height: 2.618em;
   padding: 6.854em 2.618vw 0;
+  position: relative;
   width: 24vw;
 
   @media #{$small}, #{$medium} {
@@ -14,8 +15,13 @@
   }
 }
 
+// [1] Height is calculated subtracting a space above and below,
+// so that the tags list is centered on the sidebar
 .sidebar-box {
+  height: calc(100vh - (6.854em * 2)); // [1]
+
   @media #{$small}, #{$medium} {
+    height: auto;
     margin: auto;
     width: 80%;
   }
@@ -66,11 +72,19 @@
   transition: none;
 }
 
+// [1] The tag list height includes its margin-top and the heading's height
+// [2] The tag list is not scrollable by default
 .sidebar-box-taglist {
+  max-height: calc(100% - 54px - 0.618em); // [1]
   margin-right: -1.618em;
-  overflow-y: scroll;
+  overflow-y: hidden; // [2]
   padding-top: 0.618em;
   transition: max-height 0.5s 0s, visibility 0s 0.38s;
+  width: 100%;
+
+  &.is-hover {
+    overflow-y: auto;
+  }
 
   &::-webkit-scrollbar {
     left: -3px;
@@ -83,12 +97,14 @@
     background: $light-grey;
   }
 
+  // [1] Align the scrollbar with the arrow
   @media #{$small}, #{$medium} {
+    height: auto;
     margin-bottom: 0.618em;
     max-height: 0;
+    overflow-y: auto;
     visibility: hidden;
-    // Align the scrollbar with the arrow
-    width: calc(100% - 4px);
+    width: calc(100% - 4px); // [1]
   }
 }
 
@@ -103,7 +119,6 @@
 }
 
 .sidebar-box-taglist-tag {
-  color: $light-grey;
   cursor: pointer;
   display: inline-block;
   font-family: 'Oswald', sans-serif;
@@ -114,6 +129,10 @@
 
 .sidebar-box-taglist-tag a {
   color: $light-grey;
+
+  &:hover {
+    color: $light-green;
+  }
 }
 
 .sidebar-box-taglist-tag-close {
@@ -125,4 +144,18 @@
 }
 .sidebar-box-taglist li a.is-active {
   color: $light-green;
+}
+
+// Mask tags list when user has scrolled to the bottom
+.sidebar-tags_mask {
+  background: $wild-sand;
+  bottom: 0;
+  height: 6.854em;
+  left: 0;
+  position: absolute;
+  width: 100%;
+
+  @media #{$small}, #{$medium} {
+    display: none;
+  }
 }
