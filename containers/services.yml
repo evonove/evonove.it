@@ -1,0 +1,19 @@
+# This compose file extends the base.yml and runs only the
+# postgres and redis services with ports exposed to the host.
+
+version: "2"
+
+services:
+  postgres:
+    extends:
+      file: base.yml
+      service: postgres
+    ports:
+      - "5432:5432"
+
+  redis:
+    extends:
+      file: base.yml
+      service: redis
+    ports:
+      - "6379:6379"

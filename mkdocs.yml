@@ -1,0 +1,5 @@
+site_name: Evonove Website Docs
+theme: readthedocs
+pages:
+  - Home: index.md
+  - Deployment: deployment.md

@@ -1,0 +1,10 @@
+FROM python:3.5.2
+MAINTAINER Evoniners <dev@evonove.it>
+
+WORKDIR /app
+
+RUN pip install mkdocs
+
+EXPOSE 9000
+
+CMD ["mkdocs", "serve", "-a", "0.0.0.0:9000"]

@@ -1,0 +1,24 @@
+# NOTE: Use this compose file ONLY FOR DEVELOPMENT PURPOSES
+
+version: "2"
+
+services:
+  postgres:
+    extends:
+      file: base.yml
+      service: postgres
+
+  redis:
+    extends:
+      file: base.yml
+      service: redis
+
+  tests:
+    image: evonove/ci
+    command: tox -r
+    volumes:
+      - ..:/app
+    environment:
+      - WORKSPACE=/app
+      - DATABASE_URL=postgres://devel:123456@postgres:5432/evonoveit
+

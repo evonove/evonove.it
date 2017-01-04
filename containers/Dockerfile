@@ -1,17 +1,19 @@
 FROM python:3.5.2
-MAINTAINER Emanuele Palazzetti <hello@palazzetti.me>
+MAINTAINER Evoniners <dev@evonove.it>
 
-# environment variables
 ENV DJANGO_SETTINGS_MODULE website.settings.dev
+ENV DJANGO_EMAIL_BACKEND django.core.mail.backends.smtp.EmailBackend
+ENV DJANGO_EMAIL_HOST mailhog
+ENV DJANGO_EMAIL_HOST_PORT 1025
 ENV DATABASE_URL postgres://devel:123456@postgres:5432/evonoveit
-ENV CACHE_URL redis://redis:6379/0
+ENV CACHE_URL redis://redis:6379/1
 
 ENV UWSGI_HTTP 0.0.0.0:8000
 ENV UWSGI_PROCESSES 2
 
 WORKDIR /app
 
-COPY . /app/
+ADD ./requirements/requirements.txt /app/
 RUN pip install -r requirements.txt
 
 EXPOSE 8000

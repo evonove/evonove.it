@@ -1,20 +1,27 @@
-# This file must be used only for development purposes
 version: "2"
 
 services:
-    postgres:
-        image: postgres:9.5.2
-        environment:
-            - POSTGRES_USER=devel
-            - POSTGRES_PASSWORD=123456
-            - POSTGRES_DB=evonoveit
+  postgres:
+    extends:
+      file: ./containers/base.yml
+      service: postgres
 
-    redis:
-        image: redis:3.0.7
+  redis:
+    extends:
+      file: ./containers/base.yml
+      service: redis
 
-    django:
-        build: .
-        volumes:
-          - .:/app
-        ports:
-          - "8000:8000"
+  django:
+    extends:
+      file: ./containers/base.yml
+      service: django
+
+  docs:
+    extends:
+      file: ./containers/base.yml
+      service: docs
+
+  mailhog:
+    extends:
+      file: ./containers/base.yml
+      service: mailhog

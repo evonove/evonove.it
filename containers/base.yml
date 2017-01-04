@@ -1,0 +1,35 @@
+version: "2"
+
+services:
+  postgres:
+    image: library/postgres:9.5.5
+    environment:
+      - POSTGRES_USER=devel
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=evonoveit
+
+  redis:
+    image: library/redis:3.2.6
+
+  django:
+    build:
+      context: ../
+      dockerfile: containers/Dockerfile
+    volumes:
+      - ..:/app
+    ports:
+      - "8000:8000"
+
+  docs:
+    build:
+      context: .
+      dockerfile: Dockerfile.docs
+    volumes:
+      - ..:/app
+    ports:
+      - "9000:9000"
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
