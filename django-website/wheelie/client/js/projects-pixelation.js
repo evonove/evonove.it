@@ -1,7 +1,7 @@
 (function() {
 
     var mobile;
-    if ($(window).width() < 950) {
+    if ($(window).width() < 1025) {
         mobile = 1;
     }
 
