@@ -51,6 +51,11 @@ To run the tests:
 
 ## Frontend development
 
+To install the dependencies run
+
+    $ npm install
+    $ bower install
+
 The frontend application, uses Wheelie toolchain. To start the livereload,
 enter in the ``django-website/wheelie/`` folder and just:
 
