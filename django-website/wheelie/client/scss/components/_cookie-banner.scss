@@ -1,0 +1,25 @@
+// Styles related to the cookie banner
+// -----------------------------------
+
+// .cc-banner.cc-bottom selector refers to desktop devices, while
+// .cc-window.cc-floating refers to mobile ones
+.cc-banner.cc-bottom,
+.cc-window.cc-floating {
+  background-color: $light-green;
+  font-family: 'Inconsolata', sans-serif;
+}
+
+.cc-window.cc-floating {
+  text-align: center;
+}
+
+a.cc-link {
+  color: $dark-grey;
+}
+
+a.cc-btn.cc-dismiss {
+  border-color: $dark-grey;
+  color: $dark-grey;
+  font: 1rem 'Oswald', sans-serif;
+  text-transform: uppercase;
+}
