@@ -56,16 +56,19 @@ To install the dependencies run
     $ npm install
     $ bower install
 
-The frontend application, uses Wheelie toolchain. To start the livereload,
-enter in the ``django-website/wheelie/`` folder and just:
+The frontend app uses Gulp and Wheelie as toolchain. To run the app you need to launch Gulp tasks from the `wheelie/` folder with:
+
+    $ gulp
+
+To start the livereload run:
 
     $ npm run wheelie
 
 When the frontend is ready to be deployed, launch the production build and
 commit all files in the repository:
 
-    $ npm run build
-    $ git commit -m'process static files'
+    $ gulp build --production
+    $ git commit -m 'Process static files'
 
 [1]: https://evonove.it/ "Evonove"
 [2]: https://wagtail.io/ "Wagtail"
