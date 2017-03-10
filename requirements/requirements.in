@@ -17,15 +17,6 @@ pygments
 # application server
 uwsgi
 
-# testing
-pytest
-pytest-django
-pytest-xdist
-pytest-cov
-flake8
-coverage
-ipdb
-
 # logging
 python-logstash
 
