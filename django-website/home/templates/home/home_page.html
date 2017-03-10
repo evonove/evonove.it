@@ -35,12 +35,14 @@
 
 <section class="expertise">
     <div id="expertise-pixels" class="expertise-pixels"></div>
-    <svg class="heading">
-        <text class="bottom" x="0" y="85">Expertise</text>
-        <text class="top" x="0" y="85">Expertise</text>
-        <text class="bottom mobile" x="0" y="50">Expertise</text>
-        <text class="top mobile" x="0" y="50">Expertise</text>
-    </svg>
+    <h1>
+        <svg class="heading">
+            <text class="bottom" x="0" y="85">Expertise</text>
+            <text class="top" x="0" y="85">Expertise</text>
+            <text class="bottom mobile" x="0" y="50">Expertise</text>
+            <text class="top mobile" x="0" y="50">Expertise</text>
+        </svg>
+    </h1>
     <div class="expertise-container">
         {% for service in page.services.all|slice:":3" %}
         <div class="expertise-container-textbox">
@@ -56,12 +58,14 @@
 
 {% if page.works.all %}
     <section class="projects">
-        <svg class="heading center">
-            <text class="bottom" x="0" y="85">Projects</text>
-            <text class="top" x="0" y="85">Projects</text>
-            <text class="bottom mobile" x="0" y="50">Projects</text>
-            <text class="top mobile" x="0" y="50">Projects</text>
-        </svg>
+        <h1>
+            <svg class="heading center">
+                <text class="bottom" x="0" y="85">Projects</text>
+                <text class="top" x="0" y="85">Projects</text>
+                <text class="bottom mobile" x="0" y="50">Projects</text>
+                <text class="top mobile" x="0" y="50">Projects</text>
+            </svg>
+        </h1>
         <div class="projects-container">
             {% for work in page.works.all %}
                 {% image work.cover fill-500x620 as cover  %}
@@ -95,12 +99,14 @@
 <section class="people">
     <div class="people-header">
         {% if page.team.count %}
-            <svg class="heading">
-                <text class="bottom" x="0" y="85">Team</text>
-                <text class="top" x="0" y="85">Team</text>
-                <text class="bottom mobile" x="0" y="50">Team</text>
-                <text class="top mobile" x="0" y="50">Team</text>
-            </svg>
+            <h1>
+                <svg class="heading">
+                    <text class="bottom" x="0" y="85">Team</text>
+                    <text class="top" x="0" y="85">Team</text>
+                    <text class="bottom mobile" x="0" y="50">Team</text>
+                    <text class="top mobile" x="0" y="50">Team</text>
+                </svg>
+            </h1>
         {% else %}
             <h2 class="people-header-placeholder">No team members over here :-(</h2>
             <h2 class="people-header-placeholder">Add someone <a href="{% url 'wagtailadmin_pages:edit' page.id %}">using the admin.</a></h2>
