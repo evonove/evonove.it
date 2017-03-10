@@ -12,6 +12,20 @@
         <meta name="description" content="{{ self.search_description }}" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
+        <!-- open graph -->
+        <meta property="og:type" content="website" />
+        <meta property="locale" content="en_US" />
+        <meta property="og:title" content="{{ self.seo_title }}" />
+        <meta property="og:url" content="https://evonove.it" />
+        <meta property="og:description" content="{{ self.search_description}}" />
+        <meta property="og:site_name" content="Evonove" />
+        <meta property="og:image" content="{% static 'images/barbarians-og.jpg' %}" />
+
+        <!-- twitter open graph -->
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:title" content="{{ self.seo_title }}" />
+        <meta property="twitter:description" content="{{ self.search_description }}" />
+
         <link rel="apple-touch-icon" sizes="57x57" href="{% static 'apple-touch-icon-57x57.png' %}">
         <link rel="apple-touch-icon" sizes="60x60" href="{% static 'apple-touch-icon-60x60.png' %}">
         <link rel="apple-touch-icon" sizes="72x72" href="{% static 'apple-touch-icon-72x72.png' %}">
