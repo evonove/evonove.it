@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.contrib.postgres.fields import JSONField
 from django.utils.translation import ugettext as _
 
 from modelcluster.fields import ParentalKey
@@ -12,6 +13,8 @@ from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
 
 class HomePage(Page):
+    linked_data = JSONField(null=True, blank=True, help_text=_('Linked Data in JSON'))
+
     content_panels = Page.content_panels + [
         MultiFieldPanel(
             [
@@ -28,6 +31,10 @@ class HomePage(Page):
             heading=_('Our team'),
             classname='collapsible collapsed',
         ),
+    ]
+
+    promote_panels = Page.promote_panels + [
+        FieldPanel('linked_data'),
     ]
 
 
