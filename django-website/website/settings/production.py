@@ -22,6 +22,7 @@ AWS_REGION = 'eu-central-1'
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 AWS_S3_BUCKET_NAME = env('AWS_S3_BUCKET_NAME')
+AWS_S3_MAX_AGE_SECONDS = 60 * 60 * 24 * 60
 # uploads is not authenticated so all files are public
 AWS_S3_BUCKET_AUTH = env('AWS_S3_BUCKET_AUTH', False)
 
@@ -34,6 +35,30 @@ EMAIL_PORT = env('DJANGO_EMAIL_HOST_PORT')
 EMAIL_HOST_USER = env('DJANGO_EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('DJANGO_EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = env('DJANGO_EMAIL_USE_TLS', True)
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+                'wagtail.contrib.settings.context_processors.settings',
+            ],
+            'loaders': [
+                ('django.template.loaders.cached.Loader', [
+                    'django.template.loaders.filesystem.Loader',
+                    'django.template.loaders.app_directories.Loader',
+                ]),
+            ],
+        },
+    },
+]
 
 # monitoring
 RAVEN_CONFIG = {
