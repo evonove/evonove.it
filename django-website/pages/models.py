@@ -10,9 +10,9 @@ from blog.fields import PostStreamBlock
 class HiringPage(Page):
     body = StreamField(PostStreamBlock())
 
-    search_fields = Page.search_fields + (
+    search_fields = Page.search_fields + [
         index.SearchField('body'),
-    )
+    ]
 
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),

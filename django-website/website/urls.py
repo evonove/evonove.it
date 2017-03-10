@@ -9,6 +9,8 @@ from wagtail.contrib.wagtailsitemaps.views import sitemap
 from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 
+from robots.views import RobotsView
+
 
 urlpatterns = []
 
@@ -22,5 +24,6 @@ urlpatterns += [
     url(r'^django-admin/', include(admin.site.urls)),
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^sitemap\.xml$', sitemap),
+    url(r'^robots\.txt$', RobotsView.as_view()),
     url(r'', include(wagtail_urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
