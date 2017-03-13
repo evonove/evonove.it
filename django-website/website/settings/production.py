@@ -14,7 +14,7 @@ SESSION_COOKIE_SECURE = env('DJANGO_SESSION_COOKIE_SECURE', True)
 # Using WhiteNoise storage backend which automatically takes care of gzipping
 # static files, while creating unique names for each version so they can
 # safely be cached forever
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # load media files via S3
 DEFAULT_FILE_STORAGE = 'django_s3_storage.storage.S3Storage'
