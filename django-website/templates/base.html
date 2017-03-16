@@ -35,7 +35,7 @@
         <meta name="theme-color" content="#ffffff">
 
         {% if self.linked_data %}
-        <!-- Strcutured Data -->
+        <!-- Structured Data -->
           {% autoescape off %}
             <script type="application/ld+json">{{ self.linked_data }}</script>
           {% endautoescape %}
