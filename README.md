@@ -51,18 +51,22 @@ To run the tests:
 
 ## Frontend development
 
-To install the dependencies run
+The frontend app uses Gulp and Wheelie as toolchain. To install them run this command from the `wheelie/` folder:
 
-    $ npm install
-    $ bower install
+    $ yarn
 
-The frontend app uses Gulp and Wheelie as toolchain. To run the app you need to launch Gulp tasks from the `wheelie/` folder with:
+To run the frontend app you need to launch Gulp tasks from the `wheelie/` folder with:
 
     $ gulp
 
-To start the livereload run:
+To install the development dependencies run:
 
-    $ npm run wheelie
+    $ yarn add -D [package]
+
+To install the production dependencies run:
+
+    $ yarn add [package]
+
 
 When the frontend is ready to be deployed, launch the production build and
 commit all files in the repository:
