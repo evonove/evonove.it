@@ -1,35 +1,42 @@
-// Core
-@import "core/palette";
-@import "core/variables";
-@import "core/fonts";
-@import "core/reset";
+// Abstracts
+@import
+  "abstracts/breakpoints",
+  "abstracts/fonts",
+  "abstracts/palette",
+  "abstracts/variables";
 
 // Base
-@import "base/base";
-@import "base/media-queries";
-@import "base/typography";
-@import "base/modifiers";
-@import "base/animations";
-
-// Layout
-@import "layout/header";
-@import "layout/landing/landing_splash";
-@import "layout/landing/landing_expertise";
-@import "layout/landing/landing_projects";
-@import "layout/landing/landing_people";
-@import "layout/blog/blog_base";
-@import "layout/blog/blog_header";
-@import "layout/blog/blog_list";
-@import "layout/blog/blog_single_post";
-@import "layout/blog/blog_sidebar";
-@import "layout/blog/blog_post_page";
-@import "layout/hiring/hiring";
-@import "layout/footer";
-@import "layout/error";
+@import
+  "base/reset",
+  "base/base",
+  "base/modifiers",
+  "base/typography",
+  "base/keyframes";
 
 // Components
-@import "components/button";
-@import "components/heading";
-@import "components/paginator";
-@import "components/video";
-@import "components/cookie-banner";
+@import
+  "components/button",
+  "components/heading",
+  "components/paginator",
+  "components/video",
+  "components/cookie-banner";
+
+// Layout
+@import
+  "layout/header",
+  "layout/footer",
+  "layout/blog_header",
+  "layout/blog_sidebar";
+
+// Pages
+@import
+  "pages/landing/landing_splash",
+  "pages/landing/landing_expertise",
+  "pages/landing/landing_projects",
+  "pages/landing/landing_people",
+  "pages/blog/blog_base",
+  "pages/blog/blog_list",
+  "pages/blog/blog_single_post",
+  "pages/blog/blog_post_page",
+  "pages/hiring",
+  "pages/error";
