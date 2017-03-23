@@ -8,11 +8,8 @@
     "wheelie": "nodemon --watch gulpfile.js --exec gulp",
     "build": "gulp build --production"
   },
-  "repository": {
-    "type": "https",
-    "url": "https://github.com/evonove/evonove.it.git"
-  },
-  "author": "Emanuele Palazzetti <emanuele.palazzetti@evonove.it>",
+  "repository": "https://github.com/evonove/evonove.it.git",
+  "author": "Evonove",
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/evonove/evonove.it/issues"
@@ -23,5 +20,12 @@
     "nodemon": "1.10.0",
     "wheelie": "0.3.0",
     "wheelie-recipe": "0.3.1"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "normalize.css": "^5.0.0",
+    "particles.js": "^2.0.0",
+    "svg-injector": "^1.1.3",
+    "three": "^0.84.0"
   }
 }
