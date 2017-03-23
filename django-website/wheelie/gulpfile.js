@@ -8,17 +8,19 @@ var recipe = require('wheelie-recipe');
 var wheelie = new Wheelie();
 wheelie.add(recipe);
 
+// Update the vendor path so that Uglify points to the correct folder
+wheelie.update('uglify', { vendorsPath: '' });
+
 // disable browser-sync
 wheelie.disable('browser-sync');
 
 // build customizations
 var vendors = [
-    'jquery/dist/jquery.js',
-    'particles.js/particles.js',
-    'svg-injector/svg-injector.js',
-    'three.js/build/three.js',
-    'three.js/examples/js/SimplexNoise.js',
-    'threex.terrain/threex.terrain.js'
+    'node_modules/jquery/dist/jquery.js',
+    'node_modules/svg-injector/svg-injector.js',
+    'node_modules/particles.js/particles.js',
+    'node_modules/three/build/three.js',
+    'node_modules/three/examples/js/SimplexNoise.js'
 ];
 
 var scripts = [
@@ -29,7 +31,8 @@ var scripts = [
     'svg-injections.js',
     'blog-tags.js',
     'texture3d.js',
-    'viewport.js'
+    'viewport.js',
+    'threex.terrain.js'
 ];
 
 wheelie.update('uglify', {
