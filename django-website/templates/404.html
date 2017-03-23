@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 
-{% load static from staticfiles %}
-
 {% block body_class %}template-404{% endblock %}
 
 {% block content %}
-    <header class="header-404">
-        <a href="#"><img class="header-404-logo js-inject-svg" src="{% static 'svg/evonove-logo-xl.svg' %}"></a>
-    </header>
-    <div class="container-404">
-        <h2>Page not found</h2>
-        <h3>Sorry, this page could not be found.</h3>
+  <header class="header-404">
+    <div class="header-404-logo">
+      <a href="https://evonove.it/">
+        {% include "partials/svgs/logo.svg" %}
+      </a>
     </div>
+  </header>
+  <div class="container-404">
+    <h2>Page not found</h2>
+    <h3>Sorry, this page could not be found.</h3>
+  </div>
 {% endblock %}

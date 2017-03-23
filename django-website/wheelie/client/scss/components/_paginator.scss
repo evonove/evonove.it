@@ -6,10 +6,36 @@
 
 .paginator-icon {
   fill: $dark-grey;
-  height: 16px;
+  width: 14px;
+}
+
+// Shift the previous and next icons a little higher to align with other elements
+.paginator-previous svg,
+.paginator-next svg {
   position: relative;
-  top: 1px;
+  top: -3px;
+}
+
+// First and last icons are a little wider to match the other paginator icons'
+// size
+.paginator-first,
+.paginator-last {
   width: 16px;
+}
+
+// Rotate the previous icon to the left
+.paginator-previous svg {
+  transform: rotate(90deg);
+}
+
+// Rotate the next icon to the left
+.paginator-next svg {
+  transform: rotate(270deg);
+}
+
+// Rotate the last icon to the right
+.paginator-last svg {
+  transform: rotate(180deg);
 }
 
 li.paginator-page {

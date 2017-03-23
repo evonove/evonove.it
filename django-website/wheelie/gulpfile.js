@@ -17,7 +17,6 @@ wheelie.disable('browser-sync');
 // build customizations
 var vendors = [
     'node_modules/jquery/dist/jquery.js',
-    'node_modules/svg-injector/svg-injector.js',
     'node_modules/particles.js/particles.js',
     'node_modules/three/build/three.js',
     'node_modules/three/examples/js/SimplexNoise.js'
@@ -28,7 +27,6 @@ var scripts = [
     'people.js',
     'projects-pixelation.js',
     'scroll-down.js',
-    'svg-injections.js',
     'blog-tags.js',
     'texture3d.js',
     'viewport.js',

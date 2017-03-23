@@ -16,10 +16,11 @@
 .header-404,
 .header-500 {
   background-color: $dark-grey;
+  display: flex;
   padding: 1.618em;
 
   @media #{$small}, #{$medium} {
-    text-align: center;
+    justify-content: center;
   }
 }
 

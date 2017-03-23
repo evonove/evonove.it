@@ -43,16 +43,16 @@
 }
 
 .splash-logo {
-  margin: 25vh 0 1.618em;
+  margin: 25vh auto 1.618em;
   width: 490px;
 
   @media #{$small} {
-    margin: 20vh 0 1.618em;
+    margin: 20vh auto 1.618em;
     width: 90%;
   }
 
   @media #{$small-vh} {
-    margin: 22vh 0 4.7vh;
+    margin: 22vh auto 4.7vh;
     width: 45%;
   }
 }
@@ -85,7 +85,7 @@
   text-transform: uppercase;
 }
 
-.splash-cornice-scrolldown-downarrow {
+.splash-cornice-scrolldown > svg {
   fill: $light-green;
   height: 12px;
   position: relative;
