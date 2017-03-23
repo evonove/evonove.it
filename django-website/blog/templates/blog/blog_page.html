@@ -8,85 +8,102 @@
 
 {% block blog_main %}
 <div class="list">
-    {% for article in articles %}
-    <div class="list-block">
-        <article class="article">
-            <a href="{% pageurl article %}" class="article-link">
-                <h2 class="article-title">{{ article.title }}</h2>
-            </a>
-            <div class="article-meta">
-                <a class="article-meta-author">{{ article.owner.get_full_name|default:article.owner }}</a>
-                <span class="article-meta-divider">·</span>
-                <span class="article-meta-date">{{ article.date|date:"N d, Y" }}</span>
-            </div>
+  {% for article in articles %}
+  <div class="list-block">
+    <article class="article">
+      <a href="{% pageurl article %}" class="article-link">
+        <h2 class="article-title">{{ article.title }}</h2>
+      </a>
+      <div class="article-meta">
+        <a class="article-meta-author">{{ article.owner.get_full_name|default:article.owner }}</a>
+        <span class="article-meta-divider">·</span>
+        <span class="article-meta-date">{{ article.date|date:"N d, Y" }}</span>
+      </div>
 
-            <a href="{% pageurl article %}" class="article-link">
-                <div class="article-preview">
+      <a href="{% pageurl article %}" class="article-link">
+        <div class="article-preview">
 
-                    {% if article.cover %}
-                    <figure class="article-preview-picture">
-                        {% image article.cover original as cover %}
-                        <img src="{{cover.url}}" class="article-preview-img" />
-                    </figure>
-                    {% endif %}
+          {% if article.cover %}
+          <figure class="article-preview-picture">
+            {% image article.cover original as cover %}
+            <img src="{{cover.url}}" class="article-preview-img" />
+          </figure>
+          {% endif %}
 
-                    <p class="article-preview-post">{{ article.intro }}</p>
-                </div>
-            </a>
-        </article>
-        <a href="{% pageurl article %}" class="list-block-readmore">Read more...</a>
-        <div class="list-block-divider"></div>
-    </div>
+          <p class="article-preview-post">{{ article.intro }}</p>
+        </div>
+      </a>
+    </article>
+    <a href="{% pageurl article %}" class="list-block-readmore">Read more...</a>
+    <div class="list-block-divider"></div>
+  </div>
+  {% endfor %}
+
+  {% if articles.paginator.num_pages > 1 %}
+  <ul class="paginator list-paginator" role="menubar">
+    {% if articles.has_previous %}
+      <li class="paginator-icon paginator-first">
+        <a href="?page=1">
+          {% include "partials/svgs/double-arrows.svg" %}
+        </a>
+      </li>
+      <li class="paginator-icon paginator-previous">
+        <a href="{% replace_query_link 'page' articles.previous_page_number %}">
+          {% include "partials/svgs/arrow.svg" %}
+        </a>
+      </li>
+    {% endif %}
+
+    {% for item in articles.paginator.page_range %}
+      {% if articles.number == item %}
+        <li class="paginator-page is-current">{{ item }}</li>
+      {% else %}
+        <li class="paginator-page"><a href="{% replace_query_link 'page' item %}">{{ item }}</a></li>
+      {% endif %}
     {% endfor %}
 
-    {% if articles.paginator.num_pages > 1 %}
-    <ul class="paginator list-paginator" role="menubar">
-        {% if articles.has_previous %}
-            <li class="paginator-first"><a href="?page=1"><img class="paginator-icon js-inject-svg" src="{% static 'svg/left-double-arrows.svg' %}"></a></li>
-            <li class="paginator-previous"><a href="{% replace_query_link 'page' articles.previous_page_number %}"><img class="paginator-icon js-inject-svg" src="{% static 'svg/left-arrow.svg' %}"></a></li>
-        {% endif %}
-
-        {% for item in articles.paginator.page_range %}
-            {% if articles.number == item %}
-                <li class="paginator-page is-current">{{ item }}</li>
-            {% else %}
-                <li class="paginator-page"><a href="{% replace_query_link 'page' item %}">{{ item }}</a></li>
-            {% endif %}
-        {% endfor %}
-
-        {% if articles.has_next %}
-            <li class="paginator-next"><a href="{% replace_query_link 'page' articles.next_page_number %}"><img class="paginator-icon js-inject-svg" src="{% static 'svg/right-arrow.svg' %}"></a></li>
-            <li class="paginator-last"><a href="{% replace_query_link 'page' articles.paginator.num_pages %}"><img class="paginator-icon js-inject-svg" src="{% static 'svg/right-double-arrows.svg' %}"></a></li>
-        {% endif %}
-    </ul>
+    {% if articles.has_next %}
+      <li class="paginator-icon paginator-next">
+        <a href="{% replace_query_link 'page' articles.next_page_number %}">
+          {% include "partials/svgs/arrow.svg" %}
+        </a>
+      </li>
+      <li class="paginator-icon paginator-last">
+        <a href="{% replace_query_link 'page' articles.paginator.num_pages %}">
+          {% include "partials/svgs/double-arrows.svg" %}
+        </a>
+      </li>
     {% endif %}
+  </ul>
+  {% endif %}
+
 </div>
 <div class="sidebar">
-    <div class="sidebar-box">
-        <div class="sidebar-box-header">
-            <h3 class="sidebar-box-header-heading">Featured Tags</h3>
-            <div class="sidebar-box-header-button">
-                <img class="js-inject-svg" src="{% static 'svg/down-arrow.svg' %}">
-            </div>
-        </div>
-        <ul class="sidebar-box-taglist">
-            {% spaceless %}
-            {% for tag in page.tags %}
-            <li class="sidebar-box-taglist-tag">
-                {% if current_tag == tag.name %}
-                {% slugurl "blog" as blog_link %}
-                <a class="is-active" href="{{ blog_link }}">
-                    <img class="sidebar-box-taglist-tag-close js-inject-svg" src="{% static 'svg/close.svg' %}" />
-                    {{ tag }}
-                </a>
-                {% else %}
-                <a href="?tag={{ tag }}">{{ tag }}</a>
-                {% endif %}
-            </li>
-            {% endfor %}
-            {% endspaceless %}
-        </ul>
+  <div class="sidebar-box">
+    <div class="sidebar-box-header">
+      <h3 class="sidebar-box-header-heading">Featured Tags</h3>
+      <div class="sidebar-box-header-button">
+        {% include "partials/svgs/arrow.svg" %}
+      </div>
     </div>
-    <div class="sidebar-tags_mask"></div>
+    <ul class="sidebar-box-taglist">
+      {% spaceless %}
+      {% for tag in page.tags %}
+      <li class="sidebar-box-taglist-tag">
+        {% if current_tag == tag.name %}
+        {% slugurl "blog" as blog_link %}
+        <a class="is-active" href="{{ blog_link }}">
+          {% include "partials/svgs/close-tags.svg" %}
+          {{ tag }}
+        </a>
+        {% else %}
+        <a href="?tag={{ tag }}">{{ tag }}</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+      {% endspaceless %}
+    </ul>
+  </div>
+  <div class="sidebar-tags_mask"></div>
 </div>
 {% endblock blog_main %}

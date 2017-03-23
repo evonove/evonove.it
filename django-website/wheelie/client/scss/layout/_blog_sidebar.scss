@@ -16,7 +16,7 @@
 }
 
 // [1] Height is calculated subtracting a space above and below,
-// so that the tags list is centered on the sidebar
+//     so that the tags list is centered on the sidebar.
 .sidebar-box {
   height: calc(100vh - (6.854em * 2)); // [1]
 
@@ -54,6 +54,8 @@
   }
 }
 
+// The button is shown on mobile screens only and it's needed to open the
+// featured tags.
 .sidebar-box-header-button {
   display: none;
 
