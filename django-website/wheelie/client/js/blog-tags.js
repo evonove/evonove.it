@@ -1,8 +1,8 @@
 (function() {
 
     var mobile;
-    if ($(window).width() < 950) {
-        mobile = true;
+    if (document.documentElement.clientWidth < 950) {
+        mobile = 1;
     }
 
     var sidebar = document.querySelector('.sidebar');
@@ -16,14 +16,13 @@
     var tagList = document.querySelector('.sidebar-box-taglist');
     var arrow = document.querySelector('.sidebar-box-header-button');
     var tagSelected = document.querySelector('.sidebar-box-taglist li a.is-active');
-    var sidebarTop = $(sidebar).offset().top;
+    var sidebarTop = getOffsetTop(sidebar).top;
 
     if (!mobile) {
-        $(window).scroll(fixTagList);
+        window.addEventListener('scroll', fixTagList);
     } else {
-        $(sidebarButton).click(toggleTagList);
+        sidebarButton.addEventListener('click', toggleTagList);
 
-        // If a tag is selected, tag list remains open when user selects other tags.
         if (tagSelected) {
             tagListOpenAtRefresh();
         }
@@ -31,33 +30,37 @@
 
     // Fix the tag list after scroll (after header disappeared)
     function fixTagList() {
-        if ( $(window).scrollTop() > sidebarTop ) {
-            $(tags).addClass('is-fixed');
+        if ( (window.pageYOffset || document.documentElement.scrollTop) > sidebarTop ) {
+            tags.classList.add('is-fixed');
         } else {
-            $(tags).removeClass('is-fixed');
+            tags.classList.remove('is-fixed');
         }
     }
 
     // The tag list is scrollable on mouseover if exceeds the height of its container
-    $(tagList).hover(
-        function() {
-            $(this).toggleClass('is-hover');
-        }
-    );
+    tagList.addEventListener('mouseover', function() {
+        this.classList.toggle('is-hover');
+    });
 
     function toggleTagList() {
-        $(tagList).toggleClass('is-shown');
-        $(arrow).toggleClass('is-shown');
+        tagList.classList.toggle('is-shown');
+        arrow.classList.toggle('is-shown');
     }
 
     function tagListOpenAtRefresh() {
-        $(tagList).toggleClass('is-shown').toggleClass('is-open');
-        $(arrow).toggleClass('is-shown').toggleClass('is-open');
-        $(sidebarButton).click(removeTagListTransition);
+        tagList.classList.toggle('is-shown').classList.toggle('is-open');
+        arrow.classList.toggle('is-shown').classList.toggle('is-open');
+        sidebarButton.addEventListener('click', removeTagListTransition);
     }
 
     function removeTagListTransition() {
-        $(tagList).removeClass('is-open');
-        $(arrow).removeClass('is-open');
+        tagList.classList.remove('is-open');
+        arrow.classList.remove('is-open');
+    }
+
+    function getOffsetTop(element) {
+        var rect = element.getBoundingClientRect();
+        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        return { top: rect.top + scrollTop };
     }
 })();

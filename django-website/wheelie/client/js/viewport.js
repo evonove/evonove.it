@@ -2,18 +2,18 @@
     'use strict';
 
     var mobile;
-    if ($(window).width() < 950) {
+    if (document.documentElement.clientWidth < 950) {
         mobile = 1;
     }
 
-    var splash = $('.splash');
+    var splash = document.querySelector('.splash');
 
     if (!splash) {
         return;
     }
 
     if (mobile) {
-        $(window).on('orientationchange', onOrientationChange);
+        window.addEventListener('orientationchange', onOrientationChange);
     }
 
     function onOrientationChange() {
@@ -21,7 +21,7 @@
     }
 
     function resetViewport() {
-        var viewportHeight = $(window).height();
-        splash.height(viewportHeight);
+        var viewportHeight = document.documentElement.clientHeight;
+        splash.style.height = viewportHeight;
     }
 })(window, document);

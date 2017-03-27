@@ -1,7 +1,7 @@
 (function() {
 
     var mobile;
-    if ($(window).width() < 1025) {
+    if (document.documentElement.clientWidth < 1025) {
         mobile = 1;
     }
 
@@ -111,17 +111,17 @@
 
     function toggleDescription(node, show) {
         if (show) {
-            $(node).find('.projects-container-project-darken').addClass('is_hover');
-            $(node).find('.projects-container-project-cornice').addClass('is_hover');
-            $(node).find('.projects-container-project-heading').addClass('is_hover');
-            $(node).find('.projects-container-project-description').addClass('is_hover');
-            $(node).find('.projects-container-project-figure-canvas').addClass('is_hover');
+            node.querySelector('.projects-container-project-darken').classList.add('is_hover');
+            node.querySelector('.projects-container-project-cornice').classList.add('is_hover');
+            node.querySelector('.projects-container-project-heading').classList.add('is_hover');
+            node.querySelector('.projects-container-project-description').classList.add('is_hover');
+            node.querySelector('.projects-container-project-figure-canvas').classList.add('is_hover');
         } else {
-            $(node).find('.projects-container-project-darken').removeClass('is_hover');
-            $(node).find('.projects-container-project-cornice').removeClass('is_hover');
-            $(node).find('.projects-container-project-heading').removeClass('is_hover');
-            $(node).find('.projects-container-project-description').removeClass('is_hover');
-            $(node).find('.projects-container-project-figure-canvas').removeClass('is_hover');
+            node.querySelector('.projects-container-project-darken').classList.remove('is_hover');
+            node.querySelector('.projects-container-project-cornice').classList.remove('is_hover');
+            node.querySelector('.projects-container-project-heading').classList.remove('is_hover');
+            node.querySelector('.projects-container-project-description').classList.remove('is_hover');
+            node.querySelector('.projects-container-project-figure-canvas').classList.remove('is_hover');
         }
     }
 })();

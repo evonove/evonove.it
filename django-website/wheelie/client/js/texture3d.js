@@ -130,10 +130,12 @@
     function renderOnIos() {
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-        if ( userAgent.match(/iPad/i) ) {
-            $(blogTexture).addClass('js-tablet_up');
-        } else if ( userAgent.match(/iPhone/i) || userAgent.match(/iPod/i) ) {
-            $(blogTexture).addClass('js-phone_up');
+        if (blogTexture) {
+            if ( userAgent.match(/iPad/i) ) {
+                blogTexture.classList.add('js-tablet_up');
+            } else if ( userAgent.match(/iPhone/i) || userAgent.match(/iPod/i) ) {
+                blogTexture.classList.add('js-phone_up');
+            }
         }
     }
 

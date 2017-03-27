@@ -16,10 +16,10 @@ wheelie.disable('browser-sync');
 
 // build customizations
 var vendors = [
-    'node_modules/jquery/dist/jquery.js',
     'node_modules/particles.js/particles.js',
     'node_modules/three/build/three.js',
-    'node_modules/three/examples/js/SimplexNoise.js'
+    'node_modules/three/examples/js/SimplexNoise.js',
+    'node_modules/smoothscroll/smoothscroll.js'
 ];
 
 var scripts = [
