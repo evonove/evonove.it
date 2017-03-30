@@ -19,6 +19,9 @@
         <meta property="og:url" content="{{ self.full_url }}" />
         <meta property="og:description" content="{{ self.search_description}}" />
         <meta property="og:site_name" content="Evonove" />
+        {% if self.slug == "home" %}
+            <meta property="og:image" content="{% static 'images/evonove-og.jpg' %}" />
+        {% endif %}
 
         <!-- twitter open graph -->
         <meta property="twitter:card" content="summary" />
