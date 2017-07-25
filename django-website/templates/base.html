@@ -49,9 +49,6 @@
     {% block extra_css %}
       {# Override this in templates to add extra stylesheets #}
     {% endblock %}
-
-    {# Cookie banner #}
-    {% include "cookies/cookie-banner.html" %}
   </head>
 
   <body class="{% block body_class %}{% endblock %}">
@@ -66,7 +63,7 @@
     {% include 'partials/footer.html' with options=settings.options.WebsiteSettings %}
 
     {# Global javascript #}
-    <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bundle.js' %}"></script>
 
     {% block extra_js %}
       {# Override this in templates to add extra javascript #}

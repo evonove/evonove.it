@@ -1,0 +1,33 @@
+{
+  "name": "evonove.it",
+  "version": "4.0.0",
+  "description": "Evonove website",
+  "main": "index.js",
+  "repository": "https://github.com/evonove/evonove.it.git",
+  "author": "Evonove",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/evonove/evonove.it/issues"
+  },
+  "homepage": "https://github.com/evonove/evonove.it",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "css-loader": "^0.28.4",
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.7.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.6",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.4.0"
+  },
+  "dependencies": {
+    "normalize.css": "^5.0.0"
+  }
+}

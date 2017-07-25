@@ -62,7 +62,7 @@ INSTALLED_APPS = (
     'home',
     'hiring',
     'portfolio',
-    'wheelie',
+    'frontend',
 )
 
 MIDDLEWARE = [
