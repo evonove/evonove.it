@@ -6,140 +6,59 @@
 
 
 {% block content %}
-<header class="header"></header>
-
-<section class="splash js-texture">
-  <div class="splash-cornice">
-    <div class="splash-logo">
-      {% include "partials/svgs/logo.svg" %}
-    </div>
-    <div class="splash-cornice-buttons">
-      {% slugurl "blog" as blog_link %}
-      <a class="button center" {% if blog_link %}href="{{ blog_link }}"{% endif %}>
-        <div class="button-lines"></div>
-        <span>blog</span>
-      </a>
-      {% slugurl "we-are-hiring" as hiring_link %}
-      <a class="button center" {% if hiring_link %}href="{{ hiring_link }}"{% endif %}>
-        <div class="button-lines"></div>
-        <span>We are hiring</span>
-      </a>
-    </div>
-    <div class="splash-cornice-scrolldown">
-      {% include "partials/svgs/arrow.svg" %}
-      <span>or scroll down</span>
-      {% include "partials/svgs/arrow.svg" %}
-    </div>
+<section class="splash">
+  <div class="splash-logo">
+    {% include "partials/svg/logo.svg" %}
+  </div>
+  <div class="payoff">
+    <p>A small team that helps people make things<br>
+    They always wanted to make.</p>
+  </div>
+  <div class="splash-scrolldown">
+    {% include "partials/svg/scroll-arrow.svg" %}
   </div>
 </section>
 
-<section class="expertise">
-  <div id="expertise-pixels" class="expertise-pixels"></div>
-  <h1>
-    <svg class="heading">
-      <text class="bottom" x="0" y="85">Expertise</text>
-      <text class="top" x="0" y="85">Expertise</text>
-      <text class="bottom mobile" x="0" y="50">Expertise</text>
-      <text class="top mobile" x="0" y="50">Expertise</text>
-    </svg>
-  </h1>
-  <div class="expertise-container">
-    {% for service in page.services.all|slice:":3" %}
-    <div class="expertise-container-textbox">
-      <h2 class="expertise-container-textbox-heading">{{ service.slogan }}</h2>
-      <h3 class="expertise-container-textbox-subheading">{{ service.technologies }}</h3>
-      <p class="expertise-container-textbox-paragraph">{{ service.description }}</p>
-    </div>
-    {% empty %}
-      <div class="full-width text-center"><h2>This section is empty, update the page <a href="{% url 'wagtailadmin_pages:edit' page.id %}">using the admin.</a></h2></div>
+<section class="services">
+  <h1>Services</h1>
+  <h2>Lorem ipsum dolor sit amet</h2>
+  <ul class="services-list">
+    {% for service in page.services.all %}
+      <li class="services-list-item">
+        <h3>{{ service.slogan }}</h3>
+      </li>
     {% endfor %}
-  </div>
+  </ul>
 </section>
 
-{% if page.works.all %}
-  <section class="projects">
-    <h1>
-      <svg class="heading center">
-        <text class="bottom" x="0" y="85">Projects</text>
-        <text class="top" x="0" y="85">Projects</text>
-        <text class="bottom mobile" x="0" y="50">Projects</text>
-        <text class="top mobile" x="0" y="50">Projects</text>
-      </svg>
-    </h1>
-    <div class="projects-container">
-      {% for work in page.works.all %}
-        {% image work.cover fill-500x620 as cover  %}
-
-        <div class="projects-container-project portrait">
-          <h2 class="projects-container-project-heading">{{ work.name }}</h2>
-          <div class="projects-container-project-cornice"></div>
-          <div class="projects-container-project-darken"></div>
-          <div class="projects-container-project-figure">
-            <canvas class="projects-container-project-figure-canvas"></canvas>
-            <img src="{{ cover.url }}" class="projects-container-project-figure-image" alt="{{ cover.alt }}" width="500" height="620" />
-          </div>
-          <div class="projects-container-project-description">
-            <h3>{{ work.category }}</h3>
-            <h4>{{ work.customer }}</h4>
-            <h5>{{ work.technologies }}</h5>
-            <p>{{ work.description }}</p>
-            {% if work.link %}
-              <a class="button" href="{{ work.link }}" target="_blank">
-                <div class="button-lines"></div>
-                <span>see the project</span>
-              </a>
-            {% endif %}
-          </div>
+<section class="works">
+  <h1>Works</h1>
+  <h2>Lorem ipsum dolor sit amet</h2>
+  <div class="works-container">
+    {% for work in page.works.all %}
+      <div class="case">
+        <div class="case-info">
+          <h4 class="case-info-title">{{ work.name }}</h4>
+          <h5 class="case-info-type">{{ work.category }}</h5>
+          <p class="case-info-description">{{ work.description }}</p>
+          <a href="{{ work.link }}" target="_blank">Visit the case</a>
         </div>
-      {% endfor %}
-    </div>
-  </section>
-{% endif %}
-
-<section class="people">
-  <div class="people-header">
-    {% if page.team.count %}
-      <h1>
-        <svg class="heading">
-          <text class="bottom" x="0" y="85">Team</text>
-          <text class="top" x="0" y="85">Team</text>
-          <text class="bottom mobile" x="0" y="50">Team</text>
-          <text class="top mobile" x="0" y="50">Team</text>
-        </svg>
-      </h1>
-    {% else %}
-      <h2 class="people-header-placeholder">No team members over here :-(</h2>
-      <h2 class="people-header-placeholder">Add someone <a href="{% url 'wagtailadmin_pages:edit' page.id %}">using the admin.</a></h2>
-    {% endif %}
-  </div>
-  <div class="people-container">
-    {% for member in page.team.all %}
-    <div class="people-container-person">
-      {% image member.photo original class="people-container-person-photo" %}
-      <div class="people-container-person-description">
-        {# Team member detail #}
-        <h2>{{ member.full_name }}</h2>
-        <h3>{{ member.role }}</h3>
-        <p>{{ member.bio|richtext }}</p>
-
-        {# Put here all possible social links #}
-        {% include "home/partials/social_link.html" with link=member.website svg="website" %}
-        {% include "home/partials/social_link.html" with link=member.github svg="github" %}
-        {% include "home/partials/social_link.html" with link=member.stackoverflow svg="stackoverflow" %}
-        {% include "home/partials/social_link.html" with link=member.twitter svg="twitter" %}
-        {% include "home/partials/social_link.html" with link=member.gplus svg="gplus" %}
-        {% include "home/partials/social_link.html" with link=member.facebook svg="facebook" %}
-        {% include "home/partials/social_link.html" with link=member.linkedin svg="linkedin" %}
-        {% include "home/partials/social_link.html" with link=member.medium svg="medium" %}
-        {% include "home/partials/social_link.html" with link=member.behance svg="behance" %}
-        {% include "home/partials/social_link.html" with link=member.dribbble svg="dribbble" %}
-        {% include "home/partials/social_link.html" with link=member.flickr svg="flickr" %}
-        {% include "home/partials/social_link.html" with link=member.tumblr svg="tumblr" %}
-        {% include "home/partials/social_link.html" with link=member.deviantart svg="deviantart" %}
-        {% include "home/partials/social_link.html" with link=member.pinterest svg="pinterest" %}
+        {% image work.cover fill-500x620 as cover  %}
+        <figure class="case-image">
+          <img class="case-image-picture" src="{{ cover.url }}" alt="{{ cover.alt }}">
+        </figure>
       </div>
-    </div>
     {% endfor %}
   </div>
+</section>
+
+<section class="clients">
+  <h1>Clients</h1>
+  <h2>Lorem ipsum dolor sit amet</h2>
+  <ul class="brands_container">
+    <li>
+      <div class="brands-logo">Brand</div>
+    </li>
+  </ul>
 </section>
 {% endblock %}

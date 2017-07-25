@@ -1,32 +1,11 @@
 <footer class="footer">
-    <div class="footer-container">
-        <div class="footer-container-heading text-white">
-            <svg class="heading">
-                <text class="bottom" x="0" y="50">Contacts</text>
-                <text class="top" x="0" y="50">Contacts</text>
-            </svg>
-        </div>
-        <div class="footer-container-social">
-            <a class="button" target="_blank" href="{{ options.github }}">
-                <div class="button-lines"></div>
-                <span>github</span>
-            </a>
-            <a class="button" target="_blank" href="{{ options.twitter }}">
-                <div class="button-lines"></div>
-                <span>twitter</span>
-            </a>
-            <a class="button" target="_blank" href="{{ options.facebook }}">
-                <div class="button-lines"></div>
-                <span>facebook</span>
-            </a>
-        </div>
-        <div class="footer-container-contacts text-white">
-            <ul>
-                <li>{{ options.email }}</li>
-                <li>Phone: {{ options.phone }}</li>
-                <li>{{ options.name }} - VAT: {{ options.vat }}</li>
-            </ul>
-        </div>
-    </div>
-    <p class="footer-copy roboto-font">&copy; Copyright {% now "Y" %}, {{ options.name }}</p>
+  <div class="footer-email">
+    <a href="#">{{ options.email }}</a>
+  </div>
+  <p class="footer-copyright">&copy; {% now "Y" %} by Evonove. All rights are reserved.</p>
+  <ul class="footer-social">
+    <li><a href="{{ options.facebook }}" target="_blank">Facebook</li>
+    <li><a href="{{ options.twitter }}" target="_blank">Twitter</li>
+    <li><a href="{{ options.github }}" target="_blank">GitHub</li>
+  </ul>
 </footer>

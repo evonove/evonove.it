@@ -5,72 +5,76 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>{% block title %}{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% endblock %}{% block title_suffix %}{% endblock %}</title>
-        <meta name="description" content="{{ self.search_description }}" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{% block title %}{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% endblock %}{% block title_suffix %}{% endblock %}</title>
+    <meta name="description" content="{{ self.search_description }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-        <!-- open graph -->
-        <meta property="og:type" content="website" />
-        <meta property="locale" content="en_US" />
-        <meta property="og:title" content="{{ self.seo_title }}" />
-        <meta property="og:url" content="{{ self.full_url }}" />
-        <meta property="og:description" content="{{ self.search_description}}" />
-        <meta property="og:site_name" content="Evonove" />
-        {% if self.slug == "home" %}
-            <meta property="og:image" content="{% static 'images/evonove-og.jpg' %}" />
-        {% endif %}
+    <!-- open graph -->
+    <meta property="og:type" content="website" />
+    <meta property="locale" content="en_US" />
+    <meta property="og:title" content="{{ self.seo_title }}" />
+    <meta property="og:url" content="{{ self.full_url }}" />
+    <meta property="og:description" content="{{ self.search_description}}" />
+    <meta property="og:site_name" content="Evonove" />
+    {% if self.slug == "home" %}
+      <meta property="og:image" content="{% static 'images/evonove-og.jpg' %}" />
+    {% endif %}
 
-        <!-- twitter open graph -->
-        <meta property="twitter:card" content="summary" />
-        <meta property="twitter:title" content="{{ self.seo_title }}" />
-        <meta property="twitter:description" content="{{ self.search_description }}" />
+    <!-- twitter open graph -->
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:title" content="{{ self.seo_title }}" />
+    <meta property="twitter:description" content="{{ self.search_description }}" />
 
-        <!-- favicon -->
-        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'apple-touch-icon.png' %}">
-        <link rel="icon" type="image/png" href="{% static 'favicon-32x32.png' %}" sizes="32x32">
-        <link rel="icon" type="image/png" href="{% static 'favicon-16x16.png' %}" sizes="16x16">
-        <link rel="manifest" href="{% static 'manifest.json' %}">
-        <link rel="mask-icon" href="{% static 'safari-pinned-tab.svg' %}" color="#5bbad5">
-        <meta name="theme-color" content="#ffffff">
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'favicon-32x32.png' %}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{% static 'favicon-16x16.png' %}" sizes="16x16">
+    <link rel="manifest" href="{% static 'manifest.json' %}">
+    <link rel="mask-icon" href="{% static 'safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
 
-        {% if self.linked_data %}
-        <!-- Structured Data -->
-          {% autoescape off %}
-            <script type="application/ld+json">{{ self.linked_data }}</script>
-          {% endautoescape %}
-        {% endif %}
+    {% if self.linked_data %}
+    <!-- Structured Data -->
+      {% autoescape off %}
+      <script type="application/ld+json">{{ self.linked_data }}</script>
+      {% endautoescape %}
+    {% endif %}
 
-        {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    {# Global stylesheets #}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 
-        {% block extra_css %}
-            {# Override this in templates to add extra stylesheets #}
-        {% endblock %}
+    {% block extra_css %}
+      {# Override this in templates to add extra stylesheets #}
+    {% endblock %}
 
-        {# Cookie banner #}
-        {% include "cookies/cookie-banner.html" %}
-    </head>
+    {# Cookie banner #}
+    {% include "cookies/cookie-banner.html" %}
+  </head>
 
-    <body class="{% block body_class %}{% endblock %}">
-        {% wagtailuserbar %}
+  <body class="{% block body_class %}{% endblock %}">
+    {% wagtailuserbar %}
 
-        {% block content %}{% endblock %}
+    {% include 'partials/header.html' with options=settings.options.WebsiteSettings %}
 
-        {% include 'partials/footer.html' with options=settings.options.WebsiteSettings %}
+    <main class="main">
+      {% block content %}{% endblock %}
+    </main>
 
-        {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+    {% include 'partials/footer.html' with options=settings.options.WebsiteSettings %}
 
-        {% block extra_js %}
-            {# Override this in templates to add extra javascript #}
-        {% endblock %}
+    {# Global javascript #}
+    <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
 
-        {% include "analytics/google.html" %}
-        {% block extra_analytics %}
-            {# Add per page analytics #}
-        {% endblock %}
-    </body>
+    {% block extra_js %}
+      {# Override this in templates to add extra javascript #}
+    {% endblock %}
+
+    {% include "analytics/google.html" %}
+    {% block extra_analytics %}
+      {# Add per page analytics #}
+    {% endblock %}
+  </body>
 </html>

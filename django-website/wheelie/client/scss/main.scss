@@ -4,39 +4,3 @@
   "abstracts/fonts",
   "abstracts/palette",
   "abstracts/variables";
-
-// Base
-@import
-  "base/reset",
-  "base/base",
-  "base/modifiers",
-  "base/typography",
-  "base/keyframes";
-
-// Components
-@import
-  "components/button",
-  "components/heading",
-  "components/paginator",
-  "components/video",
-  "components/cookie-banner";
-
-// Layout
-@import
-  "layout/header",
-  "layout/footer",
-  "layout/blog_header",
-  "layout/blog_sidebar";
-
-// Pages
-@import
-  "pages/landing/landing_splash",
-  "pages/landing/landing_expertise",
-  "pages/landing/landing_projects",
-  "pages/landing/landing_people",
-  "pages/blog/blog_base",
-  "pages/blog/blog_list",
-  "pages/blog/blog_single_post",
-  "pages/blog/blog_post_page",
-  "pages/hiring",
-  "pages/error";
