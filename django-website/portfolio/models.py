@@ -8,9 +8,18 @@ from wagtail.wagtailimages.models import Image
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
+from home.models import BaseModel
 
-class PortfolioPage(Page):
+
+class PortfolioPage(BaseModel):
     content_panels = Page.content_panels + [
+        MultiFieldPanel(
+            [
+                FieldPanel('section_title'),
+                FieldPanel('section_subtitle'),
+            ],
+            heading=_('Section Text')
+        ),
         MultiFieldPanel(
             [
                 InlinePanel('projects', label=_('projects')),

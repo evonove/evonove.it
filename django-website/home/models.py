@@ -8,8 +8,6 @@ from wagtail.wagtailcore.models import Page, Orderable
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
 
-from portfolio.models import Project
-
 
 class BaseModel(Page):
     section_title = RichTextField(blank=True)
@@ -51,6 +49,7 @@ class HomePage(BaseModel):
     ]
 
     def get_context(self, request):
+        from portfolio.models import Project
         context = super(HomePage, self).get_context(request)
         context['projects'] = Project.objects.filter(show_in_home=True)
         return context

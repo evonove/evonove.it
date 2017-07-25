@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block content %}
+<div>
+    {{ page.section_title|richtext }}
+    {{ page.section_subtitle|richtext }}
+</div>
+<div>
+    {% for project in page.projects.all %}
+        <p>{{ project.name }}</p>
+        <p>{{ project.category }}</p>
+        <p>{{ project.description }}</p>
+        <p>{{ project.image }}</p>
+        <p>{{ project.link }}</p>
+    {% endfor %}
+</div>
+{% endblock %}
