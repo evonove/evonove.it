@@ -10,7 +10,7 @@ from options.models import WebsiteSettings
 from home.models import HomePage, Service, Work, TeamMember
 
 from blog.models import BlogPage
-from pages.models import HiringPage
+from hiring.models import HiringPage
 
 
 @pytest.mark.django_db

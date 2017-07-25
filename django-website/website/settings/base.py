@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'wagtail.wagtailsites',
     'wagtail.wagtailusers',
     'wagtail.wagtailimages',
+    'wagtail.wagtaildocs',
     'wagtail.wagtailembeds',
     'wagtail.wagtailadmin',
     'wagtail.wagtailcore',
@@ -55,9 +56,12 @@ INSTALLED_APPS = (
     'taggit',
 
     'options',
-    'home',
+    'agency',
     'blog',
-    'pages',
+    'contacts',
+    'home',
+    'hiring',
+    'portfolio',
     'wheelie',
 )
 

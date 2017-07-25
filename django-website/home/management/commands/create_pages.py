@@ -5,7 +5,7 @@ from django.contrib.contenttypes.models import ContentType
 
 from home.models import HomePage
 from blog.models import BlogPage
-from pages.models import HiringPage
+from hiring.models import HiringPage
 
 
 class Command(BaseCommand):
@@ -30,7 +30,7 @@ class Command(BaseCommand):
         )
 
         # creating the hiring page
-        content_type, _ = ContentType.objects.get_or_create(model='hiringpage', app_label='pages')
+        content_type, _ = ContentType.objects.get_or_create(model='hiringpage', app_label='hiring')
 
         hiring_page = HiringPage(
             content_type=content_type,
