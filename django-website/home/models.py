@@ -12,6 +12,19 @@ from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFie
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
 
+class BaseModel(Page):
+    section_title = RichTextField(blank=True)
+    section_subtitle = RichTextField(blank=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('section_title'),
+        FieldPanel('section_subtitle'),
+    ]
+
+    class Meta:
+        abstract = True
+
+
 class HomePage(Page):
     linked_data = JSONField(null=True, blank=True, help_text=_('Linked Data in JSON'))
 
