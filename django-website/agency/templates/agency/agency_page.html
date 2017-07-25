@@ -5,36 +5,69 @@
 {% load wagtailimages_tags %}
 
 {% block content %}
+<section class="bio">
+  <h1>Bio</h1>
+  <div class="bio-container">
+    <div class="bio-container-description">
+      <h2>Lorem ipsum dolor sit amet</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <figure class="bio-container-picture">
+      <img src="{{ page.image }">
+    </figure>
+  </div>
+</section>
 
-<div>
-    {{ page.section_title|richtext }}
-    {{ page.section_subtitle|richtext }}
-</div>
-
-<div>
-    <p>{{ page.project|richtext }}</p>
-    <p>{{ page.description|richtext }}</p>
-    <p>{{ page.image }}</p>
-</div>
-
-<div>
+<section class="services">
+  <h1>Services</h1>
+  <h2>Lorem ipsum dolor sit amet</h2>
+  <ul class="services-list">
     {% for service in services %}
-        <p>{{ service.name }}</p>
-        <p>{{ service.description }}</p>
+      <li class="services-list-item">
+        <h3>{{ service.name }</h3>
+        <p>{{ service.description }</p>
+      </li>
     {% endfor %}
-</div>
+  </ul>
+</section>
 
-<div>
-    {% for expertise in page.expertise.all %}
-        <p>{{ expertise.stack }}</p>
-    {% endfor %}
-</div>
+<section class="expertise">
+  <h1>Expertise</h1>
+  <div class="expertise-container">
+    <div class="expertise-description">
+      <h2>Lorem ipsum dolor sit amet</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div class="expertise-opensource_case">
+      <div class="case">
+        <div class="case-info">
+          <h5 class="case-info-title">{{ page.project|richtext }</h4>
+          <h5 class="case-info-type">Open Source Library</h5>
+          <p class="case-info-description">{{ page.description|richtext }}</p>
+          <a href="" target="_blank">Discover more</a>
+        </div>
+      </div>
+    </div>
+    <div class="expertise-stacks">
+      <ul class="expertise-stacks-list">
+        >{{ expertise.stack }}
+      </ul>
+    </div>
+  </div>
+</section>
 
-<div>
-    {% for member in page.team.all %}
-        <p>{{ member.full_name }}</p>
-        <p>{{ member.role }}</p>
-        <p>{{ member.bio|richtext }}</p>
+<section class="team">
+  <h1>Team</h1>
+  <h2>Lorem ipsum dolor sit amet</h2>
+  {% for member in page.team.all %}
+  <div class="teammate">
+    <figure>
+      <img class="teammate-picture" src="http://lorempixel.com/output/people-q-c-640-480-3.jpg" alt="Teammate name">
+    </figure>
+    <div class="teammate-info">
+      <h4>{{ member.full_name }</h4>
+      <h5>{{ member.role }}</h5>
+      <ul class="teammate-social">
         {% include "agency/partials/social_link.html" with link=member.website svg="website" %}
         {% include "agency/partials/social_link.html" with link=member.github svg="github" %}
         {% include "agency/partials/social_link.html" with link=member.stackoverflow svg="stackoverflow" %}
@@ -48,7 +81,15 @@
         {% include "agency/partials/social_link.html" with link=member.flickr svg="flickr" %}
         {% include "agency/partials/social_link.html" with link=member.tumblr svg="tumblr" %}
         {% include "agency/partials/social_link.html" with link=member.deviantart svg="deviantart" %}
-        {% include "agency/partials/social_link.html" with link=member.pinterest svg="pinterest" %}
-    {% endfor %}
-</div>
+        {% include "agency/partials/social_link.html" with link=member.pinterest svg="pinterest" %}>
+      </ul>
+    </div>
+  </div>
+  <div class="teammate_hiring">
+    <a class="teammate_hiring-link" href="{% slugurl 'careers' %}">We are hiring</a>
+    <p>We are always looking for talents!</p>
+    <p>Explore open positions.</p>
+  </div>
+  {% endfor %}
+</section>
 {% endblock %}

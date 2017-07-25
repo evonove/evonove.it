@@ -6,10 +6,10 @@
       {% include "partials/svg/e9-logo.svg" %}
     </div>
     <ul>
-      <li><a href="#">Agency</a></li>
-      <li><a href="#">Works</a></li>
-      <li><a href="#">Contacts</a></li>
-      <li><a href="#">Blog</a></li>
+      <li><a href="{% slugurl 'agency' %}">Agency</a></li>
+      <li><a href="{% slugurl 'works' %}">Works</a></li>
+      <li><a href="{% slugurl 'contacts' %}">Contacts</a></li>
+      <li><a href="{% slugurl 'blog' %}">Blog</a></li>
     </ul>
   </nav>
 </header>

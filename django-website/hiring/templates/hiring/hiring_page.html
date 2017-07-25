@@ -4,14 +4,26 @@
 {% load wagtailimages_tags %}
 
 {% block content %}
-
-<p>{{ page.description|richtext }}</p>
-
-<div>
- {% for job in page.jobs.all %}
-    <p>{{ job.position }}</p>
-    <p>{{ job.description|richtext }}</p>
- {% endfor %}
-</div>
-
-{% endblock content %}
+<section class="hiring">
+  <div class="hiring-container">
+    <h1>Careers</h1>
+    <h2>We are hiring!</h2>
+    <div class="hiring-intro">
+      <p>Hi there,</p>
+      <p>{{ page.description|richtext }</p>
+    </div>
+    {% for job in page.jobs.all %}
+    <div class="job">
+      <h4>{{ job.position }</h4>
+      <p>{{ job.description|richtext }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  <aside class="job-selector">
+    <h3>Available positions</h3>
+    {% for job in page.jobs.all %}
+     <div class="job-selector-title">{{ job.position }</div>
+    {% endfor %}
+  </aside>
+</section>
+{% endblock %}

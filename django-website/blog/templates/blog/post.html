@@ -5,15 +5,16 @@
 {% load wagtailimages_tags %}
 
 {% block blog_main %}
-<div class="post-detail">
-    <article class="article">
-        <div class="article-meta">
-            <a class="article-meta-author">{{ page.owner.get_full_name|default:page.owner }}</a>
-            <span class="article-meta-divider">·</span>
-            <span class="article-meta-date">{{ page.date|date:"N d, Y" }}</span>
-        </div>
-        <h2 class="article-title">{{ page.title }}</h2>
-        {% include "partials/streamfield.html" with content=self.body %}
-    </article>
-</div>
+<article class="post">
+  <div class="post-metadata">
+    <figure class="post-metadata-picture">
+      <img src="http://lorempixel.com/output/people-q-c-640-480-3.jpg">
+    </figure>
+    <span class="post-metadata-author">{{ page.owner.get_full_name|default:page.owner }}</span>
+    <span class="post-metadata-separator">·</span>
+    <span class="post-metadata-date">{{ page.date|date:"N d, Y" }}</span>
+  </div>
+  <h2 class="post-title">{{ page.title }}</h2>
+  {% include "partials/streamfield.html" with content=self.body %}
+</article>
 {% endblock blog_main %}

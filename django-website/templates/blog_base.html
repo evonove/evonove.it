@@ -5,13 +5,9 @@
 
 
 {% block content %}
-    {% slugurl "home" as homepage_link %}
-    {% slugurl "blog" as blog_link %}
 
-    {% include "./partials/header_generic.html" %}
-
-    <div class="main">
+    <main class="main">
         {% block blog_main %}{% endblock blog_main %}
-    </div>
+    </main>
 
 {% endblock content %}

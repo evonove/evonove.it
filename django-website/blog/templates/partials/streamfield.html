@@ -3,23 +3,23 @@
 
 {% for child in content %}
     {% if child.block_type == 'h2' %}
-        <h2 class="article-title">{{ child }}</h2>
+        <h2 class="post-title">{{ child }}</h2>
     {% elif child.block_type == 'h3' %}
-        <h3 class="article-subtitle">{{ child }}</h3>
+        <h3 class="post-subtitle">{{ child }}</h3>
     {% elif child.block_type == 'pullquote' %}
-        <blockquote class="article-blockquote">
+        <blockquote class="post-blockquote">
             {{ child.value.quote }}
             {% if child.value.attribution %}<span>- {{ child.value.attribution }}</span>{% endif %}
         </blockquote>
     {% elif child.block_type == 'paragraph' %}
         {{ child.value|richtext }}
     {% elif child.block_type == 'aligned_image' %}
-        <figure class="article-picture">
+        <figure class="post-picture">
             {% image child.value.image original as image %}
-            <img src="{{ image.url }}" class="article-picture-img {{ child.value.alignment }}" alt="{{ image.alt }}" />
+            <img src="{{ image.url }}" class="post-picture-img {{ child.value.alignment }}" alt="{{ image.alt }}" />
 
             {% if child.value.caption %}
-                <figcaption class="article-picture-caption">
+                <figcaption class="post-picture-caption">
                     {{ child.value.caption|richtext }}
                 </figcaption>
             {% endif %}
@@ -29,7 +29,7 @@
             {{ child }}
         </div>
     {% elif child.block_type == 'code_snippet' %}
-        <div class="article-code-snippet">
+        <div class="post-code-snippet">
             {{ child }}
         </div>
     {% else %}

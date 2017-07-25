@@ -5,17 +5,23 @@
 {% load wagtailimages_tags %}
 
 {% block content %}
-<div>
-    {{ page.section_title|richtext }}
-    {{ page.section_subtitle|richtext }}
-</div>
-<div>
-    {% for project in page.projects.all %}
-        <p>{{ project.name }}</p>
-        <p>{{ project.category }}</p>
-        <p>{{ project.description }}</p>
-        <p>{{ project.image }}</p>
-        <p>{{ project.link }}</p>
-    {% endfor %}
-</div>
+<section class="works">
+  <h1>{{ page.section_title|richtext }}</h1>
+  <h2>{{ page.section_subtitle|richtext }}</h2>
+  <div class="works-container">
+  {% for project in page.projects.all %}
+    <div class="case">
+      <div class="case-info">
+        <h4 class="case-info-title">{{ project.name }</h4>
+        <h5 class="case-info-type">{{ project.category }</h5>
+        <p class="case-info-description">{{ project.description }</p>
+        <a href="{{ project.link }" target="_blank">Visit the case</a>
+      </div>
+      <figure class="case-image">
+        <img class="case-image-picture" src="{{ project.image }">
+      </figure>
+    </div>
+  {% endfor %}
+  </div>
+</section>
 {% endblock %}

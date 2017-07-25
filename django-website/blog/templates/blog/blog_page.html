@@ -7,103 +7,36 @@
 
 
 {% block blog_main %}
-<div class="list">
-  {% for article in articles %}
-  <div class="list-block">
-    <article class="article">
-      <a href="{% pageurl article %}" class="article-link">
-        <h2 class="article-title">{{ article.title }}</h2>
-      </a>
-      <div class="article-meta">
-        <a class="article-meta-author">{{ article.owner.get_full_name|default:article.owner }}</a>
-        <span class="article-meta-divider">·</span>
-        <span class="article-meta-date">{{ article.date|date:"N d, Y" }}</span>
-      </div>
-
-      <a href="{% pageurl article %}" class="article-link">
-        <div class="article-preview">
-
-          {% if article.cover %}
-          <figure class="article-preview-picture">
-            {% image article.cover original as cover %}
-            <img src="{{cover.url}}" class="article-preview-img" />
-          </figure>
-          {% endif %}
-
-          <p class="article-preview-post">{{ article.intro }}</p>
+<section class="blog">
+  <div class="blog-intro">
+    <h2>Lorem ipsum dolor sit amet</h2>
+  </div>
+  <div class="posts-container">
+    {% for article in articles %}
+      <article class="post_preview">
+        <div class="post_preview-info">
+          <h2>{{ article.title }}</h2>
+          <div class="post_preview-info-metadata">
+            <span class="post_preview-info-metadata-author">{{ article.owner.get_full_name|default:article.owner }}</span>
+            <span class="post_preview-info-metadata-separator">·</span>
+            <span class="post_preview-info-metadata-date">{{ article.date|date:"N d, Y" }}</span>
+          </div>
+          <p class="post_preview-info-description">{{ article.intro }}</p>
+          <a href="{% pageurl article %}" class="post_preview-info-link">Read more...</a>
         </div>
-      </a>
-    </article>
-    <a href="{% pageurl article %}" class="list-block-readmore">Read more...</a>
-    <div class="list-block-divider"></div>
-  </div>
-  {% endfor %}
-
-  {% if articles.paginator.num_pages > 1 %}
-  <ul class="paginator list-paginator" role="menubar">
-    {% if articles.has_previous %}
-      <li class="paginator-icon paginator-first">
-        <a href="?page=1">
-          {% include "partials/svgs/double-arrows.svg" %}
-        </a>
-      </li>
-      <li class="paginator-icon paginator-previous">
-        <a href="{% replace_query_link 'page' articles.previous_page_number %}">
-          {% include "partials/svgs/arrow.svg" %}
-        </a>
-      </li>
-    {% endif %}
-
-    {% for item in articles.paginator.page_range %}
-      {% if articles.number == item %}
-        <li class="paginator-page is-current">{{ item }}</li>
-      {% else %}
-        <li class="paginator-page"><a href="{% replace_query_link 'page' item %}">{{ item }}</a></li>
-      {% endif %}
+        <div class="post_preview-image">
+          <a href="{% pageurl article %}" class="article-link">
+              {% if article.cover %}
+              <figure>
+                {% image article.cover original as cover %}
+                <img src="{{cover.url}}" />
+              </figure>
+              {% endif %}
+            </div>
+          </a>
+        </div>
+      </article>
     {% endfor %}
-
-    {% if articles.has_next %}
-      <li class="paginator-icon paginator-next">
-        <a href="{% replace_query_link 'page' articles.next_page_number %}">
-          {% include "partials/svgs/arrow.svg" %}
-        </a>
-      </li>
-      <li class="paginator-icon paginator-last">
-        <a href="{% replace_query_link 'page' articles.paginator.num_pages %}">
-          {% include "partials/svgs/double-arrows.svg" %}
-        </a>
-      </li>
-    {% endif %}
-  </ul>
-  {% endif %}
-
-</div>
-<div class="sidebar">
-  <div class="sidebar-box">
-    <div class="sidebar-box-header">
-      <h3 class="sidebar-box-header-heading">Featured Tags</h3>
-      <div class="sidebar-box-header-button">
-        {% include "partials/svgs/arrow.svg" %}
-      </div>
-    </div>
-    <ul class="sidebar-box-taglist">
-      {% spaceless %}
-      {% for tag in page.tags %}
-      <li class="sidebar-box-taglist-tag">
-        {% if current_tag == tag.name %}
-        {% slugurl "blog" as blog_link %}
-        <a class="is-active" href="{{ blog_link }}">
-          {% include "partials/svgs/close-tags.svg" %}
-          {{ tag }}
-        </a>
-        {% else %}
-        <a href="?tag={{ tag }}">{{ tag }}</a>
-        {% endif %}
-      </li>
-      {% endfor %}
-      {% endspaceless %}
-    </ul>
   </div>
-  <div class="sidebar-tags_mask"></div>
-</div>
+</section>
 {% endblock blog_main %}
