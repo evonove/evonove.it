@@ -8,7 +8,7 @@ from wagtail.wagtailimages.models import Image
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
-from home.models import BaseModel
+from core.models import BaseModel
 
 
 class PortfolioPage(BaseModel):

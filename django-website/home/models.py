@@ -8,18 +8,8 @@ from wagtail.wagtailcore.models import Page, Orderable
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
 
-
-class BaseModel(Page):
-    section_title = RichTextField(blank=True)
-    section_subtitle = RichTextField(blank=True)
-
-    content_panels = Page.content_panels + [
-        FieldPanel('section_title'),
-        FieldPanel('section_subtitle'),
-    ]
-
-    class Meta:
-        abstract = True
+from core.models import BaseModel
+from portfolio.models import Project
 
 
 class HomePage(BaseModel):
@@ -49,7 +39,6 @@ class HomePage(BaseModel):
     ]
 
     def get_context(self, request):
-        from portfolio.models import Project
         context = super(HomePage, self).get_context(request)
         context['projects'] = Project.objects.filter(show_in_home=True)
         return context
