@@ -11,8 +11,11 @@
     {% include "partials/svg/logo.svg" %}
   </div>
   <div class="payoff">
-    <p>A small team that helps people make things<br>
-    They always wanted to make.</p>
+    <p>{{ page.payoff|richtext }}</p>
+  </div>
+  <div>
+      {{ page.section_title|richtext }}
+      {{ page.section_subtitle|richtext }}
   </div>
   <div class="splash-scrolldown">
     {% include "partials/svg/scroll-arrow.svg" %}
@@ -35,15 +38,15 @@
   <h1>Works</h1>
   <h2>Lorem ipsum dolor sit amet</h2>
   <div class="works-container">
-    {% for work in page.works.all %}
+    {% for project in projects %}
       <div class="case">
         <div class="case-info">
-          <h4 class="case-info-title">{{ work.name }}</h4>
-          <h5 class="case-info-type">{{ work.category }}</h5>
-          <p class="case-info-description">{{ work.description }}</p>
-          <a href="{{ work.link }}" target="_blank">Visit the case</a>
+          <h4 class="case-info-title">{{ project.name }}</h4>
+          <h5 class="case-info-type">{{ project.category }}</h5>
+          <p class="case-info-description">{{ project.description }}</p>
+          <a href="{{ project.link }}" target="_blank">Visit the case</a>
         </div>
-        {% image work.cover fill-500x620 as cover  %}
+        {% image project.image fill-500x620 as cover  %}
         <figure class="case-image">
           <img class="case-image-picture" src="{{ cover.url }}" alt="{{ cover.alt }}">
         </figure>
