@@ -7,12 +7,68 @@ from modelcluster.fields import ParentalKey
 from wagtail.wagtailcore.models import Page, Orderable
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailimages.models import Image
-from wagtail.wagtailadmin.edit_handlers import FieldPanel
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
+from core.models import BaseModel
+from home.models import Service
 
-class AgencyPage(Page):
-    pass
+
+class AgencyPage(BaseModel):
+    description = RichTextField(blank=True)
+    project = RichTextField(blank=True)
+    image = models.ForeignKey(
+        Image,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    content_panels = Page.content_panels + [
+        MultiFieldPanel(
+            [
+                ImageChooserPanel('image'),
+            ],
+            heading=_('Core fields')
+        ),
+
+        MultiFieldPanel(
+            [
+                FieldPanel('section_title'),
+                FieldPanel('section_subtitle'),
+            ],
+            heading=_('Section Text')
+        ),
+
+        MultiFieldPanel(
+            [
+                FieldPanel('project'),
+                FieldPanel('description'),
+            ],
+            heading=_('DOT Section')
+        ),
+
+        MultiFieldPanel(
+            [
+                InlinePanel('team', label=_('Team Member')),
+            ],
+            heading=_('What we do'),
+            classname='collapsible',
+        ),
+
+        MultiFieldPanel(
+            [
+                InlinePanel('expertise', label=_('Expertise')),
+            ],
+            heading=_('Expertise'),
+        ),
+    ]
+
+    def get_context(self, request):
+        context = super(AgencyPage, self).get_context(request)
+        context['services'] = Service.objects.all()
+        return context
 
 
 class TeamMember(Orderable):
@@ -72,3 +128,8 @@ class TeamMember(Orderable):
         FieldPanel('deviantart'),
         FieldPanel('pinterest'),
     ]
+
+
+class Expertise(Orderable):
+    page = ParentalKey(AgencyPage, related_name='expertise')
+    stack = models.CharField(blank=True, max_length=200)

@@ -1,0 +1,9 @@
+{% load staticfiles %}
+{% static 'svg/' as base_url %}
+
+
+{% if link %}
+    <a href="{{ link }}" target="_blank">
+        <img src="{{ base_url }}{{ svg }}.svg">
+    </a>
+{% endif %}

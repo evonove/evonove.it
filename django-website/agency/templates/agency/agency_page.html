@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block content %}
+
+<div>
+    {{ page.section_title|richtext }}
+    {{ page.section_subtitle|richtext }}
+</div>
+
+<div>
+    <p>{{ page.project|richtext }}</p>
+    <p>{{ page.description|richtext }}</p>
+    <p>{{ page.image }}</p>
+</div>
+
+<div>
+    {% for service in services %}
+        <p>{{ service.name }}</p>
+        <p>{{ service.description }}</p>
+    {% endfor %}
+</div>
+
+<div>
+    {% for expertise in page.expertise.all %}
+        <p>{{ expertise.stack }}</p>
+    {% endfor %}
+</div>
+
+<div>
+    {% for member in page.team.all %}
+        <p>{{ member.full_name }}</p>
+        <p>{{ member.role }}</p>
+        <p>{{ member.bio|richtext }}</p>
+        {% include "agency/partials/social_link.html" with link=member.website svg="website" %}
+        {% include "agency/partials/social_link.html" with link=member.github svg="github" %}
+        {% include "agency/partials/social_link.html" with link=member.stackoverflow svg="stackoverflow" %}
+        {% include "agency/partials/social_link.html" with link=member.twitter svg="twitter" %}
+        {% include "agency/partials/social_link.html" with link=member.gplus svg="gplus" %}
+        {% include "agency/partials/social_link.html" with link=member.facebook svg="facebook" %}
+        {% include "agency/partials/social_link.html" with link=member.linkedin svg="linkedin" %}
+        {% include "agency/partials/social_link.html" with link=member.medium svg="medium" %}
+        {% include "agency/partials/social_link.html" with link=member.behance svg="behance" %}
+        {% include "agency/partials/social_link.html" with link=member.dribbble svg="dribbble" %}
+        {% include "agency/partials/social_link.html" with link=member.flickr svg="flickr" %}
+        {% include "agency/partials/social_link.html" with link=member.tumblr svg="tumblr" %}
+        {% include "agency/partials/social_link.html" with link=member.deviantart svg="deviantart" %}
+        {% include "agency/partials/social_link.html" with link=member.pinterest svg="pinterest" %}
+    {% endfor %}
+</div>
+{% endblock %}
