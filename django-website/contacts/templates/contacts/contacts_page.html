@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block content %}
+
+<p>{{ settings.options.WebsiteSettings.name }}</p>
+<p>Get in touch {{ settings.options.WebsiteSettings.email }}</p>
+<p>{{ settings.options.WebsiteSettings.phone }}</p>
+<p>{{ settings.options.WebsiteSettings.vat }}</p>
+
+<p>Work with us {{ page.job_email }}</p>
+
+
+<p> view position here <a href="{% slugurl "hiring" %}">hiring</p>
+
+{% endblock %}
