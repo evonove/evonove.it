@@ -1,27 +1,36 @@
 from django.contrib.postgres.fields import JSONField
+from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from wagtail.wagtailcore.models import Page
-from wagtail.wagtailcore.fields import StreamField
+from modelcluster.fields import ParentalKey
 
-from wagtail.wagtailsearch import index
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.wagtailcore.models import Page, Orderable
+from wagtail.wagtailcore.fields import RichTextField
 
-from blog.fields import PostStreamBlock
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
 
 
 class HiringPage(Page):
-    body = StreamField(PostStreamBlock())
     linked_data = JSONField(null=True, blank=True, help_text=_('Linked Data in JSON'))
-
-    search_fields = Page.search_fields + [
-        index.SearchField('body'),
-    ]
+    description = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel('body'),
+        FieldPanel('description'),
+
+        MultiFieldPanel(
+            [
+                InlinePanel('jobs', label=_('Job')),
+            ],
+            heading=_('Available positions'),
+        ),
     ]
 
     promote_panels = Page.promote_panels + [
         FieldPanel('linked_data'),
     ]
+
+
+class Job(Orderable):
+    page = ParentalKey(HiringPage, related_name='jobs')
+    position = models.CharField(max_length=200, blank=True)
+    description = RichTextField(blank=True)

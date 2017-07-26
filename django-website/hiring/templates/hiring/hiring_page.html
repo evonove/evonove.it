@@ -1,15 +1,17 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
 
 {% block content %}
 
+<p>{{ page.description|richtext }}</p>
 
-    <div class="container">
-        <div class="container-text">
-            <h2 class="article-title">{{ page.title }}</h2>
-            <div class="container-paragraphs">
-                {% include "partials/streamfield.html" with content=self.body %}
-            </div>
-        </div>
-    </div>
+<div>
+ {% for job in page.jobs.all %}
+    <p>{{ job.position }}</p>
+    <p>{{ job.description|richtext }}</p>
+ {% endfor %}
+</div>
+
 {% endblock content %}
