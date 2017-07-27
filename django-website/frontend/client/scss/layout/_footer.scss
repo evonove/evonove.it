@@ -1,0 +1,34 @@
+// Footer
+// ------
+
+.footer {
+  color: $dark-grey;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.618rem 2.618rem;
+}
+
+// All flex-items occupy the same space
+.footer-email,
+.footer-copyright,
+.footer-social {
+  flex: 1;
+}
+
+.footer-email {
+  font-weight: bold;
+}
+
+.footer-copyright {
+  text-align: center;
+}
+
+.footer-social {
+  display: flex;
+  font-weight: bold;
+  justify-content: flex-end;
+
+  & > * + * {
+    margin-left: 1.618rem;
+  }
+}

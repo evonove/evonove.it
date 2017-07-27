@@ -1,2 +1,17 @@
 // Typography
 // ----------
+
+h1 {
+  color: $dark-grey;
+  font-size: 1.618rem;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+h3 {
+  font-size: 0.618rem;
+  text-transform: uppercase;
+}

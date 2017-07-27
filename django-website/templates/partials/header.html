@@ -1,11 +1,11 @@
 {% load wagtailcore_tags %}
 
 <header class="header">
-  <nav>
-    <a class="logo" href="#">
+  <nav class="nav">
+    <a class="nav-logo_link" href="{% slugurl 'home' %}">
       {% include "partials/svg/e9-logo.svg" %}
-    </div>
-    <ul>
+    </a>
+    <ul class="nav-items">
       <li><a href="{% slugurl 'agency' %}">Agency</a></li>
       <li><a href="{% slugurl 'works' %}">Works</a></li>
       <li><a href="{% slugurl 'contacts' %}">Contacts</a></li>
