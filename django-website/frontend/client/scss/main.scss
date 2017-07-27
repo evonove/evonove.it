@@ -1,6 +1,14 @@
 // Abstracts
 @import
-  "abstracts/breakpoints",
   "abstracts/fonts",
   "abstracts/palette",
-  "abstracts/variables";
+  "abstracts/variables",
+  "abstracts/mixins",
+  "abstracts/breakpoints";
+
+// Base
+@import
+  "base/reset",
+  "base/base",
+  "base/typography",
+  "base/keyframes";

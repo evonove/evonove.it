@@ -1,31 +1,28 @@
 // Normalize.css
 @import "../../../node_modules/normalize.css/normalize";
 
-a,
-a:hover,
-a:active,
-a:visited {
+h1, h2, h3, h4, p, figure {
+  margin: 0;
+}
+
+a {
   text-decoration: none;
-}
 
-a[href^=tel] {
-  color: #ffffff;
-}
-
-figure {
-  margin: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-p {
-  margin: 0;
+  @include event {
+    text-decoration: none;
+  }
 }
 
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ */
+::selection {
+    text-shadow: none;
 }

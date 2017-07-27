@@ -1,0 +1,12 @@
+// Sass mixins
+// -----------
+
+// Event wrapper borrowed from
+// https://twitter.com/csswizardry/status/478938530342006784
+@mixin event {
+  &:hover,
+  &:active,
+  &:focus {
+      @content;
+  }
+}

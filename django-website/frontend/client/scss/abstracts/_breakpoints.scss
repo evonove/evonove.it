@@ -1,12 +1,10 @@
-// Breakpoints
-// -----------
+// Media-queries breakpoints
+// -------------------------
 
-$smallest: "only screen and (max-width: 320px)";
-$small: "only screen and (max-width: 529px)";
-$medium: "only screen and (min-width: 530px) and (max-width: 949px)";
-$large: "only screen and (min-width: 950px) and (max-width: 1128px)";
-$extra-large: "only screen and (min-width: 1129px)";
-
-$big-monitor: "only screen and (min-width: 2000px)";
-
-$small-vh: "only screen and (max-height: 414px)";
+$breakpoints: (
+  'xsmall': (max-width: 599px),
+  'small': (min-width: 600px),
+  'medium': (min-width: 960px),
+  'large': (min-width: 1280px),
+  'xlarge': (min-width: 1920px),
+);
