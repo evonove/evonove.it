@@ -1,18 +1,18 @@
 // Base
 // ----
 
-html {
-  height: 100%;
-}
-
 // Set up default styles on the root element:
 // [1] Set main font rules
 // [2] set box-sizing to border-box
+html {
+  box-sizing: border-box; // [2]
+  height: 100%;
+  font: 18px/1.618 $aktiv; // [1]
+}
+
 body {
   background-color: $black;
-  box-sizing: border-box; // [2]
   color: $white;
-  font: 18px/1.618 $aktiv; // [1]
   height: 100%;
 }
 
@@ -24,4 +24,11 @@ body {
 // Borrowed from https://github.com/HugoGiraudel/sass-boilerplate/blob/master/stylesheets/base/_base.scss
 *, *::before, *::after {
   box-sizing: inherit;
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+  height: auto;
+  width: auto;
 }

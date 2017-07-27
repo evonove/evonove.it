@@ -1,0 +1,37 @@
+// Services section
+// ----------------
+
+.services {
+  margin-top: 11.089rem;
+  padding: 0 11.089rem;
+}
+
+.services-list {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4.236rem;
+  padding-left: 4.236rem;
+
+  // Assigns the same width to all flex items
+  & > * {
+    flex: 1;
+  }
+}
+
+.services-list-item {
+  align-items: center;
+  display: flex;
+  max-width: 11.036rem;
+  padding: 1rem;
+  position: relative;
+
+  // Adds a white line on the left of the single service
+  &::after {
+    border: 1px solid $white;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+}

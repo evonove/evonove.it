@@ -1,0 +1,30 @@
+// Clients section
+// ---------------
+
+.clients {
+  margin-top: 11.089rem;
+  padding: 0 11.089rem;
+}
+
+// [1] Add a negative margin left to make up for the children's one. This way
+//     the left is zeroed.
+.brands {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -4.236rem; // [1]
+  padding: 0 11.089rem;
+}
+
+// [1] We use Flexbox to handle the wrapping behavior, so we have no control on
+//     wrapped item's margins. The workaround we use is to set top and left
+//     margins to all items, and make up for them by setting a negative
+//     margin-left and a margin-top equal to 0 to their parent container.
+.brand {
+  align-items: center;
+  display: flex;
+  height: 4.236rem;
+  justify-content: center;
+  margin: 4.236rem 0 0 4.236rem; // [1]
+  width: 6.854rem;
+}

@@ -5,13 +5,15 @@
   display: flex;
   justify-content: flex-end;
   padding: 1.618rem 2.618rem;
+  position: absolute;
+  width: 100%;
 }
 
 // [1] Width includes e9 logo's width, so it's perfectely centered.
 .nav {
   align-items: center;
   display: flex;
-  width: calc(50% + 24px); // [1]
+  width: calc(50% + 12px); // [1]
 }
 
 // [1] Fixes logo's height

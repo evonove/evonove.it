@@ -3,15 +3,15 @@
 
 h1 {
   color: $dark-grey;
-  font-size: 1.618rem;
+  font-size: 1rem;
   text-transform: uppercase;
 }
 
-h2 {
-  font-size: 1rem;
+h2, h4 {
+  font-size: 1.618rem;
 }
 
-h3 {
-  font-size: 0.618rem;
+h3, h5 {
+  font-size: 0.78rem;
   text-transform: uppercase;
 }

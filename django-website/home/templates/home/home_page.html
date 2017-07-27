@@ -35,15 +35,15 @@
   <h2>{{ page.works_subtitle|richtext }}</h2>
   <div class="works-container">
     {% for project in projects %}
-      <div class="case">
-        <div class="case-info">
-          <h4 class="case-info-title">{{ project.name }}</h4>
-          <h5 class="case-info-type">{{ project.category }}</h5>
-          <p class="case-info-description">{{ project.description }}</p>
-          <a href="{{ project.link }}" target="_blank">Visit the case</a>
+      <div class="work">
+        <div class="work-info">
+          <h4 class="work-info-title">{{ project.name }}</h4>
+          <h5 class="work-info-type">{{ project.category }}</h5>
+          <p class="work-info-description">{{ project.description }}</p>
+          <a class="work-info-button" href="{{ project.link }}" target="_blank">Visit the case</a>
         </div>
-        <figure class="case-image">
-          {% image project.image original class="case-image-picture" %}
+        <figure class="work-image">
+          {% image project.image original %}
         </figure>
       </div>
     {% endfor %}
@@ -53,13 +53,12 @@
 <section class="clients">
   <h1>{{ page.partner_title|richtext }}</h1>
   <h2>{{ page.partner_subtitle|richtext }}</h2>
-  <ul class="brands_container">
-    <li>
-      {% for partner in page.partners.all %}
-        {{ partner.image }}
-      {% endfor %}
-      <div class="brands-logo">Brand</div>
-    </li>
+  <ul class="brands">
+    {% for partner in page.partners.all %}
+      <li class="brand">
+        {% image partner.image original %}
+      </li>
+    {% endfor %}
   </ul>
 </section>
 {% endblock %}

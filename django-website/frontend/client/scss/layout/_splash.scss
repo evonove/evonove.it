@@ -1,0 +1,38 @@
+// Splash section
+// --------------
+
+.splash {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 0 6.854rem 1rem;
+}
+
+.splash-logo {
+  align-self: center;
+  flex: 1;
+  margin-top: 17.908rem;
+  width: 29.03rem;
+}
+
+.splash-logo > svg {
+  width: 100%;
+}
+
+.payoff {
+  font-size: 1.618rem;
+  width: 29.03rem;
+}
+
+.splash-scrolldown {
+  margin-top: 2.618rem;
+  text-align: center;
+}
+
+.splash-scrolldown > svg {
+  height: 18px;
+}
+
+.splash-scrolldown > svg > path {
+  fill: $white;
+}
