@@ -13,30 +13,26 @@
   <div class="payoff">
     <p>{{ page.payoff|richtext }}</p>
   </div>
-  <div>
-      {{ page.section_title|richtext }}
-      {{ page.section_subtitle|richtext }}
-  </div>
   <div class="splash-scrolldown">
     {% include "partials/svg/scroll-arrow.svg" %}
   </div>
 </section>
 
 <section class="services">
-  <h1>Services</h1>
-  <h2>Lorem ipsum dolor sit amet</h2>
+  <h1>{{ page.section_title|richtext }}</h1>
+  <h2>{{ page.section_subtitle|richtext }}</h2>
   <ul class="services-list">
-    {% for service in page.services.all %}
+    {% for service in services %}
       <li class="services-list-item">
-        <h3>{{ service.slogan }}</h3>
+        <h3>{{ service.title }}</h3>
       </li>
     {% endfor %}
   </ul>
 </section>
 
 <section class="works">
-  <h1>Works</h1>
-  <h2>Lorem ipsum dolor sit amet</h2>
+  <h1>{{ page.works_title|richtext }}</h1>
+  <h2>{{ page.works_subtitle|richtext }}</h2>
   <div class="works-container">
     {% for project in projects %}
       <div class="case">
@@ -46,9 +42,8 @@
           <p class="case-info-description">{{ project.description }}</p>
           <a href="{{ project.link }}" target="_blank">Visit the case</a>
         </div>
-        {% image project.image fill-500x620 as cover  %}
         <figure class="case-image">
-          <img class="case-image-picture" src="{{ cover.url }}" alt="{{ cover.alt }}">
+          {% image project.image class="case-image-picture" %}
         </figure>
       </div>
     {% endfor %}
@@ -56,10 +51,13 @@
 </section>
 
 <section class="clients">
-  <h1>Clients</h1>
-  <h2>Lorem ipsum dolor sit amet</h2>
+  <h1>{{ page.partner_title|richtext }}</h1>
+  <h2>{{ page.partner_subtitle|richtext }}</h2>
   <ul class="brands_container">
     <li>
+      {% for partner in page.partners.all %}
+        {{ partner.image }}
+      {% endfor %}
       <div class="brands-logo">Brand</div>
     </li>
   </ul>

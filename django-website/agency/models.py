@@ -11,12 +11,26 @@ from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, Inli
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
 from core.models import BaseModel
-from home.models import Service
 
 
 class AgencyPage(BaseModel):
     description = RichTextField(blank=True)
+
     project = RichTextField(blank=True)
+    project_description = RichTextField(blank=True)
+    project_link = models.URLField(help_text=_('Your website page URL'), null=True, blank=True)
+    project_category = RichTextField(blank=True)
+
+    services_title = RichTextField(blank=True)
+    services_subtitle = RichTextField(blank=True)
+
+    expertise_title = RichTextField(blank=True)
+    expertise_subtitle = RichTextField(blank=True)
+    expertise_description = RichTextField(blank=True)
+
+    team_title = RichTextField(blank=True)
+    team_subtitle = RichTextField(blank=True)
+
     image = models.ForeignKey(
         Image,
         null=True,
@@ -28,47 +42,60 @@ class AgencyPage(BaseModel):
     content_panels = Page.content_panels + [
         MultiFieldPanel(
             [
+                FieldPanel('section_title'),
+                FieldPanel('section_subtitle'),
+                FieldPanel('description'),
                 ImageChooserPanel('image'),
             ],
-            heading=_('Core fields')
+            heading=_('Bio')
         ),
 
         MultiFieldPanel(
             [
-                FieldPanel('section_title'),
-                FieldPanel('section_subtitle'),
+                FieldPanel('services_title'),
+                FieldPanel('services_subtitle'),
+                InlinePanel('services', label=_('Services')),
             ],
-            heading=_('Section Text')
+            heading=_('Services'),
+        ),
+
+        MultiFieldPanel(
+            [
+                FieldPanel('expertise_title'),
+                FieldPanel('expertise_subtitle'),
+                FieldPanel('expertise_description'),
+            ],
+            heading=_('Expertise'),
         ),
 
         MultiFieldPanel(
             [
                 FieldPanel('project'),
-                FieldPanel('description'),
+                FieldPanel('project_category'),
+                FieldPanel('project_description'),
+                FieldPanel('project_link'),
             ],
-            heading=_('DOT Section')
+            heading=_('Open Source Project')
         ),
 
         MultiFieldPanel(
             [
+                InlinePanel('stack', label=_('Stack')),
+            ],
+            heading=_('Stack'),
+        ),
+
+        MultiFieldPanel(
+            [
+                FieldPanel('team_title'),
+                FieldPanel('team_subtitle'),
                 InlinePanel('team', label=_('Team Member')),
             ],
-            heading=_('What we do'),
+            heading=_('Team'),
             classname='collapsible',
         ),
 
-        MultiFieldPanel(
-            [
-                InlinePanel('expertise', label=_('Expertise')),
-            ],
-            heading=_('Expertise'),
-        ),
     ]
-
-    def get_context(self, request):
-        context = super(AgencyPage, self).get_context(request)
-        context['services'] = Service.objects.all()
-        return context
 
 
 class TeamMember(Orderable):
@@ -78,7 +105,6 @@ class TeamMember(Orderable):
     firstname = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
     role = models.CharField(max_length=150, help_text=_('Team member company role'))
-    bio = RichTextField(max_length=360, help_text=_('The team member bio'))
     gravatar = models.CharField(max_length=150, help_text=_('Add your Gravatar email'), null=True, blank=True)
     photo = models.ForeignKey(Image, null=True, blank=True, related_name='+')
 
@@ -108,7 +134,6 @@ class TeamMember(Orderable):
         FieldPanel('firstname'),
         FieldPanel('lastname'),
         FieldPanel('role'),
-        FieldPanel('bio'),
         FieldPanel('gravatar'),
         ImageChooserPanel('photo'),
 
@@ -130,6 +155,23 @@ class TeamMember(Orderable):
     ]
 
 
-class Expertise(Orderable):
-    page = ParentalKey(AgencyPage, related_name='expertise')
-    stack = models.CharField(blank=True, max_length=200)
+class Service(Orderable):
+    page = ParentalKey(AgencyPage, related_name='services')
+    title = models.CharField(max_length=150, default='')
+    description = models.TextField(max_length=600)
+
+    panels = [
+        FieldPanel('title'),
+        FieldPanel('description'),
+    ]
+
+
+class Stack(Orderable):
+    page = ParentalKey(AgencyPage, related_name='stack')
+    stack = RichTextField(blank=True)
+    category = models.CharField(blank=True, max_length=100)
+
+    panels = [
+        FieldPanel('stack'),
+        FieldPanel('category'),
+    ]

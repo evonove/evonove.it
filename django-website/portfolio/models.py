@@ -17,15 +17,9 @@ class PortfolioPage(BaseModel):
             [
                 FieldPanel('section_title'),
                 FieldPanel('section_subtitle'),
-            ],
-            heading=_('Section Text')
-        ),
-        MultiFieldPanel(
-            [
                 InlinePanel('projects', label=_('projects')),
             ],
-            heading=_('What we do'),
-            classname='collapsible',
+            heading=_('Works')
         ),
     ]
 

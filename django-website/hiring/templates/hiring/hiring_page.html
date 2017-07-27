@@ -6,15 +6,15 @@
 {% block content %}
 <section class="hiring">
   <div class="hiring-container">
-    <h1>Careers</h1>
-    <h2>We are hiring!</h2>
+    <h1>{{ page.section_title|richtext }}</h1>
+    <h2>{{ page.section_subtitle|richtext }}</h2>
     <div class="hiring-intro">
       <p>Hi there,</p>
       <p>{{ page.description|richtext }}</p>
     </div>
     {% for job in page.jobs.all %}
     <div class="job">
-      <h4>{{ job.position }</h4>
+      <h4>{{ job.position }}</h4>
       <p>{{ job.description|richtext }}</p>
     </div>
     {% endfor %}

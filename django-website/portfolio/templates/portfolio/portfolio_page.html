@@ -12,9 +12,9 @@
   {% for project in page.projects.all %}
     <div class="case">
       <div class="case-info">
-        <h4 class="case-info-title">{{ project.name }</h4>
-        <h5 class="case-info-type">{{ project.category }</h5>
-        <p class="case-info-description">{{ project.description }</p>
+        <h4 class="case-info-title">{{ project.name }}</h4>
+        <h5 class="case-info-type">{{ project.category }}</h5>
+        <p class="case-info-description">{{ project.description }}</p>
         <a href="{{ project.link }" target="_blank">Visit the case</a>
       </div>
       <figure class="case-image">

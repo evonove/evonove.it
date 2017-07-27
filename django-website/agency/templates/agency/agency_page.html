@@ -6,45 +6,44 @@
 
 {% block content %}
 <section class="bio">
-  <h1>Bio</h1>
+  <h1>{{ page.section_title|richtext }}</h1>
   <div class="bio-container">
     <div class="bio-container-description">
-      <h2>Lorem ipsum dolor sit amet</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <h2>{{ page.section_subtitle|richtext }}</h2>
+      <p>{{ page.description|richtext }}</p>
     </div>
     <figure class="bio-container-picture">
       <img src="{{ page.image }">
     </figure>
   </div>
 </section>
-
 <section class="services">
-  <h1>Services</h1>
-  <h2>Lorem ipsum dolor sit amet</h2>
+  <h1>{{ page.services_title|richtext }}</h1>
+  <h2>{{ page.services_subtitle|richtext }}</h2>
   <ul class="services-list">
     {% for service in services %}
       <li class="services-list-item">
-        <h3>{{ service.name }</h3>
-        <p>{{ service.description }</p>
+        <h3>{{ service.name }}</h3>
+        <p>{{ service.description }}</p>
       </li>
     {% endfor %}
   </ul>
 </section>
 
 <section class="expertise">
-  <h1>Expertise</h1>
+  <h1>{{ page.expertise_title }}</h1>
   <div class="expertise-container">
     <div class="expertise-description">
-      <h2>Lorem ipsum dolor sit amet</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <h2>{{ page.expertise_subtitle }}</h2>
+      <p>{{ page.expertise_description }}</p>
     </div>
     <div class="expertise-opensource_case">
       <div class="case">
         <div class="case-info">
-          <h5 class="case-info-title">{{ page.project|richtext }</h4>
-          <h5 class="case-info-type">Open Source Library</h5>
-          <p class="case-info-description">{{ page.description|richtext }}</p>
-          <a href="" target="_blank">Discover more</a>
+          <h5 class="case-info-title">{{ page.project|richtext }}</h4>
+          <h5 class="case-info-type">{{ page.project_category }}</h5>
+          <p class="case-info-description">{{ page.project_description|richtext }}</p>
+          <a href="{{ page.project_link }}" target="_blank">Discover more</a>
         </div>
       </div>
     </div>
@@ -57,15 +56,15 @@
 </section>
 
 <section class="team">
-  <h1>Team</h1>
-  <h2>Lorem ipsum dolor sit amet</h2>
+  <h1>{{ page.team_title }}</h1>
+  <h2>{{ page.team_subtitle }}</h2>
   {% for member in page.team.all %}
   <div class="teammate">
     <figure>
       <img class="teammate-picture" src="http://lorempixel.com/output/people-q-c-640-480-3.jpg" alt="Teammate name">
     </figure>
     <div class="teammate-info">
-      <h4>{{ member.full_name }</h4>
+      <h4>{{ member.full_name }}</h4>
       <h5>{{ member.role }}</h5>
       <ul class="teammate-social">
         {% include "agency/partials/social_link.html" with link=member.website svg="website" %}

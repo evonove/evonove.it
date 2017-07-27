@@ -9,13 +9,23 @@ from wagtail.wagtailcore.fields import RichTextField
 
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
 
+from core.models import BaseModel
 
-class HiringPage(Page):
+
+class HiringPage(BaseModel):
     linked_data = JSONField(null=True, blank=True, help_text=_('Linked Data in JSON'))
-    description = RichTextField(blank=True)
+    intro = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
-        FieldPanel('description'),
+        MultiFieldPanel(
+            [
+                FieldPanel('section_title'),
+                FieldPanel('section_subtitle'),
+            ],
+            heading=_('Careers')
+        ),
+
+        FieldPanel('intro'),
 
         MultiFieldPanel(
             [
