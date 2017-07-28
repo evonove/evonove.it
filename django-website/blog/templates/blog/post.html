@@ -3,8 +3,11 @@
 {% load static from staticfiles %}
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
+{% load gravatar %}
+
 
 {% block blog_main %}
+<img src="{% gravatar_url page.owner.email 25 %}">
 <article class="post">
   <div class="post-metadata">
     <figure class="post-metadata-picture">
@@ -17,4 +20,15 @@
   <h2 class="post-title">{{ page.title }}</h2>
   {% include "partials/streamfield.html" with content=self.body %}
 </article>
+
+
+<div>
+    {% for article in similar_articles %}
+        <div>{% image article.cover width-200 %}<div>
+        {{ article.title }}
+        {{ article.owner.get_full_name }}{{ article.date|date:"N d, Y"}}
+        {{ article.intro }}
+        <div><a href="{{ article.url }}" read more/></div>
+    {% endfor %}
+</div>
 {% endblock blog_main %}

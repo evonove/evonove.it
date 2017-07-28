@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Q
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.utils.translation import ugettext as _
 
@@ -117,3 +118,15 @@ class Post(Page):
         StreamFieldPanel('body'),
         FieldPanel('date'),
     ]
+
+    def get_context(self, request):
+        """
+        filter the last 3 articles with at least one common tag
+        """
+        tags = self.tags.names()
+        # filter articles by tags and exclude the current article
+        query = (Q(tags__name__in=tags) & ~Q(pk=self.pk))
+        similar_articles = Post.objects.live().filter(query).distinct().order_by('-date')
+        context = super().get_context(request)
+        context['similar_articles'] = similar_articles[:3]
+        return context
