@@ -100,6 +100,10 @@ class AgencyPage(BaseModel):
 
     ]
 
+    promote_panels = Page.promote_panels + [
+        FieldPanel('linked_data'),
+    ]
+
 
 class TeamMember(Orderable):
     page = ParentalKey(AgencyPage, related_name='team')

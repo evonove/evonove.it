@@ -23,6 +23,10 @@ class PortfolioPage(BaseModel):
         ),
     ]
 
+    promote_panels = Page.promote_panels + [
+        FieldPanel('linked_data'),
+    ]
+
 
 class Project(Orderable):
     page = ParentalKey(PortfolioPage, related_name='projects')

@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.postgres.fields import JSONField
 from django.utils.translation import ugettext as _
 
 from modelcluster.fields import ParentalKey
@@ -16,7 +15,6 @@ from agency.models import Service
 
 
 class HomePage(BaseModel):
-    linked_data = JSONField(null=True, blank=True, help_text=_('Linked Data in JSON'))
     payoff = RichTextField(blank=True, help_text=_('Home intro'))
 
     partner_title = RichTextField(blank=True)

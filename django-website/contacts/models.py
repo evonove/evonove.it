@@ -14,3 +14,7 @@ class ContactsPage(BaseModel):
         FieldPanel('section_title'),
         FieldPanel('job_email'),
     ]
+
+    promote_panels = Page.promote_panels + [
+        FieldPanel('linked_data'),
+    ]
