@@ -33,7 +33,7 @@ class HomePage(BaseModel):
                 FieldPanel('section_title'),
                 FieldPanel('section_subtitle'),
             ],
-            heading=_('Bio')
+            heading=_('Services')
         ),
 
         MultiFieldPanel(

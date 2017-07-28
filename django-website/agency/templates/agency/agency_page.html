@@ -13,7 +13,7 @@
       <p>{{ page.description|richtext }}</p>
     </div>
     <figure class="bio-container-picture">
-      <img src="{{ page.image }">
+      {% image page.image original class="bio-image-picture" %}
     </figure>
   </div>
 </section>
@@ -31,17 +31,17 @@
 </section>
 
 <section class="expertise">
-  <h1>{{ page.expertise_title }}</h1>
+  <h1>{{ page.expertise_title|richtext }}</h1>
   <div class="expertise-container">
     <div class="expertise-description">
-      <h2>{{ page.expertise_subtitle }}</h2>
-      <p>{{ page.expertise_description }}</p>
+      <h2>{{ page.expertise_subtitle|richtext }}</h2>
+      <p>{{ page.expertise_description|richtext }}</p>
     </div>
     <div class="expertise-opensource_case">
       <div class="case">
         <div class="case-info">
           <h5 class="case-info-title">{{ page.project|richtext }}</h4>
-          <h5 class="case-info-type">{{ page.project_category }}</h5>
+          <h5 class="case-info-type">{{ page.project_category|richtext }}</h5>
           <p class="case-info-description">{{ page.project_description|richtext }}</p>
           <a href="{{ page.project_link }}" target="_blank">Discover more</a>
         </div>
@@ -56,8 +56,8 @@
 </section>
 
 <section class="team">
-  <h1>{{ page.team_title }}</h1>
-  <h2>{{ page.team_subtitle }}</h2>
+  <h1>{{ page.team_title|richtext }}</h1>
+  <h2>{{ page.team_subtitle|richtext }}</h2>
   {% for member in page.team.all %}
   <div class="teammate">
     <figure>
@@ -80,7 +80,7 @@
         {% include "agency/partials/social_link.html" with link=member.flickr svg="flickr" %}
         {% include "agency/partials/social_link.html" with link=member.tumblr svg="tumblr" %}
         {% include "agency/partials/social_link.html" with link=member.deviantart svg="deviantart" %}
-        {% include "agency/partials/social_link.html" with link=member.pinterest svg="pinterest" %}>
+        {% include "agency/partials/social_link.html" with link=member.pinterest svg="pinterest" %}
       </ul>
     </div>
   </div>
