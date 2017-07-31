@@ -26,9 +26,25 @@ body {
   box-sizing: inherit;
 }
 
+// [1] Let the image fit its container without stretching
+// [2] Remove space under its parent <figure>
 img {
-  max-height: 100%;
-  max-width: 100%;
-  height: auto;
-  width: auto;
+  max-height: 100%; // [1]
+  max-width: 100%; // [1]
+  height: auto; // [1]
+  vertical-align: top; // [2]
+  width: auto; // [1]
+}
+
+// Apply a shadow to every <img> contained in a <figure>
+figure > img {
+  box-shadow: $image-shadow;
+}
+
+// Max-width value ensures a space between the viewport's horizontal boundaries
+// and .main's children when resizing the window. Moreover, it does not affect
+// sizes and spaces of .main's children.
+.main {
+  margin: auto;
+  max-width: calc(100vw - (2.618rem + 2.618rem));
 }

@@ -28,6 +28,8 @@ class AgencyPage(BaseModel):
     expertise_subtitle = RichTextField(blank=True)
     expertise_description = RichTextField(blank=True)
 
+    stack_subtitle = RichTextField(blank=True)
+
     team_title = RichTextField(blank=True)
     team_subtitle = RichTextField(blank=True)
 
@@ -80,6 +82,7 @@ class AgencyPage(BaseModel):
 
         MultiFieldPanel(
             [
+                FieldPanel('stack_subtitle'),
                 InlinePanel('stack', label=_('Stack')),
             ],
             heading=_('Stack'),
@@ -169,9 +172,7 @@ class Service(Orderable):
 class Stack(Orderable):
     page = ParentalKey(AgencyPage, related_name='stack')
     stack = RichTextField(blank=True)
-    category = models.CharField(blank=True, max_length=100)
 
     panels = [
         FieldPanel('stack'),
-        FieldPanel('category'),
     ]

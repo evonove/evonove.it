@@ -1,0 +1,59 @@
+// Expertise section
+// -----------------
+
+.expertise {
+  margin: 11.089rem auto 0;
+  max-width: 75.999rem;
+}
+
+.expertise-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.expertise-description {
+  width: 29.03rem;
+}
+
+.expertise-description-text {
+  color: $dark-grey;
+  margin: 2.618rem 0 0 4.236rem;
+}
+
+.expertise-opensource_case {
+  margin-top: 4.236rem;
+  width: 29.03rem;
+}
+
+// Add a left alignment to the open source case's elements
+.expertise-opensource_case > .work > .work-info {
+  padding: 0;
+  text-align: left;
+}
+
+.expertise-opensource_case > .work > .work-info > .work-info-description {
+  color: $dark-grey;
+}
+
+.stack {
+  margin: 6.854rem auto 0;
+  width: 46.971rem
+}
+
+.stack-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.618rem;
+  padding: 0 4.236rem;
+}
+
+// Add vertical space between each item
+.stack-list ul > li + li {
+  margin-top: 1.618rem;
+}
+
+.stack-list ul > li {
+  font-size: 0.78rem;
+  letter-spacing: 0.056rem;
+  text-transform: uppercase;
+}

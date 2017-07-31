@@ -2,8 +2,8 @@
 // ----------------
 
 .services {
-  margin-top: 11.089rem;
-  padding: 0 11.089rem;
+  margin: 11.089rem auto 0;
+  max-width: 75.999rem;
 }
 
 .services-list {
@@ -11,18 +11,26 @@
   justify-content: space-between;
   margin-top: 4.236rem;
   padding-left: 4.236rem;
-
-  // Assigns the same width to all flex items
-  & > * {
-    flex: 1;
-  }
 }
 
+// [1] Assign the same width to all services
 .services-list-item {
+  display: flex;
+  flex: 1; // [1]
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 1.618rem;
+  position: relative;
+}
+
+// [1] Assign the same height to all headings, so that all paragraphs start
+//     from the same line.
+.services-list-item-title {
   align-items: center;
   display: flex;
+  flex: 1; // [1]
   max-width: 11.036rem;
-  padding: 1rem;
+  padding: 1rem 0 1rem 1rem;
   position: relative;
 
   // Adds a white line on the left of the single service
@@ -34,4 +42,9 @@
     position: absolute;
     top: 0;
   }
+}
+
+.services-list-item > p {
+  color: $dark-grey;
+  margin: 0.618rem 0 0 1.618rem;
 }

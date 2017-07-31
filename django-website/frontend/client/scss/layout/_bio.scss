@@ -1,0 +1,26 @@
+// Bio section
+// -----------
+
+.bio {
+  margin: 17.942rem auto 0;
+  max-width: 75.999rem;
+}
+
+.bio-container {
+  display: flex;
+}
+
+.bio-container-description {
+  margin-top: 4.236rem;
+  width: 29.03rem;
+}
+
+.bio-container-description-paragraph {
+  color: $dark-grey;
+  margin: 2.618rem 0 0 4.236rem;
+}
+
+.bio-container-picture {
+  margin-left: 4.236rem;
+  width: 46.971rem;
+}

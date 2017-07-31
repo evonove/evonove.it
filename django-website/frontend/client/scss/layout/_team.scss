@@ -1,0 +1,107 @@
+// Team section
+// ------------
+
+.team {
+  margin: 11.089rem auto 0;
+  max-width: 75.999rem;
+}
+
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 4.236rem;
+}
+
+// [1] Set three pictures per row, with a space between of 1.618rem
+.teammate,
+.teammate_hiring {
+  margin-top: 6.854rem;
+  position: relative;
+  width: calc(33.33% - 1.618rem); // [1]
+
+  // Select every 3th item starting from the 2nd one.
+  &:nth-child(3n+2) {
+    top: 2.618rem;
+  }
+}
+
+.teammate-figure {
+  position: relative;
+
+  // Add a background to the picture keeping the teammate's drop shadow visible.
+  &::before {
+    background-color: $white;
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+// Add a shadow behind the teammate silhouette
+.teammate-figure-picture {
+  filter: drop-shadow(0 10px 16px transparentize($black, 0.5));
+}
+
+.teammate-info {
+  margin-top: 1.618rem;
+  text-align: center;
+}
+
+.teammate-info-name {
+  font-size: 1rem;
+}
+
+.teammate-info-role {
+  color: $dark-grey;
+  margin-top: 1rem;
+}
+
+.teammate-social {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.618rem;
+
+  & > * + * {
+    margin-left: 1rem;
+  }
+}
+
+.teammate-social img {
+  height: 18px;
+}
+
+// Set an aspect ratio of 1:1 to obtain a squared div.
+// [1] pseudo element's margin-top value relates to the parent's width,
+//     creating a div as high as wide.
+.teammate_hiring {
+  align-self: flex-start;
+  box-shadow: $image-shadow;
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    margin-top: 100%;
+  }
+}
+
+// Center the content to its parent.
+.teammate_hiring-content {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.teammate_hiring-content p {
+  color: $dark-grey;
+}

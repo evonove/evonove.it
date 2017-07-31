@@ -9,21 +9,24 @@
   <h1>{{ page.section_title|richtext }}</h1>
   <div class="bio-container">
     <div class="bio-container-description">
-      <h2>{{ page.section_subtitle|richtext }}</h2>
-      <p>{{ page.description|richtext }}</p>
+      <div>{{ page.section_subtitle|richtext }}</div>
+      <div class="bio-container-description-paragraph">{{ page.description|richtext }}</div>
     </div>
     <figure class="bio-container-picture">
       {% image page.image original class="bio-image-picture" %}
     </figure>
   </div>
 </section>
+
 <section class="services">
   <h1>{{ page.services_title|richtext }}</h1>
-  <h2>{{ page.services_subtitle|richtext }}</h2>
+  <div>{{ page.services_subtitle|richtext }}</div>
   <ul class="services-list">
-    {% for service in services %}
+    {% for service in page.services.all %}
       <li class="services-list-item">
-        <h3>{{ service.name }}</h3>
+        <div class="services-list-item-title">
+          <h3>{{ service.title }}</h3>
+        </div>
         <p>{{ service.description }}</p>
       </li>
     {% endfor %}
@@ -34,61 +37,70 @@
   <h1>{{ page.expertise_title|richtext }}</h1>
   <div class="expertise-container">
     <div class="expertise-description">
-      <h2>{{ page.expertise_subtitle|richtext }}</h2>
-      <p>{{ page.expertise_description|richtext }}</p>
+      <div>{{ page.expertise_subtitle|richtext }}</div>
+      <div class="expertise-description-text">{{ page.expertise_description|richtext }}</div>
     </div>
     <div class="expertise-opensource_case">
-      <div class="case">
-        <div class="case-info">
-          <h5 class="case-info-title">{{ page.project|richtext }}</h4>
-          <h5 class="case-info-type">{{ page.project_category|richtext }}</h5>
-          <p class="case-info-description">{{ page.project_description|richtext }}</p>
+      <div class="work">
+        <div class="work-info">
+          <div class="work-info-title">{{ page.project|richtext }}</div>
+          <h5 class="work-info-type">{{ page.project_category|richtext }}</h5>
+          <div class="work-info-description">{{ page.project_description|richtext }}</div>
           <a href="{{ page.project_link }}" target="_blank">Discover more</a>
         </div>
       </div>
     </div>
-    <div class="expertise-stacks">
-      <ul class="expertise-stacks-list">
-        {{ expertise.stack }}
-      </ul>
+  </div>
+  <div class="stack">
+    <div>{{ page.stack_subtitle|richtext }}</div>
+    <div class="stack-container">
+      {% for expertise in page.stack.all %}
+        <div class="stack-list">
+          {{ expertise.stack|richtext }}
+        </div>
+      {% endfor %}
     </div>
   </div>
 </section>
 
 <section class="team">
   <h1>{{ page.team_title|richtext }}</h1>
-  <h2>{{ page.team_subtitle|richtext }}</h2>
-  {% for member in page.team.all %}
-  <div class="teammate">
-    <figure>
-      <img class="teammate-picture" src="http://lorempixel.com/output/people-q-c-640-480-3.jpg" alt="Teammate name">
-    </figure>
-    <div class="teammate-info">
-      <h4>{{ member.full_name }}</h4>
-      <h5>{{ member.role }}</h5>
-      <ul class="teammate-social">
-        {% include "agency/partials/social_link.html" with link=member.website svg="website" %}
-        {% include "agency/partials/social_link.html" with link=member.github svg="github" %}
-        {% include "agency/partials/social_link.html" with link=member.stackoverflow svg="stackoverflow" %}
-        {% include "agency/partials/social_link.html" with link=member.twitter svg="twitter" %}
-        {% include "agency/partials/social_link.html" with link=member.gplus svg="gplus" %}
-        {% include "agency/partials/social_link.html" with link=member.facebook svg="facebook" %}
-        {% include "agency/partials/social_link.html" with link=member.linkedin svg="linkedin" %}
-        {% include "agency/partials/social_link.html" with link=member.medium svg="medium" %}
-        {% include "agency/partials/social_link.html" with link=member.behance svg="behance" %}
-        {% include "agency/partials/social_link.html" with link=member.dribbble svg="dribbble" %}
-        {% include "agency/partials/social_link.html" with link=member.flickr svg="flickr" %}
-        {% include "agency/partials/social_link.html" with link=member.tumblr svg="tumblr" %}
-        {% include "agency/partials/social_link.html" with link=member.deviantart svg="deviantart" %}
-        {% include "agency/partials/social_link.html" with link=member.pinterest svg="pinterest" %}
-      </ul>
+  <div>{{ page.team_subtitle|richtext }}</div>
+  <div class="team-container">
+    {% for member in page.team.all %}
+    <div class="teammate">
+      <figure class="teammate-figure">
+        {% image member.photo original class="teammate-figure-picture" %}
+      </figure>
+      <div class="teammate-info">
+        <div class="teammate-info-name">{{ member.full_name }}</div>
+        <div class="teammate-info-role capitalize">{{ member.role }}</div>
+        <ul class="teammate-social">
+          {% include "agency/partials/social_link.html" with link=member.website svg="website" %}
+          {% include "agency/partials/social_link.html" with link=member.github svg="github" %}
+          {% include "agency/partials/social_link.html" with link=member.stackoverflow svg="stackoverflow" %}
+          {% include "agency/partials/social_link.html" with link=member.twitter svg="twitter" %}
+          {% include "agency/partials/social_link.html" with link=member.gplus svg="gplus" %}
+          {% include "agency/partials/social_link.html" with link=member.facebook svg="facebook" %}
+          {% include "agency/partials/social_link.html" with link=member.linkedin svg="linkedin" %}
+          {% include "agency/partials/social_link.html" with link=member.medium svg="medium" %}
+          {% include "agency/partials/social_link.html" with link=member.behance svg="behance" %}
+          {% include "agency/partials/social_link.html" with link=member.dribbble svg="dribbble" %}
+          {% include "agency/partials/social_link.html" with link=member.flickr svg="flickr" %}
+          {% include "agency/partials/social_link.html" with link=member.tumblr svg="tumblr" %}
+          {% include "agency/partials/social_link.html" with link=member.deviantart svg="deviantart" %}
+          {% include "agency/partials/social_link.html" with link=member.pinterest svg="pinterest" %}
+        </ul>
+      </div>
+    </div>
+    {% endfor %}
+    <div class="teammate_hiring">
+      <div class="teammate_hiring-content">
+        <a class="teammate_hiring-link" href="{% slugurl 'careers' %}">We are hiring</a>
+        <p>We are always looking for talents!</p>
+        <p>Explore open positions.</p>
+      </div>
     </div>
   </div>
-  <div class="teammate_hiring">
-    <a class="teammate_hiring-link" href="{% slugurl 'careers' %}">We are hiring</a>
-    <p>We are always looking for talents!</p>
-    <p>Explore open positions.</p>
-  </div>
-  {% endfor %}
 </section>
 {% endblock %}
