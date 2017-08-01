@@ -1,0 +1,32 @@
+// Contacts layout
+// ---------------
+
+.contacts {
+  margin: auto;
+  max-width: 75.999rem;
+  padding-top: 17.942rem;
+}
+
+.contacts-info-links-mail_info,
+.contacts-info-links-mail_jobs, {
+  font-size: 1.618rem;
+}
+
+.contacts-info-links-mail_jobs {
+  margin-top: 1.618rem;
+}
+
+.contacts-info-links-mail_info a,
+.contacts-info-links-mail_jobs a {
+  font-weight: bold;
+}
+
+.contacts-info-address {
+  color: $dark-grey;
+  margin-top: 11.089rem;
+}
+
+.contacts-info-address-phone,
+.contacts-info-address-vat {
+  margin-top: 1rem;
+}

@@ -7,27 +7,32 @@
 {% block content %}
 <section class="contacts">
   <h1>{{ page.section_title|richtext }}</h1>
-  <div class="contacts-links">
-    <div class="contacts-links-info">
-      <p>Get in touch:
-        <a href="mailto:info@evonove.it">{{ settings.options.WebsiteSettings.email }}</a>
-      </p>
+  <div class="contacts-container">
+    <div class="contacts-info">
+      <div class="contacts-info-links">
+        <div class="contacts-info-links-mail_info">
+          <p>Get in touch:
+            <a href="mailto:info@evonove.it">{{ settings.options.WebsiteSettings.email }}</a>
+          </p>
+        </div>
+        <div class="contacts-info-links-mail_jobs">
+          <p>Work with us:
+            <a href="mailto:jobs@evonove.it">{{ page.job_email }}</a>
+          </p>
+          <p>View positions
+            <a href="{% slugurl 'careers' %}">here</a>
+          </p>
+        </div>
+      </div>
+      <div class="contacts-info-address">
+        <p>{{ settings.options.WebsiteSettings.name }}<br>
+          {{ settings.options.WebsiteSettings.address|richtext }}
+        </p>
+        <p class="contacts-info-address-phone">Phone: {{ settings.options.WebsiteSettings.phone }}</p>
+        <p class="contacts-info-address-vat">VAT: {{ settings.options.WebsiteSettings.vat }}</p>
+      </div>
     </div>
-    <div class="contacts-links-jobs">
-      <p>Work with us:
-        <a href="mailto:jobs@evonove.it">{{ page.job_email }}</a>
-      </p>
-      <p>View positions
-        <a href="{% slugurl 'careers' %}">here</a>
-      </p>
-    </div>
-  </div>
-  <div class="contacts-address">
-    <p>{{ settings.options.WebsiteSettings.name }}<br>
-      {{ settings.options.WebsiteSettings.address|richtext }}
-    </p>
-    <p>{{ settings.options.WebsiteSettings.phone }}</p>
-    <p>{{ settings.options.WebsiteSettings.vat }}</p>
+    <div class="contacts-map"></div>
   </div>
 </section>
 {% endblock %}

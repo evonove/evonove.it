@@ -10,10 +10,17 @@ html {
   font: 18px/1.618 $aktiv; // [1]
 }
 
+// Switch Flexbox to on in order to get a sticky footer
+// [1] We need to specify a height because items don't automatically expands to
+//     fit when flex direction is vertical. This value allows us to obtain a
+//     sticky footer.
 body {
+  align-items: center;
   background-color: $black;
   color: $white;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%; // [1]
 }
 
 //
@@ -41,10 +48,12 @@ figure > img {
   box-shadow: $image-shadow;
 }
 
-// Max-width value ensures a space between the viewport's horizontal boundaries
-// and .main's children when resizing the window. Moreover, it does not affect
-// sizes and spaces of .main's children.
+// [1] Width value ensures a space between the viewport's horizontal boundaries
+//     and .main's children when resizing the window. Moreover, it does not
+//     affect sizes and spaces of .main's children.
+// [2] Flex-grow must be activated in order to fill the entire height, only
+//     then can we obtain a sticky footer.
 .main {
-  margin: auto;
-  max-width: calc(100vw - (2.618rem + 2.618rem));
+  flex-grow: 1;
+  width: calc(100vw - (2.618rem + 2.618rem));
 }
