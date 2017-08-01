@@ -1,9 +1,11 @@
 {% load staticfiles %}
-{% static 'svg/' as base_url %}
+{% static '../../partials/svg/social_icons/' as base_url %}
 
 
 {% if link %}
-    <a href="{{ link }}" target="_blank">
-        <img src="{{ base_url }}{{ svg }}.svg">
-    </a>
+  <a class="social_icon" href="{{ link }}" target="_blank">
+    {% with base_url|add:svg|add:".html" as icon %}
+      {% include icon %}
+    {% endwith %}
+  </a>
 {% endif %}

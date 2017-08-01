@@ -117,7 +117,6 @@ class TeamMember(Orderable):
 
     website = models.URLField(help_text=_('Your website page URL'), null=True, blank=True)
     github = models.URLField(help_text=_('Your GitHub page URL'), null=True, blank=True)
-    stackoverflow = models.URLField(help_text=_('Your Stack Overflow page URL'), null=True, blank=True)
     twitter = models.URLField(help_text=_('Your Twitter page URL'), null=True, blank=True)
     gplus = models.URLField(help_text=_('Your Google+ page URL'), null=True, blank=True)
     facebook = models.URLField(help_text=_('Your Facebook page URL'), null=True, blank=True)
@@ -126,10 +125,6 @@ class TeamMember(Orderable):
     medium = models.URLField(help_text=_('Your Medium page URL'), null=True, blank=True)
     behance = models.URLField(help_text=_('Your Behance page URL'), null=True, blank=True)
     dribbble = models.URLField(help_text=_('Your Dribble page URL'), null=True, blank=True)
-    flickr = models.URLField(help_text=_('Your Flickr page URL'), null=True, blank=True)
-    tumblr = models.URLField(help_text=_('Your Tumblr page URL'), null=True, blank=True)
-    deviantart = models.URLField(help_text=_('Your DeviantArt page URL'), null=True, blank=True)
-    pinterest = models.URLField(help_text=_('Your Pinterest page URL'), null=True, blank=True)
 
     @property
     def full_name(self):
@@ -146,7 +141,6 @@ class TeamMember(Orderable):
 
         FieldPanel('website'),
         FieldPanel('github'),
-        FieldPanel('stackoverflow'),
         FieldPanel('twitter'),
         FieldPanel('gplus'),
         FieldPanel('facebook'),
@@ -155,10 +149,6 @@ class TeamMember(Orderable):
         FieldPanel('medium'),
         FieldPanel('behance'),
         FieldPanel('dribbble'),
-        FieldPanel('flickr'),
-        FieldPanel('tumblr'),
-        FieldPanel('deviantart'),
-        FieldPanel('pinterest'),
     ]
 
 
