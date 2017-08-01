@@ -2,8 +2,8 @@
 // -------------
 
 .works {
-  margin-top: 17.942rem;
-  padding: 0 11.089rem;
+  margin: 17.942rem auto 0;
+  max-width: 75.999rem;
 }
 
 .works-container {
@@ -56,6 +56,7 @@
 }
 
 .work-info-description {
+  color: $dark-grey;
   margin-top: 1.618rem;
 }
 

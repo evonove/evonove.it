@@ -7,17 +7,17 @@
 {% block content %}
 <section class="works">
   <h1>{{ page.section_title|richtext }}</h1>
-  <h2>{{ page.section_subtitle|richtext }}</h2>
+  <div>{{ page.section_subtitle|richtext }}</div>
   <div class="works-container">
   {% for project in page.projects.all %}
-    <div class="case">
-      <div class="case-info">
-        <h4 class="case-info-title">{{ project.name }}</h4>
-        <h5 class="case-info-type">{{ project.category }}</h5>
-        <p class="case-info-description">{{ project.description }}</p>
+    <div class="work">
+      <div class="work-info">
+        <h4 class="work-info-title">{{ project.name }}</h4>
+        <h5 class="work-info-type">{{ project.category }}</h5>
+        <p class="work-info-description">{{ project.description }}</p>
         <a href="{{ project.link }" target="_blank">Visit the case</a>
       </div>
-      <figure class="case-image">
+      <figure class="work-image">
         {% image project.image original class="case-image-picture" %}
       </figure>
     </div>
