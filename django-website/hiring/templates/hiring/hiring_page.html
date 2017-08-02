@@ -5,25 +5,27 @@
 
 {% block content %}
 <section class="hiring">
-  <div class="hiring-container">
+  <div class="hiring-positions">
     <h1>{{ page.section_title|richtext }}</h1>
     <h2>{{ page.section_subtitle|richtext }}</h2>
     <div class="hiring-intro">
-      <p>Hi there,</p>
-      <p>{{ page.description|richtext }}</p>
+      {{ page.intro|richtext }}
     </div>
     {% for job in page.jobs.all %}
-    <div class="job">
-      <h4>{{ job.position }}</h4>
-      <p>{{ job.description|richtext }}</p>
+    <div class="position">
+      <h3>{{ job.position }}</h3>
+      {{ job.description|richtext }}
+      <a href="mailto:jobs@evonove.it">Apply for this job</a>
     </div>
     {% endfor %}
   </div>
-  <aside class="job-selector">
-    <h3>Available positions</h3>
-    {% for job in page.jobs.all %}
-     <div class="job-selector-title">{{ job.position }}</div>
-    {% endfor %}
+  <aside class="position-selector">
+    <h4>Available positions</h4>
+    <div class="position-selector-container">
+      {% for job in page.jobs.all %}
+        <div class="position-selector-title u-capitalize">{{ job.position }}</div>
+      {% endfor %}
+    </div>
   </aside>
 </section>
 {% endblock %}

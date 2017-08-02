@@ -55,7 +55,7 @@
     <div>{{ page.stack_subtitle|richtext }}</div>
     <div class="stack-container">
       {% for expertise in page.stack.all %}
-        <div class="stack-list">
+        <div class="stack-list u-capitalize">
           {{ expertise.stack|richtext }}
         </div>
       {% endfor %}
