@@ -8,28 +8,42 @@
 {% block body_class %}body_blog{% endblock %}
 
 {% block blog_main %}
-<img src="{% gravatar_url page.owner.email 25 %}">
 <article class="post">
-  <div class="post-metadata">
-    <figure class="post-metadata-picture">
-      <img src="http://lorempixel.com/output/people-q-c-640-480-3.jpg">
+  <div class="post-metadata u-capitalize">
+    <figure class="post-metadata-author_picture">
+      <img src="{% gravatar_url page.owner.email 25 %}">
     </figure>
-    <span class="post-metadata-author">{{ page.owner.get_full_name|default:page.owner }}</span>
-    <span class="post-metadata-separator">·</span>
-    <span class="post-metadata-date">{{ page.date|date:"N d, Y" }}</span>
+    <div class="post-metadata-container">
+      <span class="post-metadata-author">{{ page.owner.get_full_name|default:page.owner }}</span>
+      <span class="post-metadata-separator">·</span>
+      <span class="post-metadata-date">{{ page.date|date:"N d, Y" }}</span>
+    </div>
   </div>
   <h2 class="post-title">{{ page.title }}</h2>
+  <p class="post-intro">{{ page.intro }}</p>
+  <figure class="post-intro_picture">
+    <img src="http://lorempixel.com/output/people-q-c-640-480-3.jpg">
+  </figure>
   {% include "partials/streamfield.html" with content=self.body %}
 </article>
 
-
-<div>
+<div class="related_posts">
   {% for article in similar_articles %}
-    <div>{% image article.cover width-200 %}<div>
-    {{ article.title }}
-    {{ article.owner.get_full_name }}{{ article.date|date:"N d, Y"}}
-    {{ article.intro }}
-    <div><a href="{{ article.url }}" read more/></div>
+    <div class="related_posts-post">
+      <figure class="related_posts-post-picture">
+        <a href="{{ article.url }}">
+          {% image article.cover original %}
+        </a>
+      </figure>
+      <h2 class="related_posts-post-title">{{ article.title }}</h2>
+      <div class="related_posts-post-metadata u-capitalize">
+        <span class="related_posts-post-metadata-author">{{ article.owner.get_full_name }}</span>
+        <span>·</span>
+        <span>{{ article.date|date:"N d, Y"}}</span>
+      </div>
+      <p class="related_posts-post-description">{{ article.intro }}</p>
+      <div><a href="{{ article.url }}"/>Read more</a></div>
+    </div>
   {% endfor %}
 </div>
 {% endblock blog_main %}
