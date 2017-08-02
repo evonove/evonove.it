@@ -33,7 +33,9 @@
 // [1] Align text to the right
 // [2] set a padding right to the info container in order to add
 //     space between it and the image.
+// [3] Align items to the right
 .work:nth-child(odd) > .work-info {
+  align-items: flex-end; // [3]
   padding: 0 4.236rem 0 0; // [2]
   text-align: right; // [1]
 }
@@ -45,6 +47,12 @@
 .work:nth-child(even) > .work-info {
   order: 2; // [1]
   padding: 0 0 0 4.236rem; // [2]
+}
+
+.work-info {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
 }
 
 .work-image {

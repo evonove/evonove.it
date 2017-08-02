@@ -1,0 +1,18 @@
+// Button component
+// ----------------
+
+.button {
+  display: inline-block;
+  font-weight: bold;
+  position: relative;
+
+  // Add a line above the text
+  &::before {
+    border-top: 3px solid $white;
+    content: '';
+    left: 0;
+    position: absolute;
+    top: -0.382rem;
+    width: 100%;
+  }
+}
