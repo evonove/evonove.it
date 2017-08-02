@@ -51,28 +51,13 @@ To run the tests:
 
 ## Frontend development
 
-The frontend app uses Gulp and Wheelie as toolchain. To install them run this command from the `wheelie/` folder:
+The frontend app uses [Webpack](https://webpack.js.org/) as toolchain. To install all dependencies run this command from the `frontend/` folder:
 
     $ yarn
 
-To run the frontend app you need to launch Gulp tasks from the `wheelie/` folder with:
+Then compile all necessary files:
 
-    $ gulp
-
-To install the development dependencies run:
-
-    $ yarn add -D [package]
-
-To install the production dependencies run:
-
-    $ yarn add [package]
-
-
-When the frontend is ready to be deployed, launch the production build and
-commit all files in the repository:
-
-    $ gulp build --production
-    $ git commit -m 'Process static files'
+    $ yarn webpack
 
 [1]: https://evonove.it/ "Evonove"
 [2]: https://wagtail.io/ "Wagtail"
