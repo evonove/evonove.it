@@ -48,3 +48,8 @@
 .nav-items > li {
   font-weight: bold;
 }
+
+// Those styles shall apply only to the blog pages
+.body_blog .header {
+  color: $dark-grey;
+}

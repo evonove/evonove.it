@@ -10,7 +10,7 @@ from taggit.models import Tag, TaggedItemBase
 
 from wagtail.wagtailsearch import index
 from wagtail.wagtailcore.models import Page
-from wagtail.wagtailcore.fields import StreamField
+from wagtail.wagtailcore.fields import StreamField, RichTextField
 from wagtail.contrib.settings.models import BaseSetting, register_setting
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, StreamFieldPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
@@ -19,6 +19,12 @@ from .fields import PostStreamBlock
 
 
 class BlogPage(Page):
+    blog_subtitle = RichTextField(blank=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('blog_subtitle'),
+    ]
+
     @property
     def articles(self):
         """

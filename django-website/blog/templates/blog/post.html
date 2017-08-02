@@ -5,6 +5,7 @@
 {% load wagtailimages_tags %}
 {% load gravatar %}
 
+{% block body_class %}body_blog{% endblock %}
 
 {% block blog_main %}
 <img src="{% gravatar_url page.owner.email 25 %}">
@@ -23,12 +24,12 @@
 
 
 <div>
-    {% for article in similar_articles %}
-        <div>{% image article.cover width-200 %}<div>
-        {{ article.title }}
-        {{ article.owner.get_full_name }}{{ article.date|date:"N d, Y"}}
-        {{ article.intro }}
-        <div><a href="{{ article.url }}" read more/></div>
-    {% endfor %}
+  {% for article in similar_articles %}
+    <div>{% image article.cover width-200 %}<div>
+    {{ article.title }}
+    {{ article.owner.get_full_name }}{{ article.date|date:"N d, Y"}}
+    {{ article.intro }}
+    <div><a href="{{ article.url }}" read more/></div>
+  {% endfor %}
 </div>
 {% endblock blog_main %}

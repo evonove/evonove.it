@@ -48,6 +48,11 @@ figure > img {
   box-shadow: $image-shadow;
 }
 
+.body_blog {
+  background-color: $white;
+  color: $black;
+}
+
 // [1] Width value ensures a space between the viewport's horizontal boundaries
 //     and .main's children when resizing the window. Moreover, it does not
 //     affect sizes and spaces of .main's children.

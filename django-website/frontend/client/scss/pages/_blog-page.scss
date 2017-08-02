@@ -1,0 +1,49 @@
+// Blog page
+// ---------
+
+.blog {
+  padding-top: 17.942rem;
+}
+
+.blog-intro {
+  font-size: 1.618rem;
+  margin: auto;
+  max-width: 122.966rem;
+}
+
+.blog-container {
+  margin: 6.854rem auto 0;
+  max-width: 75.999rem;
+
+  & > * + * {
+    margin-top: 11.089rem;
+  }
+}
+
+.post_preview {
+  align-items: center;
+  display: flex;
+}
+
+.post_preview-image {
+  flex: 2;
+}
+
+.post_preview-info {
+  flex: 1;
+  margin-left: 2.618rem;
+}
+
+.post_preview-info-metadata {
+  color: $dark-grey;
+  margin-top: 1rem;
+}
+
+.post_preview-info-metadata-author {
+  font-weight: bold;
+}
+
+.post_preview-info-description {
+  color: $dark-grey;
+  margin-top: 1.618rem;
+}

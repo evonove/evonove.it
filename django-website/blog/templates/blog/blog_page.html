@@ -5,25 +5,16 @@
 {% load wagtailimages_tags %}
 {% load blog_tags %}
 
+{% block body_class %}body_blog{% endblock %}
 
 {% block blog_main %}
-<section class="blog">
+<div class="blog">
   <div class="blog-intro">
-    <h2>Lorem ipsum dolor sit amet</h2>
+    <h2>{{ page.blog_subtitle|richtext }}</h2>
   </div>
-  <div class="posts-container">
+  <div class="blog-container">
     {% for article in articles %}
       <article class="post_preview">
-        <div class="post_preview-info">
-          <h2>{{ article.title }}</h2>
-          <div class="post_preview-info-metadata">
-            <span class="post_preview-info-metadata-author">{{ article.owner.get_full_name|default:article.owner }}</span>
-            <span class="post_preview-info-metadata-separator">·</span>
-            <span class="post_preview-info-metadata-date">{{ article.date|date:"N d, Y" }}</span>
-          </div>
-          <p class="post_preview-info-description">{{ article.intro }}</p>
-          <a href="{% pageurl article %}" class="post_preview-info-link">Read more...</a>
-        </div>
         <div class="post_preview-image">
           <a href="{% pageurl article %}" class="article-link">
               {% if article.cover %}
@@ -32,11 +23,20 @@
                 <img src="{{cover.url}}" />
               </figure>
               {% endif %}
-            </div>
           </a>
+        </div>
+        <div class="post_preview-info">
+          <h2>{{ article.title }}</h2>
+          <div class="post_preview-info-metadata u-capitalize">
+            <span class="post_preview-info-metadata-author">{{ article.owner.get_full_name|default:article.owner }}</span>
+            <span class="post_preview-info-metadata-separator">·</span>
+            <span class="post_preview-info-metadata-date">{{ article.date|date:"N d, Y" }}</span>
+          </div>
+          <p class="post_preview-info-description">{{ article.intro }}</p>
+          <a href="{% pageurl article %}" class="post_preview-info-link">Read more</a>
         </div>
       </article>
     {% endfor %}
   </div>
-</section>
+</div>
 {% endblock blog_main %}
