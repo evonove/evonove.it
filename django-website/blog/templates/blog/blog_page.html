@@ -15,16 +15,6 @@
   <div class="blog-container">
     {% for article in articles %}
       <article class="post_preview">
-(??)        <div class="post_preview-info">
-(??)          <h2>{{ article.title }}</h2>
-(??)          <div class="post_preview-info-metadata">
-(??)            <span class="post_preview-info-metadata-author">{{ article.owner.get_full_name|default:article.owner }}</span>
-(??)            <span class="post_preview-info-metadata-separator">·</span>
-(??)            <span class="post_preview-info-metadata-date">{{ article.date|date:"N d, Y" }}</span>
-(??)          </div>
-(??)          <p class="post_preview-info-description">{{ article.intro }}</p>
-(??)          <a href="{% pageurl article %}" class="button post_preview-info-link">Read more...</a>
-(??)        </div>
         <div class="post_preview-image">
           <a href="{% pageurl article %}" class="article-link">
               {% if article.cover %}

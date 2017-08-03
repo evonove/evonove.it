@@ -28,13 +28,23 @@
 </article>
 
 
-<div>
-    {% for article in similar_articles %}
-        <div>{% image article.cover width-200 %}<div>
-        {{ article.title }}
-        {{ article.owner.get_full_name }}{{ article.date|date:"N d, Y"}}
-        {{ article.intro }}
-        <div><a class="button" href="{{ article.url }}" read more/></div>
-    {% endfor %}
+<div class="related_posts">
+  {% for article in similar_articles %}
+    <div class="related_posts-post">
+      <figure class="related_posts-post-picture">
+        <a href="{{ article.url }}">
+          {% image article.cover original %}
+        </a>
+      </figure>
+      <h2 class="related_posts-post-title">{{ article.title }}</h2>
+      <div class="related_posts-post-metadata u-capitalize">
+        <span class="related_posts-post-metadata-author">{{ article.owner.get_full_name }}</span>
+        <span>·</span>
+        <span>{{ article.date|date:"N d, Y"}}</span>
+      </div>
+      <p class="related_posts-post-description">{{ article.intro }}</p>
+      <div><a href="{{ article.url }}"/>Read more</a></div>
+    </div>
+  {% endfor %}
 </div>
 {% endblock blog_main %}
