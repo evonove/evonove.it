@@ -2,8 +2,9 @@
 // ----------
 
 h1 {
-  color: $dark-grey;
+  color: $light-grey;
   font-size: 1rem;
+  font-weight: $weight-medium;
   text-transform: uppercase;
 }
 
@@ -13,10 +14,14 @@ h2, h4 {
 
 h3, h5 {
   font-size: 0.78rem;
-  letter-spacing: 0.056rem;
+  font-weight: $weight-medium;
   text-transform: uppercase;
 }
 
 h2 {
   max-width: 29.03rem;
+}
+
+.body_blog h2 {
+  font-weight: $weight-medium;
 }

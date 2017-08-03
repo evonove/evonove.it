@@ -34,6 +34,10 @@
 
 // [1] Overrides svg's path inline fill
 .header-logo-svg > path {
+  fill: $light-grey; // [1]
+}
+
+.body_blog .header-logo-svg > path {
   fill: $dark-grey; // [1]
 }
 
@@ -46,6 +50,10 @@
 }
 
 .nav-items > li {
-  color: $dark-grey;
+  color: $light-grey;
   font-weight: bold;
+}
+
+.body_blog .nav-items > li {
+  color: $dark-grey;
 }

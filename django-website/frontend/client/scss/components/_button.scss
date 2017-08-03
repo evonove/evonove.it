@@ -3,7 +3,7 @@
 
 .button {
   display: inline-block;
-  font-weight: bold;
+  font-weight: $weight-bold;
   position: relative;
 
   // Create a line above the text
