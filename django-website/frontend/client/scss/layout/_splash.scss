@@ -1,17 +1,19 @@
-// Splash section
-// --------------
+// Splash layout
+// -------------
 
 .splash {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  padding: 0 6.854rem 1rem;
+  margin: autp;
+  max-width: 122.966rem;
+  padding-bottom: 1rem;
 }
 
 .splash-logo {
   align-self: center;
   flex: 1;
-  margin-top: 17.908rem;
+  margin-top: 29.03vh;
   width: 29.03rem;
 }
 

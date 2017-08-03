@@ -1,9 +1,9 @@
-// Clients section
-// ---------------
+// Clients layout
+// --------------
 
 .clients {
-  margin-top: 11.089rem;
-  padding: 0 11.089rem;
+  margin: 11.089rem auto 0;
+  max-width: 46.971rem;
 }
 
 // [1] Add a negative margin left to make up for the children's one. This way
@@ -13,7 +13,6 @@
   display: flex;
   flex-wrap: wrap;
   margin-left: -4.236rem; // [1]
-  padding: 0 11.089rem;
 }
 
 // [1] We use Flexbox to handle the wrapping behavior, so we have no control on

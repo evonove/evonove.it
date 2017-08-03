@@ -27,6 +27,7 @@
 
 // Add a left alignment to the open source case's elements
 .expertise-opensource_case > .work > .work-info {
+  align-items: flex-start;
   padding: 0;
   text-align: left;
 }

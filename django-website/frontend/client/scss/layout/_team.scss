@@ -1,24 +1,33 @@
-// Team section
-// ------------
+// Team layout
+// -----------
 
 .team {
   margin: 11.089rem auto 0;
   max-width: 75.999rem;
 }
 
+// [1] Add a negative margin left to make up for the children's one. This way
+//     the left is zeroed.
 .team-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-left: -1.618rem; // [1]
   padding: 0 4.236rem;
 }
 
-// [1] Set three pictures per row, with a space between of 1.618rem
+// [1] Set three pictures per row, with a space between of 1.618rem.
+// [2] We use Flexbox to handle the wrapping behavior, so we have no control on
+//     wrapped item's margins. The workaround we use is to set a left margins
+//     value to all items, and make up for them by setting a negative
+//     margin-left to their parent container.
 .teammate,
 .teammate_hiring {
   margin-top: 6.854rem;
+  margin-left: 1.618rem; // [2]
   position: relative;
   width: calc(33.33% - 1.618rem); // [1]
+  min-width: 17.942rem;
 
   // Select every 3th item starting from the 2nd one.
   &:nth-child(3n+2) {
@@ -80,6 +89,7 @@
 .teammate_hiring {
   align-self: flex-start;
   box-shadow: $image-shadow;
+  padding: 1.618rem;
   position: relative;
 
   &::before {
@@ -102,6 +112,8 @@
   top: 0;
 }
 
-.teammate_hiring-content p {
+.teammate_hiring-description {
   color: $dark-grey;
+  margin-top: 1rem;
+  text-align: center;
 }
