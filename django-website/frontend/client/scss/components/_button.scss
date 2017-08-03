@@ -51,12 +51,19 @@
 
 // Change button color into blog templates
 .body_blog .button {
-  &:hover {
-    color: $green;
-  }
+  transition: all 0.212s;
 
   &::before {
-    border-color: $green;
+    border-color: $black;
+    transition: all 0.212s;
+  }
+
+  &:hover {
+    color: $green;
+
+    &::before {
+      border-color: $green;
+    }
   }
 }
 

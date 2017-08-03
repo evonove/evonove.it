@@ -80,6 +80,17 @@
   margin: 2.618rem 0 0 4.236rem;
 }
 
+.post-video {
+  margin-top: 2.618rem;
+}
+
+// [1] Remove a default padding bottom which causes an unneeded space
+.post-video > div {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 0 !important; // [1]
+}
+
 .post-code-snippet {
   margin: 2.618rem 0 0 4.236rem;
 }
@@ -124,4 +135,9 @@
 .related_posts-post-description {
   color: $dark-grey;
   margin-top: 1rem;
+}
+
+.related_posts-post-link {
+  color: $dark-grey;
+  margin-top: 1.618rem;
 }
