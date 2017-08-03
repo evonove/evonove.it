@@ -45,12 +45,6 @@ class PullQuoteBlock(StructBlock):
     attribution = CharBlock()
 
 
-class YouTubeBlock(StructBlock):
-    """
-    """
-    identifier = EmbedBlock()
-
-
 class CodeBlock(StructBlock):
     """
     Code Highlighting Block
@@ -95,6 +89,6 @@ class PostStreamBlock(StreamBlock):
     h3 = CharBlock(icon="title")
     paragraph = RichTextBlock(icon="pilcrow")
     aligned_image = ImageBlock(label=_("Aligned image"), icon="image")
-    youtube = YouTubeBlock(icon="image")
+    youtube = EmbedBlock(icon="image")
     pullquote = PullQuoteBlock(icon="openquote")
     code_snippet = CodeBlock(label=_("Code Snippet"), icon="code")

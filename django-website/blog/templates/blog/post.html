@@ -27,14 +27,14 @@
   {% include "partials/streamfield.html" with content=self.body %}
 </article>
 
-(??)
-(??)<div>
-(??)    {% for article in similar_articles %}
-(??)        <div>{% image article.cover width-200 %}<div>
-(??)        {{ article.title }}
-(??)        {{ article.owner.get_full_name }}{{ article.date|date:"N d, Y"}}
-(??)        {{ article.intro }}
-(??)        <div><a class="button" href="{{ article.url }}" read more/></div>
-(??)    {% endfor %}
+
+<div>
+    {% for article in similar_articles %}
+        <div>{% image article.cover width-200 %}<div>
+        {{ article.title }}
+        {{ article.owner.get_full_name }}{{ article.date|date:"N d, Y"}}
+        {{ article.intro }}
+        <div><a class="button" href="{{ article.url }}" read more/></div>
+    {% endfor %}
 </div>
 {% endblock blog_main %}
