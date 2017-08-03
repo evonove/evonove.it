@@ -1,12 +1,12 @@
-// Button component
-// ----------------
+// Link component
+// --------------
 
 .button {
   display: inline-block;
   font-weight: bold;
   position: relative;
 
-  // Add a line above the text
+  // Create a line above the text
   &::before {
     border-top: 3px solid $white;
     content: '';
@@ -14,5 +14,59 @@
     position: absolute;
     top: -0.382rem;
     width: 100%;
+  }
+}
+
+// Add a green glow around text and line when hover event is fired.
+.glow_link {
+  transition: all 0.262s;
+
+  &::before {
+    transition: box-shadow 0.262s;
+  }
+
+  &:hover {
+    color: $white;
+    text-shadow: $text-glow;
+
+    &::before {
+      box-shadow: $box-glow;
+    }
+  }
+}
+
+// Line is hidden by default, it appears when hover event is fired
+.button.is-line_appearing {
+  &::before {
+    transition: transform 0.262s;
+    transform: scale3d(0, 1, 1);
+  }
+
+  &:hover {
+    &::before {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+}
+
+// Change button color into blog templates
+.body_blog .button {
+  &:hover {
+    color: $green;
+  }
+
+  &::before {
+    border-color: $green;
+  }
+}
+
+// Disable the glow into blog templates
+.body_blog .glow_link {
+  &:hover {
+    text-shadow: none;
+
+    &::before {
+      box-shadow: none;
+    }
   }
 }

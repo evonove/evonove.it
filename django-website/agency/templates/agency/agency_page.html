@@ -46,7 +46,7 @@
           <div class="work-info-title">{{ page.project|richtext }}</div>
           <h5 class="work-info-type">{{ page.project_category|richtext }}</h5>
           <div class="work-info-description">{{ page.project_description|richtext }}</div>
-          <a class="button" href="{{ page.project_link }}" target="_blank">Discover more</a>
+          <a class="button glow_link" href="{{ page.project_link }}" target="_blank">Discover more</a>
         </div>
       </div>
     </div>
@@ -92,7 +92,7 @@
     {% endfor %}
     <div class="teammate_hiring">
       <div class="teammate_hiring-content">
-        <a class="teammate_hiring-link" href="{% slugurl 'careers' %}">We are hiring</a>
+        <a class="button glow_link teammate_hiring-link" href="{% slugurl 'careers' %}">We are hiring</a>
         <p>We are always looking for talents!</p>
         <p>Explore open positions.</p>
       </div>

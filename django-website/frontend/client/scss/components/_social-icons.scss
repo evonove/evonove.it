@@ -4,4 +4,10 @@
 .social_icon svg {
   fill: $dark-grey;
   height: 18px;
+  transition: all 0.262s;
+
+  &:hover {
+    fill: $white;
+    filter: $filter-glow;
+  }
 }

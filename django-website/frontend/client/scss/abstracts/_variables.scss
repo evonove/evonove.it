@@ -6,3 +6,6 @@ $aktiv: 'aktiv-grotesk', sans-serif;
 
 // Various
 $image-shadow: 0px 16px 38px rgba(0, 0, 0, 0.46);
+$text-glow: 0px 0px 10px transparentize($green, 0.05);
+$box-glow: 0px 0px 10px 0px transparentize($green, 0.05);
+$filter-glow: drop-shadow(0px 0px 10px transparentize($green, 0.05));

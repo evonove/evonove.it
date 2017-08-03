@@ -3,7 +3,7 @@
 
 
 {% if link %}
-  <a class="social_icon" href="{{ link }}" target="_blank">
+  <a class="glow_link social_icon" href="{{ link }}" target="_blank">
     {% with base_url|add:svg|add:".html" as icon %}
       {% include icon %}
     {% endwith %}
