@@ -37,10 +37,15 @@
   width: 46.971rem
 }
 
+.stack-description {
+  color: $light-grey;
+  margin-top: 1.618rem;
+}
+
 .stack-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 2.618rem;
+  margin-top: 4.236rem;
   padding: 0 4.236rem;
 }
 

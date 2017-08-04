@@ -13,12 +13,14 @@
     </div>
     {% for job in page.jobs.all %}
     <div class="position">
-      <h3>{{ job.position }}</h3>
-      <h4>Requirements</h4>
-      {{ job.requirements|richtext }}
-      <h4>Responsibilities</h4
-      {{ job.responsibilities|richtext  }}
-      <a class="button glow_link" href="mailto:jobs@evonove.it">Apply for this job</a>
+      <h2>{{ job.position }}</h2>
+      <div class="position-container">
+        <h3 class="position-field">Requirements</h3>
+        {{ job.requirements|richtext }}
+        <h3 class="position-field">Responsibilities</h3>
+        {{ job.responsibilities|richtext  }}
+        <a class="button glow_link position-link" href="mailto:jobs@evonove.it">Apply for this job</a>
+      </div>
     </div>
     {% endfor %}
     <div class="hiring-outro">

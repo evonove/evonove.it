@@ -52,10 +52,12 @@
 .work-info {
   align-items: flex-start;
   display: flex;
+  flex: 1;
   flex-direction: column;
 }
 
 .work-image {
+  flex: 2;
   margin-top: 4.236rem;
 }
 

@@ -17,26 +17,38 @@
 
 .hiring-intro p {
   color: $light-grey;
-  margin-top: 2.618rem;
+  margin-top: 1.618rem;
 
   & > + * {
-    margin-top: 1.618rem;
+    margin-top: 1rem;
   }
-}
-
-.hiring-intro,
-.position {
-  padding-left: 4.236rem;
-}
-
-.position > .rich-text > * {
-  color: $light-grey;
-  margin-top: 1.618rem;
 }
 
 .position {
   margin-top: 4.236rem;
   min-width: 17.942rem;
+  padding-left: 4.236rem;
+}
+
+.position-container {
+  margin-left: 1.618rem;
+}
+
+.position-container > .rich-text > * {
+  color: $light-grey;
+  margin-top: 1rem;
+}
+
+.position-field {
+  margin-top: 1.618rem;
+}
+
+.position-link {
+  margin-top: 2.618rem;
+}
+
+.hiring-outro {
+  margin-top: 6.854rem;
 }
 
 .position-selector {
@@ -46,25 +58,14 @@
 }
 
 .position-selector-container {
-  margin: 2.618rem 0 0 4.236rem;
+  margin: 1.618rem 0 0 2.618rem;
 
   & > * + * {
-    margin-top: 2.618rem;
+    margin-top: 1.618rem;
   }
 }
 
 .position-selector-title {
   max-width: 11.036rem;
-  padding: 1rem 0 1rem 1rem;
   position: relative;
-
-  // Adds a white line on the left of the single service
-  &::after {
-    border: 1px solid $white;
-    content: '';
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-  }
 }
