@@ -15,6 +15,10 @@
   align-items: center;
   display: flex;
   width: calc(50% + 12px); // [1]
+
+  @media #{$max-medium} {
+    width: 100%;
+  }
 }
 
 // [1] Fixes logo's height

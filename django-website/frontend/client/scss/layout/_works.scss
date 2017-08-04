@@ -17,15 +17,24 @@
 
 .work {
   display: flex;
+  padding: 0 4.236rem;
+
+  @media #{$max-medium} {
+    flex-direction: column;
+  }
 
   // Every odd case will be shifted a little to the right
   &:nth-child(odd) {
-    padding-left: 4.236rem;
+    @media #{$min-medium} {
+      padding-left: 4.236rem;
+    }
   }
 
   // Every even case will be shifted a little to the left
   &:nth-child(even) {
-    padding-right: 4.236rem;
+    @media #{$min-medium} {
+      padding-right: 4.236rem;
+    }
   }
 }
 
@@ -35,9 +44,11 @@
 //     space between it and the image.
 // [3] Align items to the right
 .work:nth-child(odd) > .work-info {
-  align-items: flex-end; // [3]
-  padding: 0 4.236rem 0 0; // [2]
-  text-align: right; // [1]
+  @media #{$min-medium} {
+    align-items: flex-end; // [3]
+    padding: 0 4.236rem 0 0; // [2]
+    text-align: right; // [1]
+  }
 }
 
 // For every even case:
@@ -45,8 +56,10 @@
 // [2] Set a padding left to the info container in order to add space between
 //     it and the image.
 .work:nth-child(even) > .work-info {
-  order: 2; // [1]
-  padding: 0 0 0 4.236rem; // [2]
+  @media #{$min-medium} {
+    order: 2; // [1]
+    padding: 0 0 0 4.236rem; // [2]
+  }
 }
 
 .work-info {
@@ -54,6 +67,10 @@
   display: flex;
   flex: 1;
   flex-direction: column;
+
+  @media #{$max-medium} {
+    max-width: 46.971rem;
+  }
 }
 
 .work-image {

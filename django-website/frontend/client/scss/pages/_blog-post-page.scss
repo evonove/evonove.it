@@ -13,11 +13,19 @@
   display: flex;
 }
 
+// [1] Set a min-width to avoid that the image stretches when resizing the
+//     browser. Its value has to be the same as the width.
 .post-metadata-author_picture {
   border-radius: 50%;
   height: 2.618rem;
+  min-width: 2.618rem; // [1]
   overflow: hidden;
   width: 2.618rem;
+}
+
+.post-metadata-author,
+.related_posts-post-metadata-author {
+  font-weight: $weight-bold;
 }
 
 .post-metadata-author_picture > img {
@@ -25,8 +33,18 @@
   min-width: 100%;
 }
 
+// Wrap feature is needed to wrap the entire date when resizing the browser
+// instead of split it in two pieces.
 .post-metadata-container {
+  display: flex;
+  flex-wrap: wrap;
   margin-left: 1rem;
+}
+
+// Add horizontal margins to the dot instead of setting a margin-left to every
+// metadata item, this way when the date wraps it's aligned to the left.
+.post-metadata-container span:nth-child(2) {
+  margin: 0 0.382rem;
 }
 
 .post-title {
@@ -115,21 +133,20 @@
   width: 33%;
 }
 
+.related_posts-post-picture > img {
+  box-shadow: $image-light-shadow;
+  width: 100%;
+}
+
 .related_posts-post-title {
   margin-top: 1rem;
 }
 
-.related_posts-post-picture > a > img {
-  width: 100%;
-}
-
 .related_posts-post-metadata {
+  align-items: center;
   color: $dark-grey;
+  display: flex;
   margin-top: 0.618rem;
-}
-
-.related_posts-post-metadata-author {
-  font-weight: bold;
 }
 
 .related_posts-post-description {

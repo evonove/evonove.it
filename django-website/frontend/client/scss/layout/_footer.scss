@@ -29,8 +29,34 @@
   font-weight: bold;
 }
 
+.footer-email-text,
+.footer-social-text {
+  @media #{$max-medium} {
+    display: none;
+  }
+}
+
+.footer-email-icon,
+.footer-social-icon {
+  display: none;
+
+  @media #{$max-medium} {
+    display: inline-block;
+  }
+}
+
+.footer-email-icon > svg,
+.footer-social-icon > svg {
+  fill: $light-grey;
+  height: 1.618rem;
+}
+
 .footer-copyright {
   text-align: center;
+
+  @media #{$max-medium} {
+    flex-grow: 2;
+  }
 }
 
 .footer-social {

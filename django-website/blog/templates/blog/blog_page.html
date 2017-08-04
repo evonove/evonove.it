@@ -17,12 +17,12 @@
       <article class="post_preview">
         <div class="post_preview-image">
           <a href="{% pageurl article %}" class="article-link">
-              {% if article.cover %}
-              <figure>
-                {% image article.cover original as cover %}
-                <img src="{{cover.url}}" />
-              </figure>
-              {% endif %}
+            {% if article.cover %}
+            <figure>
+              {% image article.cover original as cover %}
+              <img src="{{cover.url}}" />
+            </figure>
+            {% endif %}
           </a>
         </div>
         <div class="post_preview-info">

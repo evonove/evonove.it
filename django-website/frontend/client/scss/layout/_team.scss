@@ -29,9 +29,17 @@
   width: calc(33.33% - 1.618rem); // [1]
   min-width: 17.942rem;
 
+  @media #{$max-medium} {
+    width: calc(50% - 4.236%); // [1]
+  }
+
   // Select every 3th item starting from the 2nd one.
   &:nth-child(3n+2) {
     top: 2.618rem;
+
+    @media #{$max-medium} {
+      top: 0;
+    }
   }
 }
 

@@ -17,6 +17,7 @@ $gradient-orange: linear-gradient(135deg, #F7B733 0%, #FC6119 100%);
 
 // Various
 $image-shadow: 0px 16px 38px rgba(0, 0, 0, 0.46);
+$image-light-shadow: 0px 10px 23px rgba(0, 0, 0, 0.28);
 $text-glow: 0px 0px 10px transparentize($green, 0.05);
 $box-glow: 0px 0px 10px 0px transparentize($green, 0.05);
 $filter-glow: drop-shadow(0px 0px 10px transparentize($green, 0.05));

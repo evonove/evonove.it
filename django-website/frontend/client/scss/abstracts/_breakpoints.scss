@@ -1,10 +1,14 @@
-// Media-queries breakpoints
-// -------------------------
+// Responsive breakpoints
+// ----------------------
 
 $breakpoints: (
   'xsmall': (max-width: 599px),
   'small': (min-width: 600px),
-  'medium': (min-width: 960px),
+  'medium': (max-width: 1024px),
   'large': (min-width: 1280px),
   'xlarge': (min-width: 1920px),
 );
+
+$min-medium: (min-width: 1281px);
+
+$max-medium: (max-width: 1280px);

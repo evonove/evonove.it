@@ -9,10 +9,18 @@
 .expertise-container {
   display: flex;
   justify-content: space-between;
+
+  @media #{$max-medium} {
+    flex-direction: column;
+  }
 }
 
 .expertise-description {
   width: 29.03rem;
+}
+
+.expertise-description p + p {
+  margin-top: 1rem;
 }
 
 .expertise-description-text {
@@ -23,6 +31,17 @@
 .expertise-opensource_case {
   margin-top: 4.236rem;
   width: 29.03rem;
+
+  @media #{$max-medium} {
+    margin: 4.236rem auto 0;
+    width: auto;
+  }
+}
+
+.expertise-opensource_case > .work {
+  @media #{$max-medium} {
+    padding: 0;
+  }
 }
 
 // Add a left alignment to the open source case's elements

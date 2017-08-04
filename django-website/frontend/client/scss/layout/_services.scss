@@ -21,7 +21,7 @@
   flex-grow: 1;
   flex-direction: column;
   justify-content: center;
-  padding: 1.618rem;
+  padding: 0 1.618rem;
   width: calc(100% * 0.5 - (6.854% + 2.618%)); // [1]
 
   // Margins for every first item of the row.
@@ -40,9 +40,13 @@
   display: flex;
   justify-content: center;
   padding: 0 1.618rem;
+
+  @media #{$max-medium} {
+    padding: 0;
+  }
 }
 
-// [1] This declaration is needed for text's linear gradient
+// [1] Needed to set a linear gradient to the text
 .services-list-item-title > h3 {
   font-size: 1.618rem;
   font-weight: $weight-normal;

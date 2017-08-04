@@ -31,19 +31,24 @@
 <div class="related_posts">
   {% for article in similar_articles %}
     <div class="related_posts-post">
-      <figure class="related_posts-post-picture">
-        <a href="{{ article.url }}">
-          {% image article.cover original %}
-        </a>
-      </figure>
-      <h2 class="related_posts-post-title">{{ article.title }}</h2>
-      <div class="related_posts-post-metadata u-capitalize">
-        <span class="related_posts-post-metadata-author">{{ article.owner.get_full_name }}</span>
-        <span>·</span>
-        <span>{{ article.date|date:"N d, Y"}}</span>
-      </div>
-      <p class="related_posts-post-description">{{ article.intro }}</p>
-      <a class="button related_posts-post-link" href="{{ article.url }}">Read more</a>
+      <a href="{{ article.url }}">
+        <figure class="related_posts-post-picture">
+            {% image article.cover original %}
+        </figure>
+        <h2 class="related_posts-post-title">{{ article.title }}</h2>
+        <div class="related_posts-post-metadata u-capitalize">
+          <figure class="post-metadata-author_picture">
+            <img src="{% gravatar_url page.owner.email 25 %}">
+          </figure>
+          <div class="post-metadata-container">
+            <span class="related_posts-post-metadata-author">{{ article.owner.get_full_name }}</span>
+            <span>·</span>
+            <div class="related_posts-post-metadata-date">
+              <span>{{ article.date|date:"N d, Y"}}</span>
+            </div>
+          </div>
+        </div>
+      </a>
     </div>
   {% endfor %}
 </div>
