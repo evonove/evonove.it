@@ -54,7 +54,7 @@
   <div class="stack">
     <div>{{ page.stack_subtitle|richtext }}</div>
     <div class="stack-description">
-      <p>To thrive in this fast paced tech world, it’s necessary to understand all the tools available to us and choose the right one for the job. You wouldn’t build a shed only with a hammer and we won’t too.</p>
+        <p>{{ page.stack_description|richtext }}</p>
     </div>
     <div class="stack-container">
       {% for expertise in page.stack.all %}

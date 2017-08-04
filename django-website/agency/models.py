@@ -23,12 +23,14 @@ class AgencyPage(BaseModel):
 
     services_title = RichTextField(blank=True)
     services_subtitle = RichTextField(blank=True)
+    services_contact = RichTextField(blank=True)
 
     expertise_title = RichTextField(blank=True)
     expertise_subtitle = RichTextField(blank=True)
     expertise_description = RichTextField(blank=True)
 
     stack_subtitle = RichTextField(blank=True)
+    stack_description = RichTextField(blank=True)
 
     team_title = RichTextField(blank=True)
     team_subtitle = RichTextField(blank=True)
@@ -56,6 +58,7 @@ class AgencyPage(BaseModel):
             [
                 FieldPanel('services_title'),
                 FieldPanel('services_subtitle'),
+                FieldPanel('services_contact'),
                 InlinePanel('services', label=_('Services')),
             ],
             heading=_('Services'),
@@ -83,6 +86,7 @@ class AgencyPage(BaseModel):
         MultiFieldPanel(
             [
                 FieldPanel('stack_subtitle'),
+                FieldPanel('stack_description'),
                 InlinePanel('stack', label=_('Stack')),
             ],
             heading=_('Stack'),

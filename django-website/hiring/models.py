@@ -15,6 +15,7 @@ from core.models import BaseModel
 class HiringPage(BaseModel):
     linked_data = JSONField(null=True, blank=True, help_text=_('Linked Data in JSON'))
     intro = RichTextField(blank=True)
+    outro = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
         MultiFieldPanel(
@@ -26,6 +27,7 @@ class HiringPage(BaseModel):
         ),
 
         FieldPanel('intro'),
+        FieldPanel('outro'),
 
         MultiFieldPanel(
             [
@@ -43,4 +45,5 @@ class HiringPage(BaseModel):
 class Job(Orderable):
     page = ParentalKey(HiringPage, related_name='jobs')
     position = models.CharField(max_length=200, blank=True)
-    description = RichTextField(blank=True)
+    requirements = RichTextField(blank=True)
+    responsibilities = RichTextField(blank=True)

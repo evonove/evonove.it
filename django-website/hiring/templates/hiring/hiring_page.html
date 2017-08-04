@@ -15,27 +15,14 @@
     <div class="position">
       <h3>{{ job.position }}</h3>
       <h4>Requirements</h4>
-      {{ job.description|richtext }}
-      <h4>Responsibilities</h4>
-      <ul>
-        <li>Lorem ipsum dolor sit amet</li>
-        <li>Lorem ipsum dolor sit amet</li>
-        <li>Lorem ipsum dolor sit amet</li>
-        <li>Lorem ipsum dolor sit amet</li>
-        <li>Lorem ipsum dolor sit amet</li>
-        <li>Lorem ipsum dolor sit amet</li>
-        <li>Lorem ipsum dolor sit amet</li>
-        <li>Lorem ipsum dolor sit amet</li>
-        <li>Lorem ipsum dolor sit amet</li>
-        <li>Lorem ipsum dolor sit amet</li>
-        <li>Lorem ipsum dolor sit amet</li>
-        <li>Lorem ipsum dolor sit amet</li>
-      </ul>
+      {{ job.requirements|richtext }}
+      <h4>Responsibilities</h4
+      {{ job.responsibilities|richtext  }}
       <a class="button glow_link" href="mailto:jobs@evonove.it">Apply for this job</a>
     </div>
     {% endfor %}
     <div class="hiring-outro">
-      <p>Or, if you have something to propose to us, feel free to write us an email. We are always in the lookout for talent!</p>
+      <p>{{ page.outro|richtext }}</p>
     </div>
   </div>
   <aside class="position-selector">

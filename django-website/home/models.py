@@ -11,7 +11,7 @@ from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
 from core.models import BaseModel
 from portfolio.models import Project
-from agency.models import Service
+from agency.models import AgencyPage, Service
 
 
 class HomePage(BaseModel):
@@ -61,6 +61,7 @@ class HomePage(BaseModel):
         context = super(HomePage, self).get_context(request)
         context['projects'] = Project.objects.filter(show_in_home=True)
         context['services'] = Service.objects.all()
+        context['services_contact'] = AgencyPage.objects.live().first().services_contact
         return context
 
 
