@@ -8,50 +8,95 @@
 
 .services-list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 4.236rem;
-  padding-left: 4.236rem;
+  margin-top: -6.854rem;
+  padding: 6.854rem 4.236rem 0;
 }
 
-// [1] Assign the same width to all services
+// [1] Width is set to ensure 2 items per row. It includes the horizontal
+//     margins of each item.
 .services-list-item {
   display: flex;
-  flex: 1; // [1]
+  flex-grow: 1;
   flex-direction: column;
   justify-content: center;
-  padding-right: 1.618rem;
-  position: relative;
+  padding: 1.618rem;
+  width: calc(100% * 0.5 - (6.854% + 2.618%)); // [1]
+
+  // Margins for every first item of the row.
+  &:nth-child(odd) {
+    margin: 6.854rem 6.854% 0 2.618%;
+  }
+
+  // Margins for every last item of the row.
+  &:nth-child(even) {
+    margin: 6.854rem 2.618% 0 6.854%;
+  }
 }
 
-// [1] Assign the same height to all headings, so that all paragraphs start
-//     from the same line.
 .services-list-item-title {
   align-items: center;
   display: flex;
-  flex: 1; // [1]
-  max-width: 11.036rem;
-  padding: 1rem 0 1rem 1rem;
-  position: relative;
+  justify-content: center;
+  padding: 0 1.618rem;
+}
 
-  // Adds a white line on the left of the single service
-  &::after {
-    border: 1px solid $white;
-    content: '';
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-  }
+// [1] This declaration is needed for text's linear gradient
+.services-list-item-title > h3 {
+  font-size: 1.618rem;
+  font-weight: $weight-normal;
+  text-align: center;
+  -webkit-text-fill-color: transparent; // [1]
+  text-transform: none;
+}
+
+// Add a gradient color to the 1st service title
+.services-list-item:nth-of-type(1n) .services-list-item-title > h3 {
+  background: $gradient-green;
+  -webkit-background-clip: text;
+}
+
+// Add a gradient color to the 2nd service title
+.services-list-item:nth-of-type(2n) .services-list-item-title > h3 {
+  background: $gradient-blue;
+  -webkit-background-clip: text;
+}
+
+// Add a gradient color to the 3rd service title
+.services-list-item:nth-of-type(3n) .services-list-item-title > h3 {
+  background: $gradient-orange;
+  -webkit-background-clip: text;
+}
+
+// Add a gradient color to the 4th service title
+.services-list-item:nth-of-type(4n) .services-list-item-title > h3 {
+  background: $gradient-fuchsia;
+  -webkit-background-clip: text;
+}
+
+.services-list-item-divider {
+  background-color: $light-grey;
+  height: 2px;
+  margin-top: 1.618rem;
+  width: 100%;
 }
 
 .services-list-item > p {
   color: $light-grey;
-  margin: 0.618rem 0 0 1.618rem;
+  margin-top: 1.618rem;
+  padding: 0 1.618rem;
+  text-align: center;
 }
 
 .services-contact {
-  margin: 4.236rem 0 0 7.236rem;
+  margin: 6.854rem auto 0;
+  text-align: center;
   width: 29.03rem;
+}
+
+.services-contact p {
+  color: $light-grey;
 }
 
 .services-contact-link {

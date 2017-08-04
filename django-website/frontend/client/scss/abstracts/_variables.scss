@@ -9,6 +9,12 @@ $weight-normal: 300;
 $weight-medium: 400;
 $weight-bold: 500;
 
+// Gradients
+$gradient-blue: linear-gradient(135deg, #36D1DC 0%, #5B86E5 100%);
+$gradient-green: linear-gradient(135deg, #24BF89 0%, #4CA2CD 100%);
+$gradient-fuchsia: linear-gradient(135deg, #FC6767 0%, #EC008C 100%);
+$gradient-orange: linear-gradient(135deg, #F7B733 0%, #FC6119 100%);
+
 // Various
 $image-shadow: 0px 16px 38px rgba(0, 0, 0, 0.46);
 $text-glow: 0px 0px 10px transparentize($green, 0.05);
