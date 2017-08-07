@@ -1,0 +1,30 @@
+// H1 component
+// ------------
+
+// [1] Set the container wide as its content
+.section_heading {
+  display: inline-block; // [1]
+  letter-spacing: 1.618rem;
+  overflow: hidden;
+  position: fixed;
+  writing-mode: vertical-rl;
+
+  // Left heading
+  &:first-of-type {
+    left: 1rem;
+    transform: rotate(180deg);
+    top: 1rem;
+  }
+
+  // Right heading;
+  &:last-of-type {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+// [1] Heading is hidden by default
+.section_heading > .rich-text {
+  position: relative;
+  left: -1.618rem; // [1]
+}

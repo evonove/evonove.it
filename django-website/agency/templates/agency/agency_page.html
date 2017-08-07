@@ -6,7 +6,8 @@
 
 {% block content %}
 <section class="bio">
-  <h1>{{ page.section_title|richtext }}</h1>
+  <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
+  <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
   <div class="bio-container">
     <div class="bio-container-description">
       <div>{{ page.section_subtitle|richtext }}</div>
@@ -19,7 +20,8 @@
 </section>
 
 <section class="services">
-  <h1>{{ page.services_title|richtext }}</h1>
+  <h1 class="section_heading">{{ page.services_title|richtext }}</h1>
+  <h1 class="section_heading">{{ page.services_title|richtext }}</h1>
   <div>{{ page.services_subtitle|richtext }}</div>
   <ul class="services-list">
     {% for service in page.services.all %}
@@ -35,7 +37,8 @@
 </section>
 
 <section class="expertise">
-  <h1>{{ page.expertise_title|richtext }}</h1>
+  <h1 class="section_heading">{{ page.expertise_title|richtext }}</h1>
+  <h1 class="section_heading">{{ page.expertise_title|richtext }}</h1>
   <div class="expertise-container">
     <div class="expertise-description">
       <div>{{ page.expertise_subtitle|richtext }}</div>
@@ -68,7 +71,8 @@
 </section>
 
 <section class="team">
-  <h1>{{ page.team_title|richtext }}</h1>
+  <h1 class="section_heading">{{ page.team_title|richtext }}</h1>
+  <h1 class="section_heading">{{ page.team_title|richtext }}</h1>
   <div>{{ page.team_subtitle|richtext }}</div>
   <div class="team-container">
     {% for member in page.team.all %}

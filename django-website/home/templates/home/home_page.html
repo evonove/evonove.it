@@ -19,7 +19,8 @@
 </section>
 
 <section class="services">
-  <h1>{{ page.section_title|richtext }}</h1>
+  <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
+  <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
   <div class="section-subtitle">{{ page.section_subtitle|richtext }}</div>
   <ul class="services-list">
     {% for service in services %}
@@ -37,7 +38,8 @@
 </section>
 
 <section class="works">
-  <h1>{{ page.works_title|richtext }}</h1>
+  <h1 class="section_heading">{{ page.works_title|richtext }}</h1>
+  <h1 class="section_heading">{{ page.works_title|richtext }}</h1>
   <div class="section-subtitle">{{ page.works_subtitle|richtext }}</div>
   <div class="works-container">
     {% for project in projects %}
@@ -57,7 +59,8 @@
 </section>
 
 <section class="clients">
-  <h1>{{ page.partner_title|richtext }}</h1>
+  <h1 class="section_heading">{{ page.partner_title|richtext }}</h1>
+  <h1 class="section_heading">{{ page.partner_title|richtext }}</h1>
   <div class="section-subtitle">{{ page.partner_subtitle|richtext }}</div>
   <ul class="brands">
     {% for partner in page.partners.all %}
