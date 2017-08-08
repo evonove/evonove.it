@@ -4,7 +4,11 @@
 .post {
   margin: auto;
   max-width: 46.971rem;
-  padding-top: 17.942rem;
+  margin-top: 17.942rem;
+
+  @media #{$max-xsmall} {
+    margin-top: 11.089rem;
+  }
 }
 
 .post-metadata {
@@ -93,9 +97,18 @@
   text-align: center;
 }
 
-.post-blockquote {
+.post-blockquote,
+.post-code-snippet {
   color: $dark-grey;
   margin: 2.618rem 0 0 4.236rem;
+
+  @media #{$max-xsmall} {
+    margin: 2.618rem 0 0 1.618rem;
+  }
+}
+
+.post-blockquote {
+  color: $dark-grey;
 }
 
 .post-video {
@@ -109,28 +122,36 @@
   padding-bottom: 0 !important; // [1]
 }
 
-.post-code-snippet {
-  margin: 2.618rem 0 0 4.236rem;
-}
-
 .post-code-snippet .code {
   width: 100%;
 }
 
 .related_posts {
-  border-top: 1px solid $dark-grey;
+  border-top: 2px solid $dark-grey;
   display: flex;
   margin: 6.854rem auto 0;
   max-width: 76.999rem;
   padding-top: 4.236rem;
 
+  @media #{$max-small} {
+    flex-direction: column;
+  }
+
   & > * + * {
-    margin-left: 1.618rem;
+    margin: 0 0 0 1.618rem;
+
+    @media #{$max-small} {
+      margin: 4.236rem 0 0 0;
+    }
   }
 }
 
 .related_posts-post {
   width: 33%;
+
+  @media #{$max-small} {
+    width: 100%;
+  }
 }
 
 .related_posts-post-picture > img {

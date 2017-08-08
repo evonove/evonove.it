@@ -15,6 +15,10 @@
   flex: 1;
   margin-top: 29.03vh;
   width: 29.03rem;
+
+  @media #{$max-xsmall} {
+    width: 76.999vw;
+  }
 }
 
 .splash-logo > svg {
@@ -23,7 +27,15 @@
 
 .payoff {
   font-size: 1.618rem;
-  width: 29.03rem;
+  max-width: 29.03rem;
+
+  @media #{$max-small} {
+    max-width: 76.999vw;
+  }
+
+  @media #{$max-xsmall} {
+    max-width: none;
+  }
 }
 
 .splash-scrolldown {

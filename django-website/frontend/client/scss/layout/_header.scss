@@ -8,6 +8,10 @@
   position: absolute;
   top: 0;
   width: 100%;
+
+  @media #{$max-xsmall} {
+    padding: 1rem;
+  }
 }
 
 // [1] Width includes e9 logo's width, so it's perfectely centered.

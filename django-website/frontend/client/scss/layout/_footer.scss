@@ -8,14 +8,34 @@
   margin-top: 11.089rem;
   padding: 1.618rem 2.618rem;
   width: 100%;
+
+  @media #{$max-small} {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @media #{$max-small} {
+    margin-top: 6.854rem;
+  }
 }
 
-.body_blog .footer {
+// Improve text readability for blog templates
+.body_blog .footer,
+.body_blog .footer p {
   color: $dark-grey;
+  font-weight: $weight-medium;
 }
 
 .footer p {
   font-weight: $weight-normal;
+
+  // [1] Place the copyright to the bottom
+  // [2] Let the footer wraps
+  @media #{$max-small} {
+    margin-top: 1.618rem;
+    order: 1; // [1]
+    width: 100%; // [2]
+  }
 }
 
 // All flex-items occupy the same space
@@ -23,10 +43,19 @@
 .footer-copyright,
 .footer-social {
   flex: 1;
+
+  // All flex-items are wide as its content
+  @media #{$max-small} {
+    flex: none;
+  }
 }
 
 .footer-email {
   font-weight: bold;
+
+  @media #{$max-small} {
+    margin-right: 1.618rem;
+  }
 }
 
 .footer-email-text,
@@ -48,7 +77,12 @@
 .footer-email-icon > svg,
 .footer-social-icon > svg {
   fill: $light-grey;
-  height: 1.618rem;
+  height: 1rem;
+}
+
+.body_blog .footer-email-icon > svg,
+.body_blog .footer-social-icon > svg {
+  fill: $dark-grey;
 }
 
 .footer-copyright {

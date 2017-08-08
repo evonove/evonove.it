@@ -2,16 +2,20 @@
 // ------------
 
 .works {
-  margin: 17.942rem auto 0;
+  margin: 11.089rem auto 0;
   max-width: 75.999rem;
 }
 
 .works-container {
-  margin-top: 11.089rem;
+  margin-top: 6.854rem;
 
   // Add space between cases
   & > * + * {
     margin-top: 11.089rem;
+
+    @media #{$max-xsmall} {
+      margin-top: 6.854rem;
+    }
   }
 }
 
@@ -21,6 +25,10 @@
 
   @media #{$max-medium} {
     flex-direction: column;
+  }
+
+  @media #{$max-medium} {
+    padding: 0;
   }
 
   // Every odd case will be shifted a little to the right
@@ -69,13 +77,23 @@
   flex-direction: column;
 
   @media #{$max-medium} {
+    margin-top: 2.618rem;
     max-width: 46.971rem;
+    order: 1;
+  }
+
+  @media #{$max-xsmall} {
+    margin-top: 1.618rem;
   }
 }
 
 .work-image {
   flex: 2;
   margin-top: 4.236rem;
+
+  @media #{$max-medium} {
+    margin-top: 0;
+  }
 }
 
 .work-info-type {

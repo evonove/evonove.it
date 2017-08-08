@@ -2,7 +2,11 @@
 // ---------
 
 .blog {
-  padding-top: 17.942rem;
+  margin-top: 17.942rem;
+
+  @media #{$max-xsmall} {
+    margin-top: 11.089rem;
+  }
 }
 
 .blog-intro {
@@ -17,12 +21,21 @@
 
   & > * + * {
     margin-top: 11.089rem;
+
+    @media #{$max-xsmall} {
+      margin-top: 6.854rem;
+    }
   }
 }
 
 .post_preview {
   align-items: center;
   display: flex;
+
+  @media #{$max-small} {
+    flex-direction: column;
+    margin-top: 6.854rem;
+  }
 }
 
 .post_preview-image {
@@ -31,7 +44,16 @@
 
 .post_preview-info {
   flex: 1;
-  margin-left: 2.618rem;
+  margin: 0 0 0 2.618rem;
+
+  @media #{$max-small} {
+    margin: 2.618rem 0 0 0;
+    width: 100%;
+  }
+
+  @media #{$max-small} {
+    margin: 1.618rem 0 0 0;
+  }
 }
 
 .post_preview-info-metadata {

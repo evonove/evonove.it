@@ -2,24 +2,41 @@
 // ----------
 
 .bio {
-  margin: 17.942rem auto 0;
+  margin: 11.089rem auto 0;
   max-width: 75.999rem;
 }
 
 .bio-container {
   display: flex;
+
+  @media #{$max-small} {
+    flex-direction: column;
+  }
 }
 
 .bio-container-description {
   width: 29.03rem;
+
+  @media #{$max-small} {
+    width: 100%;
+  }
 }
 
 .bio-container-description-paragraph {
   color: $light-grey;
   margin: 2.618rem 0 0 4.236rem;
+
+  @media #{$max-small} {
+    margin: 2.618rem 0 0 0;
+  }
 }
 
 .bio-container-picture {
   margin-left: 4.236rem;
   width: 46.971rem;
+
+  @media #{$max-small} {
+    margin: 1.618rem 0 0 0;
+    width: 100%;
+  }
 }

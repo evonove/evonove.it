@@ -16,7 +16,7 @@
 }
 
 .expertise-description {
-  width: 29.03rem;
+  max-width: 29.03rem;
 }
 
 .expertise-description p + p {
@@ -30,11 +30,14 @@
 
 .expertise-opensource_case {
   margin-top: 4.236rem;
-  width: 29.03rem;
+  max-width: 29.03rem;
 
   @media #{$max-medium} {
     margin: 4.236rem auto 0;
-    width: auto;
+  }
+
+  @media #{$max-xsmall} {
+    max-width: none;
   }
 }
 
@@ -53,7 +56,7 @@
 
 .stack {
   margin: 6.854rem auto 0;
-  width: 46.971rem
+  max-width: 46.971rem;
 }
 
 .stack-description {
@@ -66,9 +69,36 @@
   justify-content: space-between;
   margin-top: 4.236rem;
   padding: 0 4.236rem;
+
+  @media #{$max-xsmall} {
+    flex-direction: column;
+    padding: 0;
+  }
 }
 
-// Add vertical space between each item
+.stack-list ul {
+  @media #{$max-xsmall} {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+// Add space among lists
+.stack-container .stack-list + .stack-list ul {
+  @media #{$max-xsmall} {
+    margin-top: 1.618rem;
+  }
+}
+
+.stack-list ul > li {
+  @media #{$max-xsmall} {
+    padding: 0.618rem;
+  }
+}
+
+// Add vertical space among items
 .stack-list ul > li + li {
-  margin-top: 1.618rem;
+  @media #{$min-xsmall} {
+    margin-top: 1.618rem;
+  }
 }

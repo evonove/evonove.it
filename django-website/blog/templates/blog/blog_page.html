@@ -8,7 +8,7 @@
 {% block body_class %}body_blog{% endblock %}
 
 {% block blog_main %}
-<div class="blog">
+<section class="blog first_section">
   <div class="blog-intro">
     <h2>{{ page.blog_subtitle|richtext }}</h2>
   </div>
@@ -38,5 +38,5 @@
       </article>
     {% endfor %}
   </div>
-</div>
+</section>
 {% endblock blog_main %}

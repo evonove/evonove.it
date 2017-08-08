@@ -2,9 +2,8 @@
 // -------------
 
 .hiring {
-  margin: auto;
+  margin: 11.089rem auto 0;
   max-width: 75.999rem;
-  padding-top: 17.942rem;
 }
 
 // [1] Set a right padding to avoid an overlapping of main content and aside
@@ -13,6 +12,16 @@
   margin-right: 17.942rem;
   max-width: 46.971rem;
   padding-right: 1.618rem; // [1]
+
+  @media #{$max-small} {
+    margin-right: 0;
+    max-width: 76.999vw;
+    padding-right: 0;
+  }
+
+  @media #{$max-xsmall} {
+    max-width: none;
+  }
 }
 
 .hiring-intro p {
@@ -28,10 +37,22 @@
   margin-top: 4.236rem;
   min-width: 17.942rem;
   padding-left: 4.236rem;
+
+  @media #{$max-small} {
+    padding-left: 2.618rem;
+  }
+
+  @media #{$max-xsmall} {
+    padding-left: 0;
+  }
 }
 
 .position-container {
   margin-left: 1.618rem;
+
+  @media #{$max-xsmall} {
+    margin-left: 0;
+  }
 }
 
 .position-container > .rich-text > * {
@@ -55,6 +76,10 @@
   position: fixed;
   right: 6.854vw;
   top: 17.942rem;
+
+  @media #{$max-small} {
+    display: none;
+  }
 }
 
 .position-selector-container {

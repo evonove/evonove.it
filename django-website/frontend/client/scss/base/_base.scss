@@ -64,4 +64,17 @@ figure > img {
 .main {
   flex-grow: 1;
   width: calc(100vw - (2.618rem + 2.618rem));
+
+  @media #{$max-xsmall} {
+    width: calc(100vw - (1rem + 1rem));
+  }
+}
+
+// [1] Add a higher top margin to every first section.
+section.first_section {
+  margin: 17.942rem auto 0; // [1]
+
+  @media #{$max-small} {
+    margin: 11.089rem auto 0;
+  }
 }

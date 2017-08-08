@@ -14,6 +14,15 @@
   justify-content: space-between;
   margin-left: -1.618rem; // [1]
   padding: 0 4.236rem;
+
+  @media #{$max-small} {
+    margin-left: 0;
+    padding: 0;
+  }
+
+  @media #{$max-xsmall} {
+    padding: 0 0.618rem;
+  }
 }
 
 // [1] Set three pictures per row, with a space between of 1.618rem.
@@ -27,18 +36,23 @@
   margin-left: 1.618rem; // [2]
   position: relative;
   width: calc(33.33% - 1.618rem); // [1]
-  min-width: 17.942rem;
 
   @media #{$max-medium} {
     width: calc(50% - 4.236%); // [1]
   }
 
+  @media #{$max-small} {
+    margin-left: 0;
+  }
+
+  @media #{$max-xsmall} {
+    width: 100%;
+  }
+
   // Select every 3th item starting from the 2nd one.
   &:nth-child(3n+2) {
-    top: 2.618rem;
-
-    @media #{$max-medium} {
-      top: 0;
+    @media #{$min-medium} {
+      top: 2.618rem;
     }
   }
 }
@@ -61,6 +75,7 @@
 // Add a shadow behind the teammate silhouette
 .teammate-figure-picture {
   filter: drop-shadow(0 10px 16px transparentize($black, 0.5));
+  width: 100%;
 }
 
 .teammate-info {
@@ -97,7 +112,6 @@
 .teammate_hiring {
   align-self: flex-start;
   box-shadow: $image-shadow;
-  padding: 1.618rem;
   position: relative;
 
   &::before {
@@ -115,6 +129,7 @@
   flex-direction: column;
   justify-content: center;
   left: 0;
+  padding: 1.618rem;
   position: absolute;
   right: 0;
   top: 0;

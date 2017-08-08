@@ -2,9 +2,8 @@
 // ---------------
 
 .contacts {
-  margin: auto;
+  margin: 11.089rem auto 0;
   max-width: 75.999rem;
-  padding-top: 17.942rem;
 }
 
 .contacts-info-links-mail_info,
@@ -24,6 +23,10 @@
 .contacts-info-address {
   color: $light-grey;
   margin-top: 6.854rem;
+
+  @media #{$max-xsmall} {
+    margin-top: 4.236rem;
+  }
 }
 
 .contacts-info-address-phone,
