@@ -4,6 +4,10 @@
 .contacts {
   margin: 11.089rem auto 0;
   max-width: 75.999rem;
+
+  @media #{$small-landscape} {
+    margin: 6.854rem auto 0;
+  }
 }
 
 .contacts-info-links-mail_info,
@@ -25,6 +29,10 @@
   margin-top: 6.854rem;
 
   @media #{$max-xsmall} {
+    margin-top: 4.236rem;
+  }
+
+  @media #{$small-landscape} {
     margin-top: 4.236rem;
   }
 }

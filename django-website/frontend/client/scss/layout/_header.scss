@@ -8,6 +8,7 @@
   position: absolute;
   top: 0;
   width: 100%;
+  z-index: $z-header;
 
   @media #{$max-xsmall} {
     padding: 1rem;

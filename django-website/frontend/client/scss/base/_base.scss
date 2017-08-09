@@ -78,7 +78,11 @@ figure > img {
 section.first_section {
   margin: 17.942rem auto 0; // [1]
 
-  @media #{$max-small} {
+  @media #{$max-medium} {
     margin: 11.089rem auto 0;
+  }
+
+  @media #{$small-landscape} {
+    margin: 6.854rem auto 0;
   }
 }

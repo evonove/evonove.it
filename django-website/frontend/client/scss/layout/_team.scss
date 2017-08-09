@@ -4,6 +4,10 @@
 .team {
   margin: 11.089rem auto 0;
   max-width: 75.999rem;
+
+  @media #{$small-landscape} {
+    margin: 6.854rem auto 0;
+  }
 }
 
 // [1] Add a negative margin left to make up for the children's one. This way

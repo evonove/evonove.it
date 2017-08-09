@@ -6,8 +6,12 @@
   max-width: 46.971rem;
   margin-top: 17.942rem;
 
-  @media #{$max-xsmall} {
+  @media #{$max-medium} {
     margin-top: 11.089rem;
+  }
+
+  @media #{$small-landscape} {
+    margin-top: 6.854rem;
   }
 }
 

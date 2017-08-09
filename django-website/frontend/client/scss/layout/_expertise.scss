@@ -4,6 +4,10 @@
 .expertise {
   margin: 11.089rem auto 0;
   max-width: 75.999rem;
+
+  @media #{$small-landscape} {
+    margin: 6.854rem auto 0;
+  }
 }
 
 .expertise-container {

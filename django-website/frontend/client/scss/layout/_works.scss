@@ -4,16 +4,24 @@
 .works {
   margin: 11.089rem auto 0;
   max-width: 75.999rem;
+
+  @media #{$small-landscape} {
+    margin: 6.854rem auto 0;
+  }
 }
 
 .works-container {
   margin-top: 6.854rem;
 
-  // Add space between cases
+  // Add space between single works
   & > * + * {
     margin-top: 11.089rem;
 
     @media #{$max-xsmall} {
+      margin-top: 6.854rem;
+    }
+
+    @media #{$small-landscape} {
       margin-top: 6.854rem;
     }
   }
@@ -83,6 +91,10 @@
   }
 
   @media #{$max-xsmall} {
+    margin-top: 1.618rem;
+  }
+
+  @media #{$small-landscape} {
     margin-top: 1.618rem;
   }
 }

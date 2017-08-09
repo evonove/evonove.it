@@ -9,7 +9,7 @@
 .bio-container {
   display: flex;
 
-  @media #{$max-small} {
+  @media #{$max-medium} {
     flex-direction: column;
   }
 }
@@ -17,7 +17,7 @@
 .bio-container-description {
   width: 29.03rem;
 
-  @media #{$max-small} {
+  @media #{$max-medium} {
     width: 100%;
   }
 }
@@ -26,7 +26,7 @@
   color: $light-grey;
   margin: 2.618rem 0 0 4.236rem;
 
-  @media #{$max-small} {
+  @media #{$max-medium} {
     margin: 2.618rem 0 0 0;
   }
 }
@@ -35,7 +35,7 @@
   margin-left: 4.236rem;
   width: 46.971rem;
 
-  @media #{$max-small} {
+  @media #{$max-medium} {
     margin: 1.618rem 0 0 0;
     width: 100%;
   }

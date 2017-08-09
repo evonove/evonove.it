@@ -8,6 +8,7 @@
   margin: auto;
   max-width: calc(76.999rem + 11.089rem);
   padding-bottom: 1rem;
+  position: relative;
 }
 
 .splash-logo {
@@ -19,6 +20,10 @@
   @media #{$max-xsmall} {
     width: 76.999vw;
   }
+
+  @media #{$small-landscape} {
+    width: 46.971vw;
+  }
 }
 
 .splash-logo > svg {
@@ -27,6 +32,7 @@
 
 .payoff {
   font-size: 1.618rem;
+  margin-bottom: 4.236rem;
   max-width: 29.03rem;
 
   @media #{$max-small} {
@@ -36,17 +42,10 @@
   @media #{$max-xsmall} {
     max-width: none;
   }
-}
 
-.splash-scrolldown {
-  margin-top: 2.618rem;
-  text-align: center;
-}
-
-.splash-scrolldown > svg {
-  height: 18px;
-}
-
-.splash-scrolldown > svg > path {
-  fill: $white;
+  // [1] Leave space for the scroll down icon
+  @media #{$small-landscape} {
+    margin-top: 4.236rem;
+    max-width: 76.999vw; // [1]
+  }
 }

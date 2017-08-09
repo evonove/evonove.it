@@ -4,6 +4,10 @@
 .services {
   margin: 11.089rem auto 0;
   max-width: 75.999rem;
+
+  @media #{$small-landscape} {
+    margin: 6.854rem auto 0;
+  }
 }
 
 .services-list {
@@ -12,6 +16,10 @@
   justify-content: space-between;
   margin-top: -6.854rem;
   padding: 6.854rem 4.236rem 0;
+
+  @media #{$max-medium} {
+    padding: 6.854rem 1.618rem 0;
+  }
 
   @media #{$max-small} {
     padding: 6.854rem 0 0;
@@ -26,15 +34,18 @@
   flex-direction: column;
   justify-content: center;
   margin-top: 6.854rem;
-  padding: 0 1.618rem;
   width: calc(100% * 0.5 - (6.854% + 2.618%)); // [1]
+
+  @media #{$max-medium} {
+    padding: 0;
+  }
 
   @media #{$max-small} {
     width: 100%;
   }
 
-  @media #{$max-small} {
-    padding: 0;
+  @media #{$small-landscape} {
+    margin-top: 4.236rem;
   }
 
   // Margins for every first item of the row.

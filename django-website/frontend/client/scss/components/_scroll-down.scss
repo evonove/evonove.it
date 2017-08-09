@@ -1,0 +1,24 @@
+// Scroll down advisor component
+// -----------------------------
+
+// Place the scrolldown icon to the bottom center of the screen
+.scrolldown {
+  bottom: 1rem;
+  left: 1.618rem;
+  position: absolute;
+  right: 1.618rem;
+  text-align: center;
+
+  // Place the scroll down icon to the bottom right of the screen
+  @media #{$small-landscape} {
+    text-align: right;
+  }
+}
+
+.scrolldown > svg {
+  height: 18px;
+}
+
+.scrolldown > svg > path {
+  fill: $white;
+}
