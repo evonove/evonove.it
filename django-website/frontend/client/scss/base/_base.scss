@@ -9,6 +9,10 @@ html {
   height: 100%;
   font: $weight-normal 18px/1.618 $aktiv; // [1]
   letter-spacing: 0.056rem;
+
+  @media #{$min-large} {
+    font-size: 20px;
+  }
 }
 
 // Switch Flexbox to on in order to get a sticky footer
