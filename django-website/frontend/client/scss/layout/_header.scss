@@ -2,8 +2,7 @@
 // ------
 
 .header {
-  display: flex;
-  justify-content: flex-end;
+  left: 0;
   padding: 1.618rem 2.618rem;
   position: absolute;
   top: 0;
@@ -15,54 +14,72 @@
   }
 }
 
-// [1] Width includes e9 logo's width, so it's perfectely centered.
-.nav {
-  align-items: center;
+// [1] Align the logo with the nav items.
+.header-main_interactions {
   display: flex;
-  width: calc(50% + 12px); // [1]
+  justify-content: center;
+  position: relative;
+  top: 4px; // [1]
 
   @media #{$max-medium} {
+    justify-content: space-between;
+  }
+
+  @media #{$max-small} {
     width: 100%;
   }
 }
 
 // [1] Fixes logo's height
-// [2] Flex item has a margin-right auto so that it takes up any empty space.
-//     This way the logo is fixed on the left side, while all other items
-//     are positioned on the right.
-.nav-logo_link {
+.header-main_interactions-logo {
+  display: inline-block; // [1]
   height: 21px; // [1]
-  margin-right: auto; // [2]
 }
 
 // [1] Override svg inline sizes
-.header-logo-svg {
+.header-main_interactions-logo .logo-e9 {
   height: 100%; // [1]
   width: auto; // [1]
 }
 
 // [1] Overrides svg's path inline fill
-.header-logo-svg > path {
+.header-main_interactions-logo .logo-e9 > path {
   fill: $light-grey; // [1]
 }
 
-.body_blog .header-logo-svg > path {
+.body_blog .header-main_interactions-logo .logo-e9 > path {
   fill: $dark-grey; // [1]
 }
 
-.nav-items {
-  display: flex;
+// [1] 'Menu' and 'close' buttons are shown only small screens.
+// [2] Avoid text selection when user clicks on the button.
+.open_nav,
+.close_nav, {
+  display: none; // [1]
+  user-select: none; // [2]
+}
 
-  & > * + * {
-    margin-left: 1.618rem;
+.open_nav {
+  @media #{$max-small} {
+    display: block;
+  }
+
+  // When nav is shown, 'Menu' button is hidden
+  &.open_nav.is-nav_shown {
+    display: none;
   }
 }
 
-.nav-items > li {
-  color: $light-grey;
-  font-weight: bold;
+// 'Close' button has the same position of 'Open' button
+.close_nav {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  // When nav is shown, 'Close' button is shown too
+  &.close_nav.is-nav_shown {
+    display: block;
+  }
 }
 
-.body_blog .nav-items > li {
-  color: $dark-grey;
-}
+

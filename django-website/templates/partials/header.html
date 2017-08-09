@@ -1,15 +1,11 @@
 {% load wagtailcore_tags %}
 
 <header class="header">
-  <nav class="nav">
-    <a class="nav-logo_link" href="{% slugurl 'home' %}">
+  <div class="header-main_interactions">
+    <a class="header-main_interactions-logo" href="{% slugurl 'home' %}">
       {% include "partials/svg/e9-logo.svg" %}
     </a>
-    <ul class="nav-items">
-      <li><a class="button glow_link is-line_appearing" href="{% slugurl 'agency' %}">Agency</a></li>
-      <li><a class="button glow_link is-line_appearing" href="{% slugurl 'works' %}">Works</a></li>
-      <li><a class="button glow_link is-line_appearing" href="{% slugurl 'contacts' %}">Contacts</a></li>
-      <li><a class="button glow_link is-line_appearing" href="{% slugurl 'blog' %}">Blog</a></li>
-    </ul>
-  </nav>
+    <div class="button open_nav js-toggle_nav">Menu</div>
+    <div class="button close_nav js-toggle_nav">Close</div>
+  </div>
 </header>

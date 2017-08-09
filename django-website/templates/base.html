@@ -59,6 +59,7 @@
     {% wagtailuserbar %}
 
     {% include 'partials/header.html' with options=settings.options.WebsiteSettings %}
+    {% include 'partials/nav.html' with options=settings.options.WebsiteSettings %}
 
     <main class="main">
       {% block content %}{% endblock %}

@@ -30,7 +30,7 @@
   font-weight: $weight-normal;
 
   // [1] Place the copyright to the bottom
-  // [2] Let the footer wraps
+  // [2] Let the copyright container wraps
   @media #{$max-small} {
     margin-top: 1.618rem;
     order: 1; // [1]

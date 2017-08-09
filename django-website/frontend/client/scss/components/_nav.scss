@@ -1,0 +1,87 @@
+// Navigation component
+// --------------------
+
+.nav {
+  align-items: center;
+  display: none;
+  padding: 1.618rem 2.618rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 100;
+
+  @media #{$max-small} {
+    background-color: transparentize($black, 0.02);
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-end;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+  }
+
+  &.is-nav_shown {
+    display: flex;
+  }
+}
+
+.nav-items {
+  display: flex;
+
+  // [1] List's margin is 'auto' so that it takes up any empty space. This way
+  //     it is vertically centered on the screen.
+  @media #{$max-small} {
+    flex-direction: column;
+    margin: auto; // [1]
+  }
+
+  @media #{$small-landscape} {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  // Set space among links
+  & > * + * {
+    margin: 0 0 0 1.618rem;
+
+    @media #{$max-small} {
+      margin: 2.618rem 0 0 0;
+    }
+
+    @media #{$max-xsmall} {
+      margin: 1.618rem 0 0 0;
+    }
+
+    @media #{$small-landscape} {
+      margin: 0 0 0 1.618rem;
+    }
+  }
+}
+
+.nav-items > li {
+  color: $light-grey;
+  font-weight: bold;
+}
+
+.body_blog .nav-items > li {
+  color: $dark-grey;
+}
+
+// Social links are shown only on small screens.
+.nav-social {
+  display: none;
+
+  @media #{$max-small} {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.nav-social > li + li {
+  margin-left: 2.618rem;
+}
+
+.nav-social > li svg {
+  fill: $light-grey;
+  height: 1rem;
+}
