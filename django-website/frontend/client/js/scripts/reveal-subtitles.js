@@ -1,4 +1,4 @@
-// Reveal subtitles during scroll
+// Reveal subtitles while scrolling.
 
 const payoff = document.querySelectorAll('.payoff > .rich-text > p');
 const subtitles = document.querySelectorAll('.js-show_subtitle h2');
