@@ -10,7 +10,10 @@ $weight-medium: 400;
 $weight-bold: 500;
 
 // Z-indexes
-$z-header: 1000;
+$z-header-large: 100;
+$z-header-small: 1000;
+$z-nav-large: 1000;
+$z-nav-small: 100;
 
 // Gradients
 $gradient-blue: linear-gradient(135deg, #36D1DC 0%, #5B86E5 100%);

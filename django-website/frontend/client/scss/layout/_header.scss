@@ -1,13 +1,21 @@
 // Header
 // ------
 
+// [1] Header is on a lower layer compared to the nav, this way all nav's links
+//     are clickable.
 .header {
   left: 0;
   padding: 1.618rem 2.618rem;
   position: absolute;
   top: 0;
   width: 100%;
-  z-index: $z-header;
+  z-index: $z-header-large; // [1]
+
+  // [1] Header is on an upper layer compared to the nav, this way header's
+  //     items are visible.
+  @media #{$max-small} {
+    z-index: $z-header-small; // [1]
+  }
 
   @media #{$max-xsmall} {
     padding: 1rem;

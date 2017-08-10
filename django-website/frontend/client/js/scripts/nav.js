@@ -9,7 +9,7 @@ const toggleNavListeners = document.querySelectorAll('.js-toggle_nav');
  * Show/hide the navigation
  */
 function toggleNav() {
-  for (let i = 0; i < toggleNav.length; i += 1) {
+  for (let i = 0; i < toggleNavListeners.length; i += 1) {
     toggleNavListeners[i].classList.toggle('is-nav_shown');
   }
 }
