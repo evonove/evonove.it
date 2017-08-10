@@ -4,7 +4,7 @@ const payoff = document.querySelectorAll('.payoff > .rich-text > p');
 const subtitles = document.querySelectorAll('.js-show_subtitle h2');
 
 /**
- * Use Waypoint to reveal every subtitles when they are on the viewport
+ * Use Waypoint.js to reveal every subtitles when they are on the viewport
  */
 function revealSubtitle() {
   for (let i = 0; i < subtitles.length; i += 1) {

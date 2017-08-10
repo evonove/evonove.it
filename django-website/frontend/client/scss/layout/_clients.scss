@@ -36,3 +36,17 @@
     width: calc((100% * 0.5) - 2rem);
   }
 }
+
+.contact_us {
+  margin: 6.854rem auto 0;
+  text-align: center;
+  max-width: 29.03rem;
+}
+
+.contact_us p {
+  color: $light-grey;
+}
+
+.contact_us-link {
+  margin-top: 1.618rem;
+}

@@ -63,10 +63,12 @@
   }
 }
 
+// [1] Overflow:hidden is needed to improve the title transition.
 .services-list-item-title {
   align-items: center;
   display: flex;
   justify-content: center;
+  overflow: hidden;
   padding: 0 1.618rem;
 
   @media #{$max-medium} {
@@ -78,9 +80,17 @@
 .services-list-item-title > h3 {
   font-size: 1.618rem;
   font-weight: $weight-normal;
+  opacity: 0;
   text-align: center;
   -webkit-text-fill-color: transparent; // [1]
   text-transform: none;
+  transform: translate3d(0, 100%, 0);
+  transition: all 0.618s;
+
+  &.is-service_shown {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 // Add a gradient color to the 1st service title
@@ -111,26 +121,26 @@
   background-color: $light-grey;
   height: 2px;
   margin: 1.618rem auto 0;
+  transform: scale3d(0, 1, 1);
+  transition: transform 0.618s;
   width: 29.03%;
+
+  &.is-service_shown {
+    transform: scale3d(1, 1, 1);
+  }
 }
 
-.services-list-item > p {
+.services-list-item-description {
   color: $light-grey;
   margin-top: 1.618rem;
+  opacity: 0;
   padding: 0 1.618rem;
   text-align: center;
-}
+  transform: translate3d(0, -1.618rem, 0);
+  transition: all 0.618s;
 
-.services-contact {
-  margin: 6.854rem auto 0;
-  text-align: center;
-  max-width: 29.03rem;
-}
-
-.services-contact p {
-  color: $light-grey;
-}
-
-.services-contact-link {
-  margin-top: 1.618rem;
+  &.is-service_shown {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }

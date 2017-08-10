@@ -42,9 +42,43 @@
   flex: 2;
 }
 
+.post_preview-image-figure {
+  opacity: 0;
+  position: relative;
+  transition: opacity 1s;
+
+  // Create a div which overlaps the image
+  &::after {
+    background-color: $white;
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: transform 0.618s 0.618s;
+  }
+
+  &.is-sliding_shown {
+    opacity: 1;
+
+    &::after {
+      transform: scale3d(0, 1, 1);
+    }
+  }
+}
+
 .post_preview-info {
   flex: 1;
   margin: 0 0 0 2.618rem;
+  opacity: 0;
+  transform: translate3d(1.618rem, 0, 0);
+  transition: all 0.618s;
+
+  &.is-sliding_shown {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 
   @media #{$max-small} {
     margin: 2.618rem 0 0 0;

@@ -12,13 +12,13 @@
   <div class="works-container">
   {% for project in page.projects.all %}
     <div class="work">
-      <div class="work-info">
+      <div class="work-info js-reveal_sliding">
         <h4 class="work-info-title">{{ project.name }}</h4>
         <h5 class="work-info-type">{{ project.category }}</h5>
         <p class="work-info-description">{{ project.description }}</p>
         <a class="button glow_link work-info-button" href="{{ project.link }" target="_blank">Visit the case</a>
       </div>
-      <figure class="work-image">
+      <figure class="work-image js-reveal_sliding">
         {% image project.image original class="work-image-picture" %}
       </figure>
     </div>

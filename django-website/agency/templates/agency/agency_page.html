@@ -26,11 +26,11 @@
   <ul class="services-list">
     {% for service in page.services.all %}
       <li class="services-list-item">
-        <div class="services-list-item-title">
+        <div class="services-list-item-title js-show_service_title">
           <h3>{{ service.title }}</h3>
         </div>
-        <div class="services-list-item-divider"></div>
-        <p>{{ service.description }}</p>
+        <div class="services-list-item-divider js-show_service_description"></div>
+        <p class="services-list-item-description js-show_service_description">{{ service.description }}</p>
       </li>
     {% endfor %}
   </ul>

@@ -26,16 +26,13 @@
   <ul class="services-list">
     {% for service in services %}
       <li class="services-list-item">
-        <div class="services-list-item-title">
+        <div class="services-list-item-title js-show_service_title">
           <h3>{{ service.title }}</h3>
         </div>
+        <div class="services-list-item-divider js-show_service_description"></div>
       </li>
     {% endfor %}
   </ul>
-  <div class="services-contact">
-    <p>{{ services_contact|richtext }}</p>
-    <a class="button glow_link services-contact-link" href="{% slugurl 'contacts' %}">Contact us</a>
-  </div>
 </section>
 
 <section class="works">
@@ -45,13 +42,13 @@
   <div class="works-container">
     {% for project in projects %}
       <div class="work">
-        <div class="work-info">
+        <div class="work-info js-reveal_sliding">
           <h4 class="work-info-title">{{ project.name }}</h4>
           <h5 class="work-info-type">{{ project.category }}</h5>
           <p class="work-info-description">{{ project.description }}</p>
           <a class="button glow_link work-info-button" href="{{ project.link }}" target="_blank">Visit the case</a>
         </div>
-        <figure class="work-image">
+        <figure class="work-image js-reveal_sliding">
           {% image project.image original %}
         </figure>
       </div>
@@ -70,5 +67,9 @@
       </li>
     {% endfor %}
   </ul>
+  <div class="contact_us">
+    <p>{{ services_contact|richtext }}</p>
+    <a class="button glow_link contact_us-link" href="{% slugurl 'contacts' %}">Contact us</a>
+  </div>
 </section>
 {% endblock %}

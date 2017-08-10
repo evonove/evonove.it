@@ -8,3 +8,4 @@ require('../../node_modules/waypoints/lib/noframework.waypoints.js');
 require('./scripts/nav.js');
 require('./scripts/reveal-subtitles.js');
 require('./scripts/reveal-services.js');
+require('./scripts/reveal-sliding.js');

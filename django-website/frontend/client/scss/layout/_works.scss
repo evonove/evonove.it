@@ -60,6 +60,12 @@
 //     space between it and the image.
 // [3] Align items to the right
 .work:nth-child(odd) > .work-info {
+  transform: translate3d(-1.618rem, 0, 0);
+
+  &.is-sliding_shown {
+    transform: translate3d(0, 0, 0);
+  }
+
   @media #{$min-medium} {
     align-items: flex-end; // [3]
     padding: 0 4.236rem 0 0; // [2]
@@ -72,6 +78,12 @@
 // [2] Set a padding left to the info container in order to add space between
 //     it and the image.
 .work:nth-child(even) > .work-info {
+  transform: translate3d(1.618rem, 0, 0);
+
+  &.is-sliding_shown {
+    transform: translate3d(0, 0, 0);
+  }
+
   @media #{$min-medium} {
     order: 2; // [1]
     padding: 0 0 0 4.236rem; // [2]
@@ -83,6 +95,13 @@
   display: flex;
   flex: 1;
   flex-direction: column;
+  opacity: 0;
+  transition: all 0.618s;
+
+  &.is-sliding_shown {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 
   @media #{$max-medium} {
     margin-top: 2.618rem;
@@ -102,10 +121,41 @@
 .work-image {
   flex: 2;
   margin-top: 4.236rem;
+  opacity: 0;
+  position: relative;
+  transition: opacity 1s;
 
   @media #{$max-medium} {
     margin-top: 0;
   }
+
+  // Create a div which overlaps the image
+  &::after {
+    background-color: $black;
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: transform 0.618s 0.618s;
+  }
+
+  &.is-sliding_shown {
+    opacity: 1;
+
+    &::after {
+      transform: scale3d(0, 1, 1);
+    }
+  }
+}
+
+.work:nth-child(odd) > .work-image::after {
+  transform-origin: left;
+}
+
+.work:nth-child(even) > .work-image::after {
+  transform-origin: right;
 }
 
 .work-info-type {
