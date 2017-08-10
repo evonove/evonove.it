@@ -15,6 +15,7 @@
 }
 
 .bio-container-description {
+  flex: 1;
   width: 29.03rem;
 
   @media #{$max-medium} {
@@ -32,6 +33,7 @@
 }
 
 .bio-container-picture {
+  flex: 1;
   margin-left: 4.236rem;
   width: 46.971rem;
 

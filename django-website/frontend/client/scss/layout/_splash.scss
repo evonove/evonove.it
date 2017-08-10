@@ -33,14 +33,9 @@
 .payoff {
   font-size: 1.618rem;
   margin-bottom: 4.236rem;
-  max-width: 29.03rem;
-
-  @media #{$max-small} {
-    max-width: 76.999vw;
-  }
 
   @media #{$max-xsmall} {
-    max-width: none;
+    text-align: center;
   }
 
   // [1] Leave space for the scroll down icon

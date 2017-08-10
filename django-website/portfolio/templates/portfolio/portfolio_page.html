@@ -8,7 +8,7 @@
 <section class="works first_section">
   <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
   <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
-  <div>{{ page.section_subtitle|richtext }}</div>
+  <div class="section-subtitle js-show_subtitle">{{ page.section_subtitle|richtext }}</div>
   <div class="works-container">
   {% for project in page.projects.all %}
     <div class="work">

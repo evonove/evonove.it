@@ -18,18 +18,6 @@ h3, h5 {
   text-transform: uppercase;
 }
 
-h2 {
-  max-width: 29.03rem;
-
-  @media #{$max-xsmall} {
-    max-width: 76.999vw;
-  }
-
-  @media #{$max-xsmall} {
-    max-width: none;
-  }
-}
-
 .body_blog h2 {
   font-weight: $weight-medium;
 }

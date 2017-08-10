@@ -9,8 +9,8 @@
   <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
   <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
   <div class="bio-container">
-    <div class="bio-container-description">
-      <div>{{ page.section_subtitle|richtext }}</div>
+    <div class="section-subtitle bio-container-description js-show_subtitle">
+      {{ page.section_subtitle|richtext }}
       <div class="bio-container-description-paragraph">{{ page.description|richtext }}</div>
     </div>
     <figure class="bio-container-picture">
@@ -22,7 +22,7 @@
 <section class="services">
   <h1 class="section_heading">{{ page.services_title|richtext }}</h1>
   <h1 class="section_heading">{{ page.services_title|richtext }}</h1>
-  <div>{{ page.services_subtitle|richtext }}</div>
+  <div class="section-subtitle js-show_subtitle">{{ page.services_subtitle|richtext }}</div>
   <ul class="services-list">
     {% for service in page.services.all %}
       <li class="services-list-item">
@@ -41,7 +41,7 @@
   <h1 class="section_heading">{{ page.expertise_title|richtext }}</h1>
   <div class="expertise-container">
     <div class="expertise-description">
-      <div>{{ page.expertise_subtitle|richtext }}</div>
+      <div class="section-subtitle js-show_subtitle">{{ page.expertise_subtitle|richtext }}</div>
     </div>
     <div class="expertise-opensource_case">
       <div class="work">
@@ -55,7 +55,7 @@
     </div>
   </div>
   <div class="stack">
-    <div>{{ page.stack_subtitle|richtext }}</div>
+    <div class="js-show_subtitle">{{ page.stack_subtitle|richtext }}</div>
     <div class="stack-description">
         <p>{{ page.stack_description|richtext }}</p>
     </div>
@@ -72,7 +72,7 @@
 <section class="team">
   <h1 class="section_heading">{{ page.team_title|richtext }}</h1>
   <h1 class="section_heading">{{ page.team_title|richtext }}</h1>
-  <div>{{ page.team_subtitle|richtext }}</div>
+  <div class="section-subtitle js-show_subtitle">{{ page.team_subtitle|richtext }}</div>
   <div class="team-container">
     {% for member in page.team.all %}
     <div class="teammate">

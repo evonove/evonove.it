@@ -10,8 +10,8 @@
   <div class="splash-logo">
     {% include "partials/svg/logo.svg" %}
   </div>
-  <div class="payoff">
-    <p>{{ page.payoff|richtext }}</p>
+  <div class="payoff js-show_payoff">
+    {{ page.payoff|richtext }}
   </div>
 </section>
 
@@ -22,7 +22,7 @@
 <section class="services">
   <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
   <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
-  <div class="section-subtitle">{{ page.section_subtitle|richtext }}</div>
+  <div class="section-subtitle js-show_subtitle">{{ page.section_subtitle|richtext }}</div>
   <ul class="services-list">
     {% for service in services %}
       <li class="services-list-item">
@@ -41,7 +41,7 @@
 <section class="works">
   <h1 class="section_heading">{{ page.works_title|richtext }}</h1>
   <h1 class="section_heading">{{ page.works_title|richtext }}</h1>
-  <div class="section-subtitle">{{ page.works_subtitle|richtext }}</div>
+  <div class="section-subtitle js-show_subtitle">{{ page.works_subtitle|richtext }}</div>
   <div class="works-container">
     {% for project in projects %}
       <div class="work">
@@ -62,7 +62,7 @@
 <section class="clients">
   <h1 class="section_heading">{{ page.partner_title|richtext }}</h1>
   <h1 class="section_heading">{{ page.partner_title|richtext }}</h1>
-  <div class="section-subtitle">{{ page.partner_subtitle|richtext }}</div>
+  <div class="section-subtitle js-show_subtitle">{{ page.partner_subtitle|richtext }}</div>
   <ul class="brands">
     {% for partner in page.partners.all %}
       <li class="brand">

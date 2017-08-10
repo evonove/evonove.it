@@ -1,0 +1,43 @@
+// Section subtitle component
+// --------------------------
+
+.section-subtitle > .rich-text > h2,
+.payoff > .rich-text > p {
+  transform: scale3d(1, 0, 1) translate3d(-0.618rem, 0, 0);
+  transform-origin: bottom;
+  transition: transform 0.618s;
+
+  // For each consecutive subtitle sum the transition delay, starting from
+  // a second subtitle's delay of 0.236.
+  @for $i from 1 to 10 {
+    & + h2:nth-of-type(#{$i}) {
+      transition-delay: ($i * 0.236s - 0.236s);
+    }
+  }
+
+  // For each consecutive paragraph sum the transition delay, starting from
+  // a second paragraph's delay of 0.236.
+  @for $i from 1 to 10 {
+    & + p:nth-of-type(#{$i}) {
+      transition-delay: ($i * 0.236s - 0.236s);
+    }
+  }
+
+  // [1] Transform paragraphs to inline elements in order to ensure that payoff
+  //     wraps only when there is no more horizontal space.
+  @media #{$max-xsmall} {
+    display: inline; // [1]
+  }
+
+  &.is-subtitle_shown {
+    transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+  }
+
+  & + p {
+    // [1] Add a space to all inlined paragraphs, simulating the default word
+    //     spacing.
+    @media #{$max-xsmall} {
+      margin-left: 0.618rem; // [1]
+    }
+  }
+}

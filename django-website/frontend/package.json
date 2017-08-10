@@ -28,6 +28,7 @@
     "webpack": "^3.4.0"
   },
   "dependencies": {
-    "normalize.css": "^5.0.0"
+    "normalize.css": "^5.0.0",
+    "waypoints": "^4.0.1"
   }
 }
