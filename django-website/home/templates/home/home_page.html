@@ -62,7 +62,7 @@
   <div class="section-subtitle js-show_subtitle">{{ page.partner_subtitle|richtext }}</div>
   <ul class="brands">
     {% for partner in page.partners.all %}
-      <li class="brand">
+      <li class="brand js-show_client">
         {% image partner.image original %}
       </li>
     {% endfor %}

@@ -29,7 +29,23 @@
   height: 4.236rem;
   justify-content: center;
   margin: 4.236rem 0 0 4.236rem; // [1]
+  opacity: 0;
+  transform: translate3d(0, 1.618rem, 0);
+  transition: all 0.618s;
   width: 6.854rem;
+
+  // For each consecutive brand sum the transition delay, starting from
+  // a second brand's delay of 0.146.
+  @for $i from 1 to 20 {
+    & + .brand:nth-of-type(#{$i}) {
+      transition-delay: ($i * 0.146s - 0.146s);
+    }
+  }
+
+  &.is-client_shown {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 
   @media #{$max-xsmall} {
     margin: 4.236rem 1rem 0 1rem;
@@ -39,8 +55,16 @@
 
 .contact_us {
   margin: 6.854rem auto 0;
-  text-align: center;
   max-width: 29.03rem;
+  opacity: 0;
+  text-align: center;
+  transform: translate3d(0, 1.618rem, 0);
+  transition: all 0.618s;
+
+  &.is-contact_us_shown {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 .contact_us p {

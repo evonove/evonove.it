@@ -9,3 +9,4 @@ require('./scripts/nav.js');
 require('./scripts/reveal-subtitles.js');
 require('./scripts/reveal-services.js');
 require('./scripts/reveal-sliding.js');
+require('./scripts/reveal-brands.js');
