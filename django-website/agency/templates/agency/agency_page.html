@@ -9,11 +9,11 @@
   <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
   <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
   <div class="bio-container">
-    <div class="section-subtitle bio-container-description js-show_subtitle">
-      {{ page.section_subtitle|richtext }}
-      <div class="bio-container-description-paragraph">{{ page.description|richtext }}</div>
+    <div class="section-subtitle bio-description js-show_subtitle">
+      <div class="bio-description-subtitle js-show_bio">{{ page.section_subtitle|richtext }}</div>
+      <div class="bio-description-paragraph js-show_bio">{{ page.description|richtext }}</div>
     </div>
-    <figure class="bio-container-picture">
+    <figure class="bio-picture js-show_bio">
       {% image page.image original class="bio-image-picture" %}
     </figure>
   </div>
