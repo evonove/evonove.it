@@ -1,13 +1,30 @@
 // Services layout
 // ---------------
 
+// [1] Add space to the bottom in order to obtain a centered 3D scene.
+// [2] Negative bottom margin is needed due to the bottom padding, this way is
+//     possible to keep the right space between this section and the below one.
 .services {
-  margin: 11.089rem auto 0;
+  margin: 11.089rem auto -11.089rem; // [2]
   max-width: 75.999rem;
+  padding-bottom: 11.089rem; // [1]
+  position: relative;
 
   @media #{$small-landscape} {
     margin: 6.854rem auto 0;
   }
+}
+
+// Position the canvas child to the center.
+.services-3dmodels {
+  align-items: flex-start;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .services-list {

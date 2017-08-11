@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "normalize.css": "^5.0.0",
+    "three": "^0.86.0",
     "waypoints": "^4.0.1"
   }
 }

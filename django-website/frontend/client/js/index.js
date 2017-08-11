@@ -6,6 +6,7 @@ require('../../node_modules/waypoints/lib/noframework.waypoints.js');
 
 // Import JavaScript custom files
 require('./scripts/nav.js');
+require('./scripts/services-3d-models.js');
 require('./scripts/reveal-subtitles.js');
 require('./scripts/reveal-services.js');
 require('./scripts/reveal-article.js');
