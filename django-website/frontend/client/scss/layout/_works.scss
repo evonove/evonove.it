@@ -95,13 +95,6 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  opacity: 0;
-  transition: all 0.618s;
-
-  &.is-sliding_shown {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
 
   @media #{$max-medium} {
     margin-top: 2.618rem;
@@ -118,6 +111,12 @@
   }
 }
 
+// Reveal each work description
+.work.is-element_revealed > .work-info {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
 .work-image {
   flex: 2;
   margin-top: 4.236rem;
@@ -129,7 +128,7 @@
     margin-top: 0;
   }
 
-  // Create a div which overlaps the image
+  // Create a div which overlaps the image needed to do the sliding transition.
   &::after {
     background-color: $black;
     bottom: 0;
@@ -140,20 +139,23 @@
     top: 0;
     transition: transform 0.618s 0.618s;
   }
+}
 
-  &.is-sliding_shown {
+// Reveal each work figure
+.work.is-element_revealed > .work-image {
     opacity: 1;
 
     &::after {
       transform: scale3d(0, 1, 1);
     }
   }
-}
 
+// Sliding transition start from the left
 .work:nth-child(odd) > .work-image::after {
   transform-origin: left;
 }
 
+// Sliding transition start from the right
 .work:nth-child(even) > .work-image::after {
   transform-origin: right;
 }

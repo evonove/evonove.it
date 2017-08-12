@@ -8,3 +8,30 @@
   letter-spacing: 0.056rem;
   text-transform: uppercase;
 }
+
+// Transitions
+.-u-element_to_reveal {
+  opacity: 0;
+  transition: all 0.618s;
+
+  &.-u-reveal_from_top {
+    transform: translate3d(0, -1.618rem, 0);
+  }
+
+  &.-u-reveal_from_right {
+    transform: translate3d(1.618rem, 0, 0);
+  }
+
+  &.-u-reveal_from_bottom {
+    transform: translate3d(0, 1.618rem, 0);
+  }
+
+  &.-u-reveal_from_left {
+    transform: translate3d(-1.618rem, 0, 0);
+  }
+
+  &.is-element_revealed {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}

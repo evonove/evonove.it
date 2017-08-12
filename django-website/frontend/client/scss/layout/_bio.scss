@@ -23,18 +23,6 @@
   }
 }
 
-.bio-description-subtitle,
-.bio-description-paragraph {
-  opacity: 0;
-  transform: translate3d(-1.618rem, 0, 0);
-  transition: all 0.618s;
-
-  &.is-bio_shown {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
 .bio-description-paragraph {
   color: $light-grey;
   margin: 2.618rem 0 0 4.236rem;
@@ -53,7 +41,7 @@
   transition: opacity 1s;
   width: 46.971rem;
 
-  // Create a div which overlaps the image
+  // Create a div which overlaps the image needed to do the sliding transition.
   &::after {
     background-color: $black;
     bottom: 0;
@@ -67,7 +55,7 @@
     transition: transform 0.618s 0.618s;
   }
 
-  &.is-bio_shown {
+  &.is-element_revealed {
     opacity: 1;
 
     &::after {

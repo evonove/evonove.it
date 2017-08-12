@@ -14,18 +14,18 @@
   </div>
   <div class="blog-container">
     {% for article in articles %}
-      <article class="post_preview">
+      <article class="post_preview js-reveal_article">
         <div class="post_preview-image">
           <a href="{% pageurl article %}" class="article-link">
             {% if article.cover %}
-            <figure class="post_preview-image-figure js-reveal_sliding">
+            <figure class="post_preview-image-figure">
               {% image article.cover original as cover %}
               <img src="{{cover.url}}" />
             </figure>
             {% endif %}
           </a>
         </div>
-        <div class="post_preview-info js-reveal_sliding">
+        <div class="post_preview-info -u-element_to_reveal -u-reveal_from_right">
           <h2>{{ article.title }}</h2>
           <div class="post_preview-info-metadata u-capitalize">
             <span class="post_preview-info-metadata-author">{{ article.owner.get_full_name|default:article.owner }}</span>

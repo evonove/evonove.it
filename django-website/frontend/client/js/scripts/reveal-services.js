@@ -1,40 +1,21 @@
 // Reveal services while scrolling.
 
-const servicesTitles = document.querySelectorAll('.js-show_service_title > h3');
-const servicesDescription = document.querySelectorAll('.js-show_service_description');
+const services = document.querySelectorAll('.js-reveal_service');
 
 /**
- * Use Waypoint.js to reveal services titles
+ * Use Waypoint.js to reveal each services when in viewport
  */
-function revealServiceTitle() {
-  for (let i = 0; i < servicesTitles.length; i += 1) {
-    this.element.classList.add('is-service_shown');
+function revealService() {
+  for (let i = 0; i < services.length; i += 1) {
+    this.element.classList.add('is-element_revealed');
     this.destroy();
   }
 }
 
-/**
- * Use Waypoint.js to reveal services descriptions
- */
-function revealServiceDescription() {
-  for (let i = 0; i < servicesDescription.length; i += 1) {
-    this.element.classList.add('is-service_shown');
-    this.destroy();
-  }
-}
-
-for (let i = 0; i < servicesTitles.length; i += 1) {
+for (let i = 0; i < services.length; i += 1) {
   new Waypoint({
-    element: servicesTitles[i],
-    handler: revealServiceTitle,
-    offset: '76.999%',
-  });
-}
-
-for (let i = 0; i < servicesDescription.length; i += 1) {
-  new Waypoint({
-    element: servicesDescription[i],
-    handler: revealServiceDescription,
+    element: services[i],
+    handler: revealService,
     offset: '76.999%',
   });
 }

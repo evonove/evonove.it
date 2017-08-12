@@ -46,6 +46,8 @@
 }
 
 .expertise-opensource_case > .work {
+  padding-right: 0;
+
   @media #{$max-medium} {
     padding: 0;
   }
@@ -56,6 +58,11 @@
   align-items: flex-start;
   padding: 0;
   text-align: left;
+  transform: translate3d(1.618rem, 0, 0);
+}
+
+.expertise-opensource_case > .work.is-element_revealed > .work-info {
+  transform: translateZ(0);
 }
 
 .stack {
@@ -95,8 +102,25 @@
 }
 
 .stack-list ul > li {
+  opacity: 0;
+  transform: translate3d(0, 1.618rem, 0);
+  transition: all 0.618s;
+
   @media #{$max-xsmall} {
     padding: 0.618rem;
+  }
+}
+
+.stack-list.is-element_revealed ul > li {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+
+  // For each consecutive stack sum the transition delay, starting from
+  // a second stack's delay of 0.146.
+  @for $i from 1 to 20 {
+    & + li:nth-of-type(#{$i}) {
+      transition-delay: ($i * 0.146s - 0.146s);
+    }
   }
 }
 

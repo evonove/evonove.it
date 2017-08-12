@@ -84,13 +84,12 @@
   text-align: center;
   -webkit-text-fill-color: transparent; // [1]
   text-transform: none;
-  transform: translate3d(0, 100%, 0);
-  transition: all 0.618s;
+}
 
-  &.is-service_shown {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+// Reveal each service title
+.services-list-item.is-element_revealed .services-list-item-title > h3 {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 // Add a gradient color to the 1st service title
@@ -124,23 +123,22 @@
   transform: scale3d(0, 1, 1);
   transition: transform 0.618s;
   width: 29.03%;
+}
 
-  &.is-service_shown {
-    transform: scale3d(1, 1, 1);
-  }
+// Reveal each service divider
+.services-list-item.is-element_revealed .services-list-item-divider{
+  transform: scale3d(1, 1, 1);
 }
 
 .services-list-item-description {
   color: $light-grey;
   margin-top: 1.618rem;
-  opacity: 0;
   padding: 0 1.618rem;
   text-align: center;
-  transform: translate3d(0, -1.618rem, 0);
-  transition: all 0.618s;
+}
 
-  &.is-service_shown {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+// Reveal each service description
+.services-list-item.is-element_revealed .services-list-item-description {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }

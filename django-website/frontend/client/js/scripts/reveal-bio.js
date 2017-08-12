@@ -7,7 +7,7 @@ const bioElements = document.querySelectorAll('.js-show_bio');
  */
 function revealBio() {
   for (let i = 0; i < bioElements.length; i += 1) {
-    bioElements[i].classList.add('is-bio_shown');
+    bioElements[i].classList.add('is-element_revealed');
   }
 }
 if (bioElements) {

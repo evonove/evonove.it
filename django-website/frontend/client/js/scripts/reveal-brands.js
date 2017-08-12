@@ -9,29 +9,16 @@ const contactUs = document.querySelector('.contact_us');
  */
 function revealBrands() {
   for (let i = 0; i < brands.length; i += 1) {
-    brands[i].classList.add('is-client_shown');
+    brands[i].classList.add('is-element_revealed');
     this.destroy();
   }
-}
-
-/**
- * Use Waypoint.js to reveal 'contact us'
- */
-function revealContactUs() {
-  contactUs.classList.add('is-contact_us_shown');
-  this.destroy();
+  contactUs.classList.add('is-element_revealed');
 }
 
 if (brandsList) {
   new Waypoint({
     element: brandsList,
     handler: revealBrands,
-    offset: '76.999%',
-  });
-
-  new Waypoint({
-    element: contactUs,
-    handler: revealContactUs,
     offset: '76.999%',
   });
 }

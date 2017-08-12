@@ -47,7 +47,7 @@
   position: relative;
   transition: opacity 1s;
 
-  // Create a div which overlaps the image
+  // Create a div which overlaps the image needed to do the sliding transition.
   &::after {
     background-color: $white;
     bottom: 0;
@@ -58,27 +58,22 @@
     top: 0;
     transition: transform 0.618s 0.618s;
   }
+}
 
-  &.is-sliding_shown {
-    opacity: 1;
 
-    &::after {
-      transform: scale3d(0, 1, 1);
-    }
+.post_preview.is-element_revealed .post_preview-image-figure {
+  opacity: 1;
+
+  // [1] Sliding transition start from the left
+  &::after {
+    transform: scale3d(0, 1, 1);
+    transform-origin: left; // [1]
   }
 }
 
 .post_preview-info {
   flex: 1;
   margin: 0 0 0 2.618rem;
-  opacity: 0;
-  transform: translate3d(1.618rem, 0, 0);
-  transition: all 0.618s;
-
-  &.is-sliding_shown {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
 
   @media #{$max-small} {
     margin: 2.618rem 0 0 0;
@@ -88,6 +83,11 @@
   @media #{$max-small} {
     margin: 1.618rem 0 0 0;
   }
+}
+
+.post_preview.is-element_revealed .post_preview-info {
+  opacity: 1;
+  transform: translateZ(0);
 }
 
 .post_preview-info-metadata {

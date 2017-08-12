@@ -8,12 +8,12 @@
   <div class="hiring-positions">
     <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
     <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
-    <h2>{{ page.section_subtitle|richtext }}</h2>
-    <div class="hiring-intro">
+    <div class="hiring-intro -u-element_to_reveal -u-reveal_from_bottom js-reveal_hiring">
+      <h2>{{ page.section_subtitle|richtext }}</h2>
       {{ page.intro|richtext }}
     </div>
     {% for job in page.jobs.all %}
-    <div class="position">
+    <div class="position -u-element_to_reveal -u-reveal_from_bottom js-reveal_job">
       <h2>{{ job.position }}</h2>
       <div class="position-container">
         <h3 class="position-field">Requirements</h3>
@@ -28,7 +28,7 @@
       <p>{{ page.outro|richtext }}</p>
     </div>
   </div>
-  <aside class="position-selector">
+  <aside class="position-selector -u-element_to_reveal -u-reveal_from_right js-reveal_hiring">
     <h4>Available positions</h4>
     <div class="position-selector-container">
       {% for job in page.jobs.all %}

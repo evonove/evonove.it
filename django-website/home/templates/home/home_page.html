@@ -25,11 +25,11 @@
   <div class="section-subtitle js-show_subtitle">{{ page.section_subtitle|richtext }}</div>
   <ul class="services-list">
     {% for service in services %}
-      <li class="services-list-item">
-        <div class="services-list-item-title js-show_service_title">
-          <h3>{{ service.title }}</h3>
+      <li class="services-list-item js-reveal_service">
+        <div class="services-list-item-title">
+          <h3 class="-u-element_to_reveal -u-reveal_from_bottom">{{ service.title }}</h3>
         </div>
-        <div class="services-list-item-divider js-show_service_description"></div>
+        <div class="services-list-item-divider"></div>
       </li>
     {% endfor %}
   </ul>
@@ -41,14 +41,14 @@
   <div class="section-subtitle js-show_subtitle">{{ page.works_subtitle|richtext }}</div>
   <div class="works-container">
     {% for project in projects %}
-      <div class="work">
-        <div class="work-info js-reveal_sliding">
+      <div class="work js-reveal_article">
+        <div class="work-info -u-element_to_reveal">
           <h4 class="work-info-title">{{ project.name }}</h4>
           <h5 class="work-info-type">{{ project.category }}</h5>
           <p class="work-info-description">{{ project.description }}</p>
           <a class="button glow_link work-info-button" href="{{ project.link }}" target="_blank">Visit the case</a>
         </div>
-        <figure class="work-image js-reveal_sliding">
+        <figure class="work-image">
           {% image project.image original %}
         </figure>
       </div>
@@ -62,12 +62,12 @@
   <div class="section-subtitle js-show_subtitle">{{ page.partner_subtitle|richtext }}</div>
   <ul class="brands">
     {% for partner in page.partners.all %}
-      <li class="brand js-show_client">
+      <li class="brand -u-element_to_reveal -u-reveal_from_bottom js-show_client">
         {% image partner.image original %}
       </li>
     {% endfor %}
   </ul>
-  <div class="contact_us">
+  <div class="contact_us -u-element_to_reveal -u-reveal_from_bottom">
     <p>{{ services_contact|richtext }}</p>
     <a class="button glow_link contact_us-link" href="{% slugurl 'contacts' %}">Contact us</a>
   </div>

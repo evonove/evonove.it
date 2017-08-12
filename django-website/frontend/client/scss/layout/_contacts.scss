@@ -10,6 +10,25 @@
   }
 }
 
+.contacts-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.contacts-intro > p + p {
+  margin-top: 1rem;
+}
+
+.contacts-intro,
+.contacts-info {
+  flex: 1;
+  max-width: 29.03rem;
+}
+
+.contacts-info {
+  transition-delay: 0.236s;
+}
+
 .contacts-info-links-mail_info,
 .contacts-info-links-mail_jobs, {
   font-size: 1.618rem;
@@ -26,15 +45,7 @@
 
 .contacts-info-address {
   color: $light-grey;
-  margin-top: 6.854rem;
-
-  @media #{$max-xsmall} {
-    margin-top: 4.236rem;
-  }
-
-  @media #{$small-landscape} {
-    margin-top: 4.236rem;
-  }
+  margin-top: 4.236rem;
 }
 
 .contacts-info-address-phone,

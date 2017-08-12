@@ -10,8 +10,8 @@
   <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
   <div class="bio-container">
     <div class="section-subtitle bio-description js-show_subtitle">
-      <div class="bio-description-subtitle js-show_bio">{{ page.section_subtitle|richtext }}</div>
-      <div class="bio-description-paragraph js-show_bio">{{ page.description|richtext }}</div>
+      <div class="bio-description-subtitle -u-element_to_reveal -u-reveal_from_left js-show_bio">{{ page.section_subtitle|richtext }}</div>
+      <div class="bio-description-paragraph -u-element_to_reveal -u-reveal_from_left  js-show_bio">{{ page.description|richtext }}</div>
     </div>
     <figure class="bio-picture js-show_bio">
       {% image page.image original class="bio-image-picture" %}
@@ -25,12 +25,12 @@
   <div class="section-subtitle js-show_subtitle">{{ page.services_subtitle|richtext }}</div>
   <ul class="services-list">
     {% for service in page.services.all %}
-      <li class="services-list-item">
-        <div class="services-list-item-title js-show_service_title">
-          <h3>{{ service.title }}</h3>
+      <li class="services-list-item js-reveal_service">
+        <div class="services-list-item-title">
+          <h3 class="-u-element_to_reveal -u-reveal_from_bottom">{{ service.title }}</h3>
         </div>
-        <div class="services-list-item-divider js-show_service_description"></div>
-        <p class="services-list-item-description js-show_service_description">{{ service.description }}</p>
+        <div class="services-list-item-divider"></div>
+        <p class="services-list-item-description -u-element_to_reveal -u-reveal_from_bottom">{{ service.description }}</p>
       </li>
     {% endfor %}
   </ul>
@@ -44,8 +44,8 @@
       <div class="section-subtitle js-show_subtitle">{{ page.expertise_subtitle|richtext }}</div>
     </div>
     <div class="expertise-opensource_case">
-      <div class="work">
-        <div class="work-info">
+      <div class="work js-reveal_article">
+        <div class="work-info -u-element_to_reveal -u-reveal_from_right">
           <div class="work-info-title">{{ page.project|richtext }}</div>
           <h5 class="work-info-type">{{ page.project_category|richtext }}</h5>
           <div class="work-info-description">{{ page.project_description|richtext }}</div>
@@ -55,13 +55,13 @@
     </div>
   </div>
   <div class="stack">
-    <div class="js-show_subtitle">{{ page.stack_subtitle|richtext }}</div>
-    <div class="stack-description">
+    <div class="stack-subtitle -u-element_to_reveal -u-reveal_from_bottom js-show_stack">{{ page.stack_subtitle|richtext }}</div>
+    <div class="stack-description -u-element_to_reveal -u-reveal_from_bottom js-show_stack">
         <p>{{ page.stack_description|richtext }}</p>
     </div>
     <div class="stack-container">
       {% for expertise in page.stack.all %}
-        <div class="stack-list u-capitalize">
+        <div class="stack-list u-capitalize js-show_stack">
           {{ expertise.stack|richtext }}
         </div>
       {% endfor %}
@@ -75,11 +75,11 @@
   <div class="section-subtitle js-show_subtitle">{{ page.team_subtitle|richtext }}</div>
   <div class="team-container">
     {% for member in page.team.all %}
-    <div class="teammate">
+    <div class="teammate js-reveal_article">
       <figure class="teammate-figure">
         {% image member.photo original class="teammate-figure-picture" %}
       </figure>
-      <div class="teammate-info">
+      <div class="teammate-info -u-element_to_reveal -u-reveal_from_bottom">
         <div class="teammate-info-name">{{ member.full_name }}</div>
         <div class="teammate-info-role capitalize">{{ member.role }}</div>
         <ul class="teammate-social">
@@ -97,7 +97,7 @@
       </div>
     </div>
     {% endfor %}
-    <div class="teammate_hiring">
+    <div class="teammate teammate_hiring">
       <div class="teammate_hiring-content">
         <a class="button glow_link teammate_hiring-link" href="{% slugurl 'careers' %}">We are hiring</a>
         <div class="teammate_hiring-description">
