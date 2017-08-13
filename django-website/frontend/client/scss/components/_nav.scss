@@ -19,19 +19,21 @@
   // [2] Nav is hidden by default on small screens.
   @media #{$max-small} {
     background-color: transparentize($black, 0.02);
-    display: none;
     flex-direction: column;
     height: 100%;
     justify-content: flex-end;
     padding: 1.618rem 2.618rem;
     position: fixed;
     text-align: center;
+    transform: translate3d(-100%, 0, 0); // [2]
+    transition: transform 0.618s;
     width: 100%;
     z-index: $z-nav-small; // [1]
   }
 
   &.is-nav_shown {
     display: flex;
+    transform: translateZ(0);
   }
 }
 
@@ -71,6 +73,27 @@
 .nav-items > li {
   color: $light-grey;
   font-weight: bold;
+
+  @media #{$max-xsmall} {
+    opacity: 0;
+    transform: translate3d(-1.618rem, 0, 0);
+    transition: all 0.618s;
+
+    // For each consecutive nav link sum the transition delay, starting from a
+    // second link's delay of 0.146.
+    @for $i from 1 to 10 {
+      & + li:nth-of-type(#{$i}) {
+        transition-delay: ($i * 0.146s - 0.146s);
+      }
+    }
+  }
+
+  &.is-nav_shown {
+    @media #{$max-xsmall} {
+      opacity: 1;
+      transform: translateZ(0);
+    }
+  }
 }
 
 .body_blog .nav-items > li {

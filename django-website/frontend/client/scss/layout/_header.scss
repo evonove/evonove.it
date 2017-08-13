@@ -130,6 +130,10 @@
   &::before {
     border-color: $light-grey;
   }
+
+  @media #{$max-small} {
+    display: block;
+  }
 }
 
 // The open button must be darker because it is placed on a white background.
@@ -150,27 +154,45 @@
   }
 }
 
-.button.open_nav {
-  @media #{$max-small} {
-    display: block;
-  }
-
-  // If nav is shown, 'Menu' button is hidden
-  &.open_nav.is-nav_shown {
-    display: none;
-  }
-}
-
 // 'Close' button has the same position of 'Open' button
 .button.close_nav {
   position: absolute;
   right: 0;
   top: 0;
+}
 
-  // If nav is shown, 'Close' button is shown too
-  &.close_nav.is-nav_shown {
-    display: block;
+// [1] Enable transforms on an inline element
+.button.open_nav > span,
+.button.close_nav > span {
+  display: inline-block; // [1]
+  transition: all 0.236s;
+  transform-origin: top;
+}
+
+// [1] 'Open' must appear after 'Close' disappeared.
+.button.open_nav > span {
+  opacity: 1;
+  transform: scale3d(1, 1, 1) translate(0, 0, 0);
+  transition-delay: 0.236s; // [1]
+
+  // [1] 'Open' must disappear before 'Close' appeared.
+  &.is-nav_shown {
+    opacity: 0;
+    transform: scale3d(1, 0, 1) translate(0, -0.618rem, 0);
+    transition-delay: 0s; // [1]
   }
 }
 
+// [1] 'Close' must disappear before 'Open' appeared.
+.button.close_nav > span {
+  opacity: 0;
+  transform: scale3d(1, 0, 1) translate(0, -0.618rem, 0);
+  transition-delay: 0s; // [1]
 
+  // [1] 'Close' must appear after 'Open' disappeared.
+  &.is-nav_shown {
+    opacity: 1;
+    transform: scale3d(1, 1, 1) translate(0, 0, 0);
+    transition-delay: 0.236s; // [1]
+  }
+}
