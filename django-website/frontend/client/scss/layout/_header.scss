@@ -40,51 +40,134 @@
 
 // [1] Fixes logo's height
 .header-main_interactions-logo {
-  display: inline-block; // [1]
+  display: flex;
   height: 21px; // [1]
 }
 
-// [1] Override svg inline sizes
-.header-main_interactions-logo .logo-e9 {
-  height: 100%; // [1]
-  width: auto; // [1]
+.header-main_interactions-logo > .header_logo-e,
+.header-main_interactions-logo > .header_logo-vonov,
+.header-main_interactions-logo > .header_logo-9 {
+  height: 21px;
+  transition: all 0.382s;
+  width: auto;
 }
 
-// [1] Overrides svg's path inline fill
-.header-main_interactions-logo .logo-e9 > path {
-  fill: $light-grey; // [1]
+// Set the logo to dark mode when visiting blog templates.
+.body_blog .header-main_interactions-logo > .header_logo-e > path,
+.body_blog .header-main_interactions-logo > .header_logo-vonov > path:not(.header_logo-n),
+.body_blog .header-main_interactions-logo > .header_logo-9 > path {
+  fill: $black;
 }
 
-.body_blog .header-main_interactions-logo .logo-e9 > path {
-  fill: $dark-grey; // [1]
+// Set the logo to light mode when visiting blog templates on mobile devices
+// and nav is open.
+.body_blog .header-main_interactions-logo > .header_logo-e.is-logo_expanded > path,
+.body_blog .header-main_interactions-logo > .header_logo-vonov.is-logo_expanded > path:not(.header_logo-n),
+.body_blog .header-main_interactions-logo > .header_logo-9.is-logo_expanded > path {
+  @media #{$max-xsmall} {
+    fill: $white;
+  }
+}
+
+// [1] Fix the glyph's width to avoid unneeded stretching
+// [2] Add a space between the first glyph and the remaining part ot the logo.
+.header-main_interactions-logo > .header_logo-e {
+  margin-right: 0.086rem; // [2]
+  transform: translate3d(34px, 0, 0);
+  width: 11px; // [1]
+
+  &.is-logo_expanded {
+    transform: translate3d(0, 0, 0);
+  }
+
+  // First glyph does not need to translate when logo is positioned on the left
+  // of the viewport
+  @media #{$max-medium} {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+// [1] Fix the glyph's width to avoid unneeded stretching
+// [2] Add a space between the last glyph and the remaining part ot the logo.
+.header-main_interactions-logo > .header_logo-9 {
+  margin-left: 0.086rem; // [2]
+  transform: translate3d(-34px, 0, 0);
+  width: 11px; // [1]
+
+  &.is-logo_expanded {
+    transform: translate3d(0, 0, 0);
+  }
+
+  // Translate the last glyph on the first one's side.
+  @media #{$max-medium} {
+    transform: translate3d(-68px, 0, 0);
+  }
+}
+
+.header-main_interactions-logo > .header_logo-vonov {
+  opacity: 0;
+  transform: scale3d(0, 1, 1);
+  transform-origin: center;
+
+  &.is-logo_expanded {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+
+  @media #{$max-medium} {
+    transform-origin: left;
+  }
 }
 
 // [1] 'Menu' and 'close' buttons are shown only small screens.
 // [2] Avoid text selection when user clicks on the button.
-.open_nav,
-.close_nav, {
+.button.open_nav,
+.button.close_nav, {
+  color: $light-grey;
   display: none; // [1]
   user-select: none; // [2]
+
+  &::before {
+    border-color: $light-grey;
+  }
 }
 
-.open_nav {
+// The open button must be darker because it is placed on a white background.
+.body_blog .button.open_nav {
+  color: $dark-grey;
+
+  &::before {
+    border-color: $dark-grey;
+  }
+}
+
+// Avoid color variations when user taps on the header button.
+.body_blog .button.close_nav:hover {
+  color: $light-grey;
+
+  &::before {
+    border-color: $light-grey;
+  }
+}
+
+.button.open_nav {
   @media #{$max-small} {
     display: block;
   }
 
-  // When nav is shown, 'Menu' button is hidden
+  // If nav is shown, 'Menu' button is hidden
   &.open_nav.is-nav_shown {
     display: none;
   }
 }
 
 // 'Close' button has the same position of 'Open' button
-.close_nav {
+.button.close_nav {
   position: absolute;
   right: 0;
   top: 0;
 
-  // When nav is shown, 'Close' button is shown too
+  // If nav is shown, 'Close' button is shown too
   &.close_nav.is-nav_shown {
     display: block;
   }

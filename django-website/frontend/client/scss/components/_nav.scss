@@ -74,7 +74,9 @@
 }
 
 .body_blog .nav-items > li {
-  color: $dark-grey;
+  @media #{$min-small} {
+    color: $dark-grey;
+  }
 }
 
 // Social links are shown only on small screens.
