@@ -72,6 +72,11 @@
 
     {% block extra_js %}
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/orbit-control.js' %}"></script>
+
+        {% include 'partials/3d_shaders/fragment-shader.html' %}
+
+        {% include 'partials/3d_shaders/vertex-shader.html' %}
     {% endblock %}
 
     {% include "analytics/google.html" %}

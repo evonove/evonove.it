@@ -11,10 +11,27 @@
   position: relative;
 }
 
+// Position the canvas child to the center.
+.splash-3dmodels {
+  align-items: flex-start;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 0;
+}
+
+.splash-3dmodels > canvas {
+  cursor: -webkit-grab;
+}
+
 .splash-logo {
   align-self: center;
-  flex: 1;
   margin-top: 29.03vh;
+  position: relative;
   width: 29.03rem;
 
   @media #{$max-xsmall} {
@@ -27,12 +44,15 @@
 }
 
 .splash-logo > svg {
+  filter: drop-shadow(0px 0px 3px transparentize($white, 0.05));
   width: 100%;
 }
 
+// [1] Margin-top: auto is needed to let the payoff take the entire space after
+//     the logo, this way it is positioned to the bottom.
 .payoff {
   font-size: 1.618rem;
-  margin-bottom: 4.236rem;
+  margin: auto 0 4.236rem 0; // [1]
 
   @media #{$max-xsmall} {
     text-align: center;
