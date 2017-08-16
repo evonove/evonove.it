@@ -6,14 +6,16 @@ const postSharing = document.querySelector('.post_share');
 /**
  * Use Waypoint.js to hide the post sharing container.
  */
-new Waypoint({
-  element: post,
-  handler: function hidePostSharing(direction) {
-    if (direction === 'down') {
-      postSharing.classList.add('is-element_hidden');
-    } else {
-      postSharing.classList.remove('is-element_hidden');
-    }
-  },
-  offset: 'bottom-in-view',
-});
+if (post) {
+  new Waypoint({
+    element: post,
+    handler: function hidePostSharing(direction) {
+      if (direction === 'down') {
+        postSharing.classList.add('is-element_hidden');
+      } else {
+        postSharing.classList.remove('is-element_hidden');
+      }
+    },
+    offset: 'bottom-in-view',
+  });
+}
