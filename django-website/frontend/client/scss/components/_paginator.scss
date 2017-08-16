@@ -1,0 +1,59 @@
+// Blog paginator
+// --------------
+
+.paginator {
+  display: flex;
+  justify-content: center;
+  margin-top: 6.854rem;
+}
+
+// [1] Container must be a flex container wide as its content.
+.paginator-container {
+  display: inline-flex; // [1]
+}
+
+// [1] Vertically align items to the center.
+.paginator-container > li {
+  align-self: center; // [1]
+  color: $dark-grey;
+
+  // Set color to the active page.
+  &.is-current {
+    color: $black;
+  }
+}
+
+// On mobile devices, hide page numbers except for the current one.
+.paginator-page:not(.is-current) {
+  @media #{$max-small} {
+    display: none;
+  }
+}
+
+// [1] Add space between paginator elements
+.paginator-container > li + li {
+  margin-left: 1rem; // [1]
+}
+
+.paginator-container > li > a {
+  display: flex;
+}
+
+// [1] Fix icons' vertical alignment.
+.paginator-first > a,
+.paginator-previous > a,
+.paginator-next > a,
+.paginator-last > a {
+  position: relative;
+  top: 1px; // [1]
+}
+
+.paginator-container > li > a > svg {
+  fill: $dark-grey;
+}
+
+// [1] Place icons in order to create a double arrow.
+.paginator-first > a > svg:first-child,
+.paginator-last > a > svg:first-child {
+  margin-right: -1rem; // [1]
+}

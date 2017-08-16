@@ -1,0 +1,44 @@
+{% load wagtailcore_tags %}
+{% load blog_tags %}
+
+{% if articles.paginator.num_pages > 1 %}
+  <div class="paginator">
+    <ul class="paginator-container" role="menubar">
+      {% if articles.has_previous %}
+        <li class="paginator-first">
+          <a href="?page=1">
+            {% include 'partials/svg/left-arrow.svg' %}
+            {% include 'partials/svg/left-arrow.svg' %}
+          </a>
+        </li>
+        <li class="paginator-previous">
+          <a href="{% replace_query_link 'page' articles.previous_page_number %}">
+            {% include 'partials/svg/left-arrow.svg' %}
+          </a>
+        </li>
+      {% endif %}
+
+      {% for item in articles.paginator.page_range %}
+        {% if articles.number == item %}
+          <li class="paginator-page is-current">{{ item }}</li>
+        {% else %}
+          <li class="paginator-page"><a href="{% replace_query_link 'page' item %}">{{ item }}</a></li>
+        {% endif %}
+      {% endfor %}
+
+      {% if articles.has_next %}
+        <li class="paginator-next">
+          <a href="{% replace_query_link 'page' articles.next_page_number %}">
+            {% include 'partials/svg/right-arrow.svg' %}
+          </a>
+        </li>
+        <li class="paginator-last">
+          <a href="{% replace_query_link 'page' articles.paginator.num_pages %}">
+            {% include 'partials/svg/right-arrow.svg' %}
+            {% include 'partials/svg/right-arrow.svg' %}
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+  </div>
+{% endif %}
