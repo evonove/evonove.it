@@ -2,5 +2,9 @@
   "extends": "airbnb-base",
   "env": {
     "browser": true
+  },
+  "globals": {
+    "THREE": true,
+    "Waypoint": true
   }
 }
