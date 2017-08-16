@@ -1,0 +1,45 @@
+<div class="post_share">
+  <div class="post_share-container">
+    <p class="post_share-heading u-capitalize">Share</p>
+    <div class="post_share-icons">
+      <!-- Facebook -->
+      <a class="post_share-icons-link"
+        rel="nofollow"
+        href="http://www.facebook.com/"
+        onclick="popUp=window.open(
+            'http://www.facebook.com/sharer.php?u={{link}}',
+            'popupwindow',
+            'scrollbars=yes,width=800,height=400');
+        popUp.focus();
+        return false">
+        {% include 'partials/svg/social_icons/facebook.html' %}
+      </a>
+
+      <!-- Twitter -->
+      <a class="post_share-icons-link"
+        rel="nofollow"
+        href="http://www.twitter.com/"
+        onclick="popUp=window.open(
+            'https://twitter.com/share?url={{link}}',
+            'popupwindow',
+            'scrollbars=yes,width=800,height=400');
+        popUp.focus();
+        return false">
+        {% include 'partials/svg/social_icons/twitter.html' %}
+      </a>
+
+      <!-- Google Plus -->
+      <a class="post_share-icons-link"
+        rel="nofollow"
+        href="http://www.plus.google.com/"
+        onclick="popUp=window.open(
+            'https://plus.google.com/share?url={{link}}',
+            'popupwindow',
+            'scrollbars=yes,width=800,height=400');
+        popUp.focus();
+        return false">
+        {% include 'partials/svg/social_icons/gplus.html' %}
+      </a>
+    </div>
+  </div>
+</div>

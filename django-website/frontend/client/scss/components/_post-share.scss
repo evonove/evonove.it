@@ -1,0 +1,75 @@
+// Blog post share buttons
+// -----------------------
+
+// Place the share container on the left side of the post. It requires those
+// settings due to the fixed position.
+.post_share {
+  margin: 0 auto;
+  max-width: calc(46.971rem + 14rem);
+  transition: all 0.618s;
+
+  @media #{$max-medium} {
+    background-color: $white;
+    border-top: 1px solid $light-grey;
+    bottom: 0;
+    left: 0;
+    max-width: none;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+  }
+
+  &.is-element_hidden {
+    opacity: 0;
+
+    @media #{$max-medium} {
+      opacity: 1;
+      transform: translate3d(0, 100%, 0);
+    }
+  }
+}
+
+.post_share-container {
+  position: fixed;
+  top: 17.942rem;
+
+  @media #{$max-medium} {
+    display: flex;
+    justify-content: space-between;
+    position: static;
+  }
+}
+
+.post_share-heading {
+  color: $light-grey;
+  font-weight: $weight-bold;
+}
+
+.post_share-icons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.618rem;
+
+  @media #{$max-medium} {
+    flex-direction: row;
+    margin-top: 0;
+  }
+
+  & > * + * {
+    margin: 1.618rem 0 0 0;
+
+    @media #{$max-medium} {
+      margin: 0 0 0 1.618rem;
+    }
+  }
+}
+
+.post_share-icons-link {
+  display: flex;
+  justify-content: center;
+}
+
+.post_share-icons svg {
+  fill: $light-grey;
+  height: 1rem;
+}

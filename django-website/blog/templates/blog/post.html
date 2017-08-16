@@ -27,6 +27,7 @@
   {% include "partials/streamfield.html" with content=self.body %}
 </article>
 
+{% include "partials/post-share.html" with link=self.full_url image=image_cover.url title=page.title %}
 
 <div class="related_posts">
   {% for article in similar_articles %}

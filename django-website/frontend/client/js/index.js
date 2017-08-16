@@ -16,3 +16,4 @@ require('./scripts/reveal-bio.js');
 require('./scripts/reveal-stack.js');
 require('./scripts/reveal-jobs.js');
 require('./scripts/reveal-contacts.js');
+require('./scripts/hide-post-sharing.js');

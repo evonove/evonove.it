@@ -32,6 +32,14 @@
     <meta property="twitter:title" content="{{ self.seo_title }}" />
     <meta property="twitter:description" content="{{ self.search_description }}" />
 
+    <!-- Google Plus sharing API -->
+    <script src="https://apis.google.com/js/platform.js" async defer>
+      {lang: 'en-US'}
+    </script>
+
+    <!-- Twitter sharing API -->
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
     <!-- favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" href="{% static 'favicon-32x32.png' %}" sizes="32x32">
@@ -56,6 +64,8 @@
   </head>
 
   <body class="{% block body_class %}{% endblock %}">
+    {% include 'partials/sharing_scripts/facebook-sdk.html' %}
+
     {% wagtailuserbar %}
 
     {% include 'partials/header.html' with options=settings.options.WebsiteSettings %}
