@@ -8,17 +8,9 @@
   position: absolute;
   right: 1.618rem;
   text-align: center;
+  transition: opacity 0.618s;
 
-  // Place the scroll down icon to the bottom right of the screen
-  @media #{$small-landscape} {
-    text-align: right;
+  &.has-scrolled {
+    opacity: 0;
   }
-}
-
-.scrolldown > svg {
-  height: 18px;
-}
-
-.scrolldown > svg > path {
-  fill: $white;
 }

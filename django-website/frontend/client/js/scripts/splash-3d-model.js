@@ -11,6 +11,12 @@ const start = Date.now();
 
 const splashCanvas = document.querySelector('.splash-3dmodels');
 
+let mobile;
+
+if (window.innerWidth <= 980) {
+  mobile = true;
+}
+
 /**
  * Function handles the resize event. This make sure the camera and the
  * renderer are updated at the correct moment.
@@ -19,6 +25,15 @@ function onWindowResize() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
+}
+
+/**
+ * Set a delay time before onWindowResize() runs. This delay allows time to
+ * Android devices for recalculate the viewport sizes before the orientation
+ * change event is triggered.
+ */
+function onOrientationChange() {
+  setTimeout(onWindowResize, 1000);
 }
 
 /**
@@ -60,13 +75,23 @@ function renderSplashModel() {
   // Add the output of the renderer to the html element
   splashCanvas.appendChild(renderer.domElement);
 
-  controls = new THREE.OrbitControls(camera, renderer.domElement);
-  controls.enableZoom = false;
+  if (!mobile) {
+    // Controls shall be granted for large screens only.
+    controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableZoom = false;
 
-  onWindowResize();
-  window.addEventListener('resize', onWindowResize);
+    // Recalculate the scene's sizes on window resize events.
+    // Resize events are triggered on large screens only.
+    onWindowResize();
+    window.addEventListener('resize', onWindowResize);
+  } else {
+    // Detect orientation change event on mobile devices in order to recalculate
+    // the scene's sizes.
+    window.addEventListener('orientationchange', onOrientationChange);
+  }
 
   render();
 }
 
+// Render the 3D model after the page is load.
 window.addEventListener('load', renderSplashModel);

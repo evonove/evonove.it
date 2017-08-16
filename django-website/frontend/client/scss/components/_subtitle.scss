@@ -1,8 +1,7 @@
 // Section subtitle component
 // --------------------------
 
-.section-subtitle > .rich-text > h2,
-.payoff > .rich-text > p {
+.section-subtitle > .rich-text > h2 {
   transform: scale3d(1, 0, 1) translate3d(-0.618rem, 0, 0);
   transform-origin: bottom;
   transition: transform 0.618s;

@@ -18,6 +18,12 @@ let clearRender;
 
 const servicesCanvas = document.querySelector('.services-3dmodels');
 
+let mobile;
+
+if (window.innerWidth <= 980) {
+  mobile = true;
+}
+
 /**
  * Load the JSON 3D model and set a geometry.
  * @param  {JSON} threeModel [JSON 3D model]
@@ -141,9 +147,9 @@ function showMarketingServiceModel() {
   renderModel(lightBulb, 60, 50, 40, 50);
 }
 
-// If canvas' parent exists, load each service model when mouseover event is
-// trigged on the related element.
-if (servicesCanvas) {
+// If canvas' parent exists and device is not mobile, load each service model
+// when mouseover event is trigged on the related element.
+if (servicesCanvas && !mobile) {
   appsService.addEventListener('mouseover', showAppsServiceModel);
   webService.addEventListener('mouseover', showWebServiceModel);
   designService.addEventListener('mouseover', showDesignServiceModel);

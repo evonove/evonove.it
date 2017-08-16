@@ -67,7 +67,6 @@ figure > img {
 //     then can we obtain a sticky footer.
 .main {
   flex-grow: 1;
-  overflow: hidden;
   width: calc(100vw - (2.618rem + 2.618rem));
 
   @media #{$max-xsmall} {

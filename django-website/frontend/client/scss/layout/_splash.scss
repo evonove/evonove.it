@@ -7,6 +7,7 @@
   height: 100vh;
   margin: auto;
   max-width: calc(76.999rem + 11.089rem);
+  overflow: hidden;
   padding-bottom: 1rem;
   position: relative;
 }
@@ -39,6 +40,7 @@
   }
 
   @media #{$small-landscape} {
+    margin-top: 17.942vh;
     width: 46.971vw;
   }
 }
@@ -53,14 +55,28 @@
 .payoff {
   font-size: 1.618rem;
   margin: auto 0 4.236rem 0; // [1]
+  position: relative;
 
-  @media #{$max-xsmall} {
+  @media #{$max-xsmall, $small-landscape} {
+    font-size: 1rem;
+    font-weight: $weight-medium;
+    max-width: 76.999vw;
     text-align: center;
+    margin: 1rem auto 4.236rem auto;
+  }
+}
+
+// [1] Align paragraphs on smartphone devices.
+.payoff > .rich-text > p {
+  @media #{$max-xsmall} {
+    display: inline; // [1]
   }
 
-  // [1] Leave space for the scroll down icon
-  @media #{$small-landscape} {
-    margin-top: 4.236rem;
-    max-width: 76.999vw; // [1]
+  // [1] Add a space to all inlined paragraphs, simulating the default word
+  //     spacing.
+  & + p {
+    @media #{$max-xsmall} {
+      margin-left: 0.236rem; // [1]
+    }
   }
 }
