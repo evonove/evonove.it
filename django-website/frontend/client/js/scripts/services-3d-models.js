@@ -9,14 +9,15 @@ const webService = document.querySelector('.services-list-item:nth-of-type(2) h3
 const designService = document.querySelector('.services-list-item:nth-of-type(3) h3');
 const marketingService = document.querySelector('.services-list-item:nth-of-type(4) h3');
 
-// Global variables
+const services = document.querySelectorAll('.services-list-item-title > h3');
+const servicesCanvas = document.querySelector('.services-3dmodels');
+
+// Three.js global variables
 let renderer;
 let scene;
 let camera;
 
 let clearRender;
-
-const servicesCanvas = document.querySelector('.services-3dmodels');
 
 let mobile;
 
@@ -40,7 +41,7 @@ function loadModel(threeModel) {
  */
 function render() {
   // Handle camera rotation
-  const rotSpeed = 0.005;
+  const rotSpeed = 0.001;
   const x = camera.position.x;
   const z = camera.position.z;
   camera.position.x = (x * Math.cos(rotSpeed)) + (z * Math.sin(rotSpeed));
@@ -62,7 +63,7 @@ function render() {
  * @param  {number} camY [the position of the camera on the y axis]
  * @param  {number} camZ [the position of the camera on the z axis]
  */
-function renderModel(threeModel, fov, camX, camY, camZ) {
+function initModel(threeModel, fov, camX, camY, camZ) {
   // Create a scene
   scene = new THREE.Scene();
 
@@ -120,31 +121,50 @@ function handleResize() {
 }
 
 /**
+ * Render the 3D model.
+ * Consecutive events on the same elements are ignored.
+ */
+function show3DModel(threeModel, fov, camX, camY, camZ) {
+  let e = e || window.event;
+  var target = e.target || e.srcElement;
+
+  if (target.classList.contains('is-triggered')) {
+    return;
+  } else {
+    for (let i = 0; i < services.length; i += 1) {
+      services[i].classList.remove('is-triggered');
+    }
+    target.classList.add('is-triggered');
+    initModel(threeModel, fov, camX, camY, camZ);
+  }
+}
+
+/**
  * Render the smartphone 3D model.
  */
 function showAppsServiceModel() {
-  renderModel(smartphone, 7, 50, 40, 50);
+  show3DModel(smartphone, 7, 50, 40, 50);
 }
 
 /**
  * Render the laptop 3D model.
  */
 function showWebServiceModel() {
-  renderModel(laptop, 1.1, 50, 40, 50);
+  show3DModel(laptop, 1.1, 50, 40, 50);
 }
 
 /**
  * Render the pencil 3D model.
  */
 function showDesignServiceModel() {
-  renderModel(pencil, 12, 10, 50, 50);
+  show3DModel(pencil, 12, 10, 50, 50);
 }
 
 /**
  * Render the light bulb 3D model.
  */
 function showMarketingServiceModel() {
-  renderModel(lightBulb, 60, 50, 40, 50);
+  show3DModel(lightBulb, 60, 50, 40, 50);
 }
 
 // If canvas' parent exists and device is not mobile, load each service model
