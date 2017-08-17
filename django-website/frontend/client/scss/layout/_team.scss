@@ -68,7 +68,6 @@
 
   // Add a background to the picture keeping the teammate's drop shadow visible.
   &::before {
-    background-color: $white;
     bottom: 0;
     content: '';
     left: 0;
