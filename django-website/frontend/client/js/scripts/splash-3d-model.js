@@ -11,6 +11,8 @@ const start = Date.now();
 
 const splashCanvas = document.querySelector('.splash-3dmodels');
 
+let material;
+
 let mobile;
 
 if (window.innerWidth <= 980) {
@@ -40,6 +42,7 @@ function onOrientationChange() {
  * Render the scene and delegate to requestAnimationFrame for future renders.
  */
 function render() {
+  material.uniforms[ 'time' ].value = .00005 * ( Date.now() - start );
   renderer.render(scene, camera);
   requestAnimationFrame(render);
 }
@@ -55,8 +58,13 @@ function renderSplashModel() {
   camera = new THREE.PerspectiveCamera(fov, window.innerWidth / window.innerHeight, 1, 10000);
   camera.position.z = 100;
 
-  // Create a shader material
-  const material = new THREE.ShaderMaterial({
+  material = new THREE.ShaderMaterial({
+    uniforms: {
+      time: { // float initialized to 0
+        type: "f",
+        value: 0.0
+      }
+    },
     vertexShader: document.getElementById('vertexShader').textContent,
     fragmentShader: document.getElementById('fragmentShader').textContent,
     wireframe: true,
