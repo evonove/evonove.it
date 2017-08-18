@@ -128,13 +128,17 @@ function show3DModel(threeModel, fov, camX, camY, camZ) {
   let e = e || window.event;
   var target = e.target || e.srcElement;
 
-  if (target.classList.contains('is-triggered')) {
-    return;
-  } else {
-    for (let i = 0; i < services.length; i += 1) {
-      services[i].classList.remove('is-triggered');
+  if (target) {
+    if (target.classList.contains('is-triggered')) {
+      return;
+    } else {
+      for (let i = 0; i < services.length; i += 1) {
+        services[i].classList.remove('is-triggered');
+      }
+      target.classList.add('is-triggered');
+      initModel(threeModel, fov, camX, camY, camZ);
     }
-    target.classList.add('is-triggered');
+  } else {
     initModel(threeModel, fov, camX, camY, camZ);
   }
 }
@@ -167,9 +171,18 @@ function showMarketingServiceModel() {
   show3DModel(lightBulb, 60, 50, 40, 50);
 }
 
-// If canvas' parent exists and device is not mobile, load each service model
-// when mouseover event is trigged on the related element.
+/**
+ * Render the light bulb 3D model when the page is loaded.
+ */
+function showMarketingServiceModelAtLoad() {
+  initModel(lightBulb, 60, 50, 40, 50);
+}
+
+// If canvas' parent exists and device is not mobile:
+// - load one of the 3D model when page is loaded;
+// - load each service model when mouseover event is trigged on the related element.
 if (servicesCanvas && !mobile) {
+  window.addEventListener('load', showMarketingServiceModelAtLoad);
   appsService.addEventListener('mouseover', showAppsServiceModel);
   webService.addEventListener('mouseover', showWebServiceModel);
   designService.addEventListener('mouseover', showDesignServiceModel);
