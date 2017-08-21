@@ -63,7 +63,7 @@ traitlets==4.3.2          # via ipython
 unidecode==0.4.21         # via wagtail
 urllib3==1.21.1           # via requests
 uwsgi==2.0.15
-wagtail==1.11.1
+wagtail==1.12rc1
 wcwidth==0.1.7            # via prompt-toolkit
 webencodings==0.5.1       # via html5lib
 whitenoise==3.3.0
