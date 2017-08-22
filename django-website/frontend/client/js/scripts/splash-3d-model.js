@@ -51,6 +51,7 @@ function render() {
  */
 function renderSplashModel() {
   const splashCanvas = document.querySelector('.splash-3dmodels');
+  if (!splashCanvas) return;
 
   // Create a scene
   scene = new THREE.Scene();
