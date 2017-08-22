@@ -11,7 +11,7 @@ django-s3-storage
 whitenoise
 
 # the website
-wagtail==1.12rc1
+wagtail
 pygments
 
 # application server
