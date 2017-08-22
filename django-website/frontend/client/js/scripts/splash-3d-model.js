@@ -9,7 +9,6 @@ const fov = 35;
 
 const start = Date.now();
 
-const splashCanvas = document.querySelector('.splash-3dmodels');
 
 let material;
 
@@ -51,6 +50,8 @@ function render() {
  * Render the scene of 3D model.
  */
 function renderSplashModel() {
+  const splashCanvas = document.querySelector('.splash-3dmodels');
+
   // Create a scene
   scene = new THREE.Scene();
 
