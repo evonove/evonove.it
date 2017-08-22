@@ -42,7 +42,7 @@ function onOrientationChange() {
  * Render the scene and delegate to requestAnimationFrame for future renders.
  */
 function render() {
-  material.uniforms[ 'time' ].value = .00005 * ( Date.now() - start );
+  material.uniforms.time.value = 0.00005 * (Date.now() - start);
   renderer.render(scene, camera);
   requestAnimationFrame(render);
 }
@@ -61,9 +61,9 @@ function renderSplashModel() {
   material = new THREE.ShaderMaterial({
     uniforms: {
       time: { // float initialized to 0
-        type: "f",
-        value: 0.0
-      }
+        type: 'f',
+        value: 0.0,
+      },
     },
     vertexShader: document.getElementById('vertexShader').textContent,
     fragmentShader: document.getElementById('fragmentShader').textContent,

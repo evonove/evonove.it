@@ -53,6 +53,18 @@ function render() {
   clearRender = requestAnimationFrame(render);
 }
 
+
+/**
+ * Function handles the resize event. This make sure the camera and the
+ * renderer are updated at the correct moment.
+ */
+function handleResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+
 /**
  * Render the scene of 3D model.
  * The scene is reloaded from the beginning every time a mouseover event is
@@ -110,28 +122,14 @@ function initModel(threeModel, fov, camX, camY, camZ) {
   render();
 }
 
-/**
- * Function handles the resize event. This make sure the camera and the
- * renderer are updated at the correct moment.
- */
-function handleResize() {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-}
 
 /**
  * Render the 3D model.
  * Consecutive events on the same elements are ignored.
  */
-function show3DModel(threeModel, fov, camX, camY, camZ) {
-  let e = e || window.event;
-  var target = e.target || e.srcElement;
-
+function show3DModel(target, threeModel, fov, camX, camY, camZ) {
   if (target) {
-    if (target.classList.contains('is-triggered')) {
-      return;
-    } else {
+    if (!target.classList.contains('is-triggered')) {
       for (let i = 0; i < services.length; i += 1) {
         services[i].classList.remove('is-triggered');
       }
@@ -146,29 +144,29 @@ function show3DModel(threeModel, fov, camX, camY, camZ) {
 /**
  * Render the smartphone 3D model.
  */
-function showAppsServiceModel() {
-  show3DModel(smartphone, 7, 50, 40, 50);
+function showAppsServiceModel(event) {
+  show3DModel(event.target, smartphone, 7, 50, 40, 50);
 }
 
 /**
  * Render the laptop 3D model.
  */
-function showWebServiceModel() {
-  show3DModel(laptop, 1.1, 50, 40, 50);
+function showWebServiceModel(event) {
+  show3DModel(event.target, laptop, 1.1, 50, 40, 50);
 }
 
 /**
  * Render the pencil 3D model.
  */
-function showDesignServiceModel() {
-  show3DModel(pencil, 12, 10, 50, 50);
+function showDesignServiceModel(event) {
+  show3DModel(event.target, pencil, 12, 10, 50, 50);
 }
 
 /**
  * Render the light bulb 3D model.
  */
-function showMarketingServiceModel() {
-  show3DModel(lightBulb, 60, 50, 40, 50);
+function showMarketingServiceModel(event) {
+  show3DModel(event.target, lightBulb, 60, 50, 40, 50);
 }
 
 /**
