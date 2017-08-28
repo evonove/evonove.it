@@ -1,6 +1,10 @@
 // Typography
 // ----------
 
+b {
+  font-weight: $weight-bold;
+}
+
 h1 {
   color: $light-grey;
   font-size: 1rem;
