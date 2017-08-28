@@ -1,6 +1,11 @@
 // Base
 // ----
 
+// Set a custom background color in selection highlight.
+::selection {
+    background: $green;
+}
+
 // Set up default styles on the root element:
 // [1] Set main font rules
 // [2] set box-sizing to border-box

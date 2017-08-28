@@ -83,10 +83,12 @@
 // [1] Overflow:hidden is needed to improve the title transition.
 .services-list-item-title {
   align-items: center;
+  cursor: default;
   display: flex;
   justify-content: center;
   overflow: hidden;
   padding: 0 1.618rem;
+  user-select: none;
 
   @media #{$max-medium} {
     padding: 0;
