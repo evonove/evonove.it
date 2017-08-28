@@ -40,6 +40,8 @@
 
   @media #{$max-small} {
     padding-left: 2.618rem;
+    min-width: 0;
+    width: 100%;
   }
 
   @media #{$max-xsmall} {
@@ -58,6 +60,12 @@
 .position-container > .rich-text > * {
   color: $light-grey;
   margin-top: 1rem;
+}
+
+// Styles for bullet lists.
+.position-container > .rich-text ul {
+  list-style-type: circle;
+  padding: 0 0 0 1rem;
 }
 
 .position-field {
