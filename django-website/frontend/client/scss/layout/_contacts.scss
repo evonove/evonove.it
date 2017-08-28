@@ -13,6 +13,10 @@
 .contacts-container {
   display: flex;
   justify-content: space-around;
+
+  @media #{$max-small} {
+    flex-direction: column;
+  }
 }
 
 .contacts-intro > p + p {
@@ -26,7 +30,12 @@
 }
 
 .contacts-info {
+  margin: 0 0 0 2.618rem;
   transition-delay: 0.236s;
+
+  @media #{$max-small} {
+    margin: 4.236rem 0 0 0;
+  }
 }
 
 .contacts-info-links-mail_info,
