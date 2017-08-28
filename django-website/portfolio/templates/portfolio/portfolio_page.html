@@ -15,7 +15,7 @@
       <div class="work-info -u-element_to_reveal">
         <h4 class="work-info-title">{{ project.name }}</h4>
         <h5 class="work-info-type">{{ project.category }}</h5>
-        <p class="work-info-description">{{ project.description }}</p>
+        <p class="work-info-description">{{ project.description|richtext }}</p>
       </div>
       <figure class="work-image">
         {% image project.image original class="work-image-picture" %}

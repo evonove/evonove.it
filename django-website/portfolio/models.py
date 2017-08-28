@@ -4,6 +4,7 @@ from django.utils.translation import ugettext as _
 from modelcluster.fields import ParentalKey
 
 from wagtail.wagtailcore.models import Page, Orderable
+from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailimages.models import Image
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
@@ -32,7 +33,7 @@ class Project(Orderable):
     page = ParentalKey(PortfolioPage, related_name='projects')
     name = models.CharField(max_length=150)
     category = models.CharField(max_length=100, default='', blank=True)
-    description = models.TextField(max_length=1000)
+    description = RichTextField()
     image = models.ForeignKey(Image, related_name='+')
     link = models.URLField(help_text=_('Project link'), null=True, blank=True)
 

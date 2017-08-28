@@ -159,7 +159,7 @@ class TeamMember(Orderable):
 class Service(Orderable):
     page = ParentalKey(AgencyPage, related_name='services')
     title = models.CharField(max_length=150, default='')
-    description = models.TextField(max_length=600)
+    description = RichTextField()
 
     panels = [
         FieldPanel('title'),
