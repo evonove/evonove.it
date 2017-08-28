@@ -1,10 +1,6 @@
 // Typography
 // ----------
 
-b {
-  font-weight: $weight-bold;
-}
-
 h1 {
   color: $light-grey;
   font-size: 1rem;
@@ -22,6 +18,22 @@ h3, h5 {
   text-transform: uppercase;
 }
 
+h2 {
+  @media #{$max-xsmall} {
+    font-size: 1rem;
+    font-weight: $weight-medium;
+  }
+}
+
 .body_blog h2 {
   font-weight: $weight-medium;
+}
+
+b {
+  border-bottom: 2px solid currentColor;
+  font-weight: $weight-normal;
+
+  @media #{$max-xsmall} {
+    border-width: 1px;
+  }
 }

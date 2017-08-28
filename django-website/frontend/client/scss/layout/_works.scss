@@ -13,6 +13,10 @@
 .works-container {
   margin-top: 6.854rem;
 
+  @media #{$max-xsmall} {
+    margin-top: 4.236rem;
+  }
+
   // Add space between single works
   & > * + * {
     margin-top: 11.089rem;

@@ -10,6 +10,10 @@
   padding-bottom: 11.089rem; // [1]
   position: relative;
 
+  @media #{$max-xsmall} {
+    margin: 6.854rem auto -11.089rem;
+  }
+
   @media #{$small-landscape} {
     margin: 6.854rem auto 0;
   }
