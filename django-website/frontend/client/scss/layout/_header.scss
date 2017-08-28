@@ -49,7 +49,6 @@
 .header-main_interactions-logo > .header_logo-9 {
   height: 21px;
   transition: all 0.382s;
-  width: auto;
 }
 
 // Set the logo to dark mode when visiting blog templates.
@@ -70,44 +69,48 @@
 }
 
 // [1] Fix the glyph's width to avoid unneeded stretching
-// [2] Add a space between the first glyph and the remaining part ot the logo.
+// [2] 'E' glyph is shifted to the right by default to obtain the truncated
+//     version of the Evonove logo. We also add a little space (2px) in order
+//     to keep the letter spacing.
 .header-main_interactions-logo > .header_logo-e {
-  margin-right: 0.086rem; // [2]
-  transform: translate3d(34px, 0, 0);
+  transform: translate3d(32px, 0, 0); // [2]
   width: 11px; // [1]
 
   &.is-logo_expanded {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(-2px, 0, 0);
   }
 
   // First glyph does not need to translate when logo is positioned on the left
   // of the viewport
   @media #{$max-medium} {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(-2px, 0, 0);
   }
 }
 
 // [1] Fix the glyph's width to avoid unneeded stretching
-// [2] Add a space between the last glyph and the remaining part ot the logo.
+// [2] '9' glyph is shifted to the right by default to obtain the truncated
+//     version of the Evonove logo. We also add a little space (1px) in order
+//     to keep the letter spacing.
 .header-main_interactions-logo > .header_logo-9 {
-  margin-left: 0.086rem; // [2]
-  transform: translate3d(-34px, 0, 0);
+  transform: translate3d(-33px, 0, 0); // [2]
   width: 11px; // [1]
 
   &.is-logo_expanded {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(2px, 0, 0);
   }
 
   // Translate the last glyph on the first one's side.
   @media #{$max-medium} {
-    transform: translate3d(-68px, 0, 0);
+    transform: translate3d(-67px, 0, 0);
   }
 }
 
+// [1] Fix the glyph's width to avoid unneeded stretching
 .header-main_interactions-logo > .header_logo-vonov {
   opacity: 0;
   transform: scale3d(0, 1, 1);
   transform-origin: center;
+  width: 68px; // [1]
 
   &.is-logo_expanded {
     opacity: 1;
