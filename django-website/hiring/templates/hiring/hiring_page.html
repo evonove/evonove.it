@@ -13,7 +13,7 @@
       {{ page.intro|richtext }}
     </div>
     {% for job in page.jobs.all %}
-    <div class="position -u-element_to_reveal -u-reveal_from_bottom js-reveal_job">
+    <div class="position -u-element_to_reveal -u-reveal_from_bottom js-reveal_job" data-position="{{ job.position }}">
       <h2>{{ job.position }}</h2>
       <div class="position-container">
         <h3 class="position-field">Requirements</h3>
@@ -32,7 +32,7 @@
     <h4>Available positions</h4>
     <div class="position-selector-container">
       {% for job in page.jobs.all %}
-        <div class="position-selector-title u-capitalize">{{ job.position }}</div>
+        <div class="position-selector-title u-capitalize" data-position="{{ job.position }}">{{ job.position }}</div>
       {% endfor %}
     </div>
   </aside>

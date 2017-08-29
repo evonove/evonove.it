@@ -3,6 +3,7 @@ require('../scss/main.scss');
 
 // Import JavaScript vendor files
 require('../../node_modules/waypoints/lib/noframework.waypoints.js');
+require('../../node_modules/smoothscroll/smoothscroll.js');
 
 // Import JavaScript custom files
 require('./scripts/nav.js');
@@ -17,4 +18,5 @@ require('./scripts/reveal-bio.js');
 require('./scripts/reveal-stack.js');
 require('./scripts/reveal-jobs.js');
 require('./scripts/reveal-contacts.js');
+require('./scripts/navigate-jobs.js');
 require('./scripts/hide-post-sharing.js');

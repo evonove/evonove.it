@@ -99,6 +99,12 @@
 }
 
 .position-selector-title {
+  cursor: pointer;
   max-width: 11.036rem;
   position: relative;
+  transition: text-shadow 0.262s;
+
+  &:hover {
+    text-shadow: $text-glow;
+  }
 }
