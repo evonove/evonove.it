@@ -53,9 +53,12 @@ img {
   width: auto; // [1]
 }
 
-// Apply a shadow to every <img> contained in a <figure>
-figure > img {
-  box-shadow: $image-shadow;
+// [1] Apply a shadow to every <figure>
+// [2] Avoid an issue where images in some cases overflow their <figure>
+//     parent.
+figure {
+  box-shadow: $image-shadow; // [1]
+  overflow: hidden; // [2]
 }
 
 // Add different general styles for blog templates
