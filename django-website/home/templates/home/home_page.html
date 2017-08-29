@@ -48,6 +48,9 @@
           <h4 class="work-info-title">{{ project.name }}</h4>
           <h5 class="work-info-type">{{ project.category }}</h5>
           <div class="work-info-description">{{ project.description|richtext }}</div>
+          {% if project.link %}
+            <a class="button glow_link work-info-button" href="{{ project.link }}" target="_blank">Visit the case</a>
+          {% endif %}
         </div>
         <figure class="work-image">
           {% image project.image original %}
