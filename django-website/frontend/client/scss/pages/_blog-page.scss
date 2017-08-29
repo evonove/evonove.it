@@ -3,6 +3,7 @@
 
 .blog {
   margin-top: 17.942rem;
+  max-width: calc(76.999rem + 11.089rem);
 
   @media #{$max-xsmall} {
     margin-top: 11.089rem;

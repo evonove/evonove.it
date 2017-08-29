@@ -1,9 +1,10 @@
 // Base
 // ----
 
-// Set a custom background color in selection highlight.
+// Set custom selection highlight.
 ::selection {
     background: $green;
+    color: $white;
 }
 
 // Set up default styles on the root element:
