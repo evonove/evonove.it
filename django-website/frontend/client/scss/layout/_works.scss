@@ -58,6 +58,14 @@
   }
 }
 
+// Apply those style only on the works template.
+// [1] Align description and image to the center of the vertical axes.
+.works_page .work {
+  @media #{$min-medium} {
+    align-items: center; // [1]
+  }
+}
+
 // For every odd case:
 // [1] Align text to the right
 // [2] set a padding right to the info container in order to add
@@ -143,6 +151,11 @@
     top: 0;
     transition: transform 0.618s 0.618s;
   }
+}
+
+// Apply those style only on the works template.
+.works_page .work-image {
+  margin-top: 0;
 }
 
 // Reveal each work figure
