@@ -11,19 +11,21 @@
   <div class="section-subtitle js-show_subtitle">{{ page.section_subtitle|richtext }}</div>
   <div class="works-container">
   {% for project in page.projects.all %}
-    <div class="work js-reveal_article">
-      <div class="work-info -u-element_to_reveal">
-        <h4 class="work-info-title">{{ project.name }}</h4>
-        <h5 class="work-info-type">{{ project.category }}</h5>
-        <div class="work-info-description">{{ project.description|richtext }}</div>
-        {% if project.link %}
-          <a class="button glow_link work-info-button" href="{{ project.link }}" target="_blank">Visit the case</a>
-        {% endif %}
+    {% if not project.show_in_home %}
+      <div class="work js-reveal_article">
+        <div class="work-info -u-element_to_reveal">
+          <h4 class="work-info-title">{{ project.name }}</h4>
+          <h5 class="work-info-type">{{ project.category }}</h5>
+          <div class="work-info-description">{{ project.description|richtext }}</div>
+          {% if project.link %}
+            <a class="button glow_link work-info-button" href="{{ project.link }}" target="_blank">Visit the case</a>
+          {% endif %}
+        </div>
+        <figure class="work-image">
+          {% image project.image original class="work-image-picture" %}
+        </figure>
       </div>
-      <figure class="work-image">
-        {% image project.image original class="work-image-picture" %}
-      </figure>
-    </div>
+    {% endif %}
   {% endfor %}
   </div>
 </section>
