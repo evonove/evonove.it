@@ -12,7 +12,7 @@
 // Transitions
 .-u-element_to_reveal {
   opacity: 0;
-  transition: all 0.618s;
+  transition: all 0.382s ease-out;
 
   &.-u-reveal_from_top {
     transform: translate3d(0, -1.618rem, 0);

@@ -48,7 +48,7 @@
 .header-main_interactions-logo > .header_logo-vonov,
 .header-main_interactions-logo > .header_logo-9 {
   height: 21px;
-  transition: all 0.382s;
+  transition: all 0.382s ease-out;
 }
 
 // Set the logo to dark mode when visiting blog templates.
@@ -168,7 +168,7 @@
 .button.open_nav > span,
 .button.close_nav > span {
   display: inline-block; // [1]
-  transition: all 0.236s;
+  transition: all 0.146s ease-out;
   transform-origin: top;
 }
 

@@ -134,7 +134,7 @@
   margin-top: 4.236rem;
   opacity: 0;
   position: relative;
-  transition: opacity 1s;
+  transition: opacity 0.618s ease-out;
 
   @media #{$max-medium} {
     margin-top: 0;
@@ -149,7 +149,11 @@
     position: absolute;
     right: 0;
     top: 0;
-    transition: transform 0.618s 0.618s;
+    transition: transform 0.382s ease-out 0.382s;
+
+    @media #{$max-xsmall} {
+      transition-delay: 0;
+    }
   }
 }
 

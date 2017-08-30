@@ -89,10 +89,14 @@ section.first_section {
   margin: 17.942rem auto 0; // [1]
 
   @media #{$max-medium} {
-    margin: 11.089rem auto 0;
+    margin-top: 11.089rem;
   }
 
   @media #{$small-landscape} {
-    margin: 6.854rem auto 0;
+    margin-top: 6.854rem;
+  }
+
+  @media #{$max-xsmall} {
+    margin-top: 6.854rem;
   }
 }

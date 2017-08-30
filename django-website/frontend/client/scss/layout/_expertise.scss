@@ -104,7 +104,7 @@
 .stack-list ul > li {
   opacity: 0;
   transform: translate3d(0, 1.618rem, 0);
-  transition: all 0.618s;
+  transition: all 0.618s ease-out;
 
   @media #{$max-xsmall} {
     padding: 0.618rem;

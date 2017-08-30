@@ -107,6 +107,7 @@
   text-align: center;
   -webkit-text-fill-color: transparent; // [1]
   text-transform: none;
+  transition-duration: 0.618s;
 }
 
 // Reveal each service title
@@ -144,7 +145,7 @@
   height: 2px;
   margin: 1.618rem auto 0;
   transform: scale3d(0, 1, 1);
-  transition: transform 0.618s;
+  transition: transform 0.618s ease-out;
   width: 29.03%;
 }
 
@@ -158,6 +159,7 @@
   margin-top: 1.618rem;
   padding: 0 1.618rem;
   text-align: center;
+  transition-duration: 0.618s;
 }
 
 // Reveal each service description

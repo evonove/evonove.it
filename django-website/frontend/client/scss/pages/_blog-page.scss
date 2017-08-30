@@ -19,12 +19,8 @@
   margin: 6.854rem auto 0;
   max-width: 75.999rem;
 
-  & > * + * {
-    margin-top: 11.089rem;
-
-    @media #{$max-xsmall} {
-      margin-top: 6.854rem;
-    }
+  @media #{$max-small} {
+    margin-top: 4.236rem;
   }
 }
 
@@ -34,7 +30,14 @@
 
   @media #{$max-small} {
     flex-direction: column;
-    margin-top: 6.854rem;
+  }
+
+  & + .post_preview {
+    margin-top: 11.089rem;
+
+    @media #{$max-small} {
+      margin-top: 6.854rem;
+    }
   }
 }
 
@@ -45,7 +48,7 @@
 .post_preview-image-figure {
   opacity: 0;
   position: relative;
-  transition: opacity 1s;
+  transition: opacity 0.618s ease-out;
 
   // Create a div which overlaps the image needed to do the sliding transition.
   &::after {
@@ -56,7 +59,11 @@
     position: absolute;
     right: 0;
     top: 0;
-    transition: transform 0.618s 0.618s;
+    transition: transform 0.382s ease-out 0.382s;
+
+    @media #{$max-xsmall} {
+      transition-delay: 0;
+    }
   }
 }
 

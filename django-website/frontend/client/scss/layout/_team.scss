@@ -64,7 +64,7 @@
 .teammate-figure {
   opacity: 0;
   position: relative;
-  transition: opacity 1s;
+  transition: opacity 0.618s ease-out;
 
   // Add a background to the picture keeping the teammate's drop shadow visible.
   &::before {
@@ -85,7 +85,11 @@
     position: absolute;
     right: 0;
     top: 0;
-    transition: transform 0.618s 0.618s;
+    transition: transform 0.382s ease-out 0.382s;
+
+    @media #{$max-xsmall} {
+      transition-delay: 0;
+    }
   }
 }
 

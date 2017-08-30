@@ -1,7 +1,7 @@
 // Reveal subtitles while scrolling.
 
 const payoff = document.querySelectorAll('.payoff > .rich-text > p');
-const subtitles = document.querySelectorAll('.js-show_subtitle h2');
+const subtitles = document.querySelectorAll('.js-show_subtitle');
 
 /**
  * Use Waypoint.js to reveal every subtitles when they are on the viewport
