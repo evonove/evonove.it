@@ -19,8 +19,19 @@
   }
 }
 
+.contacts-intro {
+  @media #{$max-small} {
+    margin-top: 4.236rem;
+    order: 1;
+  }
+}
+
 .contacts-intro > p + p {
   margin-top: 1rem;
+}
+
+.contacts-intro > p:last-child {
+  margin-top: 4.236rem;
 }
 
 .contacts-intro,
@@ -34,7 +45,7 @@
   transition-delay: 0.236s;
 
   @media #{$max-small} {
-    margin: 4.236rem 0 0 0;
+    margin: 0;
   }
 }
 
