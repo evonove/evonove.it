@@ -26,3 +26,8 @@ b {
     border-width: 1px;
   }
 }
+
+.body_blog b {
+  border: none;
+  font-weight: $weight-bold;
+}

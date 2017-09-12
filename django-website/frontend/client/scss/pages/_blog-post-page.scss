@@ -66,7 +66,8 @@
 
 .post-intro_picture,
 .post-picture {
-  margin-top: 4.236rem;
+  box-shadow: none;
+  margin-top: 2.618rem;
 }
 
 .post-intro_picture > img,
@@ -76,7 +77,7 @@
 
 .post-block_title {
   color: $dark-grey;
-  margin-top: 4.236rem;
+  margin-top: 2.618rem;
 }
 
 .post-block_subtitle {
@@ -89,6 +90,11 @@
   margin-top: 1.618rem;
 }
 
+// Select every paragraph immediately after an image
+.post-picture + .post-paragraph {
+  margin-top: 2.618rem
+}
+
 .post-paragraph > .rich-text > p > a {
   color: $dark-grey;
   text-decoration: underline;
@@ -97,6 +103,7 @@
 .post-picture-caption {
   color: $dark-grey;
   font-size: 0.78rem;
+  font-style: italic;
   margin-top: 1rem;
   text-align: center;
 }
