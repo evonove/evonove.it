@@ -22,7 +22,7 @@
   <h2 class="post-title">{{ page.title }}</h2>
   <p class="post-intro">{{ page.intro }}</p>
   <figure class="post-intro_picture">
-    <img src="http://lorempixel.com/output/people-q-c-640-480-3.jpg">
+    {% image page.cover original %}
   </figure>
   {% include "partials/streamfield.html" with content=self.body %}
 </article>
