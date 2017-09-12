@@ -19,4 +19,5 @@ require('./scripts/reveal-stack.js');
 require('./scripts/reveal-jobs.js');
 require('./scripts/reveal-contacts.js');
 require('./scripts/navigate-jobs.js');
+require('./scripts/fix-job-selector.js');
 require('./scripts/hide-post-sharing.js');

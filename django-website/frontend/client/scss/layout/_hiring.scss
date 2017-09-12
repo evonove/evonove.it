@@ -81,12 +81,25 @@
 }
 
 .position-selector {
-  position: fixed;
+  position: absolute;
   right: 6.854vw;
   top: 17.942rem;
 
   @media #{$max-small} {
     display: none;
+  }
+
+  // Remove all transitions after entrance transition is executed. This way the
+  // element is fixed without any transition.
+  &.is-transition_done {
+    transition: none;
+  }
+
+  // [1] Fix the element to the viewport.
+  // [2] Set the element's position when it is fixed to the viewport.
+  &.is-fixed {
+    position: fixed; // [1]
+    top: 17.942%; // [2]
   }
 }
 
