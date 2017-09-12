@@ -21,7 +21,7 @@
   & > * + * {
     margin-top: 11.089rem;
 
-    @media #{$max-xsmall} {
+    @media #{$max-medium} {
       margin-top: 6.854rem;
     }
 
@@ -31,37 +31,26 @@
   }
 }
 
+// [1] Flex-start is needed to avoid that <figure> stretches to fit its container,
+//     causing a wrong empty space with the image child.
 .work {
+  align-items: flex-start; // [1]
   display: flex;
   padding: 0 4.236rem;
 
-  @media #{$max-medium} {
+  @media (max-width: 1200px) {
     flex-direction: column;
   }
 
-  @media #{$max-medium} {
+  @media #{$max-small} {
     padding: 0;
-  }
-
-  // Every odd case will be shifted a little to the right
-  &:nth-child(odd) {
-    @media #{$min-medium} {
-      padding-left: 4.236rem;
-    }
-  }
-
-  // Every even case will be shifted a little to the left
-  &:nth-child(even) {
-    @media #{$min-medium} {
-      padding-right: 4.236rem;
-    }
   }
 }
 
 // Apply those style only on the works template.
 // [1] Align description and image to the center of the vertical axes.
 .works_page .work {
-  @media #{$min-medium} {
+  @media (min-width: 1201px) {
     align-items: center; // [1]
   }
 }
@@ -78,7 +67,7 @@
     transform: translate3d(0, 0, 0);
   }
 
-  @media #{$min-medium} {
+  @media (min-width: 1201px) {
     align-items: flex-end; // [3]
     padding: 0 4.236rem 0 0; // [2]
     text-align: right; // [1]
@@ -96,7 +85,7 @@
     transform: translate3d(0, 0, 0);
   }
 
-  @media #{$min-medium} {
+  @media (min-width: 1201px) {
     order: 2; // [1]
     padding: 0 0 0 4.236rem; // [2]
   }
@@ -108,7 +97,7 @@
   flex: 1;
   flex-direction: column;
 
-  @media #{$max-medium} {
+  @media (max-width: 1200px) {
     margin-top: 2.618rem;
     max-width: 46.971rem;
     order: 1;
@@ -136,7 +125,7 @@
   position: relative;
   transition: opacity 0.618s ease-out;
 
-  @media #{$max-medium} {
+  @media #{$max-small} {
     margin-top: 0;
   }
 

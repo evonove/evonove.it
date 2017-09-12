@@ -44,14 +44,13 @@ body {
   box-sizing: inherit;
 }
 
-// [1] Let the image fit its container without stretching
+// [1] Let the image fit its container keeping the original aspect ratio
 // [2] Remove space under its parent <figure>
 img {
   max-height: 100%; // [1]
-  max-width: 100%; // [1]
   height: auto; // [1]
   vertical-align: top; // [2]
-  width: auto; // [1]
+  width: 100%; // [1]
 }
 
 // [1] Apply a shadow to every <figure>
