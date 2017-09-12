@@ -63,7 +63,7 @@
 .body_blog .header-main_interactions-logo > .header_logo-e.is-logo_expanded > path,
 .body_blog .header-main_interactions-logo > .header_logo-vonov.is-logo_expanded > path:not(.header_logo-n),
 .body_blog .header-main_interactions-logo > .header_logo-9.is-logo_expanded > path {
-  @media #{$max-xsmall} {
+  @media #{$max-small} {
     fill: $white;
   }
 }

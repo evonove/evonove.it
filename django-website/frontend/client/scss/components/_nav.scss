@@ -74,7 +74,7 @@
   color: $light-grey;
   font-weight: bold;
 
-  @media #{$max-xsmall} {
+  @media #{$max-small} {
     opacity: 0;
     transform: translate3d(-1.618rem, 0, 0);
     transition: all 0.382s ease-out;
@@ -89,7 +89,7 @@
   }
 
   &.is-nav_shown {
-    @media #{$max-xsmall} {
+    @media #{$max-small} {
       opacity: 1;
       transform: translateZ(0);
     }
