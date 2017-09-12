@@ -50,6 +50,12 @@
   }
 }
 
+// Keep brand aspect ratio.
+.brand > img {
+  max-width: 100%;
+  width: auto;
+}
+
 .contact_us {
   margin: 6.854rem auto 0;
   max-width: 29.03rem;
