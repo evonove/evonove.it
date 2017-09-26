@@ -61,8 +61,14 @@
   }
 }
 
+// [1] Make square containers
 .teammate-figure {
+  background-color: darken($white, 6%);
+  display: flex;
+  height: 0; // [1]
+  justify-content: center;
   opacity: 0;
+  padding-bottom: 100%; // [1]
   position: relative;
   transition: opacity 0.618s ease-out;
 
@@ -110,8 +116,11 @@
 
 // Add a shadow behind the teammate silhouette
 .teammate-figure-picture {
-  filter: drop-shadow(0 10px 16px transparentize($black, 0.5));
-  width: 100%;
+  bottom: 0;
+  filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.5));
+  height: calc(100% - 1.618rem);
+  position: absolute;
+  width: auto;
 }
 
 .teammate-info {
