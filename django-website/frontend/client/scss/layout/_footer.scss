@@ -58,15 +58,13 @@
   }
 }
 
-.footer-email-text,
-.footer-social-text {
+.footer-email-text {
   @media #{$max-medium} {
     display: none;
   }
 }
 
-.footer-email-icon,
-.footer-social-icon {
+.footer-email-icon {
   display: none;
 
   @media #{$max-medium} {
@@ -78,6 +76,12 @@
 .footer-social-icon > svg {
   fill: $light-grey;
   height: 1rem;
+  transition: all .262s;
+
+  &:hover {
+    fill: $white;
+    filter: drop-shadow(0 0 10px rgba(59,179,181,.95));
+  }
 }
 
 .body_blog .footer-email-icon > svg,
