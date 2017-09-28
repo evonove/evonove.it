@@ -75,7 +75,7 @@
   <div class="section-subtitle js-show_subtitle">{{ page.team_subtitle|richtext }}</div>
   <div class="team-container">
     {% for member in page.team.all %}
-    <div class="teammate js-reveal_article">
+    <div class="teammate js-reveal_article js-randomize_teammates">
       <figure class="teammate-figure">
         {% image member.photo original class="teammate-figure-picture" %}
       </figure>

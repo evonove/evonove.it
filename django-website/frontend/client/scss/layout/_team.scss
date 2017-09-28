@@ -59,6 +59,12 @@
       top: 2.618rem;
     }
   }
+
+  &.is-shifted_down {
+    @media #{$min-medium} {
+      top: 2.618rem;
+    }
+  }
 }
 
 // [1] Make square containers
@@ -108,10 +114,11 @@
   }
 }
 
-// For every 3th teammate starting from the 2nd one, select the ::after
-// pseudo-element of the figure.
+// Invert the transition origin for every middle element of the row.
 .teammate:nth-child(3n+2) > .teammate-figure::after {
-  transform-origin: bottom;
+  @media #{$min-medium} {
+    transform-origin: bottom;
+  }
 }
 
 // Add a shadow behind the teammate silhouette

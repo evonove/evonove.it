@@ -10,6 +10,7 @@ require('./scripts/nav.js');
 require('./scripts/splash-scroll-down.js');
 require('./scripts/splash-3d-model.js');
 require('./scripts/services-3d-models.js');
+require('./scripts/randomize-teammates.js');
 require('./scripts/reveal-subtitles.js');
 require('./scripts/reveal-services.js');
 require('./scripts/reveal-article.js');
