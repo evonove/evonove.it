@@ -1,0 +1,17 @@
+// Sitemap component
+// -----------------
+
+.sitemap {
+  display: flex;
+  justify-content: center;
+  margin-top: 17.942vh;
+  text-align: center;
+}
+
+.sitemap-links {
+  margin-top: 1.618rem;
+
+  & > li + li {
+    margin-top: 1rem;
+  }
+}

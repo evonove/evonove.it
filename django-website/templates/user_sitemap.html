@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block content %}
+
+<section class="sitemap">
+  <div class="sitemap-container">
+    <h2>Sitemap</h2>
+    <ul class="sitemap-links">
+    {% for page in live_pages %}
+      <li><a href="{% slugurl page.slug %}">{{ page.title }}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{% endblock %}

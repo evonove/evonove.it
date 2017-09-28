@@ -63,6 +63,7 @@ INSTALLED_APPS = (
     'hiring',
     'portfolio',
     'frontend',
+    'user_sitemap',
 )
 
 MIDDLEWARE = [
