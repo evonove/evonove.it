@@ -9,5 +9,6 @@ class UserSitemapView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(UserSitemapView, self).get_context_data(**kwargs)
         root_page = Page.objects.get(slug='root')
-        context['live_pages'] = Page.objects.live().descendant_of(root_page)
+        blog_page = Page.objects.get(slug='blog')
+        context['live_pages'] = Page.objects.live().descendant_of(root_page).not_descendant_of(blog_page)
         return context
