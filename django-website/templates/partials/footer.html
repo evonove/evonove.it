@@ -5,7 +5,10 @@
       {% include "./svg/mail.svg" %}
     </a>
   </div>
-  <p class="footer-copyright">&copy; {% now "Y" %} by Evonove. All rights are reserved.</p>
+  <div class="footer-copyright">
+    <p class="footer-copyright-text">&copy; {% now "Y" %} by Evonove. All rights are reserved.</p>
+    <p class="footer-vat">VAT: {{ settings.options.WebsiteSettings.vat }}</p>
+  </div>
   <ul class="footer-social">
     <li>
       <a class="glow_link footer-social-icon" href="{{ options.facebook }}" target="_blank">

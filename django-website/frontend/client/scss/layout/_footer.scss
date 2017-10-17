@@ -2,6 +2,7 @@
 // ------
 
 .footer {
+  align-items: flex-end;
   color: $light-grey;
   display: flex;
   justify-content: space-between;
@@ -24,18 +25,6 @@
 .body_blog .footer p {
   color: $dark-grey;
   font-weight: $weight-medium;
-}
-
-.footer p {
-  font-weight: $weight-normal;
-
-  // [1] Place the copyright to the bottom
-  // [2] Let the copyright container wraps
-  @media #{$max-small} {
-    margin-top: 1.618rem;
-    order: 1; // [1]
-    width: 100%; // [2]
-  }
 }
 
 // All flex-items occupy the same space
@@ -90,10 +79,27 @@
 }
 
 .footer-copyright {
+  font-weight: $weight-normal;
   text-align: center;
 
   @media #{$max-medium} {
     flex-grow: 2;
+  }
+
+  // [1] Place the copyright to the bottom
+  // [2] Let the copyright container wraps
+  @media #{$max-small} {
+    margin-top: 1.618rem;
+    order: 1; // [1]
+    width: 100%; // [2]
+  }
+}
+
+.footer-vat {
+  margin-top: 0.382rem;
+
+  @media #{$max-small} {
+    margin-top: 0.618rem;
   }
 }
 
