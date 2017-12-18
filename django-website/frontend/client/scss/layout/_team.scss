@@ -70,9 +70,7 @@
 // [1] Make square containers
 .teammate-figure {
   background-color: darken($white, 6%);
-  display: flex;
   height: 0; // [1]
-  justify-content: center;
   opacity: 0;
   padding-bottom: 100%; // [1]
   position: relative;
@@ -126,7 +124,9 @@
   bottom: 0;
   filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.5));
   height: calc(100% - 1.618rem);
+  left: 50%;
   position: absolute;
+  transform: translateX(-50%);
   width: auto;
 }
 
