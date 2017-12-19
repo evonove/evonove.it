@@ -103,7 +103,6 @@
 .services-list-item-title > h3 {
   font-size: 1.618rem;
   font-weight: $weight-normal;
-  opacity: 0;
   text-align: center;
   -webkit-text-fill-color: transparent; // [1]
   text-transform: none;
@@ -111,7 +110,7 @@
 }
 
 // Reveal each service title
-.services-list-item.is-element_revealed .services-list-item-title > h3 {
+.services-list-item.is-element_revealed .services-list-item-title {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
