@@ -3,15 +3,15 @@
 {% block body_class %}template-404{% endblock %}
 
 {% block content %}
-  <header class="header-404">
-    <div class="header-404-logo">
+  <div class="error_page">
+    <div class="error_page-logo">
       <a href="https://evonove.it/">
         {% include "./partials/svg/logo.svg" %}
       </a>
     </div>
-  </header>
-  <div class="container-404">
-    <h2>Page not found</h2>
-    <h3>Sorry, this page could not be found.</h3>
+    <div class="error_page-text">
+      <h2>Error 404, page not found.</h2>
+      <h3>Sorry, this page could not be found.</h3>
+    </div>
   </div>
 {% endblock %}

@@ -1,0 +1,19 @@
+// 404 and 500 pages styles
+// ------------------------
+
+.error_page {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 29.03vh;
+  text-align: center;
+}
+
+.error_page-text {
+  margin-top: 0.618rem;
+}
+
+.error_page-text h3 {
+  margin-top: 0.6382rem;
+}
