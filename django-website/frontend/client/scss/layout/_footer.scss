@@ -112,3 +112,16 @@
     margin-left: 1.618rem;
   }
 }
+
+.footer-policies {
+  margin-top: .382rem;
+  font-size: 0.8rem;
+
+  a {
+    text-decoration: underline;
+  }
+
+  a + a {
+    margin-left: .618rem;
+  }
+}
