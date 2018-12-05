@@ -2,8 +2,15 @@ from django.forms import ChoiceField
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
 
-from wagtail.core.blocks import (StructBlock, StreamBlock, CharBlock, RichTextBlock, TextBlock, FieldBlock,
-                                        ChoiceBlock)
+from wagtail.core.blocks import (
+    StructBlock,
+    StreamBlock,
+    CharBlock,
+    RichTextBlock,
+    TextBlock,
+    FieldBlock,
+    ChoiceBlock,
+)
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.embeds.blocks import EmbedBlock
 
@@ -18,11 +25,12 @@ class ImageFormatBlock(FieldBlock):
     a class to the resulting image. This allows editors to place the image
     in different ways, according to the built-in CSS style.
     """
+
     FORMAT_CHOICES = (
-        ('article-left', _('Wrap left')),
-        ('article-right', _('Wrap right')),
-        ('article-middle', _('Place in the center')),
-        ('article-full', _('Full width')),
+        ("article-left", _("Wrap left")),
+        ("article-right", _("Wrap right")),
+        ("article-middle", _("Place in the center")),
+        ("article-full", _("Full width")),
     )
 
     field = ChoiceField(choices=FORMAT_CHOICES)
@@ -32,6 +40,7 @@ class ImageBlock(StructBlock):
     """
     The ``aligned_image`` block, used to add an image into the ``BlogPage``
     """
+
     image = ImageChooserBlock()
     alignment = ImageFormatBlock()
     caption = RichTextBlock(required=False)
@@ -41,6 +50,7 @@ class PullQuoteBlock(StructBlock):
     """
     A block that adds a quote with the proper attribution
     """
+
     quote = TextBlock(label=_("Quote title"))
     attribution = CharBlock()
 
@@ -51,25 +61,22 @@ class CodeBlock(StructBlock):
     """
 
     LANGUAGE_CHOICES = (
-        ('python', 'Python'),
-        ('cpp', 'C++'),
-        ('html', 'HTML'),
-        ('css', 'CSS'),
+        ("python", "Python"),
+        ("cpp", "C++"),
+        ("html", "HTML"),
+        ("css", "CSS"),
     )
 
     language = ChoiceBlock(choices=LANGUAGE_CHOICES)
     code_text = TextBlock()
 
     def render(self, value):
-        src = value['code_text'].strip('\n')
-        lang = value['language']
+        src = value["code_text"].strip("\n")
+        lang = value["language"]
 
         lexer = get_lexer_by_name(lang)
         formatter = get_formatter_by_name(
-            'html',
-            linenos='table',
-            noclasses=True,
-            style='monokai',
+            "html", linenos="table", noclasses=True, style="monokai"
         )
         return mark_safe(highlight(src, lexer, formatter))
 
@@ -85,6 +92,7 @@ class PostStreamBlock(StreamBlock):
         - a YouTube embedded iframe
         - a quote with a proper attribution
     """
+
     h2 = CharBlock(icon="title")
     h3 = CharBlock(icon="title")
     paragraph = RichTextBlock(icon="pilcrow")
