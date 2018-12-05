@@ -6,7 +6,7 @@ from django.conf import settings
 from django.db import migrations, models
 import django.db.models.deletion
 import modelcluster.fields
-import wagtail.wagtailcore.fields
+import wagtail.core.fields
 
 
 class Migration(migrations.Migration):
@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('firstname', models.CharField(max_length=100)),
                 ('lastname', models.CharField(max_length=100)),
                 ('role', models.CharField(help_text='Team member company role', max_length=150)),
-                ('bio', wagtail.wagtailcore.fields.RichTextField(help_text='The team member bio', max_length=360)),
+                ('bio', wagtail.core.fields.RichTextField(help_text='The team member bio', max_length=360)),
                 ('gravatar', models.CharField(blank=True, help_text='Add your Gravatar email', max_length=150, null=True)),
                 ('website', models.URLField(blank=True, help_text='Your website page URL', null=True)),
                 ('github', models.URLField(blank=True, help_text='Your GitHub page URL', null=True)),

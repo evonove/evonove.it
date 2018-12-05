@@ -4,10 +4,10 @@ from __future__ import unicode_literals
 
 import blog.fields
 from django.db import migrations
-import wagtail.wagtailcore.blocks
-import wagtail.wagtailcore.fields
-import wagtail.wagtailembeds.blocks
-import wagtail.wagtailimages.blocks
+import wagtail.core.blocks
+import wagtail.core.fields
+import wagtail.embeds.blocks
+import wagtail.images.blocks
 
 
 class Migration(migrations.Migration):
@@ -20,6 +20,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='post',
             name='body',
-            field=wagtail.wagtailcore.fields.StreamField((('h2', wagtail.wagtailcore.blocks.CharBlock(icon='title')), ('h3', wagtail.wagtailcore.blocks.CharBlock(icon='title')), ('paragraph', wagtail.wagtailcore.blocks.RichTextBlock(icon='pilcrow')), ('aligned_image', wagtail.wagtailcore.blocks.StructBlock((('image', wagtail.wagtailimages.blocks.ImageChooserBlock()), ('alignment', blog.fields.ImageFormatBlock()), ('caption', wagtail.wagtailcore.blocks.RichTextBlock(required=False))), icon='image', label='Aligned image')), ('youtube', wagtail.wagtailcore.blocks.StructBlock((('identifier', wagtail.wagtailembeds.blocks.EmbedBlock()),), icon='image')), ('pullquote', wagtail.wagtailcore.blocks.StructBlock((('quote', wagtail.wagtailcore.blocks.TextBlock(label='Quote title')), ('attribution', wagtail.wagtailcore.blocks.CharBlock())), icon='openquote')))),
+            field=wagtail.core.fields.StreamField((('h2', wagtail.core.blocks.CharBlock(icon='title')), ('h3', wagtail.core.blocks.CharBlock(icon='title')), ('paragraph', wagtail.core.blocks.RichTextBlock(icon='pilcrow')), ('aligned_image', wagtail.core.blocks.StructBlock((('image', wagtail.images.blocks.ImageChooserBlock()), ('alignment', blog.fields.ImageFormatBlock()), ('caption', wagtail.core.blocks.RichTextBlock(required=False))), icon='image', label='Aligned image')), ('youtube', wagtail.core.blocks.StructBlock((('identifier', wagtail.embeds.blocks.EmbedBlock()),), icon='image')), ('pullquote', wagtail.core.blocks.StructBlock((('quote', wagtail.core.blocks.TextBlock(label='Quote title')), ('attribution', wagtail.core.blocks.CharBlock())), icon='openquote')))),
         ),
     ]

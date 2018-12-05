@@ -42,14 +42,14 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'django_s3_storage',
 
-    'wagtail.wagtailredirects',
-    'wagtail.wagtailsites',
-    'wagtail.wagtailusers',
-    'wagtail.wagtailimages',
-    'wagtail.wagtaildocs',
-    'wagtail.wagtailembeds',
-    'wagtail.wagtailadmin',
-    'wagtail.wagtailcore',
+    'wagtail.contrib.redirects',
+    'wagtail.sites',
+    'wagtail.users',
+    'wagtail.images',
+    'wagtail.documents',
+    'wagtail.embeds',
+    'wagtail.admin',
+    'wagtail.core',
     'wagtail.contrib.settings',
 
     'modelcluster',
@@ -77,8 +77,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    'wagtail.wagtailcore.middleware.SiteMiddleware',
-    'wagtail.wagtailredirects.middleware.RedirectMiddleware',
+    'wagtail.core.middleware.SiteMiddleware',
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 
 ROOT_URLCONF = 'website.urls'

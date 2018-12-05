@@ -8,12 +8,12 @@ from modelcluster.contrib.taggit import ClusterTaggableManager
 
 from taggit.models import Tag, TaggedItemBase
 
-from wagtail.wagtailsearch import index
-from wagtail.wagtailcore.models import Page
-from wagtail.wagtailcore.fields import StreamField, RichTextField
+from wagtail.search import index
+from wagtail.core.models import Page
+from wagtail.core.fields import StreamField, RichTextField
 from wagtail.contrib.settings.models import BaseSetting, register_setting
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, StreamFieldPanel
-from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
+from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, StreamFieldPanel
+from wagtail.images.edit_handlers import ImageChooserPanel
 
 from .fields import PostStreamBlock
 

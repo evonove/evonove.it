@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 from django.db import migrations, models
 import django.db.models.deletion
 import modelcluster.fields
-import wagtail.wagtailcore.fields
+import wagtail.core.fields
 
 
 class Migration(migrations.Migration):
@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('sort_order', models.IntegerField(blank=True, editable=False, null=True)),
                 ('position', models.CharField(blank=True, max_length=200)),
-                ('description', wagtail.wagtailcore.fields.RichTextField(blank=True)),
+                ('description', wagtail.core.fields.RichTextField(blank=True)),
             ],
             options={
                 'ordering': ['sort_order'],
@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='hiringpage',
             name='description',
-            field=wagtail.wagtailcore.fields.RichTextField(blank=True),
+            field=wagtail.core.fields.RichTextField(blank=True),
         ),
         migrations.AddField(
             model_name='job',

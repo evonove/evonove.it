@@ -2,10 +2,10 @@ from django.forms import ChoiceField
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
 
-from wagtail.wagtailcore.blocks import (StructBlock, StreamBlock, CharBlock, RichTextBlock, TextBlock, FieldBlock,
+from wagtail.core.blocks import (StructBlock, StreamBlock, CharBlock, RichTextBlock, TextBlock, FieldBlock,
                                         ChoiceBlock)
-from wagtail.wagtailimages.blocks import ImageChooserBlock
-from wagtail.wagtailembeds.blocks import EmbedBlock
+from wagtail.images.blocks import ImageChooserBlock
+from wagtail.embeds.blocks import EmbedBlock
 
 from pygments import highlight
 from pygments.formatters import get_formatter_by_name

@@ -4,10 +4,10 @@ from django.utils.translation import ugettext_lazy as _
 
 from modelcluster.fields import ParentalKey
 
-from wagtail.wagtailcore.models import Page, Orderable
-from wagtail.wagtailcore.fields import RichTextField
+from wagtail.core.models import Page, Orderable
+from wagtail.core.fields import RichTextField
 
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
+from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
 
 from core.models import BaseModel
 

@@ -1,6 +1,6 @@
 import pytest
 
-from wagtail.wagtailcore.models import Page
+from wagtail.core.models import Page
 
 from home.models import HomePage
 

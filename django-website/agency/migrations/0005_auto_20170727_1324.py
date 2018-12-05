@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 from django.db import migrations, models
 import django.db.models.deletion
 import modelcluster.fields
-import wagtail.wagtailcore.fields
+import wagtail.core.fields
 
 
 class Migration(migrations.Migration):
@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('sort_order', models.IntegerField(blank=True, editable=False, null=True)),
-                ('stack', wagtail.wagtailcore.fields.RichTextField(blank=True)),
+                ('stack', wagtail.core.fields.RichTextField(blank=True)),
                 ('category', models.CharField(blank=True, max_length=100)),
             ],
             options={
@@ -52,27 +52,27 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='agencypage',
             name='expertise_description',
-            field=wagtail.wagtailcore.fields.RichTextField(blank=True),
+            field=wagtail.core.fields.RichTextField(blank=True),
         ),
         migrations.AddField(
             model_name='agencypage',
             name='expertise_subtitle',
-            field=wagtail.wagtailcore.fields.RichTextField(blank=True),
+            field=wagtail.core.fields.RichTextField(blank=True),
         ),
         migrations.AddField(
             model_name='agencypage',
             name='expertise_title',
-            field=wagtail.wagtailcore.fields.RichTextField(blank=True),
+            field=wagtail.core.fields.RichTextField(blank=True),
         ),
         migrations.AddField(
             model_name='agencypage',
             name='project_category',
-            field=wagtail.wagtailcore.fields.RichTextField(blank=True),
+            field=wagtail.core.fields.RichTextField(blank=True),
         ),
         migrations.AddField(
             model_name='agencypage',
             name='project_description',
-            field=wagtail.wagtailcore.fields.RichTextField(blank=True),
+            field=wagtail.core.fields.RichTextField(blank=True),
         ),
         migrations.AddField(
             model_name='agencypage',
@@ -82,12 +82,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='agencypage',
             name='services_subtitle',
-            field=wagtail.wagtailcore.fields.RichTextField(blank=True),
+            field=wagtail.core.fields.RichTextField(blank=True),
         ),
         migrations.AddField(
             model_name='agencypage',
             name='services_title',
-            field=wagtail.wagtailcore.fields.RichTextField(blank=True),
+            field=wagtail.core.fields.RichTextField(blank=True),
         ),
         migrations.DeleteModel(
             name='Expertise',

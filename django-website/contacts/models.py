@@ -1,8 +1,8 @@
 from django.db import models
 from django.utils.translation import ugettext as _
 
-from wagtail.wagtailcore.models import Page
-from wagtail.wagtailadmin.edit_handlers import FieldPanel
+from wagtail.core.models import Page
+from wagtail.admin.edit_handlers import FieldPanel
 
 from core.models import BaseModel
 
