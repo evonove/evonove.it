@@ -2,14 +2,14 @@ version: "2"
 
 services:
   postgres:
-    image: library/postgres:9.5.5
+    image: postgres:latest
     environment:
       - POSTGRES_USER=devel
       - POSTGRES_PASSWORD=123456
       - POSTGRES_DB=evonoveit
 
   redis:
-    image: library/redis:3.2.6
+    image: redis:latest
 
   django:
     build:

@@ -1,4 +1,4 @@
-FROM python:3.5.2
+FROM python:3.6
 MAINTAINER Evoniners <dev@evonove.it>
 
 ENV DJANGO_SETTINGS_MODULE website.settings.dev

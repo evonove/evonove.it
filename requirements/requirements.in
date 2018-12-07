@@ -3,7 +3,7 @@ django<2.0
 django-getenv
 django-redis
 dj-database-url
-psycopg2
+psycopg2-binary
 pytz
 
 # third parties
