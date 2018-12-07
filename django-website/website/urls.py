@@ -22,7 +22,7 @@ if settings.DEBUG:
     ]
 
 urlpatterns += [
-    url(r'^django-admin/', include(admin.site.urls)),
+    url(r'^django-admin/', admin.site.urls),
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^sitemap\.xml$', sitemap),
     url(r'^robots\.txt$', RobotsView.as_view()),
