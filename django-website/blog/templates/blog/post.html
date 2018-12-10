@@ -3,7 +3,7 @@
 {% load static from staticfiles %}
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
-{% load gravatar %}
+{% load wagtailadmin_tags %}
 
 {% block body_class %}body_blog{% endblock %}
 
@@ -11,7 +11,7 @@
 <article class="post">
   <div class="post-metadata u-capitalize">
     <figure class="post-metadata-author_picture">
-      <img src="{% gravatar_url page.owner.email 25 %}">
+      <img src="{% avatar_url page.owner.email 25 %}">
     </figure>
     <div class="post-metadata-container">
       <span class="post-metadata-author">{{ page.owner.get_full_name|default:page.owner }}</span>
@@ -39,7 +39,7 @@
         <h2 class="related_posts-post-title">{{ article.title }}</h2>
         <div class="related_posts-post-metadata u-capitalize">
           <figure class="post-metadata-author_picture">
-            <img src="{% gravatar_url page.owner.email 25 %}">
+            <img src="{% avatar_url page.owner.email 25 %}">
           </figure>
           <div class="post-metadata-container">
             <span class="related_posts-post-metadata-author">{{ article.owner.get_full_name }}</span>
