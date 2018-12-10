@@ -11,6 +11,10 @@ class TestUserSitemap(WagtailPageTests, WagtailTestUtils):
         self.site = Site.objects.get(is_default_site=True)
 
     def test_blog_page_render(self):
+        """
+        There used to be an error during the rendering due to updates.
+        Before the check this test would have failed
+        """
         homepage = Page.objects.get(url_path='/home/')
         blog = BlogPage(title='blog', slug='blog', depth=1, path='00034')
         homepage.add_child(instance=blog)
