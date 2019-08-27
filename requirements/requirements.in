@@ -1,5 +1,5 @@
 # base stuff
-django<2.0
+django
 django-getenv
 django-redis
 dj-database-url
