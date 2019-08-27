@@ -65,7 +65,7 @@ s3transfer==0.1.13        # via boto3
 six==1.11.0               # via html5lib, more-itertools, prompt-toolkit, pytest, pytest-xdist, python-dateutil, traitlets, wagtail
 traitlets==4.3.2          # via ipython
 unidecode==1.0.23         # via wagtail
-urllib3==1.24.1           # via botocore, requests
+urllib3==1.24.2           # via botocore, requests
 uwsgi==2.0.17.1
 wagtail==2.3
 wcwidth==0.1.7            # via prompt-toolkit
