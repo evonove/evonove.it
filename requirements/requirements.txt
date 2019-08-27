@@ -22,7 +22,7 @@ django-redis==4.10.0
 django-s3-storage==0.12.4
 django-taggit==0.23.0     # via wagtail
 django-treebeard==4.3     # via wagtail
-django==1.11.17
+django==1.11.23
 djangorestframework==3.9.0  # via wagtail
 docutils==0.14            # via botocore
 draftjs-exporter==2.1.5   # via wagtail
