@@ -38,7 +38,7 @@ jmespath==0.9.3           # via boto3, botocore
 mccabe==0.6.1             # via flake8
 more-itertools==4.3.0     # via pytest
 newrelic==4.8.0.110
-parso==0.3.1              # via jedi
+parso==0.5.0              # via jedi
 pexpect==4.6.0            # via ipython
 pickleshare==0.7.5        # via ipython
 pillow==5.3.0             # via wagtail
