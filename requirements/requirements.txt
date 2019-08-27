@@ -58,7 +58,7 @@ pytest==4.0.1
 python-dateutil==2.7.5    # via botocore
 python-logstash==0.4.6
 pytz==2018.7
-raven==6.9.0
+raven==6.10.0
 redis==3.0.1              # via django-redis
 requests==2.20.1          # via wagtail
 s3transfer==0.1.13        # via boto3
