@@ -34,7 +34,7 @@ class Project(Orderable):
     name = models.CharField(max_length=150)
     category = models.CharField(max_length=100, default='', blank=True)
     description = RichTextField()
-    image = models.ForeignKey(Image, related_name='+')
+    image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name='+')
     link = models.URLField(help_text=_('Project link'), null=True, blank=True)
 
     # make the project visible in the homepage

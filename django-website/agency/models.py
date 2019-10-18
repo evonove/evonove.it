@@ -111,13 +111,14 @@ class AgencyPage(BaseModel):
 
 class TeamMember(Orderable):
     page = ParentalKey(AgencyPage, related_name='team')
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, blank=True, related_name='team_profile')
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, blank=True,
+                                related_name='team_profile', on_delete=models.CASCADE)
 
     firstname = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
     role = models.CharField(max_length=150, help_text=_('Team member company role'))
     gravatar = models.CharField(max_length=150, help_text=_('Add your Gravatar email'), null=True, blank=True)
-    photo = models.ForeignKey(Image, null=True, blank=True, related_name='+')
+    photo = models.ForeignKey(Image, on_delete=models.CASCADE, null=True, blank=True, related_name='+')
 
     website = models.URLField(help_text=_('Your website page URL'), null=True, blank=True)
     github = models.URLField(help_text=_('Your GitHub page URL'), null=True, blank=True)
