@@ -6,5 +6,9 @@
   "globals": {
     "THREE": true,
     "Waypoint": true
+  },
+  "rules": {
+    "no-new": 0,
+    "no-bitwise": 0
   }
 }
