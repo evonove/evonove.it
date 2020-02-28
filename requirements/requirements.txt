@@ -31,7 +31,7 @@ execnet==1.7.0            # via pytest-xdist
 flake8==3.7.8
 html5lib==1.0.1           # via wagtail
 idna==2.8                 # via requests
-importlib-metadata==0.19  # via pluggy
+importlib-metadata==0.19  # via pluggy, pytest
 ipdb==0.12.2
 ipython-genutils==0.2.0   # via traitlets
 ipython==7.7.0            # via ipdb
@@ -44,7 +44,7 @@ packaging==19.1           # via pytest
 parso==0.5.1              # via jedi
 pexpect==4.7.0            # via ipython
 pickleshare==0.7.5        # via ipython
-pillow==6.1.0             # via wagtail
+pillow==6.2.0             # via wagtail
 pluggy==0.12.0            # via pytest
 prompt-toolkit==2.0.9     # via ipython
 psycopg2-binary==2.8.3
