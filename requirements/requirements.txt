@@ -4,80 +4,194 @@
 #
 #    pip-compile requirements.in
 #
-apipkg==1.5               # via execnet
-atomicwrites==1.3.0       # via pytest
-attrs==19.1.0             # via packaging, pytest
-backcall==0.1.0           # via ipython
-beautifulsoup4==4.6.0     # via wagtail
-boto3==1.9.216            # via django-s3-storage
-botocore==1.12.216        # via boto3, s3transfer
-certifi==2019.6.16        # via requests
-chardet==3.0.4            # via requests
+apipkg==1.5
+    # via execnet
+atomicwrites==1.3.0
+    # via pytest
+attrs==19.1.0
+    # via
+    #   packaging
+    #   pytest
+backcall==0.1.0
+    # via ipython
+beautifulsoup4==4.6.0
+    # via wagtail
+boto3==1.9.216
+    # via django-s3-storage
+botocore==1.12.216
+    # via
+    #   boto3
+    #   s3transfer
+certifi==2019.6.16
+    # via requests
+chardet==3.0.4
+    # via requests
 coverage==4.5.4
-decorator==4.4.0          # via ipython, traitlets
+    # via
+    #   -r requirements.in
+    #   pytest-cov
+decorator==4.4.0
+    # via
+    #   ipython
+    #   traitlets
 dj-database-url==0.5.0
+    # via -r requirements.in
 django-getenv==1.3.2
-django-modelcluster==4.4  # via wagtail
+    # via -r requirements.in
+django-modelcluster==4.4
+    # via wagtail
 django-redis==4.10.0
+    # via -r requirements.in
 django-s3-storage==0.12.5
-django-taggit==0.24.0     # via wagtail
-django-treebeard==4.3     # via wagtail
-django==2.2.10
-djangorestframework==3.10.2  # via wagtail
-docutils==0.15.2          # via botocore
-draftjs-exporter==2.1.6   # via wagtail
-entrypoints==0.3          # via flake8
-execnet==1.7.0            # via pytest-xdist
+    # via -r requirements.in
+django-taggit==0.24.0
+    # via wagtail
+django-treebeard==4.3
+    # via wagtail
+django==2.2.18
+    # via
+    #   -r requirements.in
+    #   django-redis
+    #   django-s3-storage
+    #   django-taggit
+    #   django-treebeard
+    #   wagtail
+djangorestframework==3.10.2
+    # via wagtail
+docutils==0.15.2
+    # via botocore
+draftjs-exporter==2.1.6
+    # via wagtail
+entrypoints==0.3
+    # via flake8
+execnet==1.7.0
+    # via pytest-xdist
 flake8==3.7.8
-html5lib==1.0.1           # via wagtail
-idna==2.8                 # via requests
-importlib-metadata==0.19  # via pluggy, pytest
+    # via -r requirements.in
+html5lib==1.0.1
+    # via wagtail
+idna==2.8
+    # via requests
+importlib-metadata==0.19
+    # via pluggy
 ipdb==0.12.2
-ipython-genutils==0.2.0   # via traitlets
-ipython==7.7.0            # via ipdb
-jedi==0.15.1              # via ipython
-jmespath==0.9.4           # via boto3, botocore
-mccabe==0.6.1             # via flake8
-more-itertools==7.2.0     # via pytest, zipp
+    # via -r requirements.in
+ipython-genutils==0.2.0
+    # via traitlets
+ipython==7.7.0
+    # via ipdb
+jedi==0.15.1
+    # via ipython
+jmespath==0.9.4
+    # via
+    #   boto3
+    #   botocore
+mccabe==0.6.1
+    # via flake8
+more-itertools==7.2.0
+    # via
+    #   pytest
+    #   zipp
 newrelic==5.0.2.126
-packaging==19.1           # via pytest
-parso==0.5.1              # via jedi
-pexpect==4.7.0            # via ipython
-pickleshare==0.7.5        # via ipython
-pillow==6.2.0             # via wagtail
-pluggy==0.12.0            # via pytest
-prompt-toolkit==2.0.9     # via ipython
+    # via -r requirements.in
+packaging==19.1
+    # via pytest
+parso==0.5.1
+    # via jedi
+pexpect==4.7.0
+    # via ipython
+pickleshare==0.7.5
+    # via ipython
+pillow==6.2.0
+    # via wagtail
+pluggy==0.12.0
+    # via pytest
+prompt-toolkit==2.0.9
+    # via ipython
 psycopg2-binary==2.8.3
-ptyprocess==0.6.0         # via pexpect
-py==1.8.0                 # via pytest
-pycodestyle==2.5.0        # via flake8
-pyflakes==2.1.1           # via flake8
+    # via -r requirements.in
+ptyprocess==0.6.0
+    # via pexpect
+py==1.8.0
+    # via pytest
+pycodestyle==2.5.0
+    # via flake8
+pyflakes==2.1.1
+    # via flake8
 pygments==2.4.2
-pyparsing==2.4.2          # via packaging
+    # via
+    #   -r requirements.in
+    #   ipython
+pyparsing==2.4.2
+    # via packaging
 pytest-cov==2.7.1
+    # via -r requirements.in
 pytest-django==3.5.1
-pytest-forked==1.0.2      # via pytest-xdist
+    # via -r requirements.in
+pytest-forked==1.0.2
+    # via pytest-xdist
 pytest-xdist==1.29.0
+    # via -r requirements.in
 pytest==5.1.1
-python-dateutil==2.8.0    # via botocore
+    # via
+    #   -r requirements.in
+    #   pytest-cov
+    #   pytest-django
+    #   pytest-forked
+    #   pytest-xdist
+python-dateutil==2.8.0
+    # via botocore
 python-logstash==0.4.6
+    # via -r requirements.in
 pytz==2019.2
+    # via
+    #   -r requirements.in
+    #   django
+    #   django-modelcluster
+    #   wagtail
 raven==6.10.0
-redis==3.3.8              # via django-redis
-requests==2.22.0          # via wagtail
-s3transfer==0.2.1         # via boto3
-six==1.12.0               # via html5lib, packaging, prompt-toolkit, pytest-xdist, python-dateutil, traitlets, wagtail
-sqlparse==0.3.0           # via django
-traitlets==4.3.2          # via ipython
-unidecode==1.1.1          # via wagtail
-urllib3==1.25.3           # via botocore, requests
+    # via -r requirements.in
+redis==3.3.8
+    # via django-redis
+requests==2.22.0
+    # via wagtail
+s3transfer==0.2.1
+    # via boto3
+six==1.12.0
+    # via
+    #   html5lib
+    #   packaging
+    #   prompt-toolkit
+    #   pytest-xdist
+    #   python-dateutil
+    #   traitlets
+    #   wagtail
+sqlparse==0.3.0
+    # via django
+traitlets==4.3.2
+    # via ipython
+unidecode==1.1.1
+    # via wagtail
+urllib3==1.25.3
+    # via
+    #   botocore
+    #   requests
 uwsgi==2.0.18
+    # via -r requirements.in
 wagtail==2.6.1
-wcwidth==0.1.7            # via prompt-toolkit, pytest
-webencodings==0.5.1       # via html5lib
+    # via -r requirements.in
+wcwidth==0.1.7
+    # via
+    #   prompt-toolkit
+    #   pytest
+webencodings==0.5.1
+    # via html5lib
 whitenoise==4.1.3
-willow==1.1               # via wagtail
-zipp==0.6.0               # via importlib-metadata
+    # via -r requirements.in
+willow==1.1
+    # via wagtail
+zipp==0.6.0
+    # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
