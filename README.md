@@ -59,5 +59,13 @@ Then compile all necessary files:
 
     $ yarn webpack
 
+
+## Deployment
+
+When we change `pyproject.toml` wew need to regenerate the file `./requirements/requirements.txt` with this command:
+
+    $ poetry export -o requirements/requirements.txt --without-hashes
+
+
 [1]: https://evonove.it/ "Evonove"
 [2]: https://wagtail.io/ "Wagtail"
