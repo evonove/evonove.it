@@ -13,37 +13,35 @@ from core.models import BaseModel
 
 
 class HiringPage(BaseModel):
-    linked_data = JSONField(null=True, blank=True, help_text=_('Linked Data in JSON'))
+    linked_data = JSONField(null=True, blank=True, help_text=_("Linked Data in JSON"))
     intro = RichTextField(blank=True)
     outro = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
         MultiFieldPanel(
             [
-                FieldPanel('section_title'),
-                FieldPanel('section_subtitle'),
+                FieldPanel("section_title"),
+                FieldPanel("section_subtitle"),
             ],
-            heading=_('Careers')
+            heading=_("Careers"),
         ),
-
-        FieldPanel('intro'),
-        FieldPanel('outro'),
-
+        FieldPanel("intro"),
+        FieldPanel("outro"),
         MultiFieldPanel(
             [
-                InlinePanel('jobs', label=_('Job')),
+                InlinePanel("jobs", label=_("Job")),
             ],
-            heading=_('Available positions'),
+            heading=_("Available positions"),
         ),
     ]
 
     promote_panels = Page.promote_panels + [
-        FieldPanel('linked_data'),
+        FieldPanel("linked_data"),
     ]
 
 
 class Job(Orderable):
-    page = ParentalKey(HiringPage, related_name='jobs')
+    page = ParentalKey(HiringPage, related_name="jobs")
     position = models.CharField(max_length=200, blank=True)
     requirements = RichTextField(blank=True)
     responsibilities = RichTextField(blank=True)

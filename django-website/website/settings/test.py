@@ -2,4 +2,4 @@ from .dev import *
 
 
 # disabling loggers
-del LOGGING['loggers']
+del LOGGING["loggers"]

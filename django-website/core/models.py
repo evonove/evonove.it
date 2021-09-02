@@ -12,16 +12,14 @@ class BaseModel(Page):
     section_subtitle = RichTextField(blank=True)
 
     # seo field
-    linked_data = JSONField(null=True, blank=True, help_text=_('Linked Data in JSON'))
+    linked_data = JSONField(null=True, blank=True, help_text=_("Linked Data in JSON"))
 
     content_panels = Page.content_panels + [
-        FieldPanel('section_title'),
-        FieldPanel('section_subtitle'),
+        FieldPanel("section_title"),
+        FieldPanel("section_subtitle"),
     ]
 
-    promote_panels = Page.promote_panels + [
-        FieldPanel('linked_data')
-    ]
+    promote_panels = Page.promote_panels + [FieldPanel("linked_data")]
 
     class Meta:
         abstract = True

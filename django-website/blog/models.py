@@ -22,7 +22,7 @@ class BlogPage(Page):
     blog_subtitle = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
-        FieldPanel('blog_subtitle'),
+        FieldPanel("blog_subtitle"),
     ]
 
     @property
@@ -31,7 +31,7 @@ class BlogPage(Page):
         Returns a queryset of live blog articles, ordered from the most recent
         """
         articles = Post.objects.live().descendant_of(self)
-        articles = articles.order_by('-date')
+        articles = articles.order_by("-date")
 
         return articles
 
@@ -41,8 +41,8 @@ class BlogPage(Page):
         Returns a queryset of all available tag ordered by use
         """
         tags = Tag.objects.all()
-        tags = tags.annotate(num_times=models.Count('blog_posttag_items'))
-        tags = tags.order_by('-num_times')
+        tags = tags.annotate(num_times=models.Count("blog_posttag_items"))
+        tags = tags.order_by("-num_times")
 
         return tags
 
@@ -56,12 +56,12 @@ class BlogPage(Page):
         articles = self.articles
 
         # Filtering by tag
-        tag = request.GET.get('tag')
+        tag = request.GET.get("tag")
         if tag:
             articles = articles.filter(tags__name=tag)
 
         # Pagination, using the blog settings
-        page = request.GET.get('page')
+        page = request.GET.get("page")
         page_number = BlogSettings.for_site(request.site).page_number
         paginator = Paginator(articles, page_number)
         try:
@@ -73,56 +73,58 @@ class BlogPage(Page):
 
         # Updating the template context
         context = super().get_context(request)
-        context['articles'] = articles
-        context['current_tag'] = tag
+        context["articles"] = articles
+        context["current_tag"] = tag
         return context
 
 
 @register_setting
 class BlogSettings(BaseSetting):
     page_number = models.IntegerField(
-        help_text=_('The articles that are shown in the blog index page before using a paginator'),
-        default=5
+        help_text=_(
+            "The articles that are shown in the blog index page before using a paginator"
+        ),
+        default=5,
     )
 
     panels = [
         MultiFieldPanel(
             [
-                FieldPanel('page_number'),
+                FieldPanel("page_number"),
             ],
-            heading='Blog configuration',
-            classname='collapsible',
+            heading="Blog configuration",
+            classname="collapsible",
         ),
     ]
 
 
 class PostTag(TaggedItemBase):
-    content_object = ParentalKey('Post', related_name='tagged_items')
+    content_object = ParentalKey("Post", related_name="tagged_items")
 
 
 class Post(Page):
     cover = models.ForeignKey(
-        'wagtailimages.Image',
+        "wagtailimages.Image",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='+'
+        related_name="+",
     )
     body = StreamField(PostStreamBlock())
     intro = models.TextField(max_length=600)
     tags = ClusterTaggableManager(through=PostTag, blank=True)
-    date = models.DateField(_('Post date'))
+    date = models.DateField(_("Post date"))
 
     search_fields = Page.search_fields + [
-        index.SearchField('body'),
+        index.SearchField("body"),
     ]
 
     content_panels = Page.content_panels + [
-        FieldPanel('intro'),
-        ImageChooserPanel('cover'),
-        FieldPanel('tags'),
-        StreamFieldPanel('body'),
-        FieldPanel('date'),
+        FieldPanel("intro"),
+        ImageChooserPanel("cover"),
+        FieldPanel("tags"),
+        StreamFieldPanel("body"),
+        FieldPanel("date"),
     ]
 
     def get_context(self, request):
@@ -131,8 +133,10 @@ class Post(Page):
         """
         tags = self.tags.names()
         # filter articles by tags and exclude the current article
-        query = (Q(tags__name__in=tags) & ~Q(pk=self.pk))
-        similar_articles = Post.objects.live().filter(query).distinct().order_by('-date')
+        query = Q(tags__name__in=tags) & ~Q(pk=self.pk)
+        similar_articles = (
+            Post.objects.live().filter(query).distinct().order_by("-date")
+        )
         context = super().get_context(request)
-        context['similar_articles'] = similar_articles[:3]
+        context["similar_articles"] = similar_articles[:3]
         return context

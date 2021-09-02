@@ -11,7 +11,7 @@ def replace_query_link(context, field, value):
     by the given ``value``
     """
     # cloning the request
-    request = context['request']
+    request = context["request"]
     querystring = request.GET.copy()
 
     # field overriding; returning the encoded url
