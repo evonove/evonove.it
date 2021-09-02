@@ -42,9 +42,6 @@ just change ``DATABASE_URL`` and ``CACHE_URL`` with your linked container URLs.
 * ``UWSGI_SOCKET``: sets the unix socket path
 * ``UWSGI_PROCESSES``: sets the number of uWSGI processes
 
-### Logging and monitoring
+### Monitoring
 
-* ``LOGSTASH_HOST`` (default: ``127.0.0.1``)
-* ``LOGSTASH_PORT`` (default: ``5000``)
-* ``NEW_RELIC_CONFIG_FILE``: sets the NewRelic configuration file ``newrelic.ini``
 * ``SENTRY_DSN``: sets the ``DSN`` value, found in the Sentry setup page

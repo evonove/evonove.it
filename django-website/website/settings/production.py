@@ -1,6 +1,5 @@
 from .base import *
 
-
 # Django overrides
 INSTALLED_APPS += (
     'raven.contrib.django.raven_compat',
@@ -63,16 +62,4 @@ TEMPLATES = [
 # monitoring
 RAVEN_CONFIG = {
     'dsn': env('SENTRY_DSN'),
-}
-
-# logging
-LOGGING['loggers'] = {
-    'django': {
-        'handlers': ['console', 'syslog'],
-        'level': env('DJANGO_LOG_LEVEL', 'INFO'),
-    },
-    'website': {
-        'handlers': ['logstash', 'syslog'],
-        'level': env('WEBSITE_LOG_LEVEL', 'INFO'),
-    },
 }
