@@ -31,7 +31,7 @@ sqlparse==0.4.1; python_version >= "3.5" and python_full_version < "3.0.0" or py
 unidecode==1.2.0; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.4.0"
 urllib3==1.26.6; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.6.0" and python_version < "4" and python_version >= "3.6"
 uwsgi==2.0.18
-wagtail==2.6.1
+wagtail==2.11.8
 webencodings==0.5.1; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.5.0"
 whitenoise==4.1.3
 willow==1.1
