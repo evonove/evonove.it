@@ -25,6 +25,8 @@ jobs:
             poetry install
       - save_cache:
           key: poetry-cache-{{ checksum "poetry.lock" }}
+          paths:
+            - ~/.cache/pypoetry/virtualenvs
       - run:
           name: "Run tests"
           command: |
