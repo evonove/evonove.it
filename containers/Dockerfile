@@ -1,21 +1,59 @@
-FROM python:3.7
-MAINTAINER Evoniners <dev@evonove.it>
+####################################################################
+FROM python:3.7-slim as python-base
 
-ENV DJANGO_SETTINGS_MODULE website.settings.dev
-ENV DJANGO_EMAIL_BACKEND django.core.mail.backends.smtp.EmailBackend
-ENV DJANGO_EMAIL_HOST mailhog
-ENV DJANGO_EMAIL_HOST_PORT 1025
-ENV DATABASE_URL postgres://devel:123456@postgres:5432/evonoveit
-ENV CACHE_URL redis://redis:6379/1
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=off \
+    PIP_DISABLE_PIP_VERSION_CHECK=on \
+    PIP_DEFAULT_TIMEOUT=100 \
+    PROJECT_PATH="/app" \
+    VENV_PATH="/app/.venv"
 
-ENV UWSGI_HTTP 0.0.0.0:8000
-ENV UWSGI_PROCESSES 2
+ENV PATH="$VENV_PATH/bin:$PATH"
 
-WORKDIR /app
+####################################################################
+FROM python-base as builder-base
+ENV POETRY_VIRTUALENVS_IN_PROJECT=true \
+    POETRY_NO_INTERACTION=1 \
+    POETRY_VERSION=1.1.12
 
-ADD ./requirements/requirements.txt /app/
-RUN pip install -r requirements.txt
+# Install Poetry - respects $POETRY_VERSION
+RUN pip install "poetry==${POETRY_VERSION}"
+RUN apt-get update && apt-get install -y gcc && rm -rf /var/lib/apt/lists/*
 
-EXPOSE 8000
+# We copy our Python requirements here to cache them
+# and install only runtime deps using poetry
+COPY ./poetry.lock ./pyproject.toml $PROJECT_PATH/
 
-CMD ["uwsgi", "--need-app", "--chdir", "django-website", "--py-autoreload", "1", "--http", "8000", "--module", "website.wsgi"]
+WORKDIR $PROJECT_PATH
+
+####################################################################
+FROM builder-base as builder-production
+RUN poetry install --no-dev --no-ansi
+
+####################################################################
+FROM builder-base as builder-test
+RUN poetry install --no-ansi
+
+####################################################################
+FROM python-base as testing
+
+COPY ./django-website $PROJECT_PATH/
+COPY --from=builder-test $VENV_PATH $VENV_PATH
+WORKDIR $PROJECT_PATH
+ENV DJANGO_SETTINGS_MODULE=website.settings.dev
+CMD ["pytest"]
+
+####################################################################
+# FROM python-base as application
+#
+# # copy application code
+# COPY ./django-website $PROJECT_PATH/django-website
+# COPY --from=builder $VENV_PATH $VENV_PATH
+# WORKDIR $PROJECT_PATH
+#
+# ENV DJANGO_SETTINGS_MODULE=website.settings.production \
+#     DJANGO_DEBUG=False
+#
+# ENTRYPOINT ["start.sh"]
+# CMD ["uwsgi"]

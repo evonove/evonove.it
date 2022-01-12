@@ -15,12 +15,12 @@ jobs:
       - image: redis:6.2
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 19.03.13
       - run:
           command: |
-            pip install tox
-      - run:
-          name: Run tests
-          command: tox
+            docker build -t testing-run -f containers/Dockerfile .
+            docker run testing-run
 
 workflows:
   sample:
