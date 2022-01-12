@@ -15,12 +15,15 @@ jobs:
       - image: redis:6.2
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 19.03.13
       - run:
+          name: "Install poetry"
           command: |
-            docker build -t testing-run -f containers/Dockerfile .
-            docker run testing-run
+            pip install poetry
+      - run:
+          name: "Run tests"
+          command: |
+            poetry install
+            poetry run pytest
 
 workflows:
   sample:
