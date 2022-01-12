@@ -20,9 +20,12 @@ jobs:
           command: |
             pip install poetry
       - run:
-          name: "Run tests"
+          name: "Install dependencies"
           command: |
             poetry install
+      - run:
+          name: "Run tests"
+          command: |
             poetry run pytest
 
 workflows:
