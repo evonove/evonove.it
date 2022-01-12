@@ -16,10 +16,15 @@ jobs:
           name: "Install poetry"
           command: |
             pip install poetry
+      - restore_cache:
+          keys:
+            - poetry-cache-{{ checksum "poetry.lock" }}
       - run:
           name: "Install dependencies"
           command: |
             poetry install
+      - save_cache:
+          key: poetry-cache-{{ checksum "poetry.lock" }}
       - run:
           name: "Run tests"
           command: |
