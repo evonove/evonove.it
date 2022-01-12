@@ -10,8 +10,6 @@ jobs:
     steps:
       - checkout
       - python/install-packages:
-          pkg-manager: pip
-      - python/install-packages:
           args: tox
           pkg-manager: pip
           pypi-cache: false
