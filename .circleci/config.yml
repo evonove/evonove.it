@@ -7,6 +7,12 @@ jobs:
   build-and-test:
     docker:
       - image: cimg/python:3.7
+      - image: cimg/postgres:9.6
+        environment:
+          POSTGRES_USER: devel
+          POSTGRES_DB: evonoveit
+          POSTGRES_PASSWORD: "123456"
+      - image: redis:6.2
     steps:
       - checkout
       - run:
