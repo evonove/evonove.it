@@ -9,10 +9,9 @@ jobs:
       - image: cimg/python:3.7
     steps:
       - checkout
-      - python/install-packages:
-          args: tox
-          pkg-manager: pip
-          pypi-cache: false
+      - run:
+          command: |
+            pip install tox
       - run:
           name: Run tests
           command: tox
