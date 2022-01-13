@@ -41,13 +41,13 @@ jobs:
       - checkout
       - setup_remote_docker:
           docker_layer_caching: false
+      - gcp-gcr/gcr-auth:
+          gcloud-service-key: GCP_PROJECT_KEY
+          google-project-id: GOOGLE_PROJECT_ID
       - gcp-gcr/build-image:
           dockerfile: containers/Dockerfile
           google-project-id: GOOGLE_PROJECT_ID
           image: evonoveit-test-circleci-build
-      - gcp-gcr/gcr-auth:
-          gcloud-service-key: GOOGLE_CLOUD_KEYS
-          google-project-id: GOOGLE_PROJECT_ID
       - gcp-gcr/push-image:
           google-project-id: GOOGLE_PROJECT_ID
           image: evonoveit-test-circleci-build
