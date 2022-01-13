@@ -49,6 +49,7 @@ jobs:
       - run:
           name: Docker build
           command: |
+            echo $CIRCLE_TAG
             if [ -v CIRCLE_TAG ]; then
               echo 'export TAG=${CIRCLE_TAG}' >> $BASH_ENV
             else
