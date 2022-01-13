@@ -41,17 +41,16 @@ jobs:
             poetry run pytest
 
 workflows:
-  testing:
+  test_and_build:
     jobs:
       - run-tests
-  build_and_push_image:
-    jobs:
-      - gcp-gcr/build-and-push-image:
+      - gcp-gcr/build-image:
+          dockerfile: containers/Dockerfile
+          google-project-id: GOOGLE_PROJECT_ID
+          image: evonoveit-test-circleci-build
+      - gcp-gcr/gcr-auth:
           gcloud-service-key: GOOGLE_CLOUD_KEYS
           google-project-id: GOOGLE_PROJECT_ID
-          executor: builder-executor
+      - gcp-gcr/push-image:
+          google-project-id: GOOGLE_PROJECT_ID
           image: evonoveit-test-circleci-build
-          dockerfile: containers/Dockerfile
-          registry-url: gcr.io
-          setup-remote-docker: true
-          use-docker-layer-caching: true
