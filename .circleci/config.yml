@@ -38,6 +38,7 @@ jobs:
     machine:
       image: ubuntu-2004:202111-02
     steps:
+      - checkout
       - gcp-gcr/build-image:
           dockerfile: containers/Dockerfile
           google-project-id: GOOGLE_PROJECT_ID
