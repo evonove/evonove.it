@@ -49,7 +49,11 @@ jobs:
       - run:
           name: Docker build
           command: |
-            echo 'export TAG=${CIRCLE_SHA1}' >> $BASH_ENV
+            if [ -v CIRCLE_TAG ]; then
+              echo 'export TAG=${CIRCLE_TAG}' >> $BASH_ENV
+            else
+              echo 'export TAG=${CIRCLE_SHA1}' >> $BASH_ENV
+            fi
             echo 'export IMAGE_NAME=$CIRCLE_PROJECT_REPONAME' >> $BASH_ENV && source $BASH_ENV
             docker build -t gcr.io/$GOOGLE_PROJECT_ID/$IMAGE_NAME:$TAG -f containers/Dockerfile .
       - gcp-gcr/gcr-auth:
@@ -68,3 +72,12 @@ workflows:
       - build-and-push:
           requires:
             - run-tests
+  test_and_tagged_build:
+    jobs:
+      - run-tests
+      - build-and-push:
+          requires:
+            - run-tests
+          filters:
+            tags:
+              only: /.*/
