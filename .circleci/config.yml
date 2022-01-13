@@ -49,9 +49,8 @@ jobs:
       - run:
           name: Docker build
           command: |
-            echo $CIRCLE_TAG
             if [ -v CIRCLE_TAG ]; then
-              echo 'export TAG=${CIRCLE_TAG}' >> $BASH_ENV
+              echo 'export TAG="$(git tag -l --points-at HEAD)"' >> $BASH_ENV
             else
               echo 'export TAG=${CIRCLE_SHA1}' >> $BASH_ENV
             fi
