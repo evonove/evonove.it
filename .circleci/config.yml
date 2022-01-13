@@ -49,6 +49,7 @@ jobs:
       - run:
           name: Docker build
           command: |
+            echo Tag: $CIRCLE_TAG
             if [ -v CIRCLE_TAG ]; then
               echo 'export TAG=${CIRCLE_TAG}' >> $BASH_ENV
             else
@@ -66,18 +67,18 @@ jobs:
           tag: $TAG
 
 workflows:
-  # test_and_build:
-  #   jobs:
-  #     - run-tests
-  #     - build-and-push:
-  #         requires:
-  #           - run-tests
+  test_and_build:
+    jobs:
+      - run-tests
+      - build-and-push:
+          requires:
+            - run-tests
   test_and_tagged_build:
     jobs:
-      # - run-tests
+      - run-tests
       - build-and-push:
-          # requires:
-          #   - run-tests
+          requires:
+            - run-tests
           filters:
             branches:
               ignore: /.*/
