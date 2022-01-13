@@ -46,10 +46,9 @@ workflows:
       - run-tests
   build_and_push_image:
     jobs:
-      - gcp-gcr/gcr-auth:
+      - gcp-gcr/build-and-push-image:
           gcloud-service-key: GOOGLE_CLOUD_KEYS
           google-project-id: GOOGLE_PROJECT_ID
-      - gcp-gcr/build-and-push-image:
           executor: builder-executor
           image: evonoveit-test-circleci-build
           dockerfile: containers/Dockerfile
