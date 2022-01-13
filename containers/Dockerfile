@@ -1,4 +1,6 @@
 ####################################################################
+# Base python image
+####################################################################
 FROM python:3.7-slim as python-base
 
 ENV PYTHONUNBUFFERED=1 \
@@ -12,7 +14,9 @@ ENV PYTHONUNBUFFERED=1 \
 ENV PATH="$VENV_PATH/bin:$PATH"
 
 ####################################################################
-FROM python-base as builder-base
+# Builder image, here we create our virtualenv
+####################################################################
+FROM python-base as builder
 ENV POETRY_VIRTUALENVS_IN_PROJECT=true \
     POETRY_NO_INTERACTION=1 \
     POETRY_VERSION=1.1.12
@@ -27,33 +31,20 @@ COPY ./poetry.lock ./pyproject.toml $PROJECT_PATH/
 
 WORKDIR $PROJECT_PATH
 
-####################################################################
-FROM builder-base as builder-production
 RUN poetry install --no-dev --no-ansi
 
 ####################################################################
-FROM builder-base as builder-test
-RUN poetry install --no-ansi
-
+# Final deployable image
 ####################################################################
-FROM python-base as testing
+FROM python-base as application
 
-COPY ./django-website $PROJECT_PATH/
-COPY --from=builder-test $VENV_PATH $VENV_PATH
+# copy application code
+COPY ./django-website $PROJECT_PATH/django-website
+COPY --from=builder $VENV_PATH $VENV_PATH
 WORKDIR $PROJECT_PATH
-ENV DJANGO_SETTINGS_MODULE=website.settings.dev
-CMD ["pytest"]
 
-####################################################################
-# FROM python-base as application
-#
-# # copy application code
-# COPY ./django-website $PROJECT_PATH/django-website
-# COPY --from=builder $VENV_PATH $VENV_PATH
-# WORKDIR $PROJECT_PATH
-#
-# ENV DJANGO_SETTINGS_MODULE=website.settings.production \
-#     DJANGO_DEBUG=False
-#
-# ENTRYPOINT ["start.sh"]
-# CMD ["uwsgi"]
+ENV DJANGO_SETTINGS_MODULE=website.settings.production \
+    DJANGO_DEBUG=False
+
+ENTRYPOINT ["start.sh"]
+CMD ["uwsgi"]

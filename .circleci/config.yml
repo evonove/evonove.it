@@ -1,7 +1,10 @@
 version: 2.1
 
+orbs:
+  gcp-gcr: circleci/gcp-gcr@0.13.0
+
 jobs:
-  build-and-test:
+  run-tests:
     docker:
       - image: cimg/python:3.7
       - image: cimg/postgres:9.6
@@ -31,8 +34,26 @@ jobs:
           name: "Run tests"
           command: |
             poetry run pytest
+  build-and-push:
+    executor: gcp-gcr/default
+    steps:
+      - checkout
+      - gcp-gcr/gcr-auth
+      - gcp-gcr/build-image:
+          image: evonoveit-test-circleci-build
+          dockerfile: containers/Dockerfile
+          no_output_timeout: 20m
+          registry-url: gcr.io
+      - gcp-gcr/push-image:
+          digest-path: /tmp/digest.txt
+          image: evonoveit-test-circleci-build
+          registry-url: gcr.io
+      - run:
+          command: |
+            echo "Digest is: $(</tmp/digest.txt)"
 
 workflows:
-  sample:
+  testing:
     jobs:
-      - build-and-test
+      - run-tests
+      - build-and-push
