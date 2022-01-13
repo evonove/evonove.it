@@ -42,10 +42,13 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
-          name: Handle gcp auth
+          name: GCP authentication
           command: |
             echo ${GCP_PROJECT_KEY} | base64 --decode --ignore-garbage > $HOME/gcloud-service-key.json
             echo 'export GOOGLE_CLOUD_KEYS=$(cat $HOME/gcloud-service-key.json)' >> $BASH_ENV
+      - run:
+          name: Docker build
+          command: |
             echo 'export TAG=${CIRCLE_SHA1}' >> $BASH_ENV
             echo 'export IMAGE_NAME=$CIRCLE_PROJECT_REPONAME' >> $BASH_ENV && source $BASH_ENV
             docker build -t gcr.io/$GOOGLE_PROJECT_ID/$IMAGE_NAME:$TAG -f containers/Dockerfile .
@@ -56,6 +59,7 @@ jobs:
       - gcp-gcr/push-image:
           google-project-id: GOOGLE_PROJECT_ID
           image: $IMAGE_NAME
+          tag: $TAG
 
 workflows:
   test_and_build:
