@@ -36,7 +36,7 @@ jobs:
             poetry run pytest
   build-and-push:
     machine:
-      - image: ubuntu-2004:202111-02
+      image: ubuntu-2004:202111-02
     steps:
       - gcp-gcr/build-image:
           dockerfile: containers/Dockerfile
