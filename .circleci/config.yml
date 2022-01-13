@@ -39,11 +39,8 @@ jobs:
           name: "Run tests"
           command: |
             poetry run pytest
-
-workflows:
-  test_and_build:
-    jobs:
-      - run-tests
+  build-and-push:
+    steps:
       - gcp-gcr/build-image:
           dockerfile: containers/Dockerfile
           google-project-id: GOOGLE_PROJECT_ID
@@ -54,3 +51,9 @@ workflows:
       - gcp-gcr/push-image:
           google-project-id: GOOGLE_PROJECT_ID
           image: evonoveit-test-circleci-build
+
+workflows:
+  test_and_build:
+    jobs:
+      - run-tests
+      - build-and-push
