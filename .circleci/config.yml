@@ -3,11 +3,6 @@ version: 2.1
 orbs:
   gcp-gcr: circleci/gcp-gcr@0.13.0
 
-executors:
-  builder-executor:
-    docker:
-      - image: cimg/python:3.7
-
 jobs:
   run-tests:
     docker:
@@ -40,6 +35,8 @@ jobs:
           command: |
             poetry run pytest
   build-and-push:
+    machine:
+      - image: ubuntu-2004:202111-02
     steps:
       - gcp-gcr/build-image:
           dockerfile: containers/Dockerfile
