@@ -76,8 +76,8 @@ workflows:
     jobs:
       # - run-tests
       - build-and-push:
-          requires:
-            - run-tests
+          # requires:
+          #   - run-tests
           filters:
             branches:
               ignore: /.*/
