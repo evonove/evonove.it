@@ -35,10 +35,12 @@ jobs:
           command: |
             poetry run pytest
   build-and-push:
-    machine:
-      image: ubuntu-2004:202111-02
+    docker:
+      - image: cimg/python:3.7
     steps:
       - checkout
+      - setup_remote_docker:
+          docker_layer_caching: false
       - gcp-gcr/build-image:
           dockerfile: containers/Dockerfile
           google-project-id: GOOGLE_PROJECT_ID
