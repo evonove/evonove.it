@@ -3,6 +3,11 @@ version: 2.1
 orbs:
   gcp-gcr: circleci/gcp-gcr@0.13.0
 
+executors:
+  builder:
+    docker:
+      - image: cimg/python:3.7
+
 jobs:
   run-tests:
     docker:
@@ -34,22 +39,16 @@ jobs:
           name: "Run tests"
           command: |
             poetry run pytest
-  build-and-push:
-    docker:
-      - image: cimg/python:3.7
+  build:
+    executor:
+      builder
     steps:
       - checkout
       - setup_remote_docker:
-          docker_layer_caching: false
-      - run:
-          name: GCP authentication
-          command: |
-            echo ${GCP_PROJECT_KEY} | base64 --decode --ignore-garbage > $HOME/gcloud-service-key.json
-            echo 'export GOOGLE_CLOUD_KEYS=$(cat $HOME/gcloud-service-key.json)' >> $BASH_ENV
+          docker_layer_caching: true
       - run:
           name: Docker build
           command: |
-            echo Tag: $CIRCLE_TAG
             if [ -v CIRCLE_TAG ]; then
               echo 'export TAG=${CIRCLE_TAG}' >> $BASH_ENV
             else
@@ -57,6 +56,15 @@ jobs:
             fi
             echo 'export IMAGE_NAME=$CIRCLE_PROJECT_REPONAME' >> $BASH_ENV && source $BASH_ENV
             docker build -t gcr.io/$GOOGLE_PROJECT_ID/$IMAGE_NAME:$TAG -f containers/Dockerfile .
+  push:
+    executor:
+      builder
+    steps:
+      - run:
+          name: GCP authentication
+          command: |
+            echo ${GCP_PROJECT_KEY} | base64 --decode --ignore-garbage > $HOME/gcloud-service-key.json
+            echo 'export GOOGLE_CLOUD_KEYS=$(cat $HOME/gcloud-service-key.json)' >> $BASH_ENV
       - gcp-gcr/gcr-auth:
           gcloud-service-key: GOOGLE_CLOUD_KEYS
           google-project-id: GOOGLE_PROJECT_ID
@@ -67,23 +75,15 @@ jobs:
           tag: $TAG
 
 workflows:
-  test_and_build:
+  test_build_tag:
     jobs:
       - run-tests
-      - build-and-push:
+      - build:
           requires:
             - run-tests
-  test_and_tagged_build:
-    jobs:
-      - run-tests:
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /.*/
-      - build-and-push:
+      - tag:
           requires:
-            - run-tests
+            - build
           filters:
             branches:
               ignore: /.*/
