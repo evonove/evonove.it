@@ -75,38 +75,42 @@ jobs:
           tag: $TAG
 
 workflows:
-  test_build_tag:
+  test_build_push:
     jobs:
       - test
       - build:
+          name: commit-build
           requires:
             - test
           filters:
             branches:
-              ignore: /.*/
-            tags:
               only: /.*/
+            tags:
+              ignore: /.*/
+      - push:
+          name: commit-push
+          requires:
+            - commit-build
+          filters:
+            branches:
+              only: /.*/
+            tags:
+              ignore: /.*/
       - build:
+          name: tag-build
           requires:
             - test
           filters:
             branches:
-              only: /.*/
-            tags:
               ignore: /.*/
+            tags:
+              only: /.*/
       - push:
+          name: tag-push
           requires:
-            - build
+            - tag-build
           filters:
             branches:
               ignore: /.*/
             tags:
               only: /.*/
-      - push:
-          requires:
-            - build
-          filters:
-            branches:
-              only: /.*/
-            tags:
-              ignore: /.*/
