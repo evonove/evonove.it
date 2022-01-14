@@ -75,7 +75,12 @@ workflows:
             - run-tests
   test_and_tagged_build:
     jobs:
-      - run-tests
+      - run-tests:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /.*/
       - build-and-push:
           requires:
             - run-tests
