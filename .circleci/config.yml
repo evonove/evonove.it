@@ -77,10 +77,10 @@ jobs:
 workflows:
   test_build_tag:
     jobs:
-      - run-tests
+      - test
       - build:
           requires:
-            - run-tests
+            - test
       - push:
           requires:
             - build
