@@ -67,18 +67,18 @@ jobs:
           tag: $TAG
 
 workflows:
-  test_and_build:
-    jobs:
-      - run-tests
-      - build-and-push:
-          requires:
-            - run-tests
+  # test_and_build:
+  #   jobs:
+  #     - run-tests
+  #     - build-and-push:
+  #         requires:
+  #           - run-tests
   test_and_tagged_build:
     jobs:
-      - run-tests
+      # - run-tests
       - build-and-push:
-          requires:
-            - run-tests
+          # requires:
+          #   - run-tests
           filters:
             # branches:
             #   ignore: /.*/
