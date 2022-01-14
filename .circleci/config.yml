@@ -9,7 +9,7 @@ executors:
       - image: cimg/python:3.7
 
 jobs:
-  run-tests:
+  test:
     docker:
       - image: cimg/python:3.7
       - image: cimg/postgres:9.6
@@ -81,7 +81,7 @@ workflows:
       - build:
           requires:
             - run-tests
-      - tag:
+      - push:
           requires:
             - build
           filters:
@@ -89,3 +89,11 @@ workflows:
               ignore: /.*/
             tags:
               only: /.*/
+      - push:
+          requires:
+            - build
+          filters:
+            branches:
+              only: /.*/
+            tags:
+              ignore: /.*/
