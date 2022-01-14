@@ -40,7 +40,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker:
-          docker_layer_caching: true
+          docker_layer_caching: false
       - run:
           name: GCP authentication
           command: |
@@ -67,20 +67,20 @@ jobs:
           tag: $TAG
 
 workflows:
-  # test_and_build:
-  #   jobs:
-  #     - run-tests
-  #     - build-and-push:
-  #         requires:
-  #           - run-tests
+  test_and_build:
+    jobs:
+      - run-tests
+      - build-and-push:
+          requires:
+            - run-tests
   test_and_tagged_build:
     jobs:
-      # - run-tests
+      - run-tests
       - build-and-push:
-          # requires:
-          #   - run-tests
+          requires:
+            - run-tests
           filters:
-            # branches:
-            #   ignore: /.*/
+            branches:
+              ignore: /.*/
             tags:
               only: /.*/
