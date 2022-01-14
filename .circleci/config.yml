@@ -81,6 +81,19 @@ workflows:
       - build:
           requires:
             - test
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /.*/
+      - build:
+          requires:
+            - test
+          filters:
+            branches:
+              only: /.*/
+            tags:
+              ignore: /.*/
       - push:
           requires:
             - build
