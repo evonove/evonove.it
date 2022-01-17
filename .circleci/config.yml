@@ -70,7 +70,12 @@ jobs:
 workflows:
   test_build_push:
     jobs:
-      - test
+      - test:
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              only: /.*/
       - build-and-push:
           requires:
             - test
