@@ -39,7 +39,7 @@ jobs:
           name: "Run tests"
           command: |
             poetry run pytest
-  build:
+  build-and-push:
     executor:
       builder
     steps:
@@ -49,30 +49,11 @@ jobs:
       - run:
           name: Docker build
           command: |
-            if [ -v CIRCLE_TAG ]; then
-              echo 'export TAG=${CIRCLE_TAG}' >> $BASH_ENV
-            else
-              echo 'export TAG=${CIRCLE_SHA1}' >> $BASH_ENV
-            fi
-            echo 'export IMAGE_NAME=$CIRCLE_PROJECT_REPONAME' >> $BASH_ENV && source $BASH_ENV
-            docker build -t gcr.io/$GOOGLE_PROJECT_ID/$IMAGE_NAME:$TAG -f containers/Dockerfile .
-  push:
-    executor:
-      builder
-    steps:
-      - setup_remote_docker:
-          docker_layer_caching: true
-      - run:
-          name: GCP authentication
-          command: |
-            if [ -v CIRCLE_TAG ]; then
-              echo 'export TAG=${CIRCLE_TAG}' >> $BASH_ENV
-            else
-              echo 'export TAG=${CIRCLE_SHA1}' >> $BASH_ENV
-            fi
+            echo 'export TAG=${CIRCLE_SHA1}' >> $BASH_ENV
             echo 'export IMAGE_NAME=$CIRCLE_PROJECT_REPONAME' >> $BASH_ENV && source $BASH_ENV
             echo ${GCP_PROJECT_KEY} | base64 --decode --ignore-garbage > $HOME/gcloud-service-key.json
             echo 'export GOOGLE_CLOUD_KEYS=$(cat $HOME/gcloud-service-key.json)' >> $BASH_ENV
+            docker build -t gcr.io/$GOOGLE_PROJECT_ID/$IMAGE_NAME:$TAG -f containers/Dockerfile .
       - gcp-gcr/gcr-auth:
           gcloud-service-key: GOOGLE_CLOUD_KEYS
           google-project-id: GOOGLE_PROJECT_ID
@@ -81,13 +62,20 @@ jobs:
           google-project-id: GOOGLE_PROJECT_ID
           image: $IMAGE_NAME
           tag: $TAG
+  tag:
+    executor:
+      builder
+    steps:
+      - gcp-gcr/tag-image:
+          image: $IMAGE_NAME
+          source-tag: $CIRCLE_SHA1
+          target-tag: $CIRCLE_TAG
 
 workflows:
   test_build_push:
     jobs:
       - test
-      - build:
-          name: commit-build
+      - build-and-push:
           requires:
             - test
           filters:
@@ -95,30 +83,11 @@ workflows:
               only: /.*/
             tags:
               ignore: /.*/
-      - push:
-          name: commit-push
+      - tag:
           requires:
-            - commit-build
+            - build-and-push
           filters:
-            branches:
-              only: /.*/
-            tags:
-              ignore: /.*/
-      - build:
-          name: tag-build
-          requires:
-            - test
-          filters:
-            branches:
-              ignore: /.*/
             tags:
               only: /.*/
-      - push:
-          name: tag-push
-          requires:
-            - tag-build
-          filters:
             branches:
               ignore: /.*/
-            tags:
-              only: /.*/
