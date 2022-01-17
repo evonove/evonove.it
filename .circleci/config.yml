@@ -74,3 +74,8 @@ workflows:
       - build-and-push:
           requires:
             - test
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              only: /.*/
