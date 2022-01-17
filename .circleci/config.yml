@@ -63,6 +63,12 @@ jobs:
       - run:
           name: GCP authentication
           command: |
+            if [ -v CIRCLE_TAG ]; then
+              echo 'export TAG=${CIRCLE_TAG}' >> $BASH_ENV
+            else
+              echo 'export TAG=${CIRCLE_SHA1}' >> $BASH_ENV
+            fi
+            echo 'export IMAGE_NAME=$CIRCLE_PROJECT_REPONAME' >> $BASH_ENV && source $BASH_ENV
             echo ${GCP_PROJECT_KEY} | base64 --decode --ignore-garbage > $HOME/gcloud-service-key.json
             echo 'export GOOGLE_CLOUD_KEYS=$(cat $HOME/gcloud-service-key.json)' >> $BASH_ENV
       - gcp-gcr/gcr-auth:
