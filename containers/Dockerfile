@@ -40,11 +40,12 @@ FROM python-base as application
 
 # copy application code
 COPY ./django-website $PROJECT_PATH/django-website
+COPY ./containers/start.sh $PROJECT_PATH
 COPY --from=builder $VENV_PATH $VENV_PATH
 WORKDIR $PROJECT_PATH
 
 ENV DJANGO_SETTINGS_MODULE=website.settings.production \
     DJANGO_DEBUG=False
 
-ENTRYPOINT ["start.sh"]
+ENTRYPOINT ["/app/start.sh"]
 CMD ["uwsgi"]
