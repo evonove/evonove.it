@@ -6,3 +6,4 @@ django-website/**/tests/
 !poetry.lock
 !README.md
 !containers/start.sh
+!uwsgi.ini

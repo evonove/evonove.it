@@ -41,6 +41,7 @@ FROM python-base as application
 # copy application code
 COPY ./django-website $PROJECT_PATH/django-website
 COPY ./containers/start.sh $PROJECT_PATH
+COPY ./uwsgi.ini $PROJECT_PATH
 COPY --from=builder $VENV_PATH $VENV_PATH
 WORKDIR $PROJECT_PATH
 
