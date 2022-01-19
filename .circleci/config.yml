@@ -20,6 +20,9 @@ workflows:
           type: approval
           requires:
            - test
+          filters:
+            tags:
+              only: /.*/
       - build-and-push:
           requires:
             - hold
@@ -80,7 +83,6 @@ jobs:
     executor:
       builder
     steps:
-
       - checkout
       - run:
           # The gcloud service key needs to be decoded
