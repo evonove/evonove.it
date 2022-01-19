@@ -16,16 +16,9 @@ workflows:
           filters:
             tags:
               only: /.*/
-      - hold:
-          type: approval
-          requires:
-           - test
-          filters:
-            tags:
-              only: /.*/
       - build-and-push:
           requires:
-            - hold
+            - test
           filters:
             tags:
               only: /.*/
