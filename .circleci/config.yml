@@ -1,0 +1,86 @@
+version: 2.1
+
+orbs:
+  gcp-gcr: circleci/gcp-gcr@0.13.0
+
+executors:
+  builder:
+    docker:
+      - image: cimg/python:3.7
+
+jobs:
+  test:
+    docker:
+      - image: cimg/python:3.7
+      - image: cimg/postgres:9.6
+        environment:
+          POSTGRES_USER: devel
+          POSTGRES_DB: evonoveit
+          POSTGRES_PASSWORD: "123456"
+      - image: redis:6.2
+    steps:
+      - checkout
+      - run:
+          name: "Install poetry"
+          command: |
+            pip install poetry
+      - restore_cache:
+          keys:
+            - poetry-cache-{{ checksum "poetry.lock" }}
+      - run:
+          name: "Install dependencies"
+          command: |
+            poetry install
+      - save_cache:
+          key: poetry-cache-{{ checksum "poetry.lock" }}
+          paths:
+            - ~/.cache/pypoetry/virtualenvs
+      - run:
+          name: "Run tests"
+          command: |
+            poetry run pytest
+  build-and-push:
+    executor:
+      builder
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Docker build
+          command: |
+            if [ -v CIRCLE_TAG ]; then
+              echo 'export TAG=${CIRCLE_TAG}' >> $BASH_ENV
+            else
+              echo 'export TAG=${CIRCLE_SHA1}' >> $BASH_ENV
+            fi
+            echo 'export IMAGE_NAME=$CIRCLE_PROJECT_REPONAME' >> $BASH_ENV && source $BASH_ENV
+            echo ${GCP_PROJECT_KEY} | base64 --decode --ignore-garbage > $HOME/gcloud-service-key.json
+            echo 'export GOOGLE_CLOUD_KEYS=$(cat $HOME/gcloud-service-key.json)' >> $BASH_ENV
+            docker build -t gcr.io/$GOOGLE_PROJECT_ID/$IMAGE_NAME:$TAG -f containers/Dockerfile .
+      - gcp-gcr/gcr-auth:
+          gcloud-service-key: GOOGLE_CLOUD_KEYS
+          google-project-id: GOOGLE_PROJECT_ID
+          google-compute-zone: GOOGLE_COMPUTE_ZONE
+      - gcp-gcr/push-image:
+          google-project-id: GOOGLE_PROJECT_ID
+          image: $IMAGE_NAME
+          tag: $TAG
+
+workflows:
+  test_build_push:
+    jobs:
+      - test:
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              only: /.*/
+      - build-and-push:
+          requires:
+            - test
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              only: /.*/

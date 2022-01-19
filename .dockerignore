@@ -1,0 +1,9 @@
+*
+
+!django-website/
+django-website/**/tests/
+!pyproject.toml
+!poetry.lock
+!README.md
+!containers/start.sh
+!uwsgi.ini
