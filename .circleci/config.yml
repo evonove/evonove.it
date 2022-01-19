@@ -16,15 +16,15 @@ workflows:
           filters:
             tags:
               only: /.*/
-            branches:
-              only: /.*/
+      - hold:
+          type: approval
+          requires:
+           - test
       - build-and-push:
           requires:
-            - test
+            - hold
           filters:
             tags:
-              only: /.*/
-            branches:
               only: /.*/
 
 jobs:
@@ -80,6 +80,7 @@ jobs:
     executor:
       builder
     steps:
+
       - checkout
       - run:
           # The gcloud service key needs to be decoded
@@ -93,7 +94,7 @@ jobs:
       - gcp-gcr/build-image:
           image: $CIRCLE_PROJECT_REPONAME
           tag: $CIRCLE_SHA1
-          dockerfile: containers/prod/Dockerfile
+          dockerfile: containers/Dockerfile
       - gcp-gcr/push-image:
           image: $CIRCLE_PROJECT_REPONAME
           tag: $CIRCLE_SHA1
