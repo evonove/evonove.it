@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  python: circleci/python@1.2
+  python: circleci/python@2.1.1
   gcp-gcr: circleci/gcp-gcr@0.13.0
 
 executors:
@@ -17,6 +17,8 @@ workflows:
             tags:
               only: /.*/
       - build-and-push:
+          context:
+            - google-cloud-platform
           requires:
             - test
           filters:
@@ -77,15 +79,10 @@ jobs:
       builder
     steps:
       - checkout
-      - run:
-          # The gcloud service key needs to be decoded
-          name: GCloud service key setup
-          command: |
-            echo ${GCP_PROJECT_KEY} | base64 --decode --ignore-garbage > $HOME/gcloud-service-key.json
-            echo 'export GCLOUD_SERVICE_KEY=$(cat $HOME/gcloud-service-key.json)' >> $BASH_ENV && source $BASH_ENV
       - setup_remote_docker:
           docker_layer_caching: true
-      - gcp-gcr/gcr-auth
+      - gcp-gcr/gcr-auth:
+          gcloud-service-key: CLEARTEXT_GCLOUD_SERVICE_KEY
       - gcp-gcr/build-image:
           image: $CIRCLE_PROJECT_REPONAME
           tag: $CIRCLE_SHA1
