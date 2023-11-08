@@ -1,19 +1,16 @@
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db import models
 from django.db.models import Q
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.utils.translation import ugettext as _
-
-from modelcluster.fields import ParentalKey
 from modelcluster.contrib.taggit import ClusterTaggableManager
-
+from modelcluster.fields import ParentalKey
 from taggit.models import Tag, TaggedItemBase
-
-from wagtail.search import index
-from wagtail.core.models import Page
-from wagtail.core.fields import StreamField, RichTextField
-from wagtail.contrib.settings.models import BaseSetting, register_setting
 from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, StreamFieldPanel
+from wagtail.contrib.settings.models import BaseSetting, register_setting
+from wagtail.core.fields import RichTextField, StreamField
+from wagtail.core.models import Page
 from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.search import index
 
 from .fields import PostStreamBlock
 
@@ -82,7 +79,8 @@ class BlogPage(Page):
 class BlogSettings(BaseSetting):
     page_number = models.IntegerField(
         help_text=_(
-            "The articles that are shown in the blog index page before using a paginator"
+            "The articles that are shown in the blog "
+            "index page before using a paginator"
         ),
         default=5,
     )

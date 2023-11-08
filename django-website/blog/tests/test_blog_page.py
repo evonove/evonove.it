@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from wagtail.tests.utils import WagtailPageTests, WagtailTestUtils
 from wagtail.core.models import Page, Site
+from wagtail.tests.utils import WagtailPageTests, WagtailTestUtils
 
 from blog.models import BlogPage, Post
 

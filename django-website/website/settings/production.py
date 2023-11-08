@@ -1,4 +1,6 @@
-from .base import *
+import os
+
+from .base import BASE_DIR, INSTALLED_APPS, env
 
 # Django overrides
 INSTALLED_APPS += ("raven.contrib.django.raven_compat",)

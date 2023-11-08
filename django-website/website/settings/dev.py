@@ -1,5 +1,5 @@
-from .base import *
-
+from .base import *  # noqa
+from .base import LOGGING, env
 
 # removing security enforcement in development mode
 DEBUG = True

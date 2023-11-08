@@ -1,17 +1,14 @@
+from agency.models import AgencyPage, Service
+from core.models import BaseModel
 from django.db import models
 from django.utils.translation import ugettext as _
-
 from modelcluster.fields import ParentalKey
-
-from wagtail.core.models import Page, Orderable
-from wagtail.core.fields import RichTextField
-from wagtail.images.models import Image
-from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel
-from wagtail.images.edit_handlers import ImageChooserPanel
-
-from core.models import BaseModel
 from portfolio.models import Project
-from agency.models import AgencyPage, Service
+from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
+from wagtail.core.fields import RichTextField
+from wagtail.core.models import Orderable, Page
+from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.images.models import Image
 
 
 class HomePage(BaseModel):
@@ -54,7 +51,7 @@ class HomePage(BaseModel):
     ]
 
     def get_context(self, request):
-        context = super(HomePage, self).get_context(request)
+        context = super().get_context(request)
         context["projects"] = Project.objects.filter(show_in_home=True)
         context["services"] = Service.objects.all()
         context["services_contact"] = AgencyPage.objects.live().first().services_contact

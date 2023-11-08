@@ -1,6 +1,6 @@
 import os
-import dj_database_url
 
+import dj_database_url
 from getenv import env
 
 # django-website is the root folder
@@ -10,9 +10,11 @@ BASE_DIR = os.path.join(BASE_DIR, "..")
 # security
 SECRET_KEY = env("SECRET_KEY")
 
+# this line was added to avoid a line too long error
+_FOO = "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": _FOO,
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",

@@ -1,15 +1,11 @@
+from core.models import BaseModel
 from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-
 from modelcluster.fields import ParentalKey
-
-from wagtail.core.models import Page, Orderable
-from wagtail.core.fields import RichTextField
-
 from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
-
-from core.models import BaseModel
+from wagtail.core.fields import RichTextField
+from wagtail.core.models import Orderable, Page
 
 
 class HiringPage(BaseModel):

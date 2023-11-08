@@ -1,6 +1,5 @@
 from django import template
 
-
 register = template.Library()
 
 
@@ -16,4 +15,4 @@ def replace_query_link(context, field, value):
 
     # field overriding; returning the encoded url
     querystring[field] = value
-    return "?{}".format(querystring.urlencode())
+    return f"?{querystring.urlencode()}"

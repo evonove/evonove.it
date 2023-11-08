@@ -1,8 +1,6 @@
 import pytest
-
-from wagtail.core.models import Page
-
 from home.models import HomePage
+from wagtail.core.models import Page
 
 
 @pytest.mark.django_db
@@ -17,7 +15,7 @@ class TestMigration:
             - A customized HomePage should be created
         """
         default_homepage = Page.objects.filter(id=2)
-        homepage = HomePage.objects.filter(slug='home')
+        homepage = HomePage.objects.filter(slug="home")
 
         assert default_homepage.count() == 0
         assert homepage.count() == 1

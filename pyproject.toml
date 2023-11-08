@@ -24,10 +24,24 @@ pytest = "5.1.1"
 pytest-cov = "2.7.1"
 pytest-django = "3.5.1"
 pytest-xdist = "1.29.0"
-flake8 = "3.7.8"
 coverage = "4.5.4"
-black = "^21.12b0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 88
+select = [
+  "E",   # pycodestyle
+  "W",   # pycodestyle warnings
+  "C90", # mccabe
+  "B",   # bugbear
+  "I",   # isort
+  "F",   # pyflakes
+  "UP",  # pyupgrade
+]
+exclude = ["migrations", "node_modules"]

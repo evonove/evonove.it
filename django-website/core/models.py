@@ -1,9 +1,8 @@
 from django.contrib.postgres.fields import JSONField
 from django.utils.translation import ugettext as _
-
-from wagtail.core.models import Page
-from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.core.fields import RichTextField
+from wagtail.core.models import Page
 
 
 class BaseModel(Page):

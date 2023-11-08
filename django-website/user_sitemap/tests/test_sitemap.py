@@ -1,12 +1,11 @@
 from datetime import datetime
 
-from wagtail.tests.utils import WagtailPageTests, WagtailTestUtils
-from wagtail.core.models import Page, Site
-
 from agency.models import AgencyPage
+from blog.models import BlogPage, Post
 from contacts.models import ContactsPage
 from portfolio.models import PortfolioPage
-from blog.models import BlogPage, Post
+from wagtail.core.models import Page, Site
+from wagtail.tests.utils import WagtailPageTests, WagtailTestUtils
 
 
 class TestUserSitemap(WagtailPageTests, WagtailTestUtils):

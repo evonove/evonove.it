@@ -1,9 +1,8 @@
 from django.db import models
 from django.utils.translation import ugettext as _
-
-from wagtail.core.fields import RichTextField
-from wagtail.contrib.settings.models import BaseSetting, register_setting
 from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
+from wagtail.contrib.settings.models import BaseSetting, register_setting
+from wagtail.core.fields import RichTextField
 
 
 @register_setting
