@@ -5,8 +5,8 @@ from __future__ import unicode_literals
 import blog.fields
 from django.db import migrations, models
 import django.db.models.deletion
-import wagtail.core.blocks
-import wagtail.core.fields
+import wagtail.blocks
+import wagtail.fields
 import wagtail.embeds.blocks
 import wagtail.images.blocks
 
@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
             name='HiringPage',
             fields=[
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.Page')),
-                ('body', wagtail.core.fields.StreamField((('h2', wagtail.core.blocks.CharBlock(icon='title')), ('h3', wagtail.core.blocks.CharBlock(icon='title')), ('paragraph', wagtail.core.blocks.RichTextBlock(icon='pilcrow')), ('aligned_image', wagtail.core.blocks.StructBlock((('image', wagtail.images.blocks.ImageChooserBlock()), ('alignment', blog.fields.ImageFormatBlock()), ('caption', wagtail.core.blocks.RichTextBlock(required=False))), icon='image', label='Aligned image')), ('youtube', wagtail.core.blocks.StructBlock((('identifier', wagtail.embeds.blocks.EmbedBlock()),), icon='image')), ('pullquote', wagtail.core.blocks.StructBlock((('quote', wagtail.core.blocks.TextBlock(label='Quote title')), ('attribution', wagtail.core.blocks.CharBlock())), icon='openquote'))))),
+                ('body', wagtail.fields.StreamField((('h2', wagtail.blocks.CharBlock(icon='title')), ('h3', wagtail.blocks.CharBlock(icon='title')), ('paragraph', wagtail.blocks.RichTextBlock(icon='pilcrow')), ('aligned_image', wagtail.blocks.StructBlock((('image', wagtail.images.blocks.ImageChooserBlock()), ('alignment', blog.fields.ImageFormatBlock()), ('caption', wagtail.blocks.RichTextBlock(required=False))), icon='image', label='Aligned image')), ('youtube', wagtail.blocks.StructBlock((('identifier', wagtail.embeds.blocks.EmbedBlock()),), icon='image')), ('pullquote', wagtail.blocks.StructBlock((('quote', wagtail.blocks.TextBlock(label='Quote title')), ('attribution', wagtail.blocks.CharBlock())), icon='openquote'))))),
             ],
             options={
                 'abstract': False,

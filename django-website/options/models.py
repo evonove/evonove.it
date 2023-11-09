@@ -1,12 +1,12 @@
 from django.db import models
-from django.utils.translation import ugettext as _
-from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
-from wagtail.contrib.settings.models import BaseSetting, register_setting
-from wagtail.core.fields import RichTextField
+from django.utils.translation import gettext as _
+from wagtail.admin.panels import FieldPanel, MultiFieldPanel
+from wagtail.contrib.settings.models import BaseSiteSetting, register_setting
+from wagtail.fields import RichTextField
 
 
 @register_setting
-class WebsiteSettings(BaseSetting):
+class WebsiteSettings(BaseSiteSetting):
     name = models.CharField(max_length=255, help_text=_("Your company name"))
     address = RichTextField(help_text=_("Your company address"))
     email = models.EmailField(max_length=255, help_text=_("Your company email address"))
@@ -45,7 +45,7 @@ class WebsiteSettings(BaseSetting):
 
 
 @register_setting
-class AnalyticsSettings(BaseSetting):
+class AnalyticsSettings(BaseSiteSetting):
     google_analytics = models.CharField(
         max_length=15, help_text=_("Google Analytics tracking ID")
     )

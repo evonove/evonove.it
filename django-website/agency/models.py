@@ -1,13 +1,12 @@
 from core.models import BaseModel
 from django.conf import settings
 from django.db import models
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from modelcluster.fields import ParentalKey
-from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
-from wagtail.core.fields import RichTextField
-from wagtail.core.models import Orderable, Page
-from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.admin.panels import FieldPanel, InlinePanel, MultiFieldPanel
+from wagtail.fields import RichTextField
 from wagtail.images.models import Image
+from wagtail.models import Orderable, Page
 
 
 class AgencyPage(BaseModel):
@@ -44,7 +43,7 @@ class AgencyPage(BaseModel):
                 FieldPanel("section_title"),
                 FieldPanel("section_subtitle"),
                 FieldPanel("description"),
-                ImageChooserPanel("image"),
+                FieldPanel("image"),
             ],
             heading=_("Bio"),
         ),
@@ -151,7 +150,7 @@ class TeamMember(Orderable):
         FieldPanel("lastname"),
         FieldPanel("role"),
         FieldPanel("gravatar"),
-        ImageChooserPanel("photo"),
+        FieldPanel("photo"),
         FieldPanel("website"),
         FieldPanel("github"),
         FieldPanel("twitter"),

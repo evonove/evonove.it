@@ -1,8 +1,8 @@
-from django.contrib.postgres.fields import JSONField
-from django.utils.translation import ugettext as _
-from wagtail.admin.edit_handlers import FieldPanel
-from wagtail.core.fields import RichTextField
-from wagtail.core.models import Page
+from django.db import models
+from django.utils.translation import gettext as _
+from wagtail.admin.panels import FieldPanel
+from wagtail.fields import RichTextField
+from wagtail.models import Page
 
 
 class BaseModel(Page):
@@ -11,7 +11,9 @@ class BaseModel(Page):
     section_subtitle = RichTextField(blank=True)
 
     # seo field
-    linked_data = JSONField(null=True, blank=True, help_text=_("Linked Data in JSON"))
+    linked_data = models.JSONField(
+        null=True, blank=True, help_text=_("Linked Data in JSON")
+    )
 
     content_panels = Page.content_panels + [
         FieldPanel("section_title"),

@@ -1,7 +1,7 @@
 ####################################################################
 # Base python image
 ####################################################################
-FROM python:3.7-slim as python-base
+FROM python:3.8.18-slim as python-base
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
@@ -19,7 +19,7 @@ ENV PATH="$VENV_PATH/bin:$PATH"
 FROM python-base as builder
 ENV POETRY_VIRTUALENVS_IN_PROJECT=true \
     POETRY_NO_INTERACTION=1 \
-    POETRY_VERSION=1.1.12
+    POETRY_VERSION=1.7.0
 
 # Install Poetry - respects $POETRY_VERSION
 RUN pip install "poetry==${POETRY_VERSION}"

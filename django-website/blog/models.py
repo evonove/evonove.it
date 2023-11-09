@@ -1,15 +1,14 @@
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db import models
 from django.db.models import Q
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from modelcluster.fields import ParentalKey
 from taggit.models import Tag, TaggedItemBase
-from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, StreamFieldPanel
-from wagtail.contrib.settings.models import BaseSetting, register_setting
-from wagtail.core.fields import RichTextField, StreamField
-from wagtail.core.models import Page
-from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.admin.panels import FieldPanel, MultiFieldPanel
+from wagtail.contrib.settings.models import BaseSiteSetting, register_setting
+from wagtail.fields import RichTextField, StreamField
+from wagtail.models import Page
 from wagtail.search import index
 
 from .fields import PostStreamBlock
@@ -76,7 +75,7 @@ class BlogPage(Page):
 
 
 @register_setting
-class BlogSettings(BaseSetting):
+class BlogSettings(BaseSiteSetting):
     page_number = models.IntegerField(
         help_text=_(
             "The articles that are shown in the blog "
@@ -108,7 +107,7 @@ class Post(Page):
         on_delete=models.SET_NULL,
         related_name="+",
     )
-    body = StreamField(PostStreamBlock())
+    body = StreamField(PostStreamBlock(), use_json_field=True)
     intro = models.TextField(max_length=600)
     tags = ClusterTaggableManager(through=PostTag, blank=True)
     date = models.DateField(_("Post date"))
@@ -119,9 +118,9 @@ class Post(Page):
 
     content_panels = Page.content_panels + [
         FieldPanel("intro"),
-        ImageChooserPanel("cover"),
+        FieldPanel("cover"),
         FieldPanel("tags"),
-        StreamFieldPanel("body"),
+        FieldPanel("body"),
         FieldPanel("date"),
     ]
 

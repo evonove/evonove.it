@@ -1,8 +1,8 @@
 from core.models import BaseModel
 from django.db import models
-from django.utils.translation import ugettext as _
-from wagtail.admin.edit_handlers import FieldPanel
-from wagtail.core.models import Page
+from django.utils.translation import gettext as _
+from wagtail.admin.panels import FieldPanel
+from wagtail.models import Page
 
 
 class ContactsPage(BaseModel):

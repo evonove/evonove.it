@@ -51,7 +51,7 @@ INSTALLED_APPS = (
     "wagtail.documents",
     "wagtail.embeds",
     "wagtail.admin",
-    "wagtail.core",
+    "wagtail",
     "wagtail.contrib.settings",
     "modelcluster",
     "taggit",
@@ -75,7 +75,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "wagtail.core.middleware.SiteMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
 
@@ -107,6 +106,7 @@ DATABASES_DEFAULT = "postgres://devel:123456@127.0.0.1:5432/evonoveit"
 DATABASES = {
     "default": dj_database_url.config(default=DATABASES_DEFAULT),
 }
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 # Cache
 CACHES_DEFAULT = "redis://127.0.0.1:6379/1"
@@ -125,7 +125,6 @@ CACHES = {
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
 USE_I18N = True
-USE_L10N = True
 USE_TZ = True
 
 # static files and media
@@ -147,6 +146,7 @@ EMAIL_BACKEND = env("DJANGO_EMAIL_BACKEND", DEFAULT_EMAIL_BACKEND)
 
 # Wagtail settings
 WAGTAIL_SITE_NAME = "Evonove"
+WAGTAILADMIN_BASE_URL = env("DJANGO_BASE_URL", "http://localhost:8000")
 TAGGIT_CASE_INSENSITIVE = True
 
 LOGGING = {

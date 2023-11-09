@@ -1,15 +1,16 @@
 from core.models import BaseModel
-from django.contrib.postgres.fields import JSONField
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from modelcluster.fields import ParentalKey
-from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
-from wagtail.core.fields import RichTextField
-from wagtail.core.models import Orderable, Page
+from wagtail.admin.panels import FieldPanel, InlinePanel, MultiFieldPanel
+from wagtail.fields import RichTextField
+from wagtail.models import Orderable, Page
 
 
 class HiringPage(BaseModel):
-    linked_data = JSONField(null=True, blank=True, help_text=_("Linked Data in JSON"))
+    linked_data = models.JSONField(
+        null=True, blank=True, help_text=_("Linked Data in JSON")
+    )
     intro = RichTextField(blank=True)
     outro = RichTextField(blank=True)
 

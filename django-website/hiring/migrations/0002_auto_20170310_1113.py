@@ -5,8 +5,8 @@ from __future__ import unicode_literals
 import blog.fields
 import django.contrib.postgres.fields.jsonb
 from django.db import migrations
-import wagtail.core.blocks
-import wagtail.core.fields
+import wagtail.blocks
+import wagtail.fields
 import wagtail.embeds.blocks
 import wagtail.images.blocks
 
@@ -26,6 +26,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='hiringpage',
             name='body',
-            field=wagtail.core.fields.StreamField((('h2', wagtail.core.blocks.CharBlock(icon='title')), ('h3', wagtail.core.blocks.CharBlock(icon='title')), ('paragraph', wagtail.core.blocks.RichTextBlock(icon='pilcrow')), ('aligned_image', wagtail.core.blocks.StructBlock((('image', wagtail.images.blocks.ImageChooserBlock()), ('alignment', blog.fields.ImageFormatBlock()), ('caption', wagtail.core.blocks.RichTextBlock(required=False))), icon='image', label='Aligned image')), ('youtube', wagtail.core.blocks.StructBlock((('identifier', wagtail.embeds.blocks.EmbedBlock()),), icon='image')), ('pullquote', wagtail.core.blocks.StructBlock((('quote', wagtail.core.blocks.TextBlock(label='Quote title')), ('attribution', wagtail.core.blocks.CharBlock())), icon='openquote')), ('code_snippet', wagtail.core.blocks.StructBlock((('language', wagtail.core.blocks.ChoiceBlock(choices=[('python', 'Python'), ('cpp', 'C++'), ('html', 'HTML'), ('css', 'CSS')])), ('code_text', wagtail.core.blocks.TextBlock())), icon='code', label='Code Snippet')))),
+            field=wagtail.fields.StreamField((('h2', wagtail.blocks.CharBlock(icon='title')), ('h3', wagtail.blocks.CharBlock(icon='title')), ('paragraph', wagtail.blocks.RichTextBlock(icon='pilcrow')), ('aligned_image', wagtail.blocks.StructBlock((('image', wagtail.images.blocks.ImageChooserBlock()), ('alignment', blog.fields.ImageFormatBlock()), ('caption', wagtail.blocks.RichTextBlock(required=False))), icon='image', label='Aligned image')), ('youtube', wagtail.blocks.StructBlock((('identifier', wagtail.embeds.blocks.EmbedBlock()),), icon='image')), ('pullquote', wagtail.blocks.StructBlock((('quote', wagtail.blocks.TextBlock(label='Quote title')), ('attribution', wagtail.blocks.CharBlock())), icon='openquote')), ('code_snippet', wagtail.blocks.StructBlock((('language', wagtail.blocks.ChoiceBlock(choices=[('python', 'Python'), ('cpp', 'C++'), ('html', 'HTML'), ('css', 'CSS')])), ('code_text', wagtail.blocks.TextBlock())), icon='code', label='Code Snippet')))),
         ),
     ]

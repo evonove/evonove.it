@@ -1,6 +1,6 @@
 import pytest
 from home.models import HomePage
-from wagtail.core.models import Page
+from wagtail.models import Page
 
 
 @pytest.mark.django_db

@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 from django.db import migrations, models
 import django.db.models.deletion
 import modelcluster.fields
-import wagtail.core.fields
+import wagtail.fields
 
 
 class Migration(migrations.Migration):
@@ -35,12 +35,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='homepage',
             name='works_subtitle',
-            field=wagtail.core.fields.RichTextField(blank=True),
+            field=wagtail.fields.RichTextField(blank=True),
         ),
         migrations.AddField(
             model_name='homepage',
             name='works_title',
-            field=wagtail.core.fields.RichTextField(blank=True),
+            field=wagtail.fields.RichTextField(blank=True),
         ),
         migrations.DeleteModel(
             name='Service',

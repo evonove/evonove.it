@@ -4,8 +4,8 @@ from agency.models import AgencyPage
 from blog.models import BlogPage, Post
 from contacts.models import ContactsPage
 from portfolio.models import PortfolioPage
-from wagtail.core.models import Page, Site
-from wagtail.tests.utils import WagtailPageTests, WagtailTestUtils
+from wagtail.models import Page, Site
+from wagtail.test.utils import WagtailPageTests, WagtailTestUtils
 
 
 class TestUserSitemap(WagtailPageTests, WagtailTestUtils):
