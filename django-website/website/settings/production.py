@@ -1,5 +1,6 @@
 import os
 
+from .base import *  # noqa
 from .base import BASE_DIR, INSTALLED_APPS, env
 
 # Django overrides
