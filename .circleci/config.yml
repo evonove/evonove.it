@@ -57,7 +57,7 @@ jobs:
       - run:
           name: Migrations check
           environment:
-            DJANGO_SETTINGS_MODULE: website.settings.devel
+            DJANGO_SETTINGS_MODULE: website.settings.test
           command: poetry run python django-website/manage.py makemigrations --check --dry-run
       - run:
           name: Run tests
