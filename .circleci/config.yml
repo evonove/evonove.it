@@ -50,15 +50,15 @@ jobs:
           pkg-manager: poetry
       - run:
           name: Formatter check
-          command: poetry run ruff format --exclude migrations --check tabulafever
+          command: poetry run ruff format --exclude migrations --check django-website
       - run:
           name: Linter check
-          command: poetry run ruff check tabulafever
+          command: poetry run ruff check django-website
       - run:
           name: Migrations check
           environment:
-            DJANGO_SETTINGS_MODULE: tabulafever.settings.devel
-          command: poetry run python tabulafever/manage.py makemigrations --check --dry-run
+            DJANGO_SETTINGS_MODULE: website.settings.devel
+          command: poetry run python django-website/manage.py makemigrations --check --dry-run
       - run:
           name: Run tests
           environment:
