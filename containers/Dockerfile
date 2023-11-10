@@ -1,7 +1,7 @@
 ####################################################################
 # Base python image
 ####################################################################
-FROM python:3.8.18-slim as python-base
+FROM python:3.11.6-slim as python-base
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
