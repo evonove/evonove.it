@@ -6,8 +6,6 @@
 
 {% block content %}
 <section class="bio first_section">
-  <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
-  <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
   <div class="bio-container">
     <div class="section-subtitle bio-description js-show_subtitle">
       <div class="bio-description-subtitle -u-element_to_reveal -u-reveal_from_right js-show_bio">{{ page.section_subtitle|richtext }}</div>
@@ -20,8 +18,6 @@
 </section>
 
 <section class="services">
-  <h1 class="section_heading">{{ page.services_title|richtext }}</h1>
-  <h1 class="section_heading">{{ page.services_title|richtext }}</h1>
   <div class="section-subtitle js-show_subtitle">{{ page.services_subtitle|richtext }}</div>
   <ul class="services-list">
     {% for service in page.services.all %}
@@ -37,8 +33,6 @@
 </section>
 
 <section class="expertise">
-  <h1 class="section_heading">{{ page.expertise_title|richtext }}</h1>
-  <h1 class="section_heading">{{ page.expertise_title|richtext }}</h1>
   <div class="expertise-container">
     <div class="expertise-description">
       <div class="section-subtitle js-show_subtitle">{{ page.expertise_subtitle|richtext }}</div>
@@ -70,8 +64,6 @@
 </section>
 
 <section class="team">
-  <h1 class="section_heading">{{ page.team_title|richtext }}</h1>
-  <h1 class="section_heading">{{ page.team_title|richtext }}</h1>
   <div class="section-subtitle js-show_subtitle">{{ page.team_subtitle|richtext }}</div>
   <div class="team-container">
     {% for member in page.team.all %}

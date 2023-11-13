@@ -6,8 +6,6 @@
 
 {% block content %}
 <section class="works works_page first_section">
-  <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
-  <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
   <div class="section-subtitle js-show_subtitle">{{ page.section_subtitle|richtext }}</div>
   <div class="works-container">
   {% for project in page.projects.all %}

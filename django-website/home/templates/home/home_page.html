@@ -22,8 +22,6 @@
 
 <section class="services">
   <div class="services-3dmodels"></div>
-  <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
-  <h1 class="section_heading">{{ page.section_title|richtext }}</h1>
   <div class="section-subtitle js-show_subtitle">{{ page.section_subtitle|richtext }}</div>
   <ul class="services-list">
     {% for service in services %}
@@ -38,8 +36,6 @@
 </section>
 
 <section class="works">
-  <h1 class="section_heading">{{ page.works_title|richtext }}</h1>
-  <h1 class="section_heading">{{ page.works_title|richtext }}</h1>
   <div class="section-subtitle js-show_subtitle">{{ page.works_subtitle|richtext }}</div>
   <div class="works-container">
     {% for project in projects %}
@@ -61,8 +57,6 @@
 </section>
 
 <section class="clients">
-  <h1 class="section_heading">{{ page.partner_title|richtext }}</h1>
-  <h1 class="section_heading">{{ page.partner_title|richtext }}</h1>
   <div class="section-subtitle js-show_subtitle">{{ page.partner_subtitle|richtext }}</div>
   <ul class="brands">
     {% for partner in page.partners.all %}
