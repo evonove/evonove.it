@@ -58,7 +58,7 @@ class BlogPage(Page):
 
         # Pagination, using the blog settings
         page = request.GET.get("page")
-        page_number = BlogSettings.for_site(request.site).page_number
+        page_number = BlogSettings.for_request(request).page_number
         paginator = Paginator(articles, page_number)
         try:
             articles = paginator.page(page)

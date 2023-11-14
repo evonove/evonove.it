@@ -16,7 +16,7 @@
 // Remove breaks to keep text in line.
 .section-subtitle h2 > br,
 .blog-intro h2 > br {
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     display: none;
   }
 }

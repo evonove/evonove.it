@@ -9,7 +9,7 @@
 .bio-container {
   display: flex;
 
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     flex-direction: column;
   }
 }
@@ -18,7 +18,7 @@
   flex: 1;
   width: 29.03rem;
 
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     width: 100%;
   }
 }
@@ -28,7 +28,7 @@
   margin: 2.618rem 0 0 4.236rem;
   transition-delay: 0.236s;
 
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     margin: 2.618rem 0 0 0;
   }
 }
@@ -63,7 +63,7 @@
     }
   }
 
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     margin: 1.618rem 0 0 0;
     width: 100%;
   }

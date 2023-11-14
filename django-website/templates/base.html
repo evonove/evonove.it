@@ -55,7 +55,7 @@
     {% endif %}
 
     {# Global stylesheets #}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
 
     {% block extra_css %}
       {# Override this in templates to add extra stylesheets #}
@@ -77,14 +77,10 @@
     {% include 'partials/footer.html' with options=settings.options.WebsiteSettings %}
 
     {# Global javascript #}
-    <script type="text/javascript" src="{% static 'js/bundle.js' %}"></script>
+    <script type="text/javascript" src="{% static 'index.js' %}"></script>
 
     {% block extra_js %}
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.min.js"></script>
-        <script type="text/javascript" src="{% static 'js/orbit-control.js' %}"></script>
-
         {% include 'partials/3d_shaders/fragment-shader.html' %}
-
         {% include 'partials/3d_shaders/vertex-shader.html' %}
     {% endblock %}
 

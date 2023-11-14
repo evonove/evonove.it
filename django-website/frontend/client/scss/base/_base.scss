@@ -16,7 +16,7 @@ html {
   font: $weight-normal 18px/1.618 $aktiv; // [1]
   letter-spacing: 0.056rem;
 
-  @media #{$min-large} {
+  @media (min-width: $min-large) {
     font-size: 20px;
   }
 }
@@ -78,7 +78,7 @@ figure {
   flex-grow: 1;
   width: calc(100vw - (2.618rem + 2.618rem));
 
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     width: calc(100vw - (1rem + 1rem));
   }
 }
@@ -87,7 +87,7 @@ figure {
 section.first_section {
   margin: 17.942rem auto 0; // [1]
 
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     margin-top: 11.089rem;
   }
 
@@ -95,7 +95,7 @@ section.first_section {
     margin-top: 6.854rem;
   }
 
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     margin-top: 6.854rem;
   }
 }

@@ -1,3 +1,6 @@
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+
 // Global variables
 let renderer;
 let scene;
@@ -73,7 +76,7 @@ function renderSplashModel() {
   });
 
   // Create a sphere and assign the material
-  const mesh = new THREE.Mesh(new THREE.IcosahedronGeometry(20, 4), material);
+  const mesh = new THREE.Mesh(new THREE.IcosahedronGeometry(20, 20), material);
   scene.add(mesh);
 
   // Create the renderer and attach it to the DOM
@@ -87,7 +90,7 @@ function renderSplashModel() {
 
   if (!mobile) {
     // Controls shall be granted for large screens only.
-    controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls = new OrbitControls(camera, renderer.domElement);
     controls.enableZoom = false;
 
     // Recalculate the scene's sizes on window resize events.

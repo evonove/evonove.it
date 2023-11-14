@@ -14,13 +14,13 @@
   display: flex;
   justify-content: space-around;
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     flex-direction: column;
   }
 }
 
 .contacts-intro {
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     margin-top: 4.236rem;
     order: 1;
   }
@@ -44,7 +44,7 @@
   margin: 0 0 0 2.618rem;
   transition-delay: 0.236s;
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     margin: 0;
   }
 }

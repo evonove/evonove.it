@@ -8,7 +8,7 @@
   max-width: calc(46.971rem + 14rem);
   transition: all 0.382s;
 
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     background-color: $white;
     border-top: 1px solid $light-grey;
     bottom: 0;
@@ -22,7 +22,7 @@
   &.is-element_hidden {
     opacity: 0;
 
-    @media #{$max-medium} {
+    @media (max-width: $max-medium) {
       opacity: 1;
       transform: translate3d(0, 100%, 0);
     }
@@ -33,7 +33,7 @@
   position: fixed;
   top: 17.942rem;
 
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     display: flex;
     justify-content: space-between;
     position: static;
@@ -50,7 +50,7 @@
   flex-direction: column;
   margin-top: 1.618rem;
 
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     flex-direction: row;
     margin-top: 0;
   }
@@ -58,7 +58,7 @@
   & > * + * {
     margin: 1.618rem 0 0 0;
 
-    @media #{$max-medium} {
+    @media (max-width: $max-medium) {
       margin: 0 0 0 1.618rem;
     }
   }

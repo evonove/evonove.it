@@ -14,7 +14,7 @@
   display: flex;
   justify-content: space-between;
 
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     flex-direction: column;
   }
 }
@@ -36,11 +36,11 @@
   margin-top: 4.236rem;
   max-width: 29.03rem;
 
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     margin: 4.236rem auto 0;
   }
 
-  @media #{$max-xsmall} {
+  @media (max-width: $max-small) {
     max-width: none;
   }
 }
@@ -48,7 +48,7 @@
 .expertise-opensource_case > .work {
   padding-right: 0;
 
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     padding: 0;
   }
 }
@@ -81,14 +81,14 @@
   margin-top: 4.236rem;
   padding: 0 4.236rem;
 
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     flex-direction: column;
     padding: 0;
   }
 }
 
 .stack-list ul {
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     display: flex;
     flex-wrap: wrap;
   }
@@ -96,7 +96,7 @@
 
 // Add space among lists
 .stack-container .stack-list + .stack-list ul {
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     margin-top: 1.618rem;
   }
 }
@@ -106,7 +106,7 @@
   transform: translate3d(0, 1.618rem, 0);
   transition: all 0.618s ease-out;
 
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     padding: 0.618rem;
   }
 }
@@ -126,7 +126,7 @@
 
 // Add vertical space among items
 .stack-list ul > li + li {
-  @media #{$min-xsmall} {
+  @media (min-width: $min-xsmall) {
     margin-top: 1.618rem;
   }
 }

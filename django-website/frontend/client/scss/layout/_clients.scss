@@ -14,7 +14,7 @@
   flex-wrap: wrap;
   margin-left: -4.236rem; // [1]
 
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     margin-left: 0;
   }
 }
@@ -39,7 +39,7 @@
     }
   }
 
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     margin: 2.618rem 2.618rem 0;
     width: calc((100% * 0.5) - 5.236rem);
   }

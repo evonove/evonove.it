@@ -13,23 +13,23 @@
   max-width: 46.971rem;
   padding-right: 1.618rem; // [1]
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     margin-right: 0;
     max-width: 76.999vw;
     padding-right: 0;
   }
 
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     max-width: none;
   }
 }
 
 .hiring-intro p {
   color: $light-grey;
-  margin-top: 1.618rem;
+  margin-top: 1rem;
 
-  & > + * {
-    margin-top: 1rem;
+  &:first-child {
+    margin-top: 1.618rem;
   }
 }
 
@@ -38,13 +38,13 @@
   min-width: 17.942rem;
   padding-left: 4.236rem;
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     padding-left: 2.618rem;
     min-width: 0;
     width: 100%;
   }
 
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     padding-left: 0;
   }
 }
@@ -52,18 +52,18 @@
 .position-container {
   margin-left: 1.618rem;
 
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     margin-left: 0;
   }
 }
 
-.position-container > .rich-text > * {
+.position-container > * {
   color: $light-grey;
   margin-top: 1rem;
 }
 
 // Styles for bullet lists.
-.position-container > .rich-text ul {
+.position-container > ul {
   list-style-type: circle;
   padding: 0 0 0 1rem;
 }
@@ -85,7 +85,7 @@
   right: 6.854vw;
   top: 17.942rem;
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     display: none;
   }
 

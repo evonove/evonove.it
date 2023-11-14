@@ -19,12 +19,12 @@
   margin-left: -1.618rem; // [1]
   padding: 0 4.236rem;
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     margin-left: 0;
     padding: 0;
   }
 
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     padding: 0 0.618rem;
   }
 }
@@ -41,27 +41,27 @@
   position: relative;
   width: calc(33.33% - 1.618rem); // [1]
 
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     width: calc(50% - 4.236%); // [1]
   }
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     margin-left: 0;
   }
 
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     width: 100%;
   }
 
   // Select every 3th item starting from the 2nd one.
   &:nth-child(3n + 2) {
-    @media #{$min-medium} {
+    @media (min-width: $min-medium) {
       top: 2.618rem;
     }
   }
 
   &.is-shifted_down {
-    @media #{$min-medium} {
+    @media (min-width: $min-medium) {
       top: 2.618rem;
     }
   }
@@ -97,7 +97,7 @@
     top: 0;
     transition: transform 0.382s ease-out 0.382s;
 
-    @media #{$max-xsmall} {
+    @media (max-width: $max-xsmall) {
       transition-delay: 0;
     }
   }
@@ -114,7 +114,7 @@
 
 // Invert the transition origin for every middle element of the row.
 .teammate:nth-child(3n + 2) > .teammate-figure::after {
-  @media #{$min-medium} {
+  @media (min-width: $min-medium) {
     transform-origin: bottom;
   }
 }

@@ -1,8 +1,10 @@
+import * as THREE from 'three';
+
 // Import smartphone JSON model
-import smartphone from '../3d-models/smartphone.json';
-import laptop from '../3d-models/laptop.json';
-import pencil from '../3d-models/pencil.json';
-import lightBulb from '../3d-models/bulb.json';
+import smartphone from '../3d-models/smartphone2.json';
+import laptop from '../3d-models/laptop2.json';
+import pencil from '../3d-models/pencil2.json';
+import lightBulb from '../3d-models/bulb2.json';
 
 const appsService = document.querySelector('.services-list-item:nth-of-type(1) h3');
 const webService = document.querySelector('.services-list-item:nth-of-type(2) h3');
@@ -30,7 +32,7 @@ if (window.innerWidth <= 980) {
  * @param  {JSON} threeModel [JSON 3D model]
  */
 function loadModel(threeModel) {
-  const loader = new THREE.JSONLoader();
+  const loader = new THREE.ObjectLoader();
   const model = loader.parse(threeModel);
   const mesh = new THREE.Mesh(model.geometry, new THREE.MeshNormalMaterial({ wireframe: true }));
   scene.add(mesh);
@@ -76,6 +78,21 @@ function handleResize() {
  * @param  {number} camZ [the position of the camera on the z axis]
  */
 function initModel(threeModel, fov, camX, camY, camZ) {
+
+  // If canvas exists run the code within.
+  // This code is needed to reload the scene from the beginning every time
+  // a mouseover event is triggered on each service.
+  if (servicesCanvas.hasChildNodes()) {
+    // Cancel the requestAnimationFrame so that scene restart from its default state
+    cancelAnimationFrame(clearRender);
+
+    // Lose context if active
+    renderer.forceContextLoss();
+
+    // Remove canvas if exists
+    servicesCanvas.removeChild(servicesCanvas.firstChild);
+  }
+
   // Create a scene
   scene = new THREE.Scene();
 
@@ -94,22 +111,6 @@ function initModel(threeModel, fov, camX, camY, camZ) {
   camera.lookAt(scene.position);
 
   loadModel(threeModel);
-
-  // If canvas exists run the code within.
-  // This code is needed to reload the scene from the beginning every time
-  // a mouseover event is triggered on each service.
-  if (servicesCanvas.hasChildNodes()) {
-    // Cancel the requestAnimationFrame so that scene restart from its default state
-    cancelAnimationFrame(clearRender);
-
-    // Lose context if active
-    const canvas = document.querySelector('.services-3dmodels > canvas');
-    const gl = canvas.getContext('webgl');
-    gl.getExtension('WEBGL_lose_context').loseContext();
-
-    // Remove canvas if exists
-    servicesCanvas.removeChild(servicesCanvas.firstChild);
-  }
 
   // Add the output of the renderer to the html element
   servicesCanvas.appendChild(renderer.domElement);

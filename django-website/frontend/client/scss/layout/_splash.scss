@@ -38,7 +38,7 @@
   position: relative;
   width: 29.03rem;
 
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     width: 76.999vw;
   }
 
@@ -59,7 +59,15 @@
   margin: auto 0 4.236rem 0; // [1]
   position: relative;
 
-  @media #{$max-xsmall, $small-landscape} {
+  @media (max-width: $max-xsmall) {
+    font-size: 1rem;
+    font-weight: $weight-medium;
+    max-width: 76.999vw;
+    text-align: center;
+    margin: 1rem auto 4.236rem auto;
+  }
+
+  @media #{$small-landscape} {
     font-size: 1rem;
     font-weight: $weight-medium;
     max-width: 76.999vw;
@@ -69,15 +77,15 @@
 }
 
 // [1] Align paragraphs on smartphone devices.
-.payoff > .rich-text > p {
-  @media #{$max-xsmall} {
+.payoff > p {
+  @media (max-width: $max-xsmall) {
     display: inline; // [1]
   }
 
   // [1] Add a space to all inlined paragraphs, simulating the default word
   //     spacing.
   & + p {
-    @media #{$max-xsmall} {
+    @media (max-width: $max-xsmall) {
       margin-left: 0.236rem; // [1]
     }
   }

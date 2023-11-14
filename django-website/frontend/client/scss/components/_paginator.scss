@@ -25,7 +25,7 @@
 
 // On mobile devices, hide page numbers except for the current one.
 .paginator-page:not(.is-current) {
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     display: none;
   }
 }

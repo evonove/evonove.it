@@ -10,7 +10,7 @@
   padding-bottom: 11.089rem; // [1]
   position: relative;
 
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     margin: 6.854rem auto -11.089rem;
   }
 
@@ -38,11 +38,11 @@
   margin-top: -6.854rem;
   padding: 6.854rem 4.236rem 0;
 
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     padding: 6.854rem 1.618rem 0;
   }
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     padding: 6.854rem 0 0;
   }
 }
@@ -57,11 +57,11 @@
   margin-top: 6.854rem;
   width: calc(100% * 0.5 - (6.854% + 2.618%)); // [1]
 
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     padding: 0;
   }
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     width: 100%;
   }
 
@@ -71,14 +71,14 @@
 
   // Margins for every first item of the row.
   &:nth-child(odd) {
-    @media #{$min-small} {
+    @media (min-width: $min-small) {
       margin: 6.854rem 6.854% 0 2.618%;
     }
   }
 
   // Margins for every last item of the row.
   &:nth-child(even) {
-    @media #{$min-small} {
+  @media (min-width: $min-small) {
       margin: 6.854rem 2.618% 0 6.854%;
     }
   }
@@ -94,7 +94,7 @@
   padding: 0 1.618rem;
   user-select: none;
 
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     padding: 0;
   }
 }

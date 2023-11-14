@@ -6,7 +6,7 @@
   max-width: 46.971rem;
   margin-top: 17.942rem;
 
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     margin-top: 11.089rem;
   }
 
@@ -95,7 +95,7 @@
   margin-top: 2.618rem
 }
 
-.post-paragraph > .rich-text > p > a {
+.post-paragraph > p > a {
   color: $dark-grey;
   text-decoration: underline;
 }
@@ -113,7 +113,7 @@
   color: $dark-grey;
   margin: 2.618rem 0 0 4.236rem;
 
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     margin: 2.618rem 0 0 1.618rem;
   }
 }
@@ -144,14 +144,14 @@
   max-width: 76.999rem;
   padding-top: 4.236rem;
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     flex-direction: column;
   }
 
   & > * + * {
     margin: 0 0 0 1.618rem;
 
-    @media #{$max-small} {
+    @media (max-width: $max-small) {
       margin: 4.236rem 0 0 0;
     }
   }
@@ -160,7 +160,7 @@
 .related_posts-post {
   width: 33%;
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     width: 100%;
   }
 }

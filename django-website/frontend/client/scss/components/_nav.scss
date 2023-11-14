@@ -17,7 +17,7 @@
   // [1] Nav is on a lower layer compared to the header, this way header's
   //     items are visible.
   // [2] Nav is hidden by default on small screens.
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     background-color: transparentize($black, 0.02);
     flex-direction: column;
     height: 100%;
@@ -42,7 +42,7 @@
 
   // [1] List's margin is 'auto' so that it takes up any empty space. This way
   //     it is vertically centered on the screen.
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     flex-direction: column;
     margin: auto; // [1]
   }
@@ -56,11 +56,11 @@
   & > * + * {
     margin: 0 0 0 1.618rem;
 
-    @media #{$max-small} {
+    @media (max-width: $max-small) {
       margin: 2.618rem 0 0 0;
     }
 
-    @media #{$max-xsmall} {
+    @media (max-width: $max-xsmall) {
       margin: 1.618rem 0 0 0;
     }
 
@@ -74,7 +74,7 @@
   color: $light-grey;
   font-weight: bold;
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     opacity: 0;
     transform: translate3d(-1.618rem, 0, 0);
     transition: all 0.382s ease-out;
@@ -89,7 +89,7 @@
   }
 
   &.is-nav_shown {
-    @media #{$max-small} {
+    @media (max-width: $max-small) {
       opacity: 1;
       transform: translateZ(0);
     }
@@ -97,7 +97,7 @@
 }
 
 .body_blog .nav-items > li {
-  @media #{$min-small} {
+  @media (max-width: $max-small) {
     color: $dark-grey;
   }
 }
@@ -106,7 +106,7 @@
 .nav-social {
   display: none;
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     display: flex;
     justify-content: center;
   }

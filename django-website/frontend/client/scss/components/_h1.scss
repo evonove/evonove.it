@@ -23,8 +23,7 @@
   }
 }
 
-// [1] Heading is hidden by default
-.section_heading > .rich-text {
+.section_heading > p {
   position: relative;
   left: -1.618rem; // [1]
 }

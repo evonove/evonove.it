@@ -13,11 +13,11 @@
 
   // [1] Header is on an upper layer compared to the nav, this way header's
   //     items are visible.
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     z-index: $z-header-small; // [1]
   }
 
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     padding: 1rem;
   }
 }
@@ -29,11 +29,11 @@
   position: relative;
   top: 4px; // [1]
 
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     justify-content: space-between;
   }
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     width: 100%;
   }
 }
@@ -63,7 +63,7 @@
 .body_blog .header-main_interactions-logo > .header_logo-e.is-logo_expanded > path,
 .body_blog .header-main_interactions-logo > .header_logo-vonov.is-logo_expanded > path:not(.header_logo-n),
 .body_blog .header-main_interactions-logo > .header_logo-9.is-logo_expanded > path {
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     fill: $white;
   }
 }
@@ -82,7 +82,7 @@
 
   // First glyph does not need to translate when logo is positioned on the left
   // of the viewport
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     transform: translate3d(-2px, 0, 0);
   }
 }
@@ -100,7 +100,7 @@
   }
 
   // Translate the last glyph on the first one's side.
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     transform: translate3d(-67px, 0, 0);
   }
 }
@@ -117,7 +117,7 @@
     transform: scale3d(1, 1, 1);
   }
 
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     transform-origin: left;
   }
 }
@@ -134,7 +134,7 @@
     border-color: $light-grey;
   }
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     display: block;
   }
 }

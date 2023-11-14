@@ -10,12 +10,12 @@
   padding: 1.618rem 2.618rem;
   width: 100%;
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     margin-top: 6.854rem;
   }
 }
@@ -34,7 +34,7 @@
   flex: 1;
 
   // All flex-items are wide as its content
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     flex: none;
   }
 }
@@ -42,13 +42,13 @@
 .footer-email {
   font-weight: bold;
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     margin-right: 1.618rem;
   }
 }
 
 .footer-email-text {
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     display: none;
   }
 }
@@ -56,7 +56,7 @@
 .footer-email-icon {
   display: none;
 
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     display: inline-block;
   }
 }
@@ -82,13 +82,13 @@
   font-weight: $weight-normal;
   text-align: center;
 
-  @media #{$max-medium} {
+  @media (max-width: $max-medium) {
     flex-grow: 2;
   }
 
   // [1] Place the copyright to the bottom
   // [2] Let the copyright container wraps
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     margin-top: 1.618rem;
     order: 1; // [1]
     width: 100%; // [2]
@@ -98,7 +98,7 @@
 .footer-vat {
   margin-top: 0.382rem;
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     margin-top: 0.618rem;
   }
 }

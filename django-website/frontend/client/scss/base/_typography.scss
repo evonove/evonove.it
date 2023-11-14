@@ -22,7 +22,7 @@ b {
   border-bottom: 2px solid currentColor;
   font-weight: $weight-normal;
 
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     border-width: 1px;
   }
 }

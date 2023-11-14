@@ -1,13 +1,13 @@
 // Responsive breakpoints
 // ----------------------
 
-$min-xsmall: (min-width: 601px);
-$min-small: (min-width: 961px);
-$min-medium: (min-width: 1281px);
-$min-large: (min-width: 1920px);
+$min-xsmall: 601px;
+$min-small: 961px;
+$min-medium: 1281px;
+$min-large: 1920px;
 
-$max-xsmall: (max-width: 600px);
-$max-small: (max-width: 960px);
-$max-medium: (max-width: 1280px);
+$max-xsmall: 600px;
+$max-small: 960px;
+$max-medium: 1280px;
 
-$small-landscape: '(max-width: 960px) and (max-height: 450px) (orientation: landscape)';
+$small-landscape: '(max-width: 960px) and (max-height: 450px) and (orientation: landscape)';

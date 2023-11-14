@@ -13,7 +13,7 @@
 .works-container {
   margin-top: 6.854rem;
 
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     margin-top: 4.236rem;
   }
 
@@ -21,7 +21,7 @@
   & > * + * {
     margin-top: 11.089rem;
 
-    @media #{$max-medium} {
+    @media (max-width: $max-medium) {
       margin-top: 6.854rem;
     }
 
@@ -42,7 +42,7 @@
     flex-direction: column;
   }
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     padding: 0;
   }
 }
@@ -103,7 +103,7 @@
     order: 1;
   }
 
-  @media #{$max-xsmall} {
+  @media (max-width: $max-xsmall) {
     margin-top: 1.618rem;
   }
 
@@ -125,7 +125,7 @@
   position: relative;
   transition: opacity 0.618s ease-out;
 
-  @media #{$max-small} {
+  @media (max-width: $max-small) {
     margin-top: 0;
   }
 
@@ -140,7 +140,7 @@
     top: 0;
     transition: transform 0.382s ease-out 0.382s;
 
-    @media #{$max-xsmall} {
+    @media (max-width: $max-xsmall) {
       transition-delay: 0;
     }
   }

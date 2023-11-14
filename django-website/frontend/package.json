@@ -1,36 +1,29 @@
 {
-  "name": "evonove.it",
-  "version": "4.0.0",
-  "description": "Evonove website",
-  "main": "index.js",
-  "repository": "https://github.com/evonove/evonove.it.git",
-  "author": "Evonove",
-  "license": "BSD-3-Clause",
-  "bugs": {
-    "url": "https://github.com/evonove/evonove.it/issues"
+  "name": "frontend",
+  "packageManager": "yarn@4.0.1",
+  "browserslist": "> 0.25%, not dead",
+  "scripts": {
+    "build": "parcel build client/js/index.js"
   },
-  "homepage": "https://github.com/evonove/evonove.it",
+  "targets": {
+    "default": {
+      "distDir": "./static"
+    }
+  },
   "devDependencies": {
-    "babel-core": "^6.25.0",
-    "babel-loader": "^7.1.1",
-    "babel-preset-env": "^1.6.0",
-    "css-loader": "^0.28.4",
-    "eslint": "^4.3.0",
-    "eslint-config-airbnb-base": "^11.3.1",
-    "eslint-loader": "^1.9.0",
-    "eslint-plugin-import": "^2.7.0",
-    "extract-text-webpack-plugin": "^3.0.0",
-    "node-sass": "^4.5.3",
-    "postcss-loader": "^2.0.6",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.18.2",
-    "url-loader": "^0.5.9",
-    "webpack": "^3.4.0"
+    "@babel/core": "^7.12.0",
+    "@parcel/core": "^2.10.2",
+    "@parcel/transformer-sass": "2.10.2",
+    "parcel": "^2.10.2"
   },
   "dependencies": {
-    "normalize.css": "^5.0.0",
-    "smoothscroll": "^0.3.0",
-    "three": "^0.86.0",
-    "waypoints": "^4.0.1"
+    "normalize.css": "^8.0.1",
+    "smoothscroll": "^0.4.0",
+    "three": "^0.158.0"
+  },
+  "@parcel/transformer-css": {
+    "drafts": {
+      "customMedia": true
+    }
   }
 }
