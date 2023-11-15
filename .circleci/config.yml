@@ -1,5 +1,10 @@
 version: 2.1
 
+parameters:
+  image-name:
+    type: string
+    default: "evonove-it"
+
 orbs:
   python: circleci/python@2.1.1
   gcp-gcr: circleci/gcp-gcr@0.15.3
@@ -84,16 +89,18 @@ jobs:
       - gcp-gcr/gcr-auth:
           gcloud-service-key: CLEARTEXT_GCLOUD_SERVICE_KEY
       - gcp-gcr/build-image:
-          image: $CIRCLE_PROJECT_REPONAME
+          image: << pipeline.parameters.image-name >>
           tag: $CIRCLE_SHA1
           dockerfile: containers/Dockerfile
+          registry-url: europe-west3-docker.pkg.dev
       - gcp-gcr/push-image:
-          image: $CIRCLE_PROJECT_REPONAME
+          image: << pipeline.parameters.image-name >>
           tag: $CIRCLE_SHA1
+          registry-url: europe-west3-docker.pkg.dev
       - when:
           condition: << pipeline.git.tag >>
           steps:
             - gcp-gcr/tag-image:
-                image: $CIRCLE_PROJECT_REPONAME
+                image: << pipeline.parameters.image-name >>
                 source-tag: $CIRCLE_SHA1
                 target-tag: $CIRCLE_TAG
