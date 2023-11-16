@@ -3,7 +3,7 @@ version: 2.1
 parameters:
   image-name:
     type: string
-    default: "evonove-it"
+    default: "evonove-it/evonove-it"
 
 orbs:
   python: circleci/python@2.1.1
