@@ -105,6 +105,7 @@ jobs:
           condition: << pipeline.git.tag >>
           steps:
             - gcp-gcr/tag-image:
+                registry-url: europe-west3-docker.pkg.dev
                 image: << pipeline.parameters.repository-name >>/<< pipeline.parameters.image-name >>
                 source-tag: $CIRCLE_SHA1
                 target-tag: $CIRCLE_TAG
