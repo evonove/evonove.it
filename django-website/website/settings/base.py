@@ -76,6 +76,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
+    "google.cloud.logging.handlers.middleware.RequestMiddleware",
 ]
 
 ROOT_URLCONF = "website.urls"
@@ -152,16 +153,9 @@ TAGGIT_CASE_INSENSITIVE = True
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
-    "formatters": {
-        "json": {
-            "format": "%(levelname)s %(asctime)s %(name)s [%(process)d] %(message)s",
-            "class": "pythonjsonlogger.jsonlogger.JsonFormatter",
-        },
-    },
     "handlers": {
         "console": {
-            "class": "logging.StreamHandler",
-            "formatter": "json",
+            "class": "google.cloud.logging.handlers.StructuredLogHandler",
         },
     },
     "loggers": {

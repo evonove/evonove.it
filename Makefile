@@ -1,5 +1,5 @@
 bucket_name ?= backups-siqtraq
-cloud_sql_name ?= siqtraq-database
+cloud_sql_name ?= enine-pg13
 database_name ?= evonoveit
 current_date = $(shell date +"%Y%m%d")
 filename = export-$(current_date)-$(database_name)
@@ -21,8 +21,8 @@ $(filename): $(filename_compressed)
 	gunzip $(filename_compressed)
 
 import-production-db: $(filename)
-	docker-compose -f $(services_file) down -v
-	docker-compose -f $(services_file) up -d
+	docker compose -f $(services_file) down -v
+	docker compose -f $(services_file) up -d
 	until pg_isready -h localhost -U devel; \
 		do \
 		>&2 echo "Waiting for database to be ready..."; \
@@ -31,10 +31,10 @@ import-production-db: $(filename)
 	psql -U devel -h localhost -p 5432 -d evonoveit < $(filename)
 
 start-services:
-	docker-compose -f $(services_file) up -d
+	docker compose -f $(services_file) up -d
 
 stop-services:
-	docker-compose -f $(services_file) stop
+	docker compose -f $(services_file) stop
 
 drop-services:
-	docker-compose -f $(services_file) down
+	docker compose -f $(services_file) down
