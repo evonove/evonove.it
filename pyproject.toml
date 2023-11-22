@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "evonove.it"
-version = "3.6.1"
+version = "3.6.3"
 description = ""
 authors = ["Evoniners <dev@evonove.it>"]
 
