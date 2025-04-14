@@ -38,7 +38,7 @@ build-backend = "hatchling.build"
 
 [tool.ruff]
 line-length = 88
-select = [
+lint.select = [
   "E",   # pycodestyle
   "W",   # pycodestyle warnings
   "C90", # mccabe
