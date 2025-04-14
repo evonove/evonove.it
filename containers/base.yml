@@ -15,19 +15,8 @@ services:
     build:
       context: ../
       dockerfile: containers/Dockerfile
-    volumes:
-      - ..:/app
     ports:
       - "8000:8000"
-
-  docs:
-    build:
-      context: .
-      dockerfile: Dockerfile.docs
-    volumes:
-      - ..:/app
-    ports:
-      - "9000:9000"
 
   mailhog:
     image: mailhog/mailhog

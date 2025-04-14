@@ -1,5 +1,3 @@
-version: "2"
-
 services:
   postgres:
     extends:
@@ -15,11 +13,6 @@ services:
     extends:
       file: ./containers/base.yml
       service: django
-
-  docs:
-    extends:
-      file: ./containers/base.yml
-      service: docs
 
   mailhog:
     extends:

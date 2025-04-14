@@ -3,7 +3,7 @@
 !django-website/
 django-website/**/tests/
 !pyproject.toml
-!poetry.lock
+!uv.lock
 !README.md
 !containers/start.sh
 !uwsgi.ini
