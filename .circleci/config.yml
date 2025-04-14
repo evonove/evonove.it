@@ -9,8 +9,8 @@ parameters:
     default: "evonove-it-backend"
 
 orbs:
-  python: circleci/python@2.1.1
-  gcp-gcr: circleci/gcp-gcr@0.15.3
+  python: circleci/python@3.1.0
+  gcp-gcr: circleci/gcp-gcr@0.16.10
 
 executors:
   builder:
@@ -40,7 +40,7 @@ jobs:
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
-      - image: cimg/postgres:13.12
+      - image: cimg/postgres:13.20
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
@@ -48,32 +48,32 @@ jobs:
           POSTGRES_DB: evonoveit
           POSTGRES_USER: devel
           POSTGRES_PASSWORD: 123456
-      - image: cimg/redis:6.2
+      - image: cimg/redis:7.2.3
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
       - python/install-packages:
-          pkg-manager: poetry
+          pkg-manager: uv
       - run:
           name: Formatter check
-          command: poetry run ruff format --exclude migrations --check django-website
+          command: uv run ruff format --exclude migrations --check django-website
       - run:
           name: Linter check
-          command: poetry run ruff check django-website
+          command: uv run ruff check django-website
       - run:
           name: Migrations check
           environment:
             DJANGO_SETTINGS_MODULE: website.settings.test
-          command: poetry run python django-website/manage.py makemigrations --check --dry-run
+          command: uv run python django-website/manage.py makemigrations --check --dry-run
       - run:
           name: Run tests
           environment:
             DJANGO_SETTINGS_MODULE: website.settings.test
           command: |
             mkdir test-results
-            poetry run python runtests.py \
+            uv run python runtests.py \
                 --cov django-website \
                 --cov-report html:htmlcov \
                 --junitxml=test-results/junit.xml \
