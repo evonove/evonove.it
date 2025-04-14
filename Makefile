@@ -5,7 +5,7 @@ current_date = $(shell date +"%Y%m%d")
 filename = export-$(current_date)-$(database_name)
 filename_compressed = $(filename).gz
 bucket_uri ?= gs://$(bucket_name)/evonove.it/$(filename_compressed)
-services_file = ./containers/services.yml
+services_file = docker-services.yml
 
 .PHONY: export-sql import-production-db start-services stop-services drop-services
 # This needs to be secondary so we don't export the db if we already have it
