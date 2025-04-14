@@ -1,55 +1,62 @@
 # Evonove website
 
-[![Build Status](https://travis-ci.org/evonove/evonove.it.svg?branch=master)](https://travis-ci.org/evonove/evonove.it)
-
 [evonove.it][1] website, made with [Wagtail][2]!
 
 
 ## Requirements
 
-To run this project you need the Docker engine (>=1.12.1) and the docker-compose command (>=1.8.0) installed.
+To run this project you need Docker:
 
-To install the Docker engine on your platform see:
+    https://docs.docker.com/get-started/
 
-    https://docs.docker.com/engine/getstarted/step_one/
+And `uv`:
 
-To install docker-compose command:
+    https://docs.astral.sh/uv/getting-started/
 
-    https://docs.docker.com/compose/install/
+And `tox` for testing:
+
+    https://tox.wiki/en/4.25.0/installation.html
 
 
-## Getting Started
+## Development
 
-To start the Evonove Website project run this command from the root folder:
+To setup the environment for development, install the dependencies:
 
-    $ docker-compose up
+    $ uv sync
 
-Migration and a user are needed so run:
+Then start the services:
 
-    $ docker-compose run django python django-website/manage.py migrate
-    $ docker-compose run django python django-website/manage.py createsuperuser
+    $ docker compose -f docker-services up
 
-Running migrations isn't enough because the home page requires some data.
-If you dislike inserting data using the admin (or in general be a data insert operator),
-you can launch the following commands that create the blog page linked to the
-home page and a set of initial data for a fake company.
+or:
 
-    $ docker-compose run django python django-website/manage.py create_pages
-    $ docker-compose run django python django-website/manage.py load_test_data
+    $ make start-services
+
+Initialize the database schema with:
+
+    $ uv run python django-website/manage.py migrate
+
+Initialize the data importing production db with:
+
+    $ make import-production-db
+
+Or creating fake data: (NOT TESTED)
+
+    $ uv run python django-website/manage.py create_pages
+    $ uv run python django-website/manage.py load_test_data
 
 Now visit [http://localhost:8000/](http://localhost:8000/) to see the application running.
 
-Documentation is served at [http://localhost:9000](http://localhost:9000)
 A frontend to the mailhog smtp service is served at: [http://localhost:8025](http://localhost:8025)
 
 ## Running the tests
 
 To run the tests:
 
-    $ docker-compose -f containers/test.yml up
+    $ tox
 
 
-## Frontend development
+## Frontend development (NOT TESTED)
 
 The frontend app uses [Webpack](https://webpack.js.org/) as toolchain. To install all dependencies run this command from the `frontend/` folder:
 
@@ -62,9 +69,9 @@ Then compile all necessary files:
 
 ## Deployment
 
-When we change `pyproject.toml` wew need to regenerate the file `./requirements/requirements.txt` with this command:
+Deployed in GC kubernetes cluster, check configuration files in:
 
-    $ poetry export -o requirements/requirements.txt --without-hashes
+    https://github.com/evonove/couscous/tree/main/enine-cluster/evonove.it
 
 
 [1]: https://evonove.it/ "Evonove"
