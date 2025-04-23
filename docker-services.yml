@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres:13.20
+    image: postgres:17.4
     restart: "on-failure"
     env_file: ".env.docker"
     ports:
@@ -16,7 +16,7 @@ services:
       retries: 5
 
   redis:
-    image: redis:7.2.3
+    image: redis:7.4.2
     restart: "on-failure"
     ports:
       - "6379:6379"
