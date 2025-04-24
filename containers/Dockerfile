@@ -1,7 +1,7 @@
 ####################################################################
 # Base python image
 ####################################################################
-FROM python:3.11.12-slim AS python-base
+FROM python:3.13.3-slim AS python-base
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
@@ -30,7 +30,7 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
 ENV UV_LINK_MODE=copy \
     UV_COMPILE_BYTECODE=1 \
     UV_PYTHON_DOWNLOADS=never \
-    UV_PYTHON=python3.11 \
+    UV_PYTHON=python3.13 \
     UV_PROJECT_ENVIRONMENT=$PROJECT_PATH
 
 # Synchronize DEPENDENCIES without the application itself.
