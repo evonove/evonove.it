@@ -70,6 +70,8 @@ FROM python-base AS application
 RUN groupadd -r app \
  && useradd -r -d $PROJECT_PATH -g app -N app
 
+# FIXME: uwsgi 2.0.29 do not start without the sharer libs
+COPY --from=builder --chown=app:app /usr/lib /usr/lib
 COPY --from=builder --chown=app:app $PROJECT_PATH $PROJECT_PATH
 
 WORKDIR $PROJECT_PATH

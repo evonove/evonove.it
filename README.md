@@ -45,6 +45,10 @@ Or creating fake data: (NOT TESTED)
     $ uv run python django-website/manage.py create_pages
     $ uv run python django-website/manage.py load_test_data
 
+Run the local web server:
+
+    $ uv run python django-website/manage.py runserver
+
 Now visit [http://localhost:8000/](http://localhost:8000/) to see the application running.
 
 A frontend to the mailhog smtp service is served at: [http://localhost:8025](http://localhost:8025)
