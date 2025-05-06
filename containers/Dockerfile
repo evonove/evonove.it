@@ -53,15 +53,6 @@ COPY ./django-website $PROJECT_PATH/django-website
 COPY ./containers/start.sh $PROJECT_PATH
 COPY ./uwsgi.ini $PROJECT_PATH
 
-WORKDIR $PROJECT_PATH
-RUN --mount=type=cache,target=/root/.cache \
-    --mount=type=bind,source=uv.lock,target=uv.lock \
-    --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
-    uv sync \
-        --locked \
-        --no-dev \
-        --no-editable
-
 ####################################################################
 # Final deployable image
 ####################################################################
