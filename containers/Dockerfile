@@ -67,9 +67,6 @@ COPY --from=builder --chown=app:app $PROJECT_PATH $PROJECT_PATH
 
 WORKDIR $PROJECT_PATH
 
-ENV DJANGO_SETTINGS_MODULE=website.settings.production \
-    DJANGO_DEBUG=False
-
 ENV PATH="/app/bin:$PATH"
 
 ENTRYPOINT ["/app/start.sh"]

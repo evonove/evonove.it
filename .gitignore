@@ -95,3 +95,5 @@ vendors/
 .idea/
 
 export*
+
+test-results

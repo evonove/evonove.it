@@ -45,6 +45,15 @@ Or creating fake data: (NOT TESTED)
     $ uv run python django-website/manage.py create_pages
     $ uv run python django-website/manage.py load_test_data
 
+Before running the application inspect and change if needed the `.env.local` file,
+containing the app configuration. Then apply the configuration:
+
+    $ source .env.local
+
+Or set the `UV_ENV_FILE=.env` variable in `.profile` to make uv apply the configuration for
+you before running every command.
+
+
 Run the local web server:
 
     $ uv run python django-website/manage.py runserver

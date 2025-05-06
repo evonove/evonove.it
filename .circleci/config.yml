@@ -67,12 +67,12 @@ jobs:
       - run:
           name: Migrations check
           environment:
-            DJANGO_SETTINGS_MODULE: website.settings.test
+            DJANGO_SETTINGS_MODULE: website.settings
           command: uv run python django-website/manage.py makemigrations --check --dry-run
       - run:
           name: Run tests
           environment:
-            DJANGO_SETTINGS_MODULE: website.settings.test
+            DJANGO_SETTINGS_MODULE: website.settings
           command: |
             mkdir test-results
             uv run python runtests.py \
