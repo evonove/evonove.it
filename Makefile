@@ -1,5 +1,5 @@
 bucket_name ?= backups-siqtraq
-cloud_sql_name ?= enine-pg13
+cloud_sql_name ?= enine-pg17
 database_name ?= evonoveit
 current_date = $(shell date +"%Y%m%d")
 filename = export-$(current_date)-$(database_name)

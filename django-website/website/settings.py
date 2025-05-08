@@ -156,7 +156,7 @@ STATIC_URL = STATIC_HOST + "/static/"
 MEDIA_URL = MEDIA_HOST + "/media/"
 
 # emails
-DEFAULT_EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+DEFAULT_EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_BACKEND = env("DJANGO_EMAIL_BACKEND", DEFAULT_EMAIL_BACKEND)
 EMAIL_HOST = env("DJANGO_EMAIL_HOST", "localhost")
 EMAIL_PORT = env("DJANGO_EMAIL_PORT", "1025")

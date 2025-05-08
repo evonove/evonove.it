@@ -15,7 +15,7 @@ orbs:
 executors:
   builder:
     docker:
-      - image: cimg/python:3.11.6
+      - image: cimg/python:3.13.3
 
 workflows:
   test_build_push:
@@ -38,11 +38,11 @@ workflows:
 jobs:
   test:
     docker:
-      - image: cimg/python:3.11.12
+      - image: cimg/python:3.13.3
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
-      - image: cimg/postgres:13.20
+      - image: cimg/postgres:17.4
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD

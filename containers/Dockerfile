@@ -66,6 +66,7 @@ COPY --from=builder --chown=app:app /usr/lib /usr/lib
 COPY --from=builder --chown=app:app $PROJECT_PATH $PROJECT_PATH
 
 WORKDIR $PROJECT_PATH
+USER app
 
 ENV PATH="/app/bin:$PATH"
 
