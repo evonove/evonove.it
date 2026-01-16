@@ -2,7 +2,6 @@
 
 [evonove.it][1] website, made with [Wagtail][2]!
 
-
 ## Requirements
 
 To run this project you need Docker:
@@ -16,7 +15,6 @@ And `uv`:
 And `tox` for testing:
 
     https://tox.wiki/en/4.25.0/installation.html
-
 
 ## Development
 
@@ -53,7 +51,6 @@ containing the app configuration. Then apply the configuration:
 Or set the `UV_ENV_FILE=.env` variable in `.profile` to make uv apply the configuration for
 you before running every command.
 
-
 Run the local web server:
 
     $ uv run python django-website/manage.py runserver
@@ -68,6 +65,30 @@ To run the tests:
 
     $ tox
 
+# Accessibility checks
+
+To check against WCAG 2.1 accessibility issues we use [Pa11y-ci](https://github.com/pa11y/pa11y-ci).
+This tool needs a live server instance running at [http://localhost:8000/](http://localhost:8000/).
+
+To run exclusively the pa11y-ci tox environment use:
+
+    $ tox -e pa11y-ci
+
+To run pa11y-ci against a live server instance during development go to `django-website/frontend`:
+
+    $ corepack enable
+    $ yarn install
+    $ yarn pa11y-ci
+
+Configuration file can be found at:
+
+    django-website/frontend/.pa11yci
+
+The tests results are saved at repository root level in:
+
+    a11y-results/pa11y.json
+
+If you experience errors or issues related to AppArmor, take a look at [AppArmor User Namespace Restrictions vs. Chromium Developer Builds](https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md).
 
 ## Frontend development (NOT TESTED)
 
@@ -79,13 +100,11 @@ Then compile all necessary files:
 
     $ yarn webpack
 
-
 ## Deployment
 
 Deployed in GC kubernetes cluster, check configuration files in:
 
     https://github.com/evonove/couscous/tree/main/enine-cluster/evonove.it
-
 
 [1]: https://evonove.it/ "Evonove"
 [2]: https://wagtail.io/ "Wagtail"

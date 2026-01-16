@@ -14,6 +14,7 @@
     "@babel/core": "^7.23.3",
     "@parcel/core": "^2.10.3",
     "@parcel/transformer-sass": "^2.10.3",
+    "pa11y-ci": "^4.0.1",
     "parcel": "^2.10.3"
   },
   "dependencies": {
