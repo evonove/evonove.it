@@ -89,3 +89,21 @@ Deployed in GC kubernetes cluster, check configuration files in:
 
 [1]: https://evonove.it/ "Evonove"
 [2]: https://wagtail.io/ "Wagtail"
+
+## Vulnerability Scan
+
+To perform a single scan use :
+
+    $ make trivy
+    
+This type of scan generatate JSON or HTML report and save the resulting report into     
+    
+    trivy-results/trivy-{time_of_creation}.html or trivy-results/trivy-{time_of_creation}.json
+
+The trivy scan is also integrated into tox with a only-text output in console, just run the command:
+
+    $ tox
+
+Or launching only trivy scan with:
+
+    $ tox -e trivy
