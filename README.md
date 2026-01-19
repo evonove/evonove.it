@@ -100,7 +100,7 @@ This type of scan generatate JSON or HTML report and save the resulting report i
     
     trivy-results/trivy-{time_of_creation}.html or trivy-results/trivy-{time_of_creation}.json
 
-The trivy scan is also integrated into tox with a only-text output in console, just run the command:
+The trivy scan is also integrated into tox with a text-only output in console, just run the command:
 
     $ tox
 
