@@ -7,6 +7,10 @@ parameters:
   image-name:
     type: string
     default: "evonove-it-backend"
+  path:
+    default: ~/.local/bin
+    description: Path of where Trivy is install
+    type: string
 
 orbs:
   python: circleci/python@3.1.0
@@ -24,7 +28,12 @@ workflows:
           filters:
             tags:
               only: /.*/
-      - scan
+      - semgrep-ci:
+          requires:
+            - test
+          filters:
+            tags:
+              only: /.*/
       - pa11y-ci:
           requires:
             - test
@@ -36,11 +45,21 @@ workflows:
             - google-cloud-platform
           requires:
             - test
+      - tag:
+          context:
+            - google-cloud-platform
+          requires:
+            - build-and-push
           filters:
             branches:
               ignore: /.*/
             tags:
               only: /.*/
+      - trivy-scan:
+          context:
+            - google-cloud-platform
+          requires:
+            - build-and-push
 
 jobs:
   test:
@@ -91,7 +110,8 @@ jobs:
           path: test-results
       - store_artifacts:
           path: htmlcov
-  scan:
+
+  semgrep-ci:
     docker:
       - image: cimg/python:3.13.3
         auth:
@@ -108,7 +128,8 @@ jobs:
             uv run semgrep scan --config auto --output scan-results/scan_results.json --json
       - store_artifacts:
           path: scan-results/scan_results.json
-          destination: scanresult
+          destination: scan-results
+          
   pa11y-ci:
     docker:
       - image: cimg/python:3.13.3-browsers
@@ -141,6 +162,7 @@ jobs:
             ./runpa11y.sh
       - store_artifacts:
           path: a11y-results
+
   build-and-push:
     executor: builder
     steps:
@@ -159,11 +181,40 @@ jobs:
           image: << pipeline.parameters.repository-name >>/<< pipeline.parameters.image-name >>
           tag: $CIRCLE_SHA1
           registry-url: europe-west3-docker.pkg.dev
-      - when:
-          condition: << pipeline.git.tag >>
-          steps:
-            - gcp-gcr/tag-image:
-                registry-url: europe-west3-docker.pkg.dev
-                image: << pipeline.parameters.repository-name >>/<< pipeline.parameters.image-name >>
-                source-tag: $CIRCLE_SHA1
-                target-tag: $CIRCLE_TAG
+
+  tag:
+    executor: builder
+    steps:
+      - gcp-gcr/gcr-auth:
+          gcloud-service-key: CLEARTEXT_GCLOUD_SERVICE_KEY
+          registry-url: europe-west3-docker.pkg.dev
+      - gcp-gcr/tag-image:
+          image: << pipeline.parameters.repository-name >>/<< pipeline.parameters.image-name >>
+          registry-url: europe-west3-docker.pkg.dev
+          source-tag: $CIRCLE_SHA1
+          target-tag: $CIRCLE_TAG
+
+  trivy-scan:
+    docker:
+      - image: cimg/base:current
+    steps:
+      - gcp-gcr/gcr-auth:
+          gcloud-service-key: CLEARTEXT_GCLOUD_SERVICE_KEY
+          registry-url: europe-west3-docker.pkg.dev
+      - run:
+          name: Install Trivy and run image scan
+          command: |
+            export TRIVY_BIN_DIR=<< pipeline.parameters.path>>/trivy-bin
+            echo $CLEARTEXT_GCLOUD_SERVICE_KEY > /tmp/service.json
+            export GOOGLE_APPLICATION_CREDENTIALS=/tmp/service.json
+            export TRIVY_USERNAME=""
+            export TRIVY_PASSWORD=""
+            export TRIVY_AUTH_URL=""
+            curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sudo sh -s -- -b .
+            ./trivy image --format json --output trivy-result.json \
+            --severity HIGH,CRITICAL --scanners vuln,misconfig,secret --ignore-unfixed \
+            --exit-code 1 \
+            europe-west3-docker.pkg.dev/$GOOGLE_PROJECT_ID/<< pipeline.parameters.repository-name >>/<< pipeline.parameters.image-name >>:$CIRCLE_SHA1 \
+      - store_artifacts:
+          path: trivy-result.json
+          destination: trivy-results
