@@ -17,6 +17,8 @@ html_report = --format template --template "@/evonove/trivy-template/html.tpl" -
 # This needs to be secondary so we don't export the db if we already have it
 .SECONDARY: $(filename_compressed)
 
+now_time := $(shell date -d "tomorrow" '+%Y-%m-%d-%H:%M:%S')
+
 $(filename_compressed):
 	gcloud sql export sql $(cloud_sql_name) $(bucket_uri) --database=$(database_name)
 	gsutil cp $(bucket_uri) .
@@ -62,3 +64,7 @@ trivy:
     --scanners vuln,misconfig,secret /evonove \
     --skip-dirs /evonove/.tox,/evonove/.venv --ignore-unfixed \
     $$format_flag
+
+semgrep:
+	mkdir -p semgrep-results
+	uv run semgrep --config auto --output $(CURDIR)/semgrep-results/semgrep-$(now_time).json --json

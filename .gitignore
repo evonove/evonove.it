@@ -97,5 +97,5 @@ vendors/
 export*
 
 test-results
-
 trivy-results
+semgrep-results

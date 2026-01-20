@@ -107,3 +107,21 @@ The trivy scan is also integrated into tox with a text-only output in console, j
 Or launching only trivy scan with:
 
     $ tox -e trivy
+
+## Static Analysis (SAST)
+
+It possible perform SATS, with Semgrep, launching:
+
+    $ make semgrep
+
+The result will be a JSON formatted report that will be saved in the folder:     
+
+    semgrep-results/semgrep-{time_of_creation}.json
+
+The scan is also integrated into tox with a text-only output in console, just run the command:
+
+    $ tox
+
+Or using the specific UV command to run a local scan without auth into semgrep system:
+
+    $ uv run semgrep scan
