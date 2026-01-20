@@ -24,6 +24,11 @@ workflows:
           filters:
             tags:
               only: /.*/
+      - semgrep-full-scan:
+          requires:
+            - test
+          context:
+            - semgrep
       - build-and-push:
           context:
             - google-cloud-platform
@@ -84,9 +89,16 @@ jobs:
           path: test-results
       - store_artifacts:
           path: htmlcov
+  semgrep-full-scan:
+    docker:
+      - image: semgrep/semgrep
+    steps:
+      - checkout
+      - run:
+          name: "Semgrep CE full scan"
+          command: semgrep scan --config auto
   build-and-push:
-    executor:
-      builder
+    executor: builder
     steps:
       - checkout
       - setup_remote_docker:
