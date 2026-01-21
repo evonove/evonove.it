@@ -24,11 +24,7 @@ workflows:
           filters:
             tags:
               only: /.*/
-      - semgrep-full-scan:
-          requires:
-            - test
-          context:
-            - semgrep
+      - scan
       - build-and-push:
           context:
             - google-cloud-platform
@@ -89,14 +85,24 @@ jobs:
           path: test-results
       - store_artifacts:
           path: htmlcov
-  semgrep-full-scan:
+  scan:
     docker:
-      - image: semgrep/semgrep
+      - image: cimg/python:3.13.3
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
+      - python/install-packages:
+          pkg-manager: uv
       - run:
-          name: "Semgrep CE full scan"
-          command: semgrep scan --config auto
+          name: Semgrep scan
+          command: |
+            mkdir test-scans
+            uv run semgrep scan --config auto --output test-scans/scan_results.json --json
+      - store_test_results:
+          path: test-scans
+  
   build-and-push:
     executor: builder
     steps:
