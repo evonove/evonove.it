@@ -99,10 +99,11 @@ jobs:
           name: Semgrep scan
           command: |
             mkdir test-scans
-            uv run semgrep scan --config auto --output test-scans/scan_results.json --json
-      - store_test_results:
-          path: test-scans
-  
+            uv run semgrep scan --config auto --output scan-results/scan_results.json --json
+      - store_artifacts:
+          path: scan-results/scan_results.json
+          destination: scanresult
+
   build-and-push:
     executor: builder
     steps:
