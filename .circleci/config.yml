@@ -25,6 +25,12 @@ workflows:
             tags:
               only: /.*/
       - scan
+      - pa11y-ci:
+          requires:
+            - test
+          filters:
+            tags:
+              only: /.*/
       - build-and-push:
           context:
             - google-cloud-platform
@@ -103,7 +109,38 @@ jobs:
       - store_artifacts:
           path: scan-results/scan_results.json
           destination: scanresult
-
+  pa11y-ci:
+    docker:
+      - image: cimg/python:3.13.3-browsers
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
+      - image: cimg/postgres:17.4
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
+        environment:
+          POSTGRES_DB: evonoveit
+          POSTGRES_USER: devel
+          POSTGRES_PASSWORD: 123456
+      - image: cimg/redis:7.2.3
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: uv
+      - run:
+          name: Init DB and run pa11y-ci
+          environment:
+            DJANGO_SETTINGS_MODULE: website.settings
+            RESULTS_DIR: a11y-results
+          command: |
+            chmod +x ./runpa11y.sh
+            ./runpa11y.sh
+      - store_artifacts:
+          path: a11y-results
   build-and-push:
     executor: builder
     steps:
