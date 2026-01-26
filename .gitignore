@@ -99,3 +99,4 @@ export*
 test-results
 trivy-results
 semgrep-results
+a11y-results

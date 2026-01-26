@@ -1,0 +1,27 @@
+{
+  "defaults": {
+    "chromeLaunchConfig": {
+      "args": [
+        "--disable-gpu",
+        "--disable-webgl"
+      ]
+    },
+    "reporters": [
+      "cli",
+      [
+        "json",
+        {
+          "fileName": "../../a11y-results/pa11y.json"
+        }
+      ]
+    ]
+  },
+  "urls": [
+    "http://localhost:8000",
+    "http://localhost:8000/agency",
+    "http://localhost:8000/portfolio",
+    "http://localhost:8000/careers",
+    "http://localhost:8000/contacts",
+    "http://localhost:8000/blog"
+  ]
+}
