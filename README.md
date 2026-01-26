@@ -38,10 +38,9 @@ Initialize the data importing production db with:
 
     $ make import-production-db
 
-Or creating fake data: (NOT TESTED)
+Or load fixture data to recreate a minimum viable version of the site structure and contents:
 
-    $ uv run python django-website/manage.py create_pages
-    $ uv run python django-website/manage.py load_test_data
+    $ uv run python django-website/manage.py init_site
 
 Before running the application inspect and change if needed the `.env.local` file,
 containing the app configuration. Then apply the configuration:
@@ -69,6 +68,7 @@ To run the tests:
 
 To check against WCAG 2.1 accessibility issues we use [Pa11y-ci](https://github.com/pa11y/pa11y-ci).
 This tool needs a live server instance running at [http://localhost:8000/](http://localhost:8000/).
+Ensure that the instance database is already populated as already mentioned in [Development](#development) section: `pa11y-ci` expects to found all the paths defined in `django-website/frontend/.pallyci`.
 
 To run exclusively the pa11y-ci tox environment use:
 
@@ -114,9 +114,9 @@ Deployed in GC kubernetes cluster, check configuration files in:
 To perform a single scan use :
 
     $ make trivy
-    
-This type of scan generatate JSON or HTML report and save the resulting report into     
-    
+
+This type of scan generatate JSON or HTML report and save the resulting report into
+
     trivy-results/trivy-{time_of_creation}.html or trivy-results/trivy-{time_of_creation}.json
 
 The trivy scan is also integrated into tox with a text-only output in console, just run the command:
