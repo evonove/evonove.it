@@ -125,7 +125,7 @@ jobs:
           name: Semgrep scan
           command: |
             mkdir test-scans
-            uv run semgrep scan --config auto --output scan-results/scan_results.json --json
+            uv run semgrep scan --config auto --output scan-results/scan_results.json --json --error
       - store_artifacts:
           path: scan-results/scan_results.json
           destination: scan-results
