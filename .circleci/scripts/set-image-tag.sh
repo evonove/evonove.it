@@ -16,7 +16,6 @@ if [ -n "${CIRCLE_TAG:-}" ]; then
 elif [ "$CIRCLE_BRANCH" = "main" ]; then
   # Main branch: use 'latest' as primary, SHA as secondary
   echo "export IMAGE_TAG=latest" >> "$BASH_ENV"
-  echo "export IMAGE_TAG_SHA=$CIRCLE_SHA1" >> "$BASH_ENV"
 else
   # PR: use 'pr-<number>' attaching the tag to 
   # the latest pr branch commit
@@ -26,5 +25,4 @@ else
     exit 1
   fi
   echo "export IMAGE_TAG=pr-${PR_NUMBER}" >> "$BASH_ENV"
-  echo "export IMAGE_TAG_SHA=" >> "$BASH_ENV"
 fi

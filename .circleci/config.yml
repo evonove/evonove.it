@@ -185,16 +185,6 @@ jobs:
           image: << pipeline.parameters.repository-name >>/<< pipeline.parameters.image-name >>
           tag: $IMAGE_TAG
           registry-url: europe-west3-docker.pkg.dev
-      - when:
-          # We have an IMAGE_TAG_SHA value, so, let's attach the SHA
-          # for default branch and git tags image traceability
-          condition: $IMAGE_TAG_SHA
-          steps:
-            - gcp-gcr/tag-image:
-                image: << pipeline.parameters.repository-name >>/<< pipeline.parameters.image-name >>
-                registry-url: europe-west3-docker.pkg.dev
-                source-tag: $IMAGE_TAG
-                target-tag: $IMAGE_TAG_SHA
 
   trivy-scan:
     docker:
