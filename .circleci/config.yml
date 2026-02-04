@@ -21,6 +21,13 @@ executors:
     docker:
       - image: cimg/python:3.13.3
 
+commands:
+  set-image-tag-env-var:
+    steps:
+      - run:
+          name: Set IMAGE_TAG and IMAGE_TAG_SHA environment variables
+          command: bash .circleci/scripts/set-image-tag.sh
+
 workflows:
   test_build_push:
     jobs:
@@ -45,14 +52,7 @@ workflows:
             - google-cloud-platform
           requires:
             - test
-      - tag:
-          context:
-            - google-cloud-platform
-          requires:
-            - build-and-push
           filters:
-            branches:
-              ignore: /.*/
             tags:
               only: /.*/
       - trivy-scan:
@@ -60,6 +60,9 @@ workflows:
             - google-cloud-platform
           requires:
             - build-and-push
+          filters:
+            tags:
+              only: /.*/
 
 jobs:
   test:
@@ -129,7 +132,7 @@ jobs:
       - store_artifacts:
           path: scan-results/scan_results.json
           destination: scan-results
-          
+
   pa11y-ci:
     docker:
       - image: cimg/python:3.13.3-browsers
@@ -172,27 +175,26 @@ jobs:
       - gcp-gcr/gcr-auth:
           gcloud-service-key: CLEARTEXT_GCLOUD_SERVICE_KEY
           registry-url: europe-west3-docker.pkg.dev
+      - set-image-tag-env-var
       - gcp-gcr/build-image:
           image: << pipeline.parameters.repository-name >>/<< pipeline.parameters.image-name >>
-          tag: $CIRCLE_SHA1
+          tag: $IMAGE_TAG
           dockerfile: containers/Dockerfile
           registry-url: europe-west3-docker.pkg.dev
       - gcp-gcr/push-image:
           image: << pipeline.parameters.repository-name >>/<< pipeline.parameters.image-name >>
-          tag: $CIRCLE_SHA1
+          tag: $IMAGE_TAG
           registry-url: europe-west3-docker.pkg.dev
-
-  tag:
-    executor: builder
-    steps:
-      - gcp-gcr/gcr-auth:
-          gcloud-service-key: CLEARTEXT_GCLOUD_SERVICE_KEY
-          registry-url: europe-west3-docker.pkg.dev
-      - gcp-gcr/tag-image:
-          image: << pipeline.parameters.repository-name >>/<< pipeline.parameters.image-name >>
-          registry-url: europe-west3-docker.pkg.dev
-          source-tag: $CIRCLE_SHA1
-          target-tag: $CIRCLE_TAG
+      - when:
+          # We have an IMAGE_TAG_SHA value, so, let's attach the SHA
+          # for default branch and git tags image traceability
+          condition: $IMAGE_TAG_SHA
+          steps:
+            - gcp-gcr/tag-image:
+                image: << pipeline.parameters.repository-name >>/<< pipeline.parameters.image-name >>
+                registry-url: europe-west3-docker.pkg.dev
+                source-tag: $IMAGE_TAG
+                target-tag: $IMAGE_TAG_SHA
 
   trivy-scan:
     docker:
@@ -201,6 +203,7 @@ jobs:
       - gcp-gcr/gcr-auth:
           gcloud-service-key: CLEARTEXT_GCLOUD_SERVICE_KEY
           registry-url: europe-west3-docker.pkg.dev
+      - set-image-tag-env-var
       - run:
           name: Install Trivy and run image scan
           command: |
@@ -214,7 +217,7 @@ jobs:
             ./trivy image --format json --output trivy-result.json \
             --severity HIGH,CRITICAL --scanners vuln,misconfig,secret --ignore-unfixed \
             --exit-code 1 \
-            europe-west3-docker.pkg.dev/$GOOGLE_PROJECT_ID/<< pipeline.parameters.repository-name >>/<< pipeline.parameters.image-name >>:$CIRCLE_SHA1 \
+            europe-west3-docker.pkg.dev/$GOOGLE_PROJECT_ID/<< pipeline.parameters.repository-name >>/<< pipeline.parameters.image-name >>:$IMAGE_TAG
       - store_artifacts:
           path: trivy-result.json
           destination: trivy-results
