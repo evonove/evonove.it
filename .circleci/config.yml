@@ -25,7 +25,7 @@ commands:
   set-image-tag-env-var:
     steps:
       - run:
-          name: Set IMAGE_TAG and IMAGE_TAG_SHA environment variables
+          name: Set IMAGE_TAG environment variable
           command: bash .circleci/scripts/set-image-tag.sh
 
 workflows:
