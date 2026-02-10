@@ -10,11 +10,11 @@
 set -euo pipefail
 
 if [ -n "${CIRCLE_TAG:-}" ]; then
-  # Git tag push: use tag name as primary
-  echo "export IMAGE_TAG=$CIRCLE_TAG" >> "$BASH_ENV"
+  # Git tag push: use git tag and sha
+  echo "export IMAGE_TAG=$CIRLCE_SHA1,$CIRCLE_TAG" >> "$BASH_ENV"
 elif [ "$CIRCLE_BRANCH" = "main" ]; then
-  # Main branch: use 'latest' as primary
-  echo "export IMAGE_TAG=latest" >> "$BASH_ENV"
+  # Main branch: use 'latest' and sha
+  echo "export IMAGE_TAG=$CIRCLE_SHA1,latest" >> "$BASH_ENV"
 else
   # PR: use 'pr-<number>' attaching the tag to 
   # the latest pr branch commit
