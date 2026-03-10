@@ -11,6 +11,9 @@ parameters:
     default: ~/.local/bin
     description: Path of where Trivy is install
     type: string
+  registry-url:
+    type: string
+    default: "europe-west3-docker.pkg.dev"
 
 orbs:
   python: circleci/python@3.1.0
@@ -40,7 +43,7 @@ workflows:
             - test
           filters:
             tags:
-              only: /.*/
+              only: /.*/s
       - pa11y-ci:
           requires:
             - test
@@ -178,13 +181,18 @@ jobs:
       - set-image-tag-env-var
       - gcp-gcr/build-image:
           image: << pipeline.parameters.repository-name >>/<< pipeline.parameters.image-name >>
-          tag: $IMAGE_TAG
+          tag: $CIRCLE_SHA1
           dockerfile: containers/Dockerfile
           registry-url: europe-west3-docker.pkg.dev
       - gcp-gcr/push-image:
           image: << pipeline.parameters.repository-name >>/<< pipeline.parameters.image-name >>
-          tag: $IMAGE_TAG
+          tag: $CIRCLE_SHA1
           registry-url: europe-west3-docker.pkg.dev
+      - gcp-gcr/tag-image:
+          registry-url: << pipeline.parameters.registry-url >>
+          image: << pipeline.parameters.repository-name >>/<< pipeline.parameters.image-name >>
+          source-tag: $CIRCLE_SHA1
+          target-tag: $IMAGE_TAG
 
   trivy-scan:
     docker:
