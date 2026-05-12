@@ -1,4 +1,5 @@
 import os
+from socket import gethostbyname, gethostname
 
 from getenv import env
 
@@ -29,6 +30,7 @@ DEFAULT_ALLOWED_HOSTS = "localhost, 127.0.0.1, [::1]"
 ALLOWED_HOSTS = (
     env("DJANGO_ALLOWED_HOSTS", DEFAULT_ALLOWED_HOSTS).replace(" ", "").split(",")
 )
+ALLOWED_HOSTS.append(gethostbyname(gethostname()))
 
 DEBUG = env("DJANGO_DEBUG", True)
 
