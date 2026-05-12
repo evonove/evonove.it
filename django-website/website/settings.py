@@ -128,17 +128,17 @@ DATABASES = {
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 # Cache
-CACHES_DEFAULT = "redis://127.0.0.1:6379/1"
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": env("CACHE_URL", CACHES_DEFAULT),
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-        },
-        "TIMEOUT": 3600,
-    }
-}
+# CACHES_DEFAULT = "redis://127.0.0.1:6379/1"
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django_redis.cache.RedisCache",
+#         "LOCATION": env("CACHE_URL", CACHES_DEFAULT),
+#         "OPTIONS": {
+#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
+#         },
+#         "TIMEOUT": 3600,
+#     }
+# }
 
 # internationalization
 LANGUAGE_CODE = "en-us"
