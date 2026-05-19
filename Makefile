@@ -17,10 +17,7 @@ $(filename_compressed):
 
 export-sql: $(filename_compressed)
 
-$(filename): $(filename_compressed)
-	gunzip $(filename_compressed)
-
-import-production-db: $(filename)
+import-production-db: $(filename_compressed)
 	docker compose -f $(services_file) down -v
 	docker compose -f $(services_file) up -d
 	until pg_isready -h localhost -U devel; \
@@ -28,7 +25,7 @@ import-production-db: $(filename)
 		>&2 echo "Waiting for database to be ready..."; \
 		sleep 3; \
 	done
-	psql -U devel -h localhost -p 5432 -d evonoveit < $(filename)
+	gunzip -c $(filename_compressed) | PGPASSWORD=123456 psql -U devel -h localhost -p 5432 -d evonoveit
 
 start-services:
 	docker compose -f $(services_file) up -d
